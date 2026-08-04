@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Nunito', 'Plus Jakarta Sans', 'Outfit', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #4C1D95 0%, #7C3AED 35%, #0D9488 75%, #0F172A 100%);
+    color: #f8fafc;
+    overflow-x: hidden;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    letter-spacing: -0.01em;
+  }
+}
+
+.font-nunito {
+  font-family: 'Nunito', sans-serif;
+}
+
+.font-sans-modern {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-outfit {
+  font-family: 'Outfit', sans-serif;
+}
+
+.font-luxury {
+  font-family: 'Fraunces', 'Playfair Display', Georgia, serif;
+  font-variation-settings: "WONK" 1, "SOFT" 100;
+}
+
+.font-serif-rounded {
+  font-family: 'Fraunces', 'Playfair Display', Georgia, serif;
+}
+
+.quiz-card {
+  box-shadow: 0 30px 70px -15px rgba(15, 23, 42, 0.6), 0 0 40px rgba(124, 58, 237, 0.3);
+}
+
+.glow-purple {
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
+}
+
+.glow-teal {
+  box-shadow: 0 0 30px rgba(13, 148, 136, 0.5);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.5);
+}
+
+/* Gold & Flame Shimmer Effect */
+.bg-gold-shimmer {
+  background: linear-gradient(110deg, #0D9488 0%, #14B8A6 25%, #E0F2FE 50%, #14B8A6 75%, #7C3AED 100%);
+  background-size: 200% 100%;
+  animation: goldShimmer 3s infinite linear;
+}
+
+@keyframes goldShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-pop {
+  animation: pop 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Holographic Scanning Line */
+@keyframes scanline {
+  0% { top: 0%; opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { top: 100%; opacity: 0.2; }
+}
+
+.animate-scanline {
+  animation: scanline 2s infinite ease-in-out;
+}
