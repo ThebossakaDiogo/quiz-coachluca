@@ -3,6 +3,8 @@
  * Pixel ID: 826614323775176
  */
 
+import { CHECKOUT_URL } from '../data/quizData';
+
 export const META_PIXEL_ID = '826614323775176';
 
 /**
@@ -155,10 +157,15 @@ export const trackCheckoutClick = () => {
   });
 
   trackMetaEvent('ClickCheckoutButton', {
-    checkout_url: 'https://go.centerpag.com/PPU38CQERJL',
+    checkout_url: CHECKOUT_URL,
     value: 19.90,
     currency: 'USD',
     pixel_id: META_PIXEL_ID,
     timestamp: new Date().toISOString()
   }, true);
+
+  if (typeof window !== 'undefined') {
+    window.location.href = CHECKOUT_URL;
+  }
 };
+
