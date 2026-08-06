@@ -1,6 +1,6 @@
 /**
  * Meta (Facebook) Pixel Ultra-Advanced Tracking Helper
- * Pixel ID: 1043202255361208
+ * Pixel ID: 4439066176411333
  */
 
 export const trackMetaEvent = (eventName, params = {}, isCustom = false) => {
@@ -96,9 +96,9 @@ export const trackAnalyzingStep = () => {
  */
 export const trackCouponUnlocked = () => {
   trackMetaEvent('CouponUnlocked', {
-    coupon_code: 'BRASIL990',
-    discount_amount: 87.10,
-    final_price: 9.90
+    coupon_code: 'BRASIL1990',
+    discount_amount: 77.10,
+    final_price: 19.90
   }, true);
 };
 
@@ -107,18 +107,18 @@ export const trackCouponUnlocked = () => {
  */
 export const trackOfferPage = () => {
   trackMetaEvent('InitiateCheckout', {
-    content_name: 'Método Glúteos Brasileños - Coach Luca',
+    content_name: 'Brazilian Booty - Coach Luca',
     content_category: 'Programa de Entrenamiento y Nutrición',
-    content_ids: ['gluteos_brasil_990'],
-    value: 9.90,
+    content_ids: ['gluteos_brasil_1990'],
+    value: 19.90,
     currency: 'USD',
     num_items: 1
   });
 
   trackMetaEvent('OfferPageView', {
-    offer_price: 9.90,
+    offer_price: 19.90,
     original_price: 97.00,
-    discount_percentage: '90%'
+    discount_percentage: '80%'
   }, true);
 };
 
@@ -128,13 +128,13 @@ export const trackOfferPage = () => {
 export const trackCheckoutClick = () => {
   trackMetaEvent('AddPaymentInfo', {
     content_name: 'Método Glúteos Brasileños',
-    value: 9.90,
+    value: 19.90,
     currency: 'USD'
   });
 
   trackMetaEvent('ClickCheckoutButton', {
-    checkout_url: 'https://pay.cakto.com.br/capui7o_1015855',
-    value: 9.90,
+    checkout_url: 'https://go.centerpag.com/PPU38CQERJL',
+    value: 19.90,
     currency: 'USD',
     timestamp: new Date().toISOString()
   }, true);

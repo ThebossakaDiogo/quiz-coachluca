@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import WelcomeStep from './components/WelcomeStep';
 import QuizCard from './components/QuizCard';
 import AgeStep from './components/AgeStep';
+import BodyMetricsStep from './components/BodyMetricsStep';
 import CoachStep from './components/CoachStep';
 import GoalStep from './components/GoalStep';
 import AwarenessStep from './components/AwarenessStep';
@@ -176,6 +177,18 @@ export default function App() {
         />
       );
     }
+    if (currentStepData.type === 'body-metrics') {
+      return (
+        <BodyMetricsStep
+          stepData={currentStepData}
+          onNext={(metrics) => handleSelectOption(metrics)}
+          onPrevStep={handlePrevStep}
+          initialMetrics={answers[currentStepData.id]}
+          currentStep={currentStepIndex + 1}
+          totalSteps={totalSteps}
+        />
+      );
+    }
     if (currentStepData.type === 'coach') {
       return (
         <CoachStep
@@ -223,7 +236,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#064E3B] via-[#047857] to-[#022C22] font-sans antialiased selection:bg-amber-400 selection:text-slate-950">
+    <div className="min-h-screen bg-[#59D6CF] font-sans antialiased selection:bg-rose-500 selection:text-white">
       {renderCurrentStep()}
     </div>
   );

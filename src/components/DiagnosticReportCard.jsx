@@ -3,6 +3,14 @@ import { Activity, TrendingUp, Sparkles, Zap, ShieldCheck, CheckCircle2 } from '
 
 export default function DiagnosticReportCard({ userAnswers }) {
   const selectedAge = userAnswers[2] || "30-39";
+  const metrics = userAnswers[3] || { height: 165, weight: 62, bmi: 22.8 };
+
+  const height = metrics.height || 165;
+  const weight = metrics.weight || 62;
+  const bmi = metrics.bmi || (weight / Math.pow(height / 100, 2)).toFixed(1);
+
+  // Mifflin-St Jeor BMR estimation for females
+  const bmr = Math.round(10 * weight + 6.25 * height - 5 * 32 - 161 + 350);
 
   const getAgeLabel = (val) => {
     if (val === "18-29") return "18 a 29 años";
@@ -15,25 +23,52 @@ export default function DiagnosticReportCard({ userAnswers }) {
   const ageText = getAgeLabel(selectedAge);
 
   return (
-    <div className="bg-white rounded-[28px] p-5 sm:p-7 shadow-2xl border border-emerald-100 space-y-6 text-slate-900 font-sans">
+    <div className="bg-white rounded-[28px] p-5 sm:p-7 shadow-2xl border border-teal-100 space-y-6 text-slate-900 font-sans">
       
       {/* HEADER SECTION */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100">
         <div className="text-left space-y-0.5">
           <div className="flex items-center gap-2">
-            <Activity className="w-5 h-5 text-emerald-600 animate-pulse" />
+            <Activity className="w-5 h-5 text-[#0D9488] animate-pulse" />
             <h3 className="text-xl sm:text-2xl font-black text-slate-950 tracking-tight">
-              Informe Metabólico Biomecánico
+              Informe Biométrico & Metabólico
             </h3>
           </div>
           <p className="text-xs text-slate-500 font-semibold">
-            Calibración personalizada para rango <span className="text-emerald-700 font-black">{ageText}</span>
+            Calibrado para <span className="text-[#0D9488] font-black">{height} cm • {weight} kg • {ageText}</span>
           </p>
         </div>
 
-        <div className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 text-xs font-black px-3.5 py-1.5 rounded-full border border-emerald-200 self-start sm:self-auto shadow-sm">
-          <Sparkles className="w-3.5 h-3.5 text-emerald-600 fill-emerald-600" />
-          <span>Perfil Algorítmico ELITE</span>
+        <div className="inline-flex items-center gap-1.5 bg-teal-50 text-teal-800 text-xs font-black px-3.5 py-1.5 rounded-full border border-teal-200 self-start sm:self-auto shadow-sm">
+          <Sparkles className="w-3.5 h-3.5 text-[#0D9488] fill-[#0D9488]" />
+          <span>Diagnóstico Biomédico IA</span>
+        </div>
+      </div>
+
+      {/* REALISTIC BIOMETRIC SNAPSHOT DASHBOARD */}
+      <div className="bg-gradient-to-r from-teal-900 via-slate-900 to-cyan-950 text-white rounded-2xl p-4 border border-teal-500/40 shadow-lg space-y-3 text-left">
+        <div className="flex items-center justify-between border-b border-teal-800/60 pb-2">
+          <span className="text-[10px] font-black uppercase tracking-wider text-cyan-300">
+            📊 BIOMETRÍA CORPORAL PROCESADA
+          </span>
+          <span className="text-[10px] font-mono font-bold bg-teal-800/80 px-2 py-0.5 rounded text-teal-200">
+            CONFIRMADAS
+          </span>
+        </div>
+
+        <div className="grid grid-cols-3 gap-2 text-center">
+          <div className="bg-slate-900/80 p-2.5 rounded-xl border border-teal-500/30">
+            <span className="text-[10px] font-bold text-teal-300 uppercase block">Estatura</span>
+            <span className="text-base sm:text-lg font-black text-white font-mono">{height} cm</span>
+          </div>
+          <div className="bg-slate-900/80 p-2.5 rounded-xl border border-teal-500/30">
+            <span className="text-[10px] font-bold text-teal-300 uppercase block">Peso Actual</span>
+            <span className="text-base sm:text-lg font-black text-white font-mono">{weight} kg</span>
+          </div>
+          <div className="bg-slate-900/80 p-2.5 rounded-xl border border-cyan-500/30">
+            <span className="text-[10px] font-bold text-cyan-300 uppercase block">IMC Calculado</span>
+            <span className="text-base sm:text-lg font-black text-amber-300 font-mono">{bmi}</span>
+          </div>
         </div>
       </div>
 
@@ -198,7 +233,7 @@ export default function DiagnosticReportCard({ userAnswers }) {
               <span className="text-[11px] text-slate-500 font-semibold">Gasto calórico de síntesis</span>
             </div>
           </div>
-          <span className="text-xs sm:text-sm font-black text-emerald-700 font-mono">1.840 kcal/día</span>
+          <span className="text-xs sm:text-sm font-black text-teal-700 font-mono">{bmr.toLocaleString()} kcal/día</span>
         </div>
 
         {/* METRIC 3 */}

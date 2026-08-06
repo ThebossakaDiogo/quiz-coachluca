@@ -194,7 +194,7 @@ export default function CouponStep({ onClaimCoupon }) {
   };
 
   return (
-    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-br from-[#064E3B] via-[#047857] to-[#022C22] py-8 px-3 sm:px-4 flex flex-col justify-center items-center font-sans antialiased text-slate-900">
+    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-br from-[#59D6CF] via-[#2DD4BF] to-[#0D9488] py-8 px-3 sm:px-4 flex flex-col justify-center items-center font-sans antialiased text-slate-900">
       
       {/* CANVAS CONFETTI OVERLAY */}
       <canvas 
@@ -207,72 +207,68 @@ export default function CouponStep({ onClaimCoupon }) {
         {/* Header Logo */}
         <HeaderLogo />
 
-        {/* URGENCY ALERT BANNER */}
-        <div className="bg-gradient-to-r from-red-600 via-amber-600 to-emerald-600 text-white rounded-2xl p-2.5 px-3.5 shadow-xl flex items-center justify-between text-xs font-black border border-amber-300/40 animate-pulse">
+        {/* URGENCY ALERT BANNER (COR SÓLIDA) */}
+        <div className="bg-[#E11D48] text-white rounded-2xl p-2.5 px-3.5 shadow-md flex items-center justify-between text-xs font-black animate-pulse">
           <span className="flex items-center gap-1.5">
-            <AlertTriangle className="w-4 h-4 text-amber-200 shrink-0" />
+            <AlertTriangle className="w-4 h-4 text-white shrink-0" />
             <span>⚠️ ATENCIÓN: SOLO QUEDAN 2 PLAZAS A ESTE PRECIO</span>
           </span>
-          <span className="font-mono bg-black/40 px-2 py-0.5 rounded text-amber-300 font-black text-xs">
+          <span className="font-mono bg-black/40 px-2 py-0.5 rounded text-white font-black text-xs">
             {formatTime(timeLeft)}
           </span>
         </div>
 
         {/* Main Card */}
-        <div className="bg-white rounded-[32px] p-5 sm:p-7 shadow-2xl border border-emerald-100 animate-pop space-y-5 quiz-card text-center">
+        <div className="bg-white rounded-[32px] p-5 sm:p-7 shadow-2xl border border-teal-100 animate-pop space-y-5 quiz-card text-center">
           
           {/* PSYCHOLOGICAL LOTTERY WINNER ANNOUNCEMENT */}
           <div className="space-y-2.5">
-            <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-[#15803D] via-[#D97706] to-[#EA580C] text-white text-[11px] sm:text-xs font-black uppercase tracking-wide px-4 py-1.5 rounded-full shadow-lg mx-auto">
-              <Trophy className="w-4 h-4 text-yellow-200" />
+            <div className="inline-flex items-center gap-1.5 bg-[#0D9488] text-white text-[11px] sm:text-xs font-black uppercase tracking-wide px-4 py-1.5 rounded-full shadow-md mx-auto">
+              <Trophy className="w-4 h-4 text-amber-300" />
               <span>🎰 PUNTUACIÓN ELITE: 98.4 / 100 SELECCIONADA</span>
             </div>
 
             <h2 className="text-2xl sm:text-3xl font-black text-slate-950 leading-tight">
               {isUnlocked ? (
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#EA580C] via-[#D97706] to-[#16A34A]">
-                  🎉 ¡GANASTE LA BECA VIP DE $ 9,90!
+                <span className="text-[#E11D48]">
+                  🎉 ¡GANASTE LA BECA VIP DE $ 19,90!
                 </span>
               ) : (
-                <span>¡Raspa la Tarjeta Dorada para Liberar tu Descuento de $ 9,90! 🎁</span>
+                <span>¡Raspa la Tarjeta Dorada para Liberar tu Descuento de $ 19,90! 🎁</span>
               )}
             </h2>
 
             {/* HIGH PERCEIVED VALUE SUMMARY */}
-            <div className="bg-amber-50/90 rounded-2xl p-3.5 border border-amber-200 text-left space-y-2 text-xs">
-              <div className="flex items-center gap-2 text-amber-950 font-black">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Lo que vas a recibir hoy por Solo $ 9,90:</span>
+            <div className="bg-slate-50 rounded-2xl p-3.5 border border-slate-200 text-left space-y-2 text-xs">
+              <div className="flex items-center gap-2 text-slate-950 font-black">
+                <CheckCircle2 className="w-4 h-4 text-[#0D9488] shrink-0" />
+                <span>Lo que vas a recibir hoy por Solo $ 19,90:</span>
               </div>
               <ul className="space-y-1.5 text-slate-700 font-bold text-[11px]">
                 <li className="flex items-center justify-between">
-                  <span>📱 App Exclusivo Método Glúteos Brasileños (Acceso De Por Vida)</span>
+                  <span>📱 App Exclusiva Brazilian Booty (Acceso De Por Vida)</span>
                   <span className="text-slate-400 line-through">$ 197,00</span>
                 </li>
                 <li className="flex items-center justify-between">
                   <span>🏋️‍♀️ Entrenamientos de 8-10 min/día con Coach Luca</span>
                   <span className="text-slate-400 line-through">$ 147,00</span>
                 </li>
-                <li className="flex items-center justify-between text-emerald-800 font-extrabold">
-                  <span>🥗 Guía Nutricional Glúteo Anti-Flacidez</span>
+                <li className="flex items-center justify-between">
+                  <span>🥗 Plan Nutricional Activador Anti-Flacidez</span>
                   <span className="text-slate-400 line-through">$ 97,00</span>
                 </li>
-                <li className="flex items-center justify-between text-amber-800 font-extrabold">
-                  <span>🎁 3 Bonos Exclusivos de Aceleración</span>
-                  <span className="text-slate-400 line-through">$ 211,00</span>
+                <li className="flex items-center justify-between font-extrabold text-[#0D9488]">
+                  <span>🎁 3 Bonos Exclusivos Incluidos HOY MISMO</span>
+                  <span className="text-[#0D9488]">GRATIS</span>
                 </li>
               </ul>
-              <div className="border-t border-amber-200/80 pt-1.5 flex items-center justify-between font-black text-xs text-slate-900">
-                <span>VALOR TOTAL DEL PAQUETE:</span>
-                <span className="text-red-500 line-through">$ 652,00</span>
-              </div>
             </div>
           </div>
 
-          {/* REAL INTERACTIVE GOLD SCRATCH CARD CONTAINER */}
+          {/* REAL INTERACTIVE GOLD SCRATCH CARD CONTAINER (COR SÓLIDA) */}
           <div className={`relative rounded-3xl p-4 sm:p-5 transition-all duration-500 border-2 ${
             isUnlocked 
-              ? 'bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 border-amber-200 shadow-xl ring-4 ring-amber-400/30 animate-pop' 
+              ? 'bg-amber-400 text-slate-950 border-amber-500 shadow-xl ring-4 ring-amber-400/30 animate-pop' 
               : 'bg-amber-50/50 border-amber-300 border-dashed shadow-md'
           }`}>
             
@@ -282,7 +278,7 @@ export default function CouponStep({ onClaimCoupon }) {
 
             {/* UNDERLYING PRIZE TICKET (REVEALED WHEN SCRATCHED) */}
             <div className="space-y-3 py-1 text-center">
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-slate-950 text-amber-300 shadow-xl mx-auto animate-bounce border-2 border-amber-300">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-slate-950 text-amber-300 shadow-xl mx-auto border-2 border-amber-300">
                 <Trophy className="w-8 h-8 text-amber-300" />
               </div>
 
@@ -293,23 +289,23 @@ export default function CouponStep({ onClaimCoupon }) {
                 
                 {/* Price Breakdown */}
                 <div className="pt-2 flex items-center justify-center gap-3">
-                  <span className="text-base sm:text-lg font-bold text-amber-900/70 line-through">
+                  <span className="text-base sm:text-lg font-bold text-amber-950/60 line-through">
                     $ 97,00
                   </span>
                   <div className="flex flex-col items-start">
                     <span className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight leading-none">
-                      $ 9,90
+                      $ 19,90
                     </span>
                     <span className="text-[10px] font-black text-amber-950 uppercase pt-0.5">¡Pago Único • Acceso Inmediato!</span>
                   </div>
                 </div>
-                <p className="text-xs font-extrabold text-amber-950 pt-1">Ahorro inmediato de $ 87,10 (Pagas solo 9,90)</p>
+                <p className="text-xs font-extrabold text-amber-950 pt-1">Ahorro inmediato de $ 77,10 (Pagas solo 19,90)</p>
               </div>
 
               {isUnlocked && (
-                <div className="bg-white/70 border border-amber-300/80 text-amber-950 rounded-xl p-2 flex items-center justify-center gap-2 text-xs font-black animate-pop shadow-xs">
-                  <Clock className="w-4 h-4 text-red-600 animate-spin" />
-                  <span>Tu beca de $ 9,90 expira en: <span className="font-mono text-sm text-red-600 font-black">{formatTime(timeLeft)}</span></span>
+                <div className="bg-white/90 border border-amber-300 text-amber-950 rounded-xl p-2 flex items-center justify-center gap-2 text-xs font-black animate-pop shadow-xs">
+                  <Clock className="w-4 h-4 text-[#E11D48]" />
+                  <span>Tu beca de $ 19,90 expira en: <span className="font-mono text-sm text-[#E11D48] font-black">{formatTime(timeLeft)}</span></span>
                 </div>
               )}
             </div>
@@ -328,7 +324,7 @@ export default function CouponStep({ onClaimCoupon }) {
                 <button
                   type="button"
                   onClick={() => setIsUnlocked(true)}
-                  className="absolute bottom-2 text-[10px] font-extrabold bg-slate-900/80 text-yellow-300 px-3 py-1 rounded-full backdrop-blur-sm cursor-pointer shadow hover:bg-slate-900"
+                  className="absolute bottom-2 text-[10px] font-extrabold bg-slate-950 text-amber-300 px-3 py-1 rounded-full cursor-pointer shadow hover:bg-slate-900"
                 >
                   ⚡ O haz clic aquí para raspar automáticamente ({scratchProgress}%)
                 </button>
@@ -342,15 +338,15 @@ export default function CouponStep({ onClaimCoupon }) {
             <button
               type="button"
               onClick={onClaimCoupon}
-              className="w-full py-5 sm:py-6 px-8 rounded-2xl bg-[#DC2626] hover:bg-[#B91C1C] text-white font-black text-xl sm:text-2xl shadow-lg shadow-red-600/30 flex items-center justify-center gap-3 active:scale-[0.98] transition-all cursor-pointer group uppercase tracking-wider"
+              className="w-full py-5 sm:py-6 px-8 rounded-2xl bg-[#E11D48] hover:bg-[#BE123C] text-white font-black text-xl sm:text-2xl shadow-lg flex items-center justify-center gap-3 active:scale-[0.98] transition-all cursor-pointer group uppercase tracking-wider text-center"
             >
-              <Flame className="w-7 h-7 text-yellow-300 fill-yellow-300 shrink-0" />
-              <span>GARANTIZAR PLAN POR $ 9,90</span>
+              <Flame className="w-7 h-7 text-amber-300 fill-amber-300 shrink-0" />
+              <span>GARANTIZAR PLAN POR $ 19,90</span>
               <ArrowRight className="w-7 h-7 group-hover:translate-x-1.5 transition-transform shrink-0" />
             </button>
           ) : (
-            <p className="text-xs font-extrabold text-amber-800 animate-pulse">
-              👉 Mueve el dedo sobre la tarjeta dorada para raspar y liberar los 9,90
+            <p className="text-xs font-extrabold text-amber-900 animate-pulse">
+              👉 Mueve el dedo sobre la tarjeta dorada para raspar y liberar los 19,90
             </p>
           )}
 

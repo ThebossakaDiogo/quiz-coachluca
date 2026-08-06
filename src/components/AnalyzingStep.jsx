@@ -40,7 +40,7 @@ export default function AnalyzingStep({ onComplete }) {
   const strokeDashoffset = circumference - (progress / 100) * circumference;
 
   return (
-    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-br from-[#064E3B] via-[#047857] to-[#022C22] py-8 px-4 flex flex-col justify-center items-center font-sans antialiased text-slate-900">
+    <div className="relative min-h-dvh overflow-hidden bg-[#59D6CF] py-8 px-4 flex flex-col justify-center items-center font-sans antialiased text-slate-900">
       
       <div className="relative z-10 w-full max-w-md mx-auto space-y-5">
         
@@ -48,7 +48,7 @@ export default function AnalyzingStep({ onComplete }) {
         <HeaderLogo />
 
         {/* Card Container */}
-        <div className="bg-white rounded-[32px] p-6 sm:p-8 shadow-2xl border border-emerald-100 text-center space-y-6 quiz-card overflow-hidden">
+        <div className="bg-white rounded-[32px] p-6 sm:p-8 shadow-2xl border border-teal-100 text-center space-y-6 quiz-card overflow-hidden">
           
           {/* CIRCULAR GAUGE METER */}
           <div className="relative w-40 h-40 mx-auto flex items-center justify-center">
@@ -59,7 +59,7 @@ export default function AnalyzingStep({ onComplete }) {
                 cx="80"
                 cy="80"
                 r={radius}
-                className="stroke-amber-100"
+                className="stroke-slate-100"
                 strokeWidth="9"
                 fill="transparent"
               />
@@ -68,7 +68,7 @@ export default function AnalyzingStep({ onComplete }) {
                 cx="80"
                 cy="80"
                 r={radius}
-                className="stroke-[#EA580C] transition-all duration-300 ease-out"
+                className="stroke-[#0D9488] transition-all duration-300 ease-out"
                 strokeWidth="9"
                 strokeDasharray={circumference}
                 strokeDashoffset={strokeDashoffset}

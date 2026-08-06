@@ -62,7 +62,7 @@ export default function SummaryStep({ userAnswers, onContinue }) {
   };
 
   return (
-    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-br from-[#064E3B] via-[#047857] to-[#022C22] py-6 px-3 sm:px-4 flex flex-col justify-center items-center font-sans antialiased text-slate-900">
+    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-br from-[#59D6CF] via-[#2DD4BF] to-[#0D9488] py-6 px-3 sm:px-4 flex flex-col justify-center items-center font-sans antialiased text-slate-900">
       
       <div className="relative z-10 w-full max-w-lg mx-auto space-y-4">
         
@@ -81,39 +81,39 @@ export default function SummaryStep({ userAnswers, onContinue }) {
         </div>
 
         {/* MAIN CARD CONTAINER */}
-        <div className="bg-[#121320]/90 backdrop-blur-2xl rounded-[36px] p-5 sm:p-7 shadow-2xl border border-teal-500/30 animate-pop space-y-5 text-center">
+        <div className="bg-white rounded-[32px] p-5 sm:p-7 shadow-2xl border border-teal-100 animate-pop space-y-5 text-center">
           
           {/* LIVE DIAGNOSTIC LOADER HEADER */}
-          <div className="bg-gradient-to-br from-[#1A1C30] to-[#0F1222] rounded-3xl p-4 border border-teal-500/40 shadow-xl space-y-3">
+          <div className="bg-teal-50/90 rounded-3xl p-4 border border-teal-200 shadow-sm space-y-3">
             <div className="flex items-center justify-between gap-2">
-              <span className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-wider text-cyan-300 bg-teal-950/80 px-3 py-1 rounded-full border border-teal-500/40">
+              <span className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-wider text-[#0F766E] bg-white px-3 py-1 rounded-full border border-teal-200 shadow-xs">
                 {progress < 100 ? (
                   <>
-                    <Loader2 className="w-3.5 h-3.5 text-cyan-400 animate-spin" />
+                    <Loader2 className="w-3.5 h-3.5 text-[#0D9488] animate-spin" />
                     Procesando IA Glútea...
                   </>
                 ) : (
                   <>
-                    <CheckCircle2 className="w-3.5 h-3.5 text-teal-400 fill-teal-400/20" />
-                    Diagnóstico Finalizado
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#0D9488] fill-[#0D9488]/20" />
+                    Diagnóstico Concluido
                   </>
                 )}
               </span>
-              <span className="font-mono font-black text-cyan-300 text-sm">
+              <span className="font-mono font-black text-[#0D9488] text-sm">
                 {progress}%
               </span>
             </div>
 
-            {/* Progress Bar */}
-            <div className="h-3 w-full bg-slate-900 rounded-full overflow-hidden p-0.5 border border-teal-900/50 shadow-inner">
+            {/* Progress Bar (Sólida, sem gradiente) */}
+            <div className="h-3 w-full bg-slate-200 rounded-full overflow-hidden p-0.5 shadow-inner">
               <div 
-                className="h-full bg-gradient-to-r from-[#7C3AED] via-[#0D9488] to-[#06B6D4] rounded-full transition-all duration-300 shadow-sm"
+                className="h-full bg-[#0D9488] rounded-full transition-all duration-300 shadow-sm"
                 style={{ width: `${progress}%` }}
               />
             </div>
 
             {/* Diagnostic Message */}
-            <p className="text-xs sm:text-sm font-black text-teal-100 min-h-[1.5rem] flex items-center justify-center transition-all duration-300">
+            <p className="text-xs sm:text-sm font-extrabold text-[#0F766E] min-h-[1.5rem] flex items-center justify-center transition-all duration-300">
               {stagesMessages[stage] || stagesMessages[4]}
             </p>
           </div>
@@ -122,20 +122,20 @@ export default function SummaryStep({ userAnswers, onContinue }) {
 
           {/* CARD 1: PERFIL GENÉTICO DETECTADO */}
           {progress >= 25 && (
-            <div className="bg-[#1C1D30]/90 rounded-3xl p-4 sm:p-5 border border-teal-500/40 text-left flex items-start gap-3.5 shadow-lg relative overflow-hidden animate-pop">
-              <div className="w-11 h-11 rounded-2xl bg-teal-900/80 border border-teal-500/50 flex items-center justify-center text-cyan-300 shrink-0 shadow-inner mt-0.5">
-                <Sparkles className="w-5 h-5 text-cyan-400" />
+            <div className="bg-slate-50 rounded-3xl p-4 sm:p-5 border border-slate-200 text-left flex items-start gap-3.5 shadow-sm relative overflow-hidden animate-pop">
+              <div className="w-11 h-11 rounded-2xl bg-teal-100 border border-teal-200 flex items-center justify-center text-[#0D9488] shrink-0 shadow-inner mt-0.5">
+                <Sparkles className="w-5 h-5 text-[#0D9488]" />
               </div>
               <div className="space-y-1">
-                <span className="block text-[10px] font-black uppercase tracking-wider text-cyan-400">
+                <span className="block text-[10px] font-black uppercase tracking-wider text-[#0D9488]">
                   PERFIL GENÉTICO DETECTADO
                 </span>
-                <h3 className="text-base sm:text-lg font-black text-white flex items-center gap-1.5 flex-wrap">
+                <h3 className="text-base sm:text-lg font-black text-slate-950 flex items-center gap-1.5 flex-wrap">
                   <span>{ageText}</span>
-                  <span className="text-teal-400">→</span>
-                  <span className="text-cyan-300">Resultado ELITE 🏆</span>
+                  <span className="text-[#0D9488]">→</span>
+                  <span className="text-[#0F766E]">Resultado ELITE 🏆</span>
                 </h3>
-                <p className="text-xs text-teal-100 font-medium">
+                <p className="text-xs text-slate-600 font-bold">
                   Predisposición genética para transformarte rápido. ✅
                 </p>
               </div>
@@ -146,63 +146,63 @@ export default function SummaryStep({ userAnswers, onContinue }) {
           {progress >= 50 && (
             <div className="space-y-3 animate-pop">
               <div className="pt-1">
-                <span className="text-[11px] font-black uppercase tracking-[0.25em] text-purple-300">
+                <span className="text-[11px] font-black uppercase tracking-[0.25em] text-[#0D9488]">
                   TU PLAN • 28 DÍAS
                 </span>
               </div>
 
               {/* TIMELINE ITEM 1 */}
-              <div className="bg-[#181928]/90 rounded-2xl p-3.5 border border-teal-500/30 flex items-center justify-between gap-3 text-left shadow-md transition-all">
+              <div className="bg-slate-50 rounded-2xl p-3.5 border border-slate-200 flex items-center justify-between gap-3 text-left shadow-sm transition-all">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-2xl bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-xl shrink-0">
+                  <div className="w-10 h-10 rounded-2xl bg-teal-100 border border-teal-200 flex items-center justify-center text-xl shrink-0">
                     🔥
                   </div>
                   <div className="space-y-0.5">
-                    <span className="inline-block bg-teal-400 text-slate-950 font-black text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                    <span className="inline-block bg-[#0D9488] text-white font-black text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                       7 DÍAS
                     </span>
-                    <p className="text-xs sm:text-sm font-bold text-white">
-                      Tus glúteos quedan <u className="decoration-teal-400 font-black decoration-2">firmes y duros</u>
+                    <p className="text-xs sm:text-sm font-bold text-slate-900">
+                      Tus glúteos quedan <u className="decoration-[#0D9488] font-black decoration-2">firmes y duros</u>
                     </p>
                   </div>
                 </div>
-                <span className="text-xs font-black text-cyan-300">20%</span>
+                <span className="text-xs font-mono font-black text-[#0D9488]">20%</span>
               </div>
 
               {/* TIMELINE ITEM 2 */}
-              <div className="bg-[#181928]/90 rounded-2xl p-3.5 border border-teal-500/30 flex items-center justify-between gap-3 text-left shadow-md transition-all">
+              <div className="bg-slate-50 rounded-2xl p-3.5 border border-slate-200 flex items-center justify-between gap-3 text-left shadow-sm transition-all">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-2xl bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-xl shrink-0">
+                  <div className="w-10 h-10 rounded-2xl bg-cyan-100 border border-cyan-200 flex items-center justify-center text-xl shrink-0">
                     💎
                   </div>
                   <div className="space-y-0.5">
-                    <span className="inline-block bg-cyan-400 text-slate-950 font-black text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                    <span className="inline-block bg-cyan-600 text-white font-black text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                       14 DÍAS
                     </span>
-                    <p className="text-xs sm:text-sm font-bold text-white">
-                      <u className="decoration-cyan-400 font-black decoration-2">Reducción visible</u> de celulitis
+                    <p className="text-xs sm:text-sm font-bold text-slate-900">
+                      <u className="decoration-cyan-600 font-black decoration-2">Reducción visible</u> de celulitis
                     </p>
                   </div>
                 </div>
-                <span className="text-xs font-black text-cyan-300">50%</span>
+                <span className="text-xs font-mono font-black text-cyan-700">50%</span>
               </div>
 
               {/* TIMELINE ITEM 3 */}
-              <div className="bg-[#181928]/90 rounded-2xl p-3.5 border border-purple-500/30 flex items-center justify-between gap-3 text-left shadow-md transition-all">
+              <div className="bg-slate-50 rounded-2xl p-3.5 border border-slate-200 flex items-center justify-between gap-3 text-left shadow-sm transition-all">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-2xl bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-xl shrink-0">
+                  <div className="w-10 h-10 rounded-2xl bg-rose-100 border border-rose-200 flex items-center justify-center text-xl shrink-0">
                     🍑
                   </div>
                   <div className="space-y-0.5">
-                    <span className="inline-block bg-purple-500 text-white font-black text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                    <span className="inline-block bg-[#E11D48] text-white font-black text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                       28 DÍAS
                     </span>
-                    <p className="text-xs sm:text-sm font-bold text-white">
-                      Glúteos <u className="decoration-purple-400 font-black decoration-2">levantados</u> y voluminosos
+                    <p className="text-xs sm:text-sm font-bold text-slate-900">
+                      Glúteos <u className="decoration-[#E11D48] font-black decoration-2">levantados</u> y voluminosos
                     </p>
                   </div>
                 </div>
-                <span className="text-xs font-black text-purple-300">96%</span>
+                <span className="text-xs font-mono font-black text-[#E11D48]">96%</span>
               </div>
             </div>
           )}
@@ -214,14 +214,14 @@ export default function SummaryStep({ userAnswers, onContinue }) {
             </div>
           )}
 
-          {/* FINAL REVEAL & CTA BUTTON */}
+          {/* FINAL REVEAL & CTA BUTTON (BOTÃO DE COR ÚNICA SÓLIDA) */}
           {progress >= 100 && (
             <div className="space-y-4 pt-1 animate-pop">
               <div className="space-y-3">
                 <button
                   type="button"
                   onClick={onContinue}
-                  className="w-full py-5 sm:py-6 px-8 rounded-2xl bg-[#DC2626] hover:bg-[#B91C1C] text-white font-black text-xl sm:text-2xl shadow-lg shadow-red-600/30 flex items-center justify-center gap-3 active:scale-[0.98] transition-all cursor-pointer group uppercase tracking-wider"
+                  className="w-full py-5 sm:py-6 px-8 rounded-2xl bg-[#E11D48] hover:bg-[#BE123C] text-white font-black text-xl sm:text-2xl shadow-lg shadow-rose-950/20 flex items-center justify-center gap-3 active:scale-[0.98] transition-all cursor-pointer group uppercase tracking-wider text-center"
                 >
                   <Flame className="w-7 h-7 text-yellow-300 fill-yellow-300 shrink-0" />
                   <span>VER MI DIAGNÓSTICO & PLAN</span>
@@ -229,7 +229,7 @@ export default function SummaryStep({ userAnswers, onContinue }) {
                 </button>
 
                 <div className="flex items-center justify-center gap-2 text-xs font-bold text-slate-500">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                  <ShieldCheck className="w-4 h-4 text-[#0D9488]" />
                   <span>Diagnóstico procesado bajo total confidencialidad</span>
                 </div>
               </div>

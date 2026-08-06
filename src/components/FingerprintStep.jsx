@@ -38,10 +38,24 @@ export default function FingerprintStep({ onScanComplete, currentStep, totalStep
     return () => clearInterval(timer);
   }, [scanning, progress, onScanComplete]);
 
+  let buttonStyle = 'bg-white border-4 border-amber-300 text-[#EA580C] hover:border-[#EA580C] hover:shadow-md active:scale-95';
+  if (completed) {
+    buttonStyle = 'bg-emerald-50 border-4 border-[#16A34A] text-[#16A34A] shadow-lg shadow-emerald-500/20';
+  } else if (scanning) {
+    buttonStyle = 'bg-amber-50 border-4 border-[#EA580C] text-[#EA580C] shadow-xl shadow-amber-500/30 scale-105';
+  }
+
+  let progressStateLabel = '';
+  if (completed) {
+    progressStateLabel = 'CONCLUIDO';
+  } else if (scanning) {
+    progressStateLabel = 'ESCANEANDO...';
+  }
+
   return (
-    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-br from-[#064E3B] via-[#047857] to-[#022C22] py-6 flex flex-col justify-center items-center font-sans antialiased">
+    <div className="relative min-h-dvh overflow-hidden bg-[#59D6CF] py-6 flex flex-col justify-center items-center font-sans antialiased">
       <div className="relative z-10 mx-auto flex w-full max-w-[460px] flex-col px-4">
-        <div className="rounded-[28px] bg-white px-7 pb-7 pt-8 shadow-2xl border border-emerald-100 animate-fade-in text-center">
+        <div className="rounded-[28px] bg-white px-7 pb-7 pt-8 shadow-2xl border border-teal-100 animate-fade-in text-center">
           
           <p className="text-center text-[11px] font-bold uppercase tracking-[0.14em] text-[#EA580C]">
             Calibración Biométrica
@@ -63,13 +77,7 @@ export default function FingerprintStep({ onScanComplete, currentStep, totalStep
               onMouseDown={startScan}
               onTouchStart={startScan}
               onClick={startScan}
-              className={`relative w-28 h-28 rounded-full flex items-center justify-center transition-all duration-300 ${
-                completed
-                  ? 'bg-emerald-50 border-4 border-[#16A34A] text-[#16A34A] shadow-lg shadow-emerald-500/20'
-                  : scanning
-                  ? 'bg-amber-50 border-4 border-[#EA580C] text-[#EA580C] shadow-xl shadow-amber-500/30 scale-105'
-                  : 'bg-white border-4 border-amber-300 text-[#EA580C] hover:border-[#EA580C] hover:shadow-md active:scale-95'
-              }`}
+              className={`relative w-28 h-28 rounded-full flex items-center justify-center transition-all duration-300 ${buttonStyle}`}
             >
               {/* Progress Ring Overlay */}
               <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
@@ -101,7 +109,7 @@ export default function FingerprintStep({ onScanComplete, currentStep, totalStep
             {/* Live Scan Progress Status */}
             <div className="space-y-1 w-full max-w-xs">
               <span className="text-xs font-extrabold text-[#0F172A] block">
-                {progress}% {completed ? 'CONCLUIDO' : scanning ? 'ESCANEANDO...' : ''}
+                {progress}% {progressStateLabel}
               </span>
               <p className="text-[12px] font-medium text-[#64748B] min-h-[36px] flex items-center justify-center">
                 {statusText}
