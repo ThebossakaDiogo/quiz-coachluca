@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Glow -->
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF6B81" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+    </radialGradient>
+    
+    <!-- Main Peach Gradient -->
+    <linearGradient id="peachGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF8A65"/>
+      <stop offset="35%" stop-color="#FF5252"/>
+      <stop offset="75%" stop-color="#E91E63"/>
+      <stop offset="100%" stop-color="#9C27B0"/>
+    </linearGradient>
+
+    <!-- Highlight Gradient -->
+    <linearGradient id="highlightGrad" x1="0%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Leaf Gradient -->
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#26D0CE"/>
+      <stop offset="100%" stop-color="#1A918B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Glow Circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#bgGlow)"/>
+
+  <!-- Peach Leaf -->
+  <path d="M 256 100 C 290 40, 360 50, 380 90 C 350 140, 290 120, 256 100 Z" fill="url(#leafGrad)"/>
+  <path d="M 256 100 C 300 80, 340 85, 380 90" stroke="#E0F7FA" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Stem -->
+  <path d="M 256 130 Q 256 95 240 80" stroke="#795548" stroke-width="12" fill="none" stroke-linecap="round"/>
+
+  <!-- Peach / Glute Heart-Curve Shape -->
+  <path d="M 256 150 
+           C 200 130, 100 160, 90 260 
+           C 80 360, 170 440, 256 460 
+           C 342 440, 432 360, 422 260 
+           C 412 160, 312 130, 256 150 Z" 
+        fill="url(#peachGrad)" 
+        stroke="#FF1744" 
+        stroke-width="4"/>
+
+  <!-- Central Gluteal Line / Peach Crease -->
+  <path d="M 256 150 C 250 240, 250 360, 256 460" stroke="#C2185B" stroke-width="14" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <path d="M 256 150 C 250 240, 250 360, 256 460" stroke="#880E4F" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/>
+
+  <!-- Left Cheek Gloss Highlight -->
+  <path d="M 130 200 C 110 240, 115 300, 140 330 C 130 290, 130 240, 150 200 C 160 180, 145 185, 130 200 Z" fill="url(#highlightGrad)"/>
+
+  <!-- Right Cheek Soft Glow -->
+  <ellipse cx="340" cy="240" rx="35" ry="55" fill="#FFFFFF" opacity="0.25" transform="rotate(25 340 240)"/>
+</svg>

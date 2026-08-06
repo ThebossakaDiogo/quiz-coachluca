@@ -1,4 +1,4 @@
-export const CHECKOUT_URL = 'https://pay.cakto.com.br/capui7o_1015855';
+export const CHECKOUT_URL = 'https://go.centerpag.com/PPU38CQERKG';
 
 export const ASSETS = {
   logo: '/assets/LOGO3-WGBt60gj.webp',
@@ -30,179 +30,192 @@ export const ASSETS = {
 export const QUIZ_STEPS = [
   {
     id: 1,
-    slug: 'inicio-avaliacao',
+    slug: 'inicio-evaluacion',
     type: 'question',
-    headerBadge: "🔥 FitFlow Método 28D",
-    eyebrow: "Passo 1 de 12",
-    title: "Você quer empinar, arredondar e aumentar o bumbum em 28 Dias treinando em casa?",
-    subtitle: "Descubra a estimulação neuromuscular profunda (8-10 min/dia) calibrada para o seu tipo de corpo. Sem academia, sem cargas pesadas e sem cirurgias. 🚀",
+    headerBadge: "🔥 Método Glúteos Brasileños",
+    eyebrow: "Paso 1 de 12",
+    title: "¿Quieres levantar, redondear y aumentar tus glúteos en 28 Días entrenando en casa?",
+    subtitle: "Descubre la estimulación neuromuscular profunda (8-10 min/día) calibrada para tu tipo de cuerpo. Sin gimnasio, sin pesas pesadas y sin cirugías. 🚀",
     options: [
-      { emoji: "😩", label: "Não, me sinto frustrada e quero aumentar (+4 a +7 cm)", value: "frustrada" },
-      { emoji: "💧", label: "Quero eliminar a flacidez, a celulite e firmar tudo", value: "tonificar" },
-      { emoji: "🍑", label: "Quero esculpir o efeito 'Push-Up' redondo e durinho", value: "esculpir" }
+      { emoji: "😩", label: "No, me siento frustrada y quiero aumentar (+4 a +7 cm)", value: "frustrada" },
+      { emoji: "💧", label: "Quiero eliminar la flacidez, la celulitis y reafirmar todo", value: "tonificar" },
+      { emoji: "🍑", label: "Quiero esculpir el efecto 'Push-Up' redondo y firme", value: "esculpir" }
     ]
   },
   {
     id: 2,
-    slug: 'idade',
+    slug: 'edad',
     type: 'age',
-    headerBadge: "FitFlow Método 28D",
-    eyebrow: "Passo 2 de 12",
-    title: "Selecione a sua faixa de idade",
-    subtitle: "Isso ajuda a calcular a sua taxa de resposta muscular e a intensidade metabólica.",
+    headerBadge: "Método Glúteos Brasileños",
+    eyebrow: "Paso 2 de 12",
+    title: "Selecciona tu rango de edad",
+    subtitle: "Esto ayuda a calcular tu tasa de respuesta muscular e intensidad metabólica.",
     options: [
-      { label: "18 - 29 anos", value: "18-29", image: ASSETS.ages["18-29"] },
-      { label: "30 - 39 anos", value: "30-39", image: ASSETS.ages["30-39"] },
-      { label: "40 - 49 anos", value: "40-49", image: ASSETS.ages["40-49"] },
-      { label: "50+ anos", value: "50plus", image: ASSETS.ages["50plus"] }
+      { label: "18 - 29 años", value: "18-29", image: ASSETS.ages["18-29"] },
+      { label: "30 - 39 años", value: "30-39", image: ASSETS.ages["30-39"] },
+      { label: "40 - 49 años", value: "40-49", image: ASSETS.ages["40-49"] },
+      { label: "50+ años", value: "50plus", image: ASSETS.ages["50plus"] }
     ]
   },
   {
     id: 3,
-    slug: 'incomodo',
+    slug: 'molestia',
     type: 'question',
-    headerBadge: "FitFlow Método 28D",
-    eyebrow: "Passo 3 de 12",
-    title: "O que mais te incomoda quando você se olha no espelho?",
-    subtitle: "Identificar o seu principal ponto de insatisfação permite ativar o estímulo neuromuscular correto.",
+    headerBadge: "Método Glúteos Brasileños",
+    eyebrow: "Paso 3 de 12",
+    title: "¿Qué es lo que más te molesta cuando te miras al espejo?",
+    subtitle: "Identificar tu principal punto de insatisfacción permite activar el estímulo neuromuscular correcto.",
     options: [
-      { emoji: "😩", label: "Meu bumbum pequeno ou sem volume", value: "pequeno" },
-      { emoji: "💧", label: "Flacidez ou falta de firmeza", value: "flacidez" },
-      { emoji: "🍊", label: "Celulite ou pele irregular", value: "celulitis" },
-      { emoji: "🍑", label: "Falta de elevação na parte superior", value: "elevacion" }
+      { emoji: "😩", label: "Mis glúteos pequeños o sin volumen", value: "pequeno" },
+      { emoji: "💧", label: "Flacidez o falta de firmeza", value: "flacidez" },
+      { emoji: "🍊", label: "Celulitis o piel irregular", value: "celulitis" },
+      { emoji: "🍑", label: "Falta de elevación en la parte superior", value: "elevacion" }
     ]
   },
   {
     id: 4,
-    slug: 'inseguranca',
-    type: 'question',
-    headerBadge: "FitFlow Método 28D",
-    eyebrow: "Passo 4 de 12",
-    title: "Você já deixou de usar roupas coladas ou biquínis por não se sentir confiante?",
-    subtitle: "Nossa meta é devolver 100% da sua autoestima e segurança com o seu corpo.",
+    slug: 'gluteo-timido',
+    type: 'awareness',
+    headerBadge: "Método Glúteos Brasileños",
+    eyebrow: "Paso 4 de 13",
+    title: "¿Por qué entrenas duro y tus glúteos no reaccionan?",
+    subtitle: "Descubre el fenómeno biomecánico de la amnesia glútea.",
     options: [
-      { emoji: "👗", label: "Sim, com frequência me privo de usar roupas ajustadas", value: "frecuencia" },
-      { emoji: "😳", label: "Às vezes me sinto um pouco insegura", value: "a_veces" },
-      { emoji: "✨", label: "Não, mas gostaria de ficar ainda mais desenhada e atraente", value: "impactante" }
+      { label: "✅ Ya lo sabía", value: "ya_lo_sabia" },
+      { label: "❌ ¡No lo sabía!", value: "no_lo_sabia" }
     ]
   },
   {
     id: 5,
-    slug: 'crenca',
+    slug: 'inseguridad',
     type: 'question',
-    headerBadge: "FitFlow Método 28D",
-    eyebrow: "Passo 5 de 12",
-    title: "Você acredita que é possível transformar seu bumbum com treinos rápidos e focados feitos em casa?",
-    subtitle: "A chave é o estímulo profundo das fibras musculares, não horas exaustivas na academia.",
+    headerBadge: "Método Glúteos Brasileños",
+    eyebrow: "Paso 5 de 13",
+    title: "¿Has dejado de usar ropa ajustada o trajes de baño por no sentirte confiada?",
+    subtitle: "Nuestra meta es devolverte el 100% de tu autoestima y seguridad con tu cuerpo.",
     options: [
-      { emoji: "🔥", label: "Sim, estou pronta para começar!", value: "lista" },
-      { emoji: "❓", label: "Tenho dúvidas, mas adoraria testar um método guiado", value: "dudas" },
-      { emoji: "🏋️", label: "Achava que só funcionava com cargas pesadas", value: "pesas" }
+      { emoji: "👗", label: "Sí, con frecuencia me privo de usar ropa ajustada", value: "frecuencia" },
+      { emoji: "😳", label: "A veces me siento un poco insegura", value: "a_veces" },
+      { emoji: "✨", label: "No, pero me gustaría estar aún más tonificada y atractiva", value: "impactante" }
+    ]
+  },
+  {
+    id: 5,
+    slug: 'creencia',
+    type: 'question',
+    headerBadge: "Método Glúteos Brasileños",
+    eyebrow: "Paso 5 de 12",
+    title: "¿Crees que es posible transformar tus glúteos con entrenamientos rápidos y enfocados en casa?",
+    subtitle: "La clave es el estímulo profundo de las fibras musculares, no horas agotadoras en el gimnasio.",
+    options: [
+      { emoji: "🔥", label: "¡Sí, estoy lista para empezar!", value: "lista" },
+      { emoji: "❓", label: "Tengo dudas, pero me encantaría probar un método guiado", value: "dudas" },
+      { emoji: "🏋️", label: "Pensaba que solo funcionaba con cargas pesadas", value: "pesas" }
     ]
   },
   {
     id: 6,
-    slug: 'disposicao',
+    slug: 'disposicion',
     type: 'question',
-    headerBadge: "FitFlow Método 28D",
-    eyebrow: "Passo 6 de 12",
-    title: "Se existisse um método comprovado combinando treinos curtos e um plano alimentar simples, você testaria?",
-    subtitle: "Sem dietas malucas nem horas cansativas de cárdio.",
+    headerBadge: "Método Glúteos Brasileños",
+    eyebrow: "Paso 6 de 12",
+    title: "Si existiera un método comprobado que combine entrenamientos cortos y un plan de alimentación sencillo, ¿lo probarías?",
+    subtitle: "Sin dietas extremas ni horas cansadas de cardio.",
     options: [
-      { emoji: "✅", label: "Sim, 100% disposta a seguir o plano", value: "dispuesta_100" },
-      { emoji: "😏", label: "Me mostre resultados de alunas primeiro", value: "ver_resultados" },
-      { emoji: "🤨", label: "Dependeria dos resultados prometidos", value: "dependeria" }
+      { emoji: "✅", label: "Sí, 100% dispuesta a seguir el plan", value: "dispuesta_100" },
+      { emoji: "😏", label: "Muéstrame resultados de alumnas primero", value: "ver_resultados" },
+      { emoji: "🤨", label: "Dependería de los resultados prometidos", value: "dependeria" }
     ]
   },
   {
     id: 7,
-    slug: 'tempo',
+    slug: 'tiempo',
     type: 'question',
-    headerBadge: "FitFlow Método 28D",
-    eyebrow: "Passo 7 de 12",
-    title: "Quanto tempo você tem disponível por dia para fazer suas rotinas?",
-    subtitle: "Ajustamos os exercícios de forma ultra eficiente para encaixar na sua rotina.",
+    headerBadge: "Método Glúteos Brasileños",
+    eyebrow: "Paso 7 de 12",
+    title: "¿Cuánto tiempo tienes disponible al día para hacer tus rutinas?",
+    subtitle: "Ajustamos los ejercicios de forma ultraeficiente para adaptarse a tu rutina.",
     options: [
-      { emoji: "⏱️", label: "8 a 10 minutos por dia", value: "8_10min" },
-      { emoji: "⏰", label: "10 a 20 minutos por dia", value: "10_20min" },
-      { emoji: "⏳", label: "Mais de 20 minutos por dia", value: "mas_20min" }
+      { emoji: "⏱️", label: "8 a 10 minutos al día", value: "8_10min" },
+      { emoji: "⏰", label: "10 a 20 minutos al día", value: "10_20min" },
+      { emoji: "⏳", label: "Más de 20 minutos al día", value: "mas_20min" }
     ]
   },
   {
     id: 8,
-    slug: 'dias-treino',
+    slug: 'dias-entrenamiento',
     type: 'question',
-    headerBadge: "FitFlow Método 28D",
-    eyebrow: "Passo 8 de 12",
-    title: "Quantos dias por semana você prefere treinar?",
-    subtitle: "O descanso estratégico é fundamental para o músculo crescer rápido.",
+    headerBadge: "Método Glúteos Brasileños",
+    eyebrow: "Paso 8 de 12",
+    title: "¿Cuántos días a la semana prefieres entrenar?",
+    subtitle: "El descanso estratégico es fundamental para que el músculo crezca rápido.",
     options: [
-      { emoji: "📅", label: "3 dias por semana", value: "3_dias" },
-      { emoji: "📆", label: "4 a 5 dias por semana", value: "4_5_dias" },
-      { emoji: "⚡", label: "Todos os dias (rotinas express de 8 min)", value: "todos_dias" }
+      { emoji: "📅", label: "3 días a la semana", value: "3_dias" },
+      { emoji: "📆", label: "4 a 5 días a la semana", value: "4_5_dias" },
+      { emoji: "⚡", label: "Todos los días (rutinas exprés de 8 min)", value: "todos_dias" }
     ]
   },
   {
     id: 9,
-    slug: 'refeicoes',
+    slug: 'comidas',
     type: 'question',
-    headerBadge: "FitFlow Método 28D",
-    eyebrow: "Passo 9 de 12",
-    title: "Quantas refeições você faz por dia normalmente?",
-    subtitle: "💡 Essa é a chave do seu metabolismo! O Coach Luca descobriu que 90% das pessoas erram aqui e por isso não conseguem definir e empinar os glúteos.",
+    headerBadge: "Método Glúteos Brasileños",
+    eyebrow: "Paso 9 de 12",
+    title: "¿Cuántas comidas haces al día normalmente?",
+    subtitle: "💡 ¡Esta es la clave de tu metabolismo! El Coach Luca descubrió que el 90% de las personas fallan aquí y por eso no logran definir ni levantar los glúteos.",
     options: [
-      { emoji: "😴", label: "1 a 2 refeições por dia", value: "1_2_comidas" },
-      { emoji: "🍽️", label: "3 refeições básicas por dia", value: "3_comidas" },
-      { emoji: "✅", label: "4 a 5 refeições (incluindo lanches)", value: "4_5_comidas" }
+      { emoji: "😴", label: "1 a 2 comidas al día", value: "1_2_comidas" },
+      { emoji: "🍽️", label: "3 comidas básicas al día", value: "3_comidas" },
+      { emoji: "✅", label: "4 a 5 comidas (incluyendo snacks)", value: "4_5_comidas" }
     ]
   },
   {
     id: 10,
     slug: 'coach-luca',
     type: 'coach',
-    headerBadge: "FitFlow Método 28D",
-    eyebrow: "Passo 10 de 12",
-    title: "Conheça o Coach Luca",
-    subtitle: "Especialista internacional em biomecânica e modelagem de glúteos femininos.",
+    headerBadge: "Método Glúteos Brasileños",
+    eyebrow: "Paso 10 de 12",
+    title: "Conoce al Coach Luca",
+    subtitle: "Especialista internacional en biomecánica y moldeado de glúteos femeninos.",
     coachInfo: {
-      experienceYears: "12+ Anos",
+      experienceYears: "12+ Años",
       successCases: "12.000+",
-      bio: "O Coach Luca desenvolveu o FitFlow Método 28D, um sistema revolucionário de estimulação profunda que empina, esculpe e aumenta os glúteos em casa sem dores nas articulações.",
+      bio: "El Coach Luca desarrolló el Método Glúteos Brasileños, un sistema revolucionario de estimulación profunda que levanta, esculpe y aumenta los glúteos en casa sin dolor en las articulaciones.",
       mainImage: ASSETS.coach.main,
       altImage: ASSETS.coach.alt,
       results: ASSETS.results.slice(0, 3)
     },
     options: [
-      { label: "Continuar para o Diagnóstico Final", value: "continuar" }
+      { label: "Continuar al Diagnóstico Final", value: "continuar" }
     ]
   },
   {
     id: 11,
-    slug: 'comprometimento',
+    slug: 'compromiso',
     type: 'question',
-    headerBadge: "FitFlow Método 28D",
-    eyebrow: "Passo 11 de 12",
-    title: "Qual é o seu nível de comprometimento para transformar o seu corpo?",
-    subtitle: "Buscamos mulheres totalmente dispostas a ver resultados visíveis em poucas semanas.",
+    headerBadge: "Método Glúteos Brasileños",
+    eyebrow: "Paso 11 de 12",
+    title: "¿Cuál es tu nivel de compromiso para transformar tu cuerpo?",
+    subtitle: "Buscamos mujeres totalmente dispuestas a ver resultados visibles en pocas semanas.",
     options: [
-      { emoji: "🔥", label: "100% Comprometida - Vou dar o meu melhor", value: "compromiso_100" },
-      { emoji: "👍", label: "Moderado - Vou no meu próprio ritmo", value: "compromiso_moderado" },
-      { emoji: "👀", label: "Curiosa - Quero conhecer a proposta primeiro", value: "curiosa" }
+      { emoji: "🔥", label: "100% Comprometida - Daré lo mejor de mí", value: "compromiso_100" },
+      { emoji: "👍", label: "Moderado - Iré a mi propio ritmo", value: "compromiso_moderado" },
+      { emoji: "👀", label: "Curiosa - Quiero conocer la propuesta primero", value: "curiosa" }
     ]
   },
   {
     id: 12,
     slug: 'objetivo-final',
     type: 'goal',
-    headerBadge: "FitFlow Método 28D",
-    eyebrow: "Passo 12 de 12",
-    title: "Qual é o seu objetivo de bumbum ideal?",
-    subtitle: "Selecione o formato e silhueta que você deseja alcançar.",
+    headerBadge: "Método Glúteos Brasileños",
+    eyebrow: "Paso 12 de 12",
+    title: "¿Cuál es tu objetivo de glúteos ideal?",
+    subtitle: "Selecciona la forma y silueta que deseas alcanzar.",
     options: [
-      { emoji: "🍑", label: "Empinado e Firme (Efeito Push-Up)", value: "elevado" },
-      { emoji: "✨", label: "Esculpido e Definido (Sem Flacidez)", value: "esculpido" },
-      { emoji: "💪", label: "Tonalizado e Atlético", value: "tonificado" },
-      { emoji: "🔴", label: "Redondo e com Mais Volume", value: "redondo" }
+      { emoji: "🍑", label: "Levantados y Firmes (Efecto Push-Up)", value: "elevado" },
+      { emoji: "✨", label: "Esculpidos y Definidos (Sin Flacidez)", value: "esculpido" },
+      { emoji: "💪", label: "Tonificados y Atléticos", value: "tonificado" },
+      { emoji: "🔴", label: "Redondos y con Más Volumen", value: "redondo" }
     ]
   }
 ];
@@ -211,62 +224,62 @@ export const TESTIMONIALS = [
   {
     id: 1,
     name: "Carolina M.",
-    age: "34 anos",
-    location: "São Paulo, SP",
+    age: "34 años",
+    location: "Madrid, España",
     avatar: ASSETS.results[0],
     rating: 5,
-    text: "Em apenas 3 semanas meu bumbum ficou visivelmente empinado e durinho. As rotinas de 8 minutos são super práticas no meu dia a dia.",
-    resultBadge: "+5.5 cm em 28 Dias"
+    text: "En solo 3 semanas mis glúteos se ven visiblemente levantados y firmes. Las rutinas de 8 minutos son superprácticas en mi día a día.",
+    resultBadge: "+5.5 cm en 28 Días"
   },
   {
     id: 2,
     name: "Valeria G.",
-    age: "29 anos",
-    location: "Rio de Janeiro, RJ",
+    age: "29 años",
+    location: "Ciudad de México, México",
     avatar: ASSETS.results[1],
     rating: 5,
-    text: "Não acreditava que sem academia desse resultado. A celulite desapareceu quase por completo. 100% recomendado!",
-    resultBadge: "Sem Flacidez • Firmeza Total"
+    text: "No creía que sin gimnasio diera este resultado. La celulitis desapareció casi por completo. ¡100% recomendado!",
+    resultBadge: "Sin Flacidez • Firmeza Total"
   },
   {
     id: 3,
     name: "Mariana R.",
-    age: "41 anos",
-    location: "Belo Horizonte, MG",
+    age: "41 años",
+    location: "Bogotá, Colombia",
     avatar: ASSETS.results[2],
     rating: 5,
-    text: "Tenho dois filhos e pouco tempo livre. Esse programa devolveu minha confiança para usar biquíni sem vergonha. Muito obrigada ao Coach Luca!",
-    resultBadge: "Efeito Push-Up Real"
+    text: "Tengo dos hijos y poco tiempo libre. Este programa me devolvió la confianza para usar traje de baño sin pena. ¡Muchas gracias al Coach Luca!",
+    resultBadge: "Efecto Push-Up Real"
   }
 ];
 
 export const BEFORE_AFTER_CASES = [
   {
     id: 1,
-    title: "Caso 1: Firmeza Express",
-    detail: "Resultados em 14 Dias",
+    title: "Caso 1: Firmeza Exprés",
+    detail: "Resultados en 14 Días",
     image: ASSETS.results[0],
-    tag: "98.4% Elevação"
+    tag: "98.4% Elevación"
   },
   {
     id: 2,
-    title: "Caso 2: Ganho de Volume",
-    detail: "Resultados em 21 Dias",
+    title: "Caso 2: Aumento de Volumen",
+    detail: "Resultados en 21 Días",
     image: ASSETS.results[1],
-    tag: "+6.0 cm Volume"
+    tag: "+6.0 cm Volumen"
   },
   {
     id: 3,
-    title: "Caso 3: Fim da Celulite",
-    detail: "Resultados em 28 Dias",
+    title: "Caso 3: Adiós Celulitis",
+    detail: "Resultados en 28 Días",
     image: ASSETS.results[2],
-    tag: "Pele Lisa"
+    tag: "Piel Lisa"
   },
   {
     id: 4,
-    title: "Caso 4: Efeito Push-Up",
-    detail: "Resultados em 28 Dias",
+    title: "Caso 4: Efecto Push-Up",
+    detail: "Resultados en 28 Días",
     image: ASSETS.results[3],
-    tag: "Definição Máxima"
+    tag: "Definición Máxima"
   }
 ];

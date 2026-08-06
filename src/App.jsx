@@ -4,6 +4,7 @@ import QuizCard from './components/QuizCard';
 import AgeStep from './components/AgeStep';
 import CoachStep from './components/CoachStep';
 import GoalStep from './components/GoalStep';
+import AwarenessStep from './components/AwarenessStep';
 import SummaryStep from './components/SummaryStep';
 import AnalyzingStep from './components/AnalyzingStep';
 import CouponStep from './components/CouponStep';
@@ -53,12 +54,12 @@ export default function App() {
 
   // COMPUTED CURRENT SLUG FOR TRACKING PIXELS & URL HARMONY
   const getCurrentSlug = () => {
-    if (showWelcome) return 'boas-vindas';
-    if (showSummary) return 'perfil-analisado';
-    if (isAnalyzing) return 'analisando-ia';
-    if (isCouponStep) return 'bolsa-desconto';
+    if (showWelcome) return 'bienvenida';
+    if (showSummary) return 'perfil-analizado';
+    if (isAnalyzing) return 'analizando-ia';
+    if (isCouponStep) return 'beca-descuento';
     if (isFinished) return 'oferta-final';
-    return currentStepData ? `passo-${currentStepIndex + 1}-${currentStepData.slug}` : `passo-${currentStepIndex + 1}`;
+    return currentStepData ? `paso-${currentStepIndex + 1}-${currentStepData.slug}` : `paso-${currentStepIndex + 1}`;
   };
 
   const currentSlug = getCurrentSlug();
@@ -186,6 +187,17 @@ export default function App() {
         />
       );
     }
+    if (currentStepData.type === 'awareness') {
+      return (
+        <AwarenessStep
+          stepData={currentStepData}
+          onSelectOption={handleSelectOption}
+          onPrevStep={handlePrevStep}
+          currentStep={currentStepIndex + 1}
+          totalSteps={totalSteps}
+        />
+      );
+    }
     if (currentStepData.type === 'goal') {
       return (
         <GoalStep
@@ -211,7 +223,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#7C3AED] via-[#6D28D9] to-[#0F172A] font-sans antialiased selection:bg-teal-500 selection:text-white">
+    <div className="min-h-screen bg-gradient-to-br from-[#064E3B] via-[#047857] to-[#022C22] font-sans antialiased selection:bg-amber-400 selection:text-slate-950">
       {renderCurrentStep()}
     </div>
   );

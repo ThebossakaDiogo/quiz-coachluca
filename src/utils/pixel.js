@@ -1,6 +1,6 @@
 /**
  * Meta (Facebook) Pixel Ultra-Advanced Tracking Helper
- * Pixel ID: 3856177681190176
+ * Pixel ID: 1043202255361208
  */
 
 export const trackMetaEvent = (eventName, params = {}, isCustom = false) => {
@@ -20,16 +20,16 @@ export const trackMetaEvent = (eventName, params = {}, isCustom = false) => {
 };
 
 /**
- * Event 1: Start Quiz (Boas-vindas -> Passo 1)
+ * Event 1: Start Quiz (Bienvenida -> Paso 1)
  */
 export const trackQuizStart = () => {
   trackMetaEvent('QuizStart', {
-    content_name: 'FitFlow Método 28D - Avaliação',
+    content_name: 'Método Glúteos Brasileños - Evaluación',
     start_time: new Date().toISOString()
   }, true);
   
   trackMetaEvent('Lead', {
-    content_name: 'Inicio do Quiz',
+    content_name: 'Inicio del Quiz',
     status: 'started'
   });
 };
@@ -42,7 +42,7 @@ export const trackQuizStep = (stepNumber, totalSteps, stepData, selectedValue) =
   
   trackMetaEvent('QuizStepView', {
     step_number: stepNumber,
-    step_slug: stepData?.slug || `passo-${stepNumber}`,
+    step_slug: stepData?.slug || `paso-${stepNumber}`,
     question_title: stepData?.title || '',
     selected_value: selectedValue || '',
     progress_percentage: `${percentage}%`
@@ -51,7 +51,7 @@ export const trackQuizStep = (stepNumber, totalSteps, stepData, selectedValue) =
   // Milestone tracking for Facebook Optimization
   if (stepNumber === 1) {
     trackMetaEvent('ViewContent', {
-      content_name: 'Primeira Pergunta',
+      content_name: 'Primera Pregunta',
       content_category: 'Quiz Step'
     });
   } else if (stepNumber === 5) {
@@ -61,18 +61,18 @@ export const trackQuizStep = (stepNumber, totalSteps, stepData, selectedValue) =
     }, true);
   } else if (stepData?.type === 'coach') {
     trackMetaEvent('ViewContent', {
-      content_name: 'Apresentação Coach Luca',
+      content_name: 'Presentación Coach Luca',
       content_category: 'Coach Authority'
     });
   }
 };
 
 /**
- * Event 3: Summary Step (Perfil Analisado)
+ * Event 3: Summary Step (Perfil Analizado)
  */
 export const trackSummaryView = (userAnswers = {}) => {
   trackMetaEvent('CustomizeProduct', {
-    content_name: 'Plano Personalizado Glúteos 28D',
+    content_name: 'Plan Personalizado Glúteos 28D',
     user_answers_count: Object.keys(userAnswers).length
   });
 
@@ -87,18 +87,18 @@ export const trackSummaryView = (userAnswers = {}) => {
  */
 export const trackAnalyzingStep = () => {
   trackMetaEvent('Search', {
-    search_string: 'Analise Biomecanica IA Gluteos'
+    search_string: 'Análisis Biomecánico IA Glúteos'
   });
 };
 
 /**
- * Event 5: Coupon Unlocked (Raspadinha)
+ * Event 5: Coupon Unlocked (Raspa y Gana)
  */
 export const trackCouponUnlocked = () => {
   trackMetaEvent('CouponUnlocked', {
-    coupon_code: 'FITFLOW47',
-    discount_amount: 150.00,
-    final_price: 47.00
+    coupon_code: 'BRASIL990',
+    discount_amount: 87.10,
+    final_price: 9.90
   }, true);
 };
 
@@ -107,18 +107,18 @@ export const trackCouponUnlocked = () => {
  */
 export const trackOfferPage = () => {
   trackMetaEvent('InitiateCheckout', {
-    content_name: 'FitFlow Método 28D - Coach Luca',
-    content_category: 'Programa de Treino e Nutrição',
-    content_ids: ['fitflow_28d_47'],
-    value: 47.00,
-    currency: 'BRL',
+    content_name: 'Método Glúteos Brasileños - Coach Luca',
+    content_category: 'Programa de Entrenamiento y Nutrición',
+    content_ids: ['gluteos_brasil_990'],
+    value: 9.90,
+    currency: 'USD',
     num_items: 1
   });
 
   trackMetaEvent('OfferPageView', {
-    offer_price: 47.00,
-    original_price: 197.00,
-    discount_percentage: '76%'
+    offer_price: 9.90,
+    original_price: 97.00,
+    discount_percentage: '90%'
   }, true);
 };
 
@@ -127,15 +127,15 @@ export const trackOfferPage = () => {
  */
 export const trackCheckoutClick = () => {
   trackMetaEvent('AddPaymentInfo', {
-    content_name: 'FitFlow Método 28D',
-    value: 47.00,
-    currency: 'BRL'
+    content_name: 'Método Glúteos Brasileños',
+    value: 9.90,
+    currency: 'USD'
   });
 
   trackMetaEvent('ClickCheckoutButton', {
     checkout_url: 'https://pay.cakto.com.br/capui7o_1015855',
-    value: 47.00,
-    currency: 'BRL',
+    value: 9.90,
+    currency: 'USD',
     timestamp: new Date().toISOString()
   }, true);
 };

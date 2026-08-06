@@ -4,15 +4,16 @@
 
 @layer base {
   body {
-    font-family: 'Nunito', 'Plus Jakarta Sans', 'Outfit', system-ui, -apple-system, sans-serif;
-    background: linear-gradient(135deg, #4C1D95 0%, #7C3AED 35%, #0D9488 75%, #0F172A 100%);
-    color: #f8fafc;
+    font-family: 'Plus Jakarta Sans', 'Outfit', system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+    background: #047857;
+    color: #0f172a;
     overflow-x: hidden;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: transparent;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
   }
 }
 

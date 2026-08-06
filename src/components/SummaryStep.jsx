@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Flame, ArrowRight, Sparkles, AlertTriangle, ShieldCheck, CheckCircle2, Loader2, Trophy } from 'lucide-react';
+import { Flame, ArrowRight, Sparkles, AlertTriangle, ShieldCheck, CheckCircle2, Loader2 } from 'lucide-react';
 import HeaderLogo from './HeaderLogo';
+import DiagnosticReportCard from './DiagnosticReportCard';
 
 export default function SummaryStep({ userAnswers, onContinue }) {
   const rawAge = userAnswers[2] || "30-39";
@@ -9,22 +10,22 @@ export default function SummaryStep({ userAnswers, onContinue }) {
   const [stage, setStage] = useState(0);
 
   const formatAgeLabel = (val) => {
-    if (!val) return "30 a 39 anos";
-    if (val === "18-29") return "18 a 29 anos";
-    if (val === "30-39") return "30 a 39 anos";
-    if (val === "40-49") return "40 a 49 anos";
-    if (val === "50plus") return "50+ anos";
+    if (!val) return "30 a 39 años";
+    if (val === "18-29") return "18 a 29 años";
+    if (val === "30-39") return "30 a 39 años";
+    if (val === "40-49") return "40 a 49 años";
+    if (val === "50plus") return "50+ años";
     return val;
   };
 
   const ageText = formatAgeLabel(rawAge);
 
   const stagesMessages = [
-    "🔬 Analisando faixa etária e índice de resposta muscular...",
-    "⚡ Mapeando áreas de celulite e potencial de elevação...",
-    "🎯 Calibrando estímulo neuromuscular de 8-10 min/dia...",
-    "🏆 Finalizando diagnóstico de compatibilidade...",
-    "✨ Diagnóstico 100% Concluído com Sucesso!"
+    "🔬 Analizando rango de edad e índice de respuesta muscular...",
+    "⚡ Mapeando áreas de celulitis y potencial de elevación...",
+    "🎯 Calibrando estímulo neuromuscular de 8-10 min/día...",
+    "🏆 Finalizando diagnóstico de compatibilidad...",
+    "✨ ¡Diagnóstico 100% Concluido con Éxito!"
   ];
 
   // Progressive loader & stage reveal timer
@@ -54,31 +55,27 @@ export default function SummaryStep({ userAnswers, onContinue }) {
     return () => clearInterval(timer);
   }, []);
 
-  const formatTime = (secs) => {
-    const m = Math.floor(secs / 60);
-    const s = secs % 60;
-    return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
 
   return (
-    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-b from-[#090412] via-[#0D1F2D] to-[#041C1A] py-8 px-3 sm:px-4 flex flex-col justify-center items-center font-sans antialiased text-white">
+    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-br from-[#064E3B] via-[#047857] to-[#022C22] py-6 px-3 sm:px-4 flex flex-col justify-center items-center font-sans antialiased text-slate-900">
       
-      {/* Ambient Glowing Orbs */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-80 h-80 bg-teal-500/20 rounded-full blur-3xl pointer-events-none" />
-
       <div className="relative z-10 w-full max-w-lg mx-auto space-y-4">
         
         {/* Header Logo */}
         <HeaderLogo />
 
-        {/* URGENCY ALERT BANNER */}
-        <div className="bg-gradient-to-r from-red-600/90 via-teal-600/90 to-purple-600/90 text-white rounded-2xl p-3 shadow-xl flex items-center justify-between text-xs font-black border border-cyan-400/40 backdrop-blur-md animate-pulse">
-          <span className="flex items-center gap-2">
-            <AlertTriangle className="w-4 h-4 text-cyan-300 shrink-0" />
-            <span>ÚLTIMAS 3 VAGAS DE AVALIAÇÃO PERSONALIZADA</span>
+        {/* GATILHO DE URGÊNCIA E ESCASSEZ NO TOPO */}
+        <div className="bg-gradient-to-r from-red-600 via-amber-600 to-emerald-600 text-white rounded-2xl p-2.5 px-3.5 shadow-xl flex items-center justify-between text-xs font-black border border-amber-300/40 animate-pulse">
+          <span className="flex items-center gap-1.5">
+            <AlertTriangle className="w-4 h-4 text-amber-200 shrink-0" />
+            <span>⚠️ ATENCIÓN: EVALUACIÓN DISPONIBLE POR TIEMPO LIMITADO</span>
           </span>
-          <span className="font-mono bg-black/40 px-2.5 py-1 rounded-lg text-cyan-300 text-xs font-black">
+          <span className="font-mono bg-black/40 px-2 py-0.5 rounded text-amber-300 font-black text-xs">
             {formatTime(timeLeft)}
           </span>
         </div>
@@ -93,7 +90,7 @@ export default function SummaryStep({ userAnswers, onContinue }) {
                 {progress < 100 ? (
                   <>
                     <Loader2 className="w-3.5 h-3.5 text-cyan-400 animate-spin" />
-                    Processando IA Glútea...
+                    Procesando IA Glútea...
                   </>
                 ) : (
                   <>
@@ -139,7 +136,7 @@ export default function SummaryStep({ userAnswers, onContinue }) {
                   <span className="text-cyan-300">Resultado ELITE 🏆</span>
                 </h3>
                 <p className="text-xs text-teal-100 font-medium">
-                  Predisposição genética para se transformar rápido. ✅
+                  Predisposición genética para transformarte rápido. ✅
                 </p>
               </div>
             </div>
@@ -150,7 +147,7 @@ export default function SummaryStep({ userAnswers, onContinue }) {
             <div className="space-y-3 animate-pop">
               <div className="pt-1">
                 <span className="text-[11px] font-black uppercase tracking-[0.25em] text-purple-300">
-                  SEU PLANO • 28 DIAS
+                  TU PLAN • 28 DÍAS
                 </span>
               </div>
 
@@ -162,10 +159,10 @@ export default function SummaryStep({ userAnswers, onContinue }) {
                   </div>
                   <div className="space-y-0.5">
                     <span className="inline-block bg-teal-400 text-slate-950 font-black text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                      7 DIAS
+                      7 DÍAS
                     </span>
                     <p className="text-xs sm:text-sm font-bold text-white">
-                      Seu bumbum fica <u className="decoration-teal-400 font-black decoration-2">firme e durinho</u>
+                      Tus glúteos quedan <u className="decoration-teal-400 font-black decoration-2">firmes y duros</u>
                     </p>
                   </div>
                 </div>
@@ -180,10 +177,10 @@ export default function SummaryStep({ userAnswers, onContinue }) {
                   </div>
                   <div className="space-y-0.5">
                     <span className="inline-block bg-cyan-400 text-slate-950 font-black text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                      14 DIAS
+                      14 DÍAS
                     </span>
                     <p className="text-xs sm:text-sm font-bold text-white">
-                      <u className="decoration-cyan-400 font-black decoration-2">Redução visível</u> de celulites
+                      <u className="decoration-cyan-400 font-black decoration-2">Reducción visible</u> de celulitis
                     </p>
                   </div>
                 </div>
@@ -198,10 +195,10 @@ export default function SummaryStep({ userAnswers, onContinue }) {
                   </div>
                   <div className="space-y-0.5">
                     <span className="inline-block bg-purple-500 text-white font-black text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                      28 DIAS
+                      28 DÍAS
                     </span>
                     <p className="text-xs sm:text-sm font-bold text-white">
-                      Bumbum <u className="decoration-purple-400 font-black decoration-2">empinado</u> e volumoso
+                      Glúteos <u className="decoration-purple-400 font-black decoration-2">levantados</u> y voluminosos
                     </p>
                   </div>
                 </div>
@@ -210,46 +207,30 @@ export default function SummaryStep({ userAnswers, onContinue }) {
             </div>
           )}
 
-          {/* COMPATIBILITY SCORE CARD (96 / 100) */}
+          {/* DIAGNOSTIC REPORT CARD DASHBOARD */}
           {progress >= 75 && (
-            <div className="bg-[#1C1D30]/90 rounded-3xl p-4 sm:p-5 border border-cyan-500/40 flex items-center gap-4 text-left shadow-lg animate-pop">
-              <div className="shrink-0 flex items-baseline gap-0.5">
-                <span className="text-4xl sm:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-teal-300 via-cyan-300 to-purple-300">
-                  96
-                </span>
-                <span className="text-lg font-black text-teal-300">/100</span>
-              </div>
-              <p className="text-xs sm:text-sm font-black text-purple-100 leading-snug">
-                Seu plano é <span className="text-cyan-300">96% compatível</span> com o seu corpo — resultados em poucos dias. 🚀
-              </p>
+            <div className="animate-pop text-slate-900">
+              <DiagnosticReportCard userAnswers={userAnswers} />
             </div>
           )}
 
           {/* FINAL REVEAL & CTA BUTTON */}
           {progress >= 100 && (
             <div className="space-y-4 pt-1 animate-pop">
-              {/* MOTIVATIONAL SUB-HEADLINE */}
-              <div>
-                <h3 className="text-base sm:text-lg font-black text-white flex items-center justify-center gap-1.5">
-                  <span>Seu resultado foi <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-teal-300">surpreendente!</span></span> 🎉
-                </h3>
-              </div>
-
-              {/* HIGH-IMPACT CTA BUTTON */}
               <div className="space-y-3">
                 <button
                   type="button"
                   onClick={onContinue}
-                  className="w-full py-5 px-6 rounded-2xl bg-gradient-to-r from-[#0D9488] via-[#14B8A6] to-[#06B6D4] hover:from-[#097A70] hover:to-[#0891B2] text-white font-black text-base sm:text-lg shadow-2xl shadow-teal-500/40 flex items-center justify-center gap-3 active:scale-[0.98] transition-all cursor-pointer group animate-pulse"
+                  className="w-full py-5 sm:py-6 px-8 rounded-2xl bg-[#DC2626] hover:bg-[#B91C1C] text-white font-black text-xl sm:text-2xl shadow-lg shadow-red-600/30 flex items-center justify-center gap-3 active:scale-[0.98] transition-all cursor-pointer group uppercase tracking-wider"
                 >
-                  <Flame className="w-5 h-5 text-cyan-200 fill-cyan-200 shrink-0" />
-                  <span>CONTINUAR MINHA TRANSFORMAÇÃO</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform shrink-0" />
+                  <Flame className="w-7 h-7 text-yellow-300 fill-yellow-300 shrink-0" />
+                  <span>VER MI DIAGNÓSTICO & PLAN</span>
+                  <ArrowRight className="w-7 h-7 group-hover:translate-x-1.5 transition-transform shrink-0" />
                 </button>
 
-                <div className="flex items-center justify-center gap-2 text-xs font-bold text-teal-200">
-                  <ShieldCheck className="w-4 h-4 text-cyan-400" />
-                  <span>Diagnóstico processado sob total confidencialidade</span>
+                <div className="flex items-center justify-center gap-2 text-xs font-bold text-slate-500">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                  <span>Diagnóstico procesado bajo total confidencialidad</span>
                 </div>
               </div>
             </div>

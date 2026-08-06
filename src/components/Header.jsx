@@ -1,27 +1,27 @@
 import React from 'react';
-import { Flame, ShieldAlert } from 'lucide-react';
+import { ShieldAlert } from 'lucide-react';
 import ProgressBar from './ProgressBar';
 
 export default function Header({ currentStep, totalSteps, isFinished }) {
   return (
-    <header className="sticky top-0 z-50 bg-[#12131C]/95 backdrop-blur-md border-b border-purple-900/40 shadow-md text-white">
+    <header className="sticky top-0 z-50 bg-[#064E3B]/95 backdrop-blur-md border-b border-amber-500/30 shadow-md text-white">
       {/* Top Urgent Notice Banner */}
-      <div className="bg-teal-950/80 border-b border-teal-500/30 text-[11px] font-semibold text-teal-300 text-center py-1.5 px-3 flex items-center justify-center gap-1.5">
-        <ShieldAlert className="w-3.5 h-3.5 shrink-0 text-cyan-400" />
-        <span>Nota: Apenas 1 acesso gratuito por pessoa — Hoje</span>
+      <div className="bg-amber-950/80 border-b border-amber-500/30 text-[11px] font-semibold text-amber-300 text-center py-1.5 px-3 flex items-center justify-center gap-1.5">
+        <ShieldAlert className="w-3.5 h-3.5 shrink-0 text-amber-400" />
+        <span>Nota: Solo 1 acceso gratuito por persona — Hoy</span>
       </div>
 
       <div className="max-w-md mx-auto py-2.5 px-4 flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center text-teal-400">
-            <Flame className="w-5 h-5 fill-teal-400" />
+          <div className="w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center p-1 border border-amber-400/40">
+            <img src="/assets/peach-logo.svg" alt="Peach Logo" className="w-full h-full object-contain" />
           </div>
-          <span className="font-extrabold text-white text-lg tracking-tight">
-            FitFlow<span className="text-teal-400">28D</span>
+          <span className="font-extrabold text-white text-base sm:text-lg tracking-tight">
+            Glúteos<span className="text-amber-400">Brasileños</span>
           </span>
         </div>
-        <div className="text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full bg-purple-900/60 text-cyan-300 border border-purple-500/40">
-          Plano 28 Dias
+        <div className="text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full bg-amber-950/80 text-amber-300 border border-amber-500/40">
+          Plan 28 Días
         </div>
       </div>
 

@@ -7,10 +7,10 @@ export default function AnalyzingStep({ onComplete }) {
   const [activeCheckIndex, setActiveCheckIndex] = useState(0);
 
   const checks = [
-    { label: "Analisando mapa neuromuscular e perfil de idade...", detail: "Fibras musculares rápidas de alta resposta identificadas" },
-    { label: "Avaliando consistência e nível de comprometimento (100%)...", detail: "Nível de disciplina qualificado com grau ELITE" },
-    { label: "Calculando índice de resposta glútea profunda (96%)...", detail: "Potencial de crescimento estimado: +5.2 cm em 28 Dias" },
-    { label: "ANÁLISE CONCLUÍDA! Gerando seu Diagnóstico Exclusivo ✨...", detail: "Perfil 96% compatível liberado para seu plano em casa" },
+    { label: "Analizando mapa neuromuscular y perfil de edad...", detail: "Fibras musculares rápidas de alta respuesta identificadas" },
+    { label: "Evaluando consistencia y nivel de compromiso (100%)...", detail: "Nivel de disciplina cualificado con grado ELITE" },
+    { label: "Calculando índice de respuesta glútea profunda (96%)...", detail: "Potencial de crecimiento estimado: +5.2 cm en 28 Días" },
+    { label: "¡ANÁLISIS CONCLUIDO! Generando tu Diagnóstico Exclusivo ✨...", detail: "Perfil 96% compatible liberado para tu plan en casa" },
   ];
 
   useEffect(() => {
@@ -18,12 +18,12 @@ export default function AnalyzingStep({ onComplete }) {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(timer);
-          setTimeout(() => onComplete(), 700);
+          setTimeout(() => onComplete(), 300);
           return 100;
         }
-        return prev + 4;
+        return prev + 1;
       });
-    }, 120);
+    }, 22);
 
     return () => clearInterval(timer);
   }, [onComplete]);
@@ -40,24 +40,17 @@ export default function AnalyzingStep({ onComplete }) {
   const strokeDashoffset = circumference - (progress / 100) * circumference;
 
   return (
-    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-b from-[#090412] via-[#0D1F2D] to-[#041C1A] py-6 px-3 sm:px-4 flex flex-col justify-center items-center font-sans antialiased text-white">
+    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-br from-[#064E3B] via-[#047857] to-[#022C22] py-8 px-4 flex flex-col justify-center items-center font-sans antialiased text-slate-900">
       
-      {/* Ambient Glowing Orbs */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="relative z-10 w-full max-w-lg mx-auto space-y-4">
+      <div className="relative z-10 w-full max-w-md mx-auto space-y-5">
         
         {/* Header Logo */}
         <HeaderLogo />
 
         {/* Card Container */}
-        <div className="relative bg-[#121320]/90 backdrop-blur-2xl rounded-[36px] p-6 sm:p-8 shadow-2xl border border-teal-500/30 animate-pop text-center space-y-6 quiz-card overflow-hidden">
+        <div className="bg-white rounded-[32px] p-6 sm:p-8 shadow-2xl border border-emerald-100 text-center space-y-6 quiz-card overflow-hidden">
           
-          {/* Holographic Scanline Effect */}
-          <div className="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-scanline pointer-events-none z-10" />
-
-          {/* FUTURISTIC CIRCULAR SVG ARC GAUGE METER WITH AI BOT AVATAR CORE */}
+          {/* CIRCULAR GAUGE METER */}
           <div className="relative w-40 h-40 mx-auto flex items-center justify-center">
             {/* SVG Circle Progress Arc */}
             <svg className="w-full h-full transform -rotate-90">
@@ -66,7 +59,7 @@ export default function AnalyzingStep({ onComplete }) {
                 cx="80"
                 cy="80"
                 r={radius}
-                className="stroke-purple-950/80"
+                className="stroke-amber-100"
                 strokeWidth="9"
                 fill="transparent"
               />
@@ -75,7 +68,7 @@ export default function AnalyzingStep({ onComplete }) {
                 cx="80"
                 cy="80"
                 r={radius}
-                className="stroke-cyan-400 transition-all duration-300 ease-out"
+                className="stroke-[#EA580C] transition-all duration-300 ease-out"
                 strokeWidth="9"
                 strokeDasharray={circumference}
                 strokeDashoffset={strokeDashoffset}
@@ -84,49 +77,49 @@ export default function AnalyzingStep({ onComplete }) {
               />
             </svg>
 
-            {/* Glowing Inner Core with Counter & Coach Icon */}
-            <div className="absolute inset-4 rounded-full bg-gradient-to-b from-[#1C1D30] to-[#0E1524] flex flex-col items-center justify-center border border-cyan-500/40 shadow-2xl">
-              <Zap className="w-6 h-6 text-cyan-400 fill-cyan-400 animate-pulse" />
-              <span className="text-3xl font-black text-white font-mono tracking-tight leading-none mt-0.5">
+            {/* Glowing Inner Core with Counter & Icon */}
+            <div className="absolute inset-4 rounded-full bg-gradient-to-b from-amber-50 to-emerald-50 flex flex-col items-center justify-center border-2 border-amber-300 shadow-inner">
+              <Zap className="w-6 h-6 text-[#EA580C] fill-[#EA580C] animate-pulse" />
+              <span className="text-3xl font-black text-slate-950 font-mono tracking-tight leading-none mt-0.5">
                 {progress}%
               </span>
-              <span className="text-[9px] font-black uppercase text-teal-300 tracking-wider">Algoritmo IA</span>
+              <span className="text-[9px] font-black uppercase text-emerald-800 tracking-wider">Algoritmo IA</span>
             </div>
 
-            <Sparkles className="absolute -top-1 -right-1 w-6 h-6 text-cyan-300 fill-cyan-300 animate-bounce" />
+            <Sparkles className="absolute -top-1 -right-1 w-6 h-6 text-amber-500 fill-amber-500 animate-bounce" />
           </div>
 
-          <div className="space-y-1.5">
-            <span className="inline-flex items-center gap-1.5 bg-teal-950/60 border border-teal-500/40 text-teal-200 text-[11px] font-black uppercase tracking-wider px-4 py-1.5 rounded-full shadow-md">
-              <Activity className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
-              Diagnóstico Biomecânico IA em Progresso
+          <div className="space-y-2">
+            <span className="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 text-emerald-900 text-[11px] font-black uppercase tracking-wider px-4 py-1.5 rounded-full shadow-sm">
+              <Activity className="w-3.5 h-3.5 text-emerald-600 animate-pulse" />
+              Diagnóstico Biomecánico IA en Progreso
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white leading-tight">
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-950 leading-tight">
               Sincronizando Perfil Muscular...
             </h2>
-            <p className="text-xs sm:text-sm text-teal-100 max-w-xs mx-auto font-medium leading-relaxed">
-              O algoritmo inteligente do Coach Luca está calibrando o seu plano personalizado em casa.
+            <p className="text-xs sm:text-sm text-slate-600 max-w-xs mx-auto font-semibold leading-relaxed">
+              El algoritmo inteligente del Coach Luca está calibrando tu plan personalizado en casa.
             </p>
           </div>
 
-          {/* TELEMETRY CHECKLIST WITH LIVE DETAIL BADGES */}
-          <div className="bg-[#181928]/90 rounded-3xl p-4 sm:p-5 border border-teal-500/30 text-left max-w-sm mx-auto space-y-3.5 shadow-xl">
+          {/* TELEMETRY CHECKLIST */}
+          <div className="bg-slate-50 rounded-2xl p-4 sm:p-5 border border-slate-200 text-left max-w-sm mx-auto space-y-3.5 shadow-sm">
             {checks.map((item, idx) => {
               const isDone = idx <= activeCheckIndex;
               return (
                 <div key={item.label} className="space-y-1">
                   <div className="flex items-center gap-3">
                     {isDone ? (
-                      <CheckCircle2 className="w-4.5 h-4.5 text-cyan-400 shrink-0" />
+                      <CheckCircle2 className="w-4.5 h-4.5 text-emerald-600 shrink-0" />
                     ) : (
-                      <Loader2 className="w-4.5 h-4.5 text-purple-400 animate-spin shrink-0" />
+                      <Loader2 className="w-4.5 h-4.5 text-amber-500 animate-spin shrink-0" />
                     )}
-                    <span className={`text-xs font-black ${isDone ? 'text-white' : 'text-purple-300/60'}`}>
+                    <span className={`text-xs font-black ${isDone ? 'text-slate-950' : 'text-slate-400'}`}>
                       {item.label}
                     </span>
                   </div>
                   {isDone && (
-                    <p className="text-[11px] text-cyan-300 font-extrabold pl-7 leading-tight">
+                    <p className="text-[11px] text-emerald-700 font-extrabold pl-7 leading-tight">
                       ↳ {item.detail}
                     </p>
                   )}
@@ -135,9 +128,9 @@ export default function AnalyzingStep({ onComplete }) {
             })}
           </div>
 
-          <div className="pt-1 text-center flex items-center justify-center gap-1.5 text-xs font-semibold text-teal-200">
-            <ShieldCheck className="w-4 h-4 text-cyan-400" />
-            <span>Processamento seguro de dados biomecânicos</span>
+          <div className="pt-1 text-center flex items-center justify-center gap-1.5 text-xs font-bold text-slate-500">
+            <ShieldCheck className="w-4 h-4 text-emerald-600" />
+            <span>Procesamiento seguro de datos biomecánicos</span>
           </div>
 
         </div>
