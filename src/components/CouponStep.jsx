@@ -10,6 +10,16 @@ export default function CouponStep({ onClaimCoupon }) {
   const confettiCanvasRef = useRef(null);
   const isScratching = useRef(false);
 
+  // SECURE RANDOM HELPER FOR ANIMATIONS & CONFETTI
+  const getSecureRandom = () => {
+    if (typeof window !== 'undefined' && window.crypto?.getRandomValues) {
+      const array = new Uint32Array(1);
+      window.crypto.getRandomValues(array);
+      return array[0] / 4294967296;
+    }
+    return (Date.now() % 1000) / 1000;
+  };
+
   // CONFETTI PARTICLE ENGINE
   useEffect(() => {
     if (!isUnlocked) return;
@@ -22,18 +32,18 @@ export default function CouponStep({ onClaimCoupon }) {
     canvas.height = window.innerHeight;
 
     const particles = [];
-    const colors = ['#F59E0B', '#10B981', '#EA580C', '#EAB308', '#059669', '#F97316', '#34D399'];
+    const colors = ['#FF3D7F', '#32B768', '#D9A441', '#5B163A', '#D92667', '#21894A'];
 
     for (let i = 0; i < 160; i++) {
       particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height - canvas.height,
-        size: Math.random() * 10 + 4,
-        color: colors[Math.floor(Math.random() * colors.length)],
-        vx: (Math.random() - 0.5) * 5,
-        vy: Math.random() * 4 + 3,
-        rotation: Math.random() * 360,
-        rotationSpeed: (Math.random() - 0.5) * 10
+        x: getSecureRandom() * canvas.width,
+        y: getSecureRandom() * canvas.height - canvas.height,
+        size: getSecureRandom() * 10 + 4,
+        color: colors[Math.floor(getSecureRandom() * colors.length)],
+        vx: (getSecureRandom() - 0.5) * 5,
+        vy: getSecureRandom() * 4 + 3,
+        rotation: getSecureRandom() * 360,
+        rotationSpeed: (getSecureRandom() - 0.5) * 10
       });
     }
 
@@ -48,7 +58,7 @@ export default function CouponStep({ onClaimCoupon }) {
 
         if (p.y > canvas.height) {
           p.y = -10;
-          p.x = Math.random() * canvas.width;
+          p.x = getSecureRandom() * canvas.width;
         }
 
         ctx.save();
@@ -82,23 +92,23 @@ export default function CouponStep({ onClaimCoupon }) {
 
     // Draw Gold Metallic Coating
     const goldGrad = ctx.createLinearGradient(0, 0, width, height);
-    goldGrad.addColorStop(0, '#D4AF37');
-    goldGrad.addColorStop(0.3, '#FFD700');
-    goldGrad.addColorStop(0.5, '#FFFBEB');
-    goldGrad.addColorStop(0.7, '#FFD700');
-    goldGrad.addColorStop(1, '#AA771C');
+    goldGrad.addColorStop(0, '#D9A441');
+    goldGrad.addColorStop(0.3, '#FFF4D9');
+    goldGrad.addColorStop(0.5, '#FFF9F6');
+    goldGrad.addColorStop(0.7, '#D9A441');
+    goldGrad.addColorStop(1, '#8C6418');
 
     ctx.fillStyle = goldGrad;
     ctx.fillRect(0, 0, width, height);
 
     // Draw Scratch Prompt Text
-    ctx.fillStyle = '#4A2500';
+    ctx.fillStyle = '#320C22';
     ctx.font = 'bold 13px Montserrat, sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText('✨ RASPA AQUÍ CON EL DEDO ✨', width / 2, height / 2 - 10);
     ctx.font = 'bold 11px Montserrat, sans-serif';
-    ctx.fillText('👉 Revelar Beca Especial de $ 9,90 👈', width / 2, height / 2 + 14);
+    ctx.fillText('👉 Revelar Descuento Especial de $ 19,90 👈', width / 2, height / 2 + 14);
 
     const checkScratchedPercentage = () => {
       try {
@@ -194,7 +204,7 @@ export default function CouponStep({ onClaimCoupon }) {
   };
 
   return (
-    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-br from-[#59D6CF] via-[#2DD4BF] to-[#0D9488] py-8 px-3 sm:px-4 flex flex-col justify-center items-center font-sans antialiased text-slate-900">
+    <div className="relative min-h-dvh overflow-hidden bg-[#FFF9F6] py-6 px-3 sm:px-4 flex flex-col justify-center items-center font-body text-[#171116]">
       
       {/* CANVAS CONFETTI OVERLAY */}
       <canvas 
@@ -207,31 +217,31 @@ export default function CouponStep({ onClaimCoupon }) {
         {/* Header Logo */}
         <HeaderLogo />
 
-        {/* URGENCY ALERT BANNER (COR SÓLIDA) */}
-        <div className="bg-[#E11D48] text-white rounded-2xl p-2.5 px-3.5 shadow-md flex items-center justify-between text-xs font-black animate-pulse">
+        {/* URGENCY ALERT BANNER */}
+        <div className="bg-[#320C22] text-white rounded-2xl p-2.5 px-3.5 shadow-md flex items-center justify-between text-xs font-bold font-heading border border-[#FF8EBA]/40 animate-pulse">
           <span className="flex items-center gap-1.5">
-            <AlertTriangle className="w-4 h-4 text-white shrink-0" />
+            <AlertTriangle className="w-4 h-4 text-[#FF8EBA] shrink-0" />
             <span>⚠️ ATENCIÓN: SOLO QUEDAN 2 PLAZAS A ESTE PRECIO</span>
           </span>
-          <span className="font-mono bg-black/40 px-2 py-0.5 rounded text-white font-black text-xs">
+          <span className="font-mono bg-black/40 px-2 py-0.5 rounded text-[#FF8EBA] font-black text-xs">
             {formatTime(timeLeft)}
           </span>
         </div>
 
         {/* Main Card */}
-        <div className="bg-white rounded-[32px] p-5 sm:p-7 shadow-2xl border border-teal-100 animate-pop space-y-5 quiz-card text-center">
+        <div className="bg-white rounded-[24px] p-5 sm:p-7 shadow-xl border border-[#F0E3E9] animate-pop space-y-5 text-center quiz-card">
           
-          {/* PSYCHOLOGICAL LOTTERY WINNER ANNOUNCEMENT */}
+          {/* ANNOUNCEMENT */}
           <div className="space-y-2.5">
-            <div className="inline-flex items-center gap-1.5 bg-[#0D9488] text-white text-[11px] sm:text-xs font-black uppercase tracking-wide px-4 py-1.5 rounded-full shadow-md mx-auto">
-              <Trophy className="w-4 h-4 text-amber-300" />
+            <div className="inline-flex items-center gap-1.5 bg-[#FFE1EC] text-[#B71F58] border border-[#FF8EBA]/40 text-[11px] sm:text-xs font-bold uppercase tracking-wide px-4 py-1.5 rounded-full shadow-sm mx-auto font-heading">
+              <Trophy className="w-4 h-4 text-[#FF3D7F]" />
               <span>🎰 PUNTUACIÓN ELITE: 98.4 / 100 SELECCIONADA</span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-950 leading-tight">
+            <h2 className="text-xl sm:text-2xl font-black text-[#171116] leading-tight font-heading">
               {isUnlocked ? (
-                <span className="text-[#E11D48]">
-                  🎉 ¡GANASTE LA BECA VIP DE $ 19,90!
+                <span className="text-[#FF3D7F]">
+                  🎉 ¡DESCUENTO ESPECIAL DE $ 19,90 LIBERADO!
                 </span>
               ) : (
                 <span>¡Raspa la Tarjeta Dorada para Liberar tu Descuento de $ 19,90! 🎁</span>
@@ -239,92 +249,92 @@ export default function CouponStep({ onClaimCoupon }) {
             </h2>
 
             {/* HIGH PERCEIVED VALUE SUMMARY */}
-            <div className="bg-slate-50 rounded-2xl p-3.5 border border-slate-200 text-left space-y-2 text-xs">
-              <div className="flex items-center gap-2 text-slate-950 font-black">
-                <CheckCircle2 className="w-4 h-4 text-[#0D9488] shrink-0" />
+            <div className="bg-[#FFF9F6] rounded-xl p-3.5 border border-[#F0E3E9] text-left space-y-2 text-xs">
+              <div className="flex items-center gap-2 text-[#171116] font-bold font-heading">
+                <CheckCircle2 className="w-4 h-4 text-[#32B768] shrink-0" />
                 <span>Lo que vas a recibir hoy por Solo $ 19,90:</span>
               </div>
-              <ul className="space-y-1.5 text-slate-700 font-bold text-[11px]">
+              <ul className="space-y-1.5 text-[#5F525A] font-medium text-[11px]">
                 <li className="flex items-center justify-between">
-                  <span>📱 App Exclusiva Brazilian Booty (Acceso De Por Vida)</span>
-                  <span className="text-slate-400 line-through">$ 197,00</span>
+                  <span>📱 Protocolo Glúteos Brasileños (Acceso Digital Completo)</span>
+                  <span className="text-[#8C7D86] line-through">$ 97,00</span>
                 </li>
                 <li className="flex items-center justify-between">
-                  <span>🏋️‍♀️ Entrenamientos de 8-10 min/día con Coach Luca</span>
-                  <span className="text-slate-400 line-through">$ 147,00</span>
+                  <span>🏋️‍♀️ Entrenamientos progresivos con Coach Luca</span>
+                  <span className="text-[#8C7D86] line-through">$ 67,00</span>
                 </li>
                 <li className="flex items-center justify-between">
-                  <span>🥗 Plan Nutricional Activador Anti-Flacidez</span>
-                  <span className="text-slate-400 line-through">$ 97,00</span>
+                  <span>🥗 Guía de alimentación y rutina de activación</span>
+                  <span className="text-[#8C7D86] line-through">$ 47,00</span>
                 </li>
-                <li className="flex items-center justify-between font-extrabold text-[#0D9488]">
-                  <span>🎁 3 Bonos Exclusivos Incluidos HOY MISMO</span>
-                  <span className="text-[#0D9488]">GRATIS</span>
+                <li className="flex items-center justify-between font-bold text-[#32B768] font-heading">
+                  <span>🎁 Bonos Exclusivos Incluidos HOY MISMO</span>
+                  <span className="text-[#32B768]">GRATIS</span>
                 </li>
               </ul>
             </div>
           </div>
 
-          {/* REAL INTERACTIVE GOLD SCRATCH CARD CONTAINER (COR SÓLIDA) */}
-          <div className={`relative rounded-3xl p-4 sm:p-5 transition-all duration-500 border-2 ${
+          {/* REAL INTERACTIVE GOLD SCRATCH CARD CONTAINER */}
+          <div className={`relative rounded-[20px] p-4 sm:p-5 transition-all duration-500 border-2 ${
             isUnlocked 
-              ? 'bg-amber-400 text-slate-950 border-amber-500 shadow-xl ring-4 ring-amber-400/30 animate-pop' 
-              : 'bg-amber-50/50 border-amber-300 border-dashed shadow-md'
+              ? 'bg-gradient-to-r from-[#5B163A] to-[#320C22] text-white border-[#FF3D7F] shadow-xl ring-4 ring-[#FF3D7F]/20 animate-pop' 
+              : 'bg-[#FFF4D9] border-[#D9A441] border-dashed shadow-md'
           }`}>
             
             {/* Cutout edges */}
-            <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border border-amber-200 pointer-events-none" />
-            <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border border-amber-200 pointer-events-none" />
+            <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border border-[#DFC9D3] pointer-events-none" />
+            <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border border-[#DFC9D3] pointer-events-none" />
 
-            {/* UNDERLYING PRIZE TICKET (REVEALED WHEN SCRATCHED) */}
-            <div className="space-y-3 py-1 text-center">
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-slate-950 text-amber-300 shadow-xl mx-auto border-2 border-amber-300">
-                <Trophy className="w-8 h-8 text-amber-300" />
+            {/* UNDERLYING PRIZE TICKET */}
+            <div className="space-y-3 py-1 text-center font-heading">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#FF3D7F] text-white shadow-xl mx-auto border-2 border-white">
+                <Trophy className="w-7 h-7 text-white" />
               </div>
 
               <div className="space-y-1">
-                <span className="inline-block bg-slate-950 text-amber-300 text-[11px] font-black px-4 py-1 rounded-full uppercase tracking-wider shadow-md">
-                  🎊 ¡BECA SUBVENCIONADA LIBERADA! 🎊
+                <span className="inline-block bg-[#FF3D7F] text-white text-[11px] font-black px-4 py-1 rounded-full uppercase tracking-wider shadow-md">
+                  🎊 ¡DESCUENTO ESPECIAL LIBERADO! 🎊
                 </span>
                 
                 {/* Price Breakdown */}
                 <div className="pt-2 flex items-center justify-center gap-3">
-                  <span className="text-base sm:text-lg font-bold text-amber-950/60 line-through">
+                  <span className="text-base sm:text-lg font-bold text-[#8C7D86] line-through">
                     $ 97,00
                   </span>
                   <div className="flex flex-col items-start">
-                    <span className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight leading-none">
+                    <span className="text-3xl sm:text-4xl font-black text-[#FF3D7F] tracking-tight leading-none">
                       $ 19,90
                     </span>
-                    <span className="text-[10px] font-black text-amber-950 uppercase pt-0.5">¡Pago Único • Acceso Inmediato!</span>
+                    <span className="text-[10px] font-bold text-white uppercase pt-0.5">¡Pago Único • Acceso Inmediato!</span>
                   </div>
                 </div>
-                <p className="text-xs font-extrabold text-amber-950 pt-1">Ahorro inmediato de $ 77,10 (Pagas solo 19,90)</p>
+                <p className="text-xs font-bold text-[#FF8EBA] pt-1">Ahorro inmediato de $ 77,10 (Pagas solo $ 19,90)</p>
               </div>
 
               {isUnlocked && (
-                <div className="bg-white/90 border border-amber-300 text-amber-950 rounded-xl p-2 flex items-center justify-center gap-2 text-xs font-black animate-pop shadow-xs">
-                  <Clock className="w-4 h-4 text-[#E11D48]" />
-                  <span>Tu beca de $ 19,90 expira en: <span className="font-mono text-sm text-[#E11D48] font-black">{formatTime(timeLeft)}</span></span>
+                <div className="bg-white/10 border border-[#FF8EBA]/40 text-white rounded-xl p-2 flex items-center justify-center gap-2 text-xs font-bold animate-pop shadow-xs">
+                  <Clock className="w-4 h-4 text-[#FF3D7F]" />
+                  <span>Tu beca de $ 19,90 expira en: <span className="font-mono text-sm text-[#FF3D7F] font-black">{formatTime(timeLeft)}</span></span>
                 </div>
               )}
             </div>
 
-            {/* INTERACTIVE GOLD SCRATCH CANVAS OVERLAY (HIDDEN ONCE UNLOCKED) */}
+            {/* INTERACTIVE GOLD SCRATCH CANVAS OVERLAY */}
             {!isUnlocked && (
-              <div className="absolute inset-0 z-30 rounded-3xl overflow-hidden shadow-inner flex flex-col items-center justify-center">
+              <div className="absolute inset-0 z-30 rounded-[20px] overflow-hidden shadow-inner flex flex-col items-center justify-center">
                 <canvas 
                   ref={scratchCanvasRef} 
                   width={340} 
                   height={190} 
-                  className="w-full h-full cursor-pointer rounded-3xl touch-none select-none"
+                  className="w-full h-full cursor-pointer rounded-[20px] touch-none select-none"
                 />
                 
                 {/* Quick Auto-scratch Fallback Button */}
                 <button
                   type="button"
                   onClick={() => setIsUnlocked(true)}
-                  className="absolute bottom-2 text-[10px] font-extrabold bg-slate-950 text-amber-300 px-3 py-1 rounded-full cursor-pointer shadow hover:bg-slate-900"
+                  className="absolute bottom-2 text-[10px] font-bold bg-[#5B163A] text-white px-3 py-1 rounded-full cursor-pointer shadow hover:bg-[#320C22] font-heading"
                 >
                   ⚡ O haz clic aquí para raspar automáticamente ({scratchProgress}%)
                 </button>
@@ -338,24 +348,24 @@ export default function CouponStep({ onClaimCoupon }) {
             <button
               type="button"
               onClick={onClaimCoupon}
-              className="w-full py-5 sm:py-6 px-8 rounded-2xl bg-[#E11D48] hover:bg-[#BE123C] text-white font-black text-xl sm:text-2xl shadow-lg flex items-center justify-center gap-3 active:scale-[0.98] transition-all cursor-pointer group uppercase tracking-wider text-center"
+              className="w-full py-4 sm:py-5 px-6 rounded-[14px] bg-gradient-to-r from-[#FF3D7F] to-[#D92667] hover:brightness-105 text-white font-extrabold text-lg sm:text-xl shadow-[0_10px_24px_rgba(217,38,103,0.28)] flex items-center justify-center gap-3 active:scale-[0.98] transition-all cursor-pointer group uppercase tracking-wide font-heading"
             >
-              <Flame className="w-7 h-7 text-amber-300 fill-amber-300 shrink-0" />
+              <Flame className="w-6 h-6 text-[#D9A441] fill-[#D9A441] shrink-0" />
               <span>GARANTIZAR PLAN POR $ 19,90</span>
-              <ArrowRight className="w-7 h-7 group-hover:translate-x-1.5 transition-transform shrink-0" />
+              <ArrowRight className="w-6 h-6 group-hover:translate-x-1.5 transition-transform shrink-0" />
             </button>
           ) : (
-            <p className="text-xs font-extrabold text-amber-900 animate-pulse">
-              👉 Mueve el dedo sobre la tarjeta dorada para raspar y liberar los 19,90
+            <p className="text-xs font-bold text-[#5B163A] animate-pulse font-heading">
+              👉 Mueve el dedo sobre la tarjeta dorada para raspar y liberar los $ 19,90
             </p>
           )}
 
-          <div className="flex items-center justify-center gap-3 text-[11px] font-bold text-slate-500">
+          <div className="flex items-center justify-center gap-3 text-[11px] font-medium text-[#8C7D86]">
             <span className="flex items-center gap-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> Garantía 7 Días
+              <ShieldCheck className="w-3.5 h-3.5 text-[#32B768]" /> Garantía 7 Días
             </span>
             <span className="flex items-center gap-1">
-              <Tag className="w-3.5 h-3.5 text-amber-600" /> Cupón #BRASIL990
+              <Tag className="w-3.5 h-3.5 text-[#FF3D7F]" /> Cupón #PGB1990
             </span>
           </div>
 

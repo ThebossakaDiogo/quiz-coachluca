@@ -2,20 +2,24 @@ import React from 'react';
 
 export default function HeaderLogo() {
   return (
-    <div className="flex flex-col items-center justify-center space-y-1 text-center py-2 select-none font-nunito">
-      {/* Modern Clean Header Logo */}
-      <div className="inline-flex items-center gap-2">
-        <div className="w-9 h-9 rounded-2xl bg-white flex items-center justify-center shadow-md p-1 border border-teal-200">
-          <img src="/assets/peach-logo.svg" alt="Brazilian Booty Logo" className="w-full h-full object-contain" />
-        </div>
-        <h1 className="font-nunito text-2xl sm:text-3xl font-black tracking-tight text-white drop-shadow-sm leading-none">
-          Brazilian Booty 🍑
-        </h1>
+    <div className="flex items-center justify-center gap-3 py-1.5 select-none font-heading text-center">
+      {/* PGB Emblem Icon */}
+      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#5B163A] flex items-center justify-center shadow-md p-1.5 border border-[#FF3D7F]/30 shrink-0">
+        <img src="/assets/favicon.svg" alt="Protocolo Glúteos Brasileños" className="w-full h-full object-contain" />
       </div>
-      
-      <p className="text-[10px] sm:text-xs font-black uppercase tracking-[0.25em] text-teal-950 pt-0.5">
-        COACH LUCA
-      </p>
+
+      {/* 3-line Official Logo Structure */}
+      <div className="flex flex-col items-start leading-none text-left">
+        <span className="text-[10px] sm:text-[11px] font-extrabold tracking-[0.25em] text-[#5B163A] uppercase">
+          PROTOCOLO
+        </span>
+        <span className="text-base sm:text-lg font-black tracking-tight text-[#FF3D7F] uppercase font-heading">
+          GLÚTEOS BRASILEÑOS
+        </span>
+        <span className="text-[9px] sm:text-[10px] font-bold tracking-wider text-[#5F525A] italic">
+          by Coach Luca
+        </span>
+      </div>
     </div>
   );
 }

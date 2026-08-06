@@ -1,0 +1,1293 @@
+{
+  "schema_version": "1.0.0",
+  "project": {
+    "name": "Protocolo Glúteos Brasileños",
+    "short_name": "PGB",
+    "brand_signature": "Protocolo Glúteos Brasileños by Coach Luca",
+    "category": "Fitness femenino",
+    "product_type": "Programa digital de entrenamiento",
+    "primary_language": "es",
+    "locale": "es-ES",
+    "market": [
+      "España",
+      "México",
+      "Argentina",
+      "Chile",
+      "Colombia",
+      "Perú",
+      "Estados Unidos - público hispano",
+      "Latinoamérica"
+    ],
+    "brand_stage": "Digital product",
+    "website_type": "High-conversion sales landing page"
+  },
+  "brand_strategy": {
+    "positioning": "Un protocolo de entrenamiento femenino inspirado en la estética brasileña, desarrollado para ayudar a mujeres a fortalecer, elevar y definir sus glúteos mediante una rutina clara, progresiva y fácil de seguir.",
+    "core_promise": "Desarrollar glúteos más firmes, elevados y definidos con un protocolo de entrenamiento organizado.",
+    "main_differential": "No se presenta como una colección aleatoria de ejercicios, sino como un protocolo progresivo con orientación, calendario, niveles y acompañamiento visual.",
+    "brand_essence": [
+      "Fuerza",
+      "Curvas",
+      "Confianza",
+      "Feminidad",
+      "Disciplina",
+      "Transformación"
+    ],
+    "brand_personality": [
+      "Femenina",
+      "Segura",
+      "Enérgica",
+      "Premium",
+      "Motivadora",
+      "Moderna",
+      "Sensual con elegancia"
+    ],
+    "brand_archetypes": {
+      "primary": "Hero",
+      "secondary": "Lover",
+      "description": "La marca combina superación personal y transformación física con una estética femenina, atractiva y sofisticada."
+    },
+    "perception_goals": [
+      "Método estructurado",
+      "Entrenamiento profesional",
+      "Transformación alcanzable",
+      "Estética fitness premium",
+      "Especialización en glúteos",
+      "Confianza en el instructor"
+    ],
+    "avoid_perceptions": [
+      "Contenido adulto",
+      "Sensualidad vulgar",
+      "Promesas milagrosas",
+      "Entrenamiento genérico",
+      "Marca infantil",
+      "Estética barata",
+      "Resultado sin esfuerzo"
+    ]
+  },
+  "target_audience": {
+    "primary": {
+      "gender": "Femenino",
+      "age_range": "22-45",
+      "fitness_level": [
+        "Principiante",
+        "Intermedio"
+      ],
+      "locations": [
+        "España",
+        "Latinoamérica",
+        "Comunidad hispana internacional"
+      ],
+      "goals": [
+        "Aumentar visualmente los glúteos",
+        "Mejorar firmeza y definición",
+        "Levantar los glúteos",
+        "Fortalecer piernas y glúteos",
+        "Sentirse más segura con su cuerpo",
+        "Seguir un entrenamiento organizado"
+      ],
+      "pain_points": [
+        "Realiza ejercicios sin saber si son correctos",
+        "No consigue activar los glúteos",
+        "Entrena sin una rutina estructurada",
+        "Abandona por falta de dirección",
+        "No sabe aumentar la intensidad",
+        "Siente que sus piernas trabajan más que sus glúteos",
+        "Tiene poco tiempo para entrenar"
+      ],
+      "desires": [
+        "Tener glúteos más redondos y elevados",
+        "Sentirse atractiva y segura",
+        "Utilizar ropa ajustada con confianza",
+        "Ver una evolución visible",
+        "Entrenar en casa o en el gimnasio",
+        "Tener una rutina clara para cada día"
+      ],
+      "objections": [
+        "No tengo tiempo",
+        "No tengo experiencia",
+        "No tengo gimnasio",
+        "Ya probé otros entrenamientos",
+        "No sé ejecutar los ejercicios",
+        "No tengo equipamiento",
+        "Tengo miedo de no conseguir resultados"
+      ]
+    }
+  },
+  "messaging": {
+    "brand_tagline": "Activa. Eleva. Define.",
+    "alternative_taglines": [
+      "Tus curvas. Tu fuerza. Tu protocolo.",
+      "Construye los glúteos que deseas.",
+      "Entrena con método. Transforma tus curvas.",
+      "La técnica brasileña para transformar tus glúteos.",
+      "Más fuerza, más curvas, más confianza."
+    ],
+    "main_headline": "Desarrolla glúteos más firmes, elevados y definidos con el Protocolo Glúteos Brasileños",
+    "main_subheadline": "Sigue un plan progresivo de entrenamiento diseñado para activar correctamente tus glúteos, mejorar tu técnica y construir resultados reales desde casa o en el gimnasio.",
+    "short_description": "Un protocolo completo de entrenamiento enfocado en activación, fuerza, volumen y definición de glúteos.",
+    "elevator_pitch": "Protocolo Glúteos Brasileños es un programa de entrenamiento femenino con rutinas progresivas, orientación visual y ejercicios estratégicos para fortalecer, elevar y definir los glúteos.",
+    "primary_cta": "QUIERO EMPEZAR EL PROTOCOLO",
+    "secondary_cta": "QUIERO TRANSFORMAR MIS GLÚTEOS",
+    "checkout_cta": "OBTENER ACCESO INMEDIATO",
+    "microcopy": {
+      "payment": "Pago seguro y acceso inmediato",
+      "guarantee": "Garantía de satisfacción de 7 días",
+      "access": "Acceso digital desde cualquier dispositivo",
+      "beginner_friendly": "Adecuado para principiantes",
+      "location": "Entrena en casa o en el gimnasio"
+    },
+    "claims_policy": {
+      "allowed": [
+        "Ayuda a fortalecer los glúteos",
+        "Diseñado para mejorar activación y técnica",
+        "Rutinas progresivas",
+        "Resultados dependen de la constancia",
+        "Entrenamiento adaptable",
+        "Método enfocado en glúteos"
+      ],
+      "avoid": [
+        "Resultados garantizados",
+        "Transformación en pocos días",
+        "Resultados sin dieta ni esfuerzo",
+        "Aumenta varios centímetros garantizados",
+        "Funciona para todas las personas",
+        "Resultados permanentes"
+      ],
+      "required_disclaimer": "Los resultados pueden variar según la condición física, alimentación, frecuencia de entrenamiento, ejecución de los ejercicios y constancia de cada persona."
+    }
+  },
+  "visual_identity": {
+    "creative_direction": "Brazilian feminine fitness premium",
+    "visual_concept": "La identidad combina fuerza femenina, curvas, energía y sofisticación. Los elementos gráficos utilizan líneas redondeadas, contrastes oscuros y acentos vibrantes inspirados en movimiento, confianza y transformación.",
+    "keywords": [
+      "Fuerza femenina",
+      "Curvas",
+      "Movimiento",
+      "Energía",
+      "Disciplina",
+      "Brasil",
+      "Premium",
+      "Transformación"
+    ],
+    "design_style": [
+      "Premium fitness",
+      "Bold typography",
+      "Editorial photography",
+      "Soft gradients",
+      "Rounded elements",
+      "High contrast",
+      "Subtle glassmorphism"
+    ],
+    "color_mode": "Light with strategic dark sections"
+  },
+  "colors": {
+    "primary": {
+      "name": "Rosa Energía",
+      "hex": "#FF3D7F",
+      "rgb": "255, 61, 127",
+      "hsl": "339, 100%, 62%",
+      "usage": [
+        "Botones principales",
+        "Palabras destacadas",
+        "Íconos importantes",
+        "Etiquetas",
+        "Indicadores de progreso",
+        "Detalles de marca"
+      ]
+    },
+    "primary_dark": {
+      "name": "Rosa Profundo",
+      "hex": "#D92667",
+      "rgb": "217, 38, 103",
+      "hsl": "338, 70%, 50%",
+      "usage": [
+        "Hover de botones",
+        "Bordes activos",
+        "Estados seleccionados",
+        "Contraste sobre fondos claros"
+      ]
+    },
+    "secondary": {
+      "name": "Vino Premium",
+      "hex": "#5B163A",
+      "rgb": "91, 22, 58",
+      "hsl": "329, 61%, 22%",
+      "usage": [
+        "Fondos premium",
+        "Sección de oferta",
+        "Títulos oscuros",
+        "Rodapié",
+        "Cards destacados"
+      ]
+    },
+    "secondary_dark": {
+      "name": "Vino Oscuro",
+      "hex": "#320C22",
+      "rgb": "50, 12, 34",
+      "hsl": "325, 61%, 12%",
+      "usage": [
+        "Fondos oscuros",
+        "Hero alternativo",
+        "Secciones de contraste",
+        "Footer"
+      ]
+    },
+    "accent": {
+      "name": "Verde Brasil",
+      "hex": "#32B768",
+      "rgb": "50, 183, 104",
+      "hsl": "144, 57%, 46%",
+      "usage": [
+        "Checkmarks",
+        "Garantía",
+        "Resultados positivos",
+        "Confirmaciones",
+        "Detalles brasileños discretos"
+      ]
+    },
+    "accent_dark": {
+      "name": "Verde Profundo",
+      "hex": "#21894A",
+      "rgb": "33, 137, 74",
+      "hsl": "144, 61%, 33%",
+      "usage": [
+        "Hover de elementos verdes",
+        "Estados de éxito",
+        "Textos sobre fondos claros"
+      ]
+    },
+    "gold": {
+      "name": "Dorado Premium",
+      "hex": "#D9A441",
+      "rgb": "217, 164, 65",
+      "hsl": "39, 66%, 55%",
+      "usage": [
+        "Sellos premium",
+        "Estrellas de evaluación",
+        "Detalles de autoridad",
+        "Bordes especiales"
+      ]
+    },
+    "background": {
+      "main": "#FFF9F6",
+      "soft": "#FFF0F5",
+      "white": "#FFFFFF",
+      "dark": "#161014",
+      "dark_secondary": "#23151D"
+    },
+    "text": {
+      "primary": "#171116",
+      "secondary": "#5F525A",
+      "muted": "#8C7D86",
+      "inverse": "#FFFFFF",
+      "highlight": "#FF3D7F",
+      "success": "#21894A"
+    },
+    "border": {
+      "light": "#F0E3E9",
+      "medium": "#DFC9D3",
+      "dark": "#432C37",
+      "highlight": "#FF8EBA"
+    },
+    "functional": {
+      "success": "#32B768",
+      "warning": "#E6A23C",
+      "error": "#D83A52",
+      "info": "#4389E6"
+    },
+    "gradients": {
+      "primary": "linear-gradient(135deg, #FF3D7F 0%, #D92667 100%)",
+      "premium": "linear-gradient(135deg, #5B163A 0%, #320C22 100%)",
+      "hero_overlay": "linear-gradient(90deg, rgba(22,16,20,0.94) 0%, rgba(22,16,20,0.70) 50%, rgba(22,16,20,0.10) 100%)",
+      "soft_pink": "linear-gradient(135deg, #FFF9F6 0%, #FFF0F5 100%)",
+      "brazil_accent": "linear-gradient(135deg, #32B768 0%, #D9A441 100%)",
+      "cta_glow": "radial-gradient(circle, rgba(255,61,127,0.28) 0%, rgba(255,61,127,0) 70%)"
+    },
+    "distribution": {
+      "neutral_backgrounds": "50%",
+      "dark_and_wine": "20%",
+      "pink": "20%",
+      "green_and_gold": "10%"
+    }
+  },
+  "typography": {
+    "font_import": [
+      "https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+    ],
+    "heading": {
+      "family": "Montserrat",
+      "fallback": "Arial, sans-serif",
+      "weights": [
+        700,
+        800,
+        900
+      ],
+      "style": "Bold, condensed visual impact",
+      "letter_spacing": "-0.03em",
+      "text_transform": "none"
+    },
+    "body": {
+      "family": "Inter",
+      "fallback": "Arial, sans-serif",
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ],
+      "line_height": 1.6,
+      "letter_spacing": "-0.01em"
+    },
+    "display_sizes": {
+      "hero_desktop": {
+        "font_size": "64px",
+        "line_height": "1.02",
+        "font_weight": 900
+      },
+      "hero_tablet": {
+        "font_size": "48px",
+        "line_height": "1.08",
+        "font_weight": 900
+      },
+      "hero_mobile": {
+        "font_size": "36px",
+        "line_height": "1.08",
+        "font_weight": 900
+      },
+      "section_title_desktop": {
+        "font_size": "44px",
+        "line_height": "1.1",
+        "font_weight": 800
+      },
+      "section_title_mobile": {
+        "font_size": "30px",
+        "line_height": "1.15",
+        "font_weight": 800
+      },
+      "card_title": {
+        "font_size": "22px",
+        "line_height": "1.25",
+        "font_weight": 700
+      },
+      "body_large": {
+        "font_size": "20px",
+        "line_height": "1.6",
+        "font_weight": 400
+      },
+      "body_default": {
+        "font_size": "16px",
+        "line_height": "1.6",
+        "font_weight": 400
+      },
+      "small": {
+        "font_size": "13px",
+        "line_height": "1.5",
+        "font_weight": 500
+      }
+    },
+    "highlight_style": {
+      "color": "#FF3D7F",
+      "font_weight": 900,
+      "optional_underline": true,
+      "underline_style": "Curved hand-drawn underline"
+    }
+  },
+  "logo": {
+    "primary_name": "Protocolo Glúteos Brasileños",
+    "signature": "by Coach Luca",
+    "concept": "Un monograma estilizado formado por las letras PGB y dos líneas curvas abstractas que representan movimiento, fuerza y curvas corporales.",
+    "symbol_options": [
+      "Monograma PGB",
+      "Letra B construida con dos curvas",
+      "Silueta abstracta femenina",
+      "Dos arcos simétricos en movimiento",
+      "Escudo minimalista con curvas internas"
+    ],
+    "preferred_structure": {
+      "line_1": "PROTOCOLO",
+      "line_2": "GLÚTEOS BRASILEÑOS",
+      "line_3": "by Coach Luca"
+    },
+    "primary_logo": {
+      "background": "Transparent",
+      "protocol_color": "#FFFFFF",
+      "brand_name_color": "#FF3D7F",
+      "signature_color": "#FFFFFF"
+    },
+    "dark_logo": {
+      "background": "Transparent",
+      "protocol_color": "#171116",
+      "brand_name_color": "#FF3D7F",
+      "signature_color": "#5F525A"
+    },
+    "monochrome_logo": {
+      "light": "#FFFFFF",
+      "dark": "#171116"
+    },
+    "safe_area": "Mantener un espacio libre equivalente a la altura de la letra P alrededor del logotipo.",
+    "minimum_sizes": {
+      "digital_full_logo": "140px",
+      "digital_symbol": "32px",
+      "print_full_logo": "35mm"
+    },
+    "logo_restrictions": [
+      "No deformar",
+      "No rotar",
+      "No cambiar la proporción",
+      "No añadir sombras fuertes",
+      "No utilizar degradados dentro del nombre",
+      "No colocar sobre fondos con poco contraste",
+      "No utilizar símbolos corporales explícitos"
+    ]
+  },
+  "iconography": {
+    "style": "Rounded outline",
+    "stroke_width": "1.8px",
+    "corner_style": "Rounded",
+    "default_color": "#FF3D7F",
+    "secondary_color": "#32B768",
+    "recommended_library": "Lucide Icons",
+    "icons": {
+      "training": "Dumbbell",
+      "home": "House",
+      "gym": "BicepsFlexed",
+      "calendar": "CalendarDays",
+      "duration": "Clock3",
+      "video": "CirclePlay",
+      "progress": "TrendingUp",
+      "nutrition": "Apple",
+      "support": "MessageCircle",
+      "access": "Smartphone",
+      "guarantee": "ShieldCheck",
+      "check": "CircleCheck",
+      "security": "LockKeyhole",
+      "download": "Download",
+      "community": "Users"
+    }
+  },
+  "imagery": {
+    "photography_style": "Editorial fitness photography with natural skin texture and premium lighting",
+    "subjects": {
+      "gender": "Women",
+      "age_range": "22-45",
+      "body_types": [
+        "Athletic",
+        "Curvy",
+        "Beginner fitness",
+        "Intermediate fitness"
+      ],
+      "representation": "Diversidad latina y europea"
+    },
+    "wardrobe": {
+      "primary": [
+        "Leggings negras",
+        "Leggings vino",
+        "Leggings rosa oscuro",
+        "Tops deportivos neutros",
+        "Conjuntos fitness premium"
+      ],
+      "avoid": [
+        "Ropa excesivamente reveladora",
+        "Transparencias",
+        "Estética de contenido adulto",
+        "Logotipos de marcas competidoras"
+      ]
+    },
+    "locations": [
+      "Gimnasio premium",
+      "Estudio fitness minimalista",
+      "Sala de entrenamiento en casa",
+      "Exterior con luz natural",
+      "Fondo oscuro editorial"
+    ],
+    "exercises": [
+      "Hip thrust",
+      "Sentadilla",
+      "Peso muerto rumano",
+      "Patada de glúteo",
+      "Abducción con banda",
+      "Puente de glúteo",
+      "Zancada búlgara",
+      "Step-up"
+    ],
+    "composition": {
+      "hero": "Modelo posicionada en el lado derecho, espacio negativo en el lado izquierdo para el texto.",
+      "cards": "Plano medio o detalle del movimiento con el rostro parcialmente visible.",
+      "testimonials": "Retratos naturales con luz suave.",
+      "exercise_library": "Cuerpo completo, técnica visible y fondo limpio."
+    },
+    "lighting": [
+      "Natural warm light",
+      "Soft directional studio light",
+      "Pink rim light",
+      "High contrast gym lighting"
+    ],
+    "image_treatment": {
+      "contrast": "Medium-high",
+      "saturation": "Natural with slightly warm skin tones",
+      "grain": "Subtle",
+      "overlay": "Dark wine overlay when text is placed over images",
+      "border_radius": "24px"
+    },
+    "avoid": [
+      "Cuerpos irreales",
+      "Edición exagerada",
+      "Comparaciones engañosas",
+      "Posturas sexualizadas",
+      "Fondos desorganizados",
+      "Imágenes genéricas de banco",
+      "Antes y después con iluminación diferente"
+    ]
+  },
+  "graphic_elements": {
+    "primary_shapes": [
+      "Curved lines",
+      "Soft circles",
+      "Gradient blobs",
+      "Rounded rectangles",
+      "Wave dividers",
+      "Progress arcs"
+    ],
+    "decorative_elements": [
+      "Rosa glow",
+      "Thin green accent line",
+      "Gold star details",
+      "Subtle grain texture",
+      "Abstract body curves"
+    ],
+    "pattern": {
+      "name": "Curvas en Movimiento",
+      "description": "Patrón abstracto compuesto por líneas curvas finas y repetidas.",
+      "opacity": "4%-8%",
+      "recommended_background": "#320C22"
+    },
+    "brazilian_reference": {
+      "approach": "Subtle",
+      "allowed": [
+        "Pequeños acentos verdes",
+        "Combinación verde y dorado",
+        "Palabra Brasileños destacada",
+        "Movimiento visual inspirado en curvas"
+      ],
+      "avoid": [
+        "Bandera brasileña ocupando grandes áreas",
+        "Exceso de verde y amarillo",
+        "Estética de carnaval",
+        "Estereotipos culturales exagerados"
+      ]
+    }
+  },
+  "layout_system": {
+    "max_content_width": "1200px",
+    "wide_content_width": "1360px",
+    "reading_width": "720px",
+    "grid": {
+      "desktop": {
+        "columns": 12,
+        "gutter": "24px",
+        "margin": "32px"
+      },
+      "tablet": {
+        "columns": 8,
+        "gutter": "20px",
+        "margin": "24px"
+      },
+      "mobile": {
+        "columns": 4,
+        "gutter": "16px",
+        "margin": "20px"
+      }
+    },
+    "section_spacing": {
+      "desktop": "112px",
+      "tablet": "88px",
+      "mobile": "64px"
+    },
+    "component_spacing": {
+      "xs": "4px",
+      "sm": "8px",
+      "md": "16px",
+      "lg": "24px",
+      "xl": "32px",
+      "2xl": "48px",
+      "3xl": "64px",
+      "4xl": "96px"
+    },
+    "border_radius": {
+      "small": "8px",
+      "medium": "14px",
+      "large": "20px",
+      "extra_large": "28px",
+      "pill": "999px"
+    },
+    "borders": {
+      "default": "1px solid #F0E3E9",
+      "highlight": "1px solid #FF8EBA",
+      "dark": "1px solid #432C37"
+    },
+    "shadows": {
+      "small": "0 4px 16px rgba(50, 12, 34, 0.06)",
+      "medium": "0 12px 32px rgba(50, 12, 34, 0.10)",
+      "large": "0 24px 64px rgba(50, 12, 34, 0.16)",
+      "pink_glow": "0 12px 36px rgba(255, 61, 127, 0.30)",
+      "button": "0 10px 24px rgba(217, 38, 103, 0.28)"
+    }
+  },
+  "ui_components": {
+    "announcement_bar": {
+      "background": "#320C22",
+      "text_color": "#FFFFFF",
+      "highlight_color": "#FF8EBA",
+      "height": "40px",
+      "text": "🔥 Oferta especial disponible por tiempo limitado",
+      "alignment": "center"
+    },
+    "header": {
+      "style": "Minimal sticky header",
+      "background": "rgba(255, 249, 246, 0.92)",
+      "backdrop_filter": "blur(16px)",
+      "border_bottom": "1px solid rgba(223, 201, 211, 0.60)",
+      "logo_position": "left",
+      "cta_position": "right",
+      "mobile_behavior": "Logo and CTA only"
+    },
+    "buttons": {
+      "primary": {
+        "background": "linear-gradient(135deg, #FF3D7F 0%, #D92667 100%)",
+        "text_color": "#FFFFFF",
+        "font_family": "Montserrat",
+        "font_weight": 800,
+        "font_size": "16px",
+        "text_transform": "uppercase",
+        "letter_spacing": "0.01em",
+        "border": "none",
+        "border_radius": "14px",
+        "padding": "18px 28px",
+        "shadow": "0 10px 24px rgba(217, 38, 103, 0.28)",
+        "hover": {
+          "transform": "translateY(-2px)",
+          "shadow": "0 14px 32px rgba(217, 38, 103, 0.36)",
+          "background": "#D92667"
+        },
+        "active": {
+          "transform": "translateY(0px) scale(0.98)"
+        },
+        "label": "QUIERO EMPEZAR EL PROTOCOLO"
+      },
+      "secondary": {
+        "background": "transparent",
+        "text_color": "#5B163A",
+        "border": "2px solid #5B163A",
+        "border_radius": "14px",
+        "padding": "16px 26px",
+        "hover_background": "#FFF0F5"
+      },
+      "dark": {
+        "background": "#FFFFFF",
+        "text_color": "#320C22",
+        "border": "none",
+        "border_radius": "14px",
+        "padding": "18px 28px"
+      },
+      "mobile": {
+        "width": "100%",
+        "minimum_height": "56px"
+      }
+    },
+    "cards": {
+      "default": {
+        "background": "#FFFFFF",
+        "border": "1px solid #F0E3E9",
+        "border_radius": "20px",
+        "padding": "28px",
+        "shadow": "0 12px 32px rgba(50, 12, 34, 0.08)"
+      },
+      "dark": {
+        "background": "#23151D",
+        "border": "1px solid #432C37",
+        "text_color": "#FFFFFF",
+        "border_radius": "20px",
+        "padding": "28px"
+      },
+      "highlighted": {
+        "background": "linear-gradient(135deg, #5B163A 0%, #320C22 100%)",
+        "border": "2px solid #FF3D7F",
+        "text_color": "#FFFFFF",
+        "border_radius": "24px",
+        "padding": "32px",
+        "shadow": "0 24px 64px rgba(50, 12, 34, 0.22)"
+      }
+    },
+    "badges": {
+      "primary": {
+        "background": "#FFE1EC",
+        "text_color": "#B71F58",
+        "border_radius": "999px",
+        "padding": "8px 14px"
+      },
+      "success": {
+        "background": "#E4F7EB",
+        "text_color": "#21894A",
+        "border_radius": "999px",
+        "padding": "8px 14px"
+      },
+      "premium": {
+        "background": "#FFF4D9",
+        "text_color": "#8C6418",
+        "border_radius": "999px",
+        "padding": "8px 14px"
+      }
+    },
+    "testimonial_card": {
+      "background": "#FFFFFF",
+      "border": "1px solid #F0E3E9",
+      "border_radius": "20px",
+      "avatar_size": "52px",
+      "star_color": "#D9A441",
+      "quote_color": "#171116",
+      "metadata_color": "#8C7D86"
+    },
+    "pricing_card": {
+      "background": "#320C22",
+      "text_color": "#FFFFFF",
+      "border": "2px solid #FF3D7F",
+      "border_radius": "28px",
+      "featured_badge": "MÁS ELEGIDO",
+      "price_color": "#FFFFFF",
+      "cta_background": "#FF3D7F",
+      "check_color": "#32B768"
+    },
+    "faq": {
+      "background": "#FFFFFF",
+      "border": "1px solid #F0E3E9",
+      "border_radius": "16px",
+      "question_color": "#171116",
+      "answer_color": "#5F525A",
+      "active_icon_color": "#FF3D7F"
+    },
+    "form": {
+      "input_background": "#FFFFFF",
+      "input_border": "#DFC9D3",
+      "input_focus_border": "#FF3D7F",
+      "input_text": "#171116",
+      "placeholder": "#8C7D86",
+      "border_radius": "12px",
+      "height": "52px",
+      "label_color": "#5B163A",
+      "error_color": "#D83A52"
+    }
+  },
+  "page_structure": {
+    "sections": [
+      {
+        "id": "announcement",
+        "name": "Barra de oferta",
+        "purpose": "Crear urgencia y destacar la condición especial.",
+        "background": "#320C22"
+      },
+      {
+        "id": "header",
+        "name": "Navegación",
+        "purpose": "Mostrar marca y CTA principal.",
+        "background": "#FFF9F6"
+      },
+      {
+        "id": "hero",
+        "name": "Hero principal",
+        "purpose": "Comunicar la transformación, el mecanismo y la acción principal.",
+        "layout": "Two columns",
+        "background": "#161014",
+        "elements": [
+          "Badge de método",
+          "Headline",
+          "Subheadline",
+          "Lista corta de beneficios",
+          "CTA",
+          "Microcopy de seguridad",
+          "Imagen principal",
+          "Prueba social"
+        ]
+      },
+      {
+        "id": "social_proof",
+        "name": "Prueba social",
+        "purpose": "Reducir desconfianza mediante evaluaciones, número de alumnas y testimonios.",
+        "background": "#FFFFFF"
+      },
+      {
+        "id": "problem",
+        "name": "Identificación del problema",
+        "purpose": "Mostrar por qué los entrenamientos aleatorios no generan progreso consistente.",
+        "background": "#FFF0F5"
+      },
+      {
+        "id": "mechanism",
+        "name": "Mecanismo del protocolo",
+        "purpose": "Explicar activación, progresión, fuerza y recuperación.",
+        "background": "#FFF9F6"
+      },
+      {
+        "id": "protocol_steps",
+        "name": "Etapas del protocolo",
+        "purpose": "Presentar el método en fases comprensibles.",
+        "background": "#320C22"
+      },
+      {
+        "id": "benefits",
+        "name": "Beneficios",
+        "purpose": "Traducir las características del programa en beneficios emocionales y prácticos.",
+        "background": "#FFFFFF"
+      },
+      {
+        "id": "exercise_preview",
+        "name": "Vista previa de entrenamientos",
+        "purpose": "Mostrar la calidad visual y práctica del producto.",
+        "background": "#FFF9F6"
+      },
+      {
+        "id": "for_whom",
+        "name": "Para quién es",
+        "purpose": "Ayudar a la visitante a identificarse con la oferta.",
+        "background": "#FFF0F5"
+      },
+      {
+        "id": "coach",
+        "name": "Presentación de Coach Luca",
+        "purpose": "Construir autoridad, conexión y credibilidad.",
+        "background": "#161014"
+      },
+      {
+        "id": "testimonials",
+        "name": "Historias de alumnas",
+        "purpose": "Demostrar experiencias y superar objeciones.",
+        "background": "#FFFFFF"
+      },
+      {
+        "id": "offer",
+        "name": "Presentación de la oferta",
+        "purpose": "Mostrar entregables, bonos, precio y CTA.",
+        "background": "#FFF9F6"
+      },
+      {
+        "id": "guarantee",
+        "name": "Garantía",
+        "purpose": "Reducir el riesgo percibido.",
+        "background": "#EAF9EF"
+      },
+      {
+        "id": "faq",
+        "name": "Preguntas frecuentes",
+        "purpose": "Eliminar objeciones finales.",
+        "background": "#FFFFFF"
+      },
+      {
+        "id": "final_cta",
+        "name": "CTA final",
+        "purpose": "Reforzar la transformación y solicitar la compra.",
+        "background": "#320C22"
+      },
+      {
+        "id": "footer",
+        "name": "Rodapié",
+        "purpose": "Mostrar enlaces legales, soporte y aviso de resultados.",
+        "background": "#161014"
+      }
+    ]
+  },
+  "hero_section": {
+    "eyebrow": "ENTRENAMIENTO FEMENINO ESPECIALIZADO",
+    "headline": "Desarrolla glúteos más firmes, elevados y definidos",
+    "headline_highlight": "con el Protocolo Glúteos Brasileños",
+    "subheadline": "Sigue un plan progresivo creado para ayudarte a activar correctamente tus glúteos, mejorar tu técnica y entrenar con dirección desde casa o en el gimnasio.",
+    "benefits": [
+      "Rutinas progresivas paso a paso",
+      "Entrenamientos para casa o gimnasio",
+      "Vídeos explicativos de cada ejercicio",
+      "Adecuado para principiantes"
+    ],
+    "primary_cta": "QUIERO EMPEZAR EL PROTOCOLO",
+    "cta_microcopy": "Acceso inmediato • Pago seguro • Garantía de 7 días",
+    "social_proof": {
+      "rating": "4.9/5",
+      "stars": 5,
+      "label": "Alumnas satisfechas"
+    },
+    "visual": {
+      "image_position": "right",
+      "text_position": "left",
+      "mobile_order": [
+        "Eyebrow",
+        "Headline",
+        "Image",
+        "Subheadline",
+        "Benefits",
+        "CTA",
+        "Microcopy"
+      ]
+    }
+  },
+  "protocol_framework": {
+    "name": "Método A.E.D.",
+    "meaning": {
+      "A": "Activación",
+      "E": "Elevación",
+      "D": "Definición"
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "name": "Activación",
+        "description": "Aprende a ejecutar los movimientos y sentir correctamente el trabajo de los glúteos.",
+        "icon": "Zap"
+      },
+      {
+        "phase": 2,
+        "name": "Construcción",
+        "description": "Desarrolla fuerza con ejercicios estratégicos y progresión de intensidad.",
+        "icon": "Dumbbell"
+      },
+      {
+        "phase": 3,
+        "name": "Elevación",
+        "description": "Trabaja diferentes regiones de los glúteos para conseguir una apariencia más elevada.",
+        "icon": "TrendingUp"
+      },
+      {
+        "phase": 4,
+        "name": "Definición",
+        "description": "Combina control, volumen y constancia para mejorar la forma y definición muscular.",
+        "icon": "Sparkles"
+      }
+    ]
+  },
+  "product_contents": {
+    "core_modules": [
+      {
+        "name": "Evaluación inicial",
+        "description": "Orientación para identificar el nivel y comenzar con una rutina adecuada."
+      },
+      {
+        "name": "Calendario de entrenamiento",
+        "description": "Plan organizado para saber exactamente qué entrenamiento realizar cada día."
+      },
+      {
+        "name": "Rutinas de activación",
+        "description": "Secuencias para preparar y activar los glúteos antes del entrenamiento."
+      },
+      {
+        "name": "Entrenamientos progresivos",
+        "description": "Rutinas estructuradas por nivel, intensidad y objetivo."
+      },
+      {
+        "name": "Biblioteca de ejercicios",
+        "description": "Vídeos con explicación de ejecución, postura y errores frecuentes."
+      },
+      {
+        "name": "Guía de progresión",
+        "description": "Orientación para aumentar repeticiones, resistencia o carga."
+      }
+    ],
+    "bonus_examples": [
+      {
+        "name": "Guía de alimentación para apoyar tus entrenamientos",
+        "value_label": "BONO 1"
+      },
+      {
+        "name": "Rutina rápida de 15 minutos",
+        "value_label": "BONO 2"
+      },
+      {
+        "name": "Calendario imprimible de progreso",
+        "value_label": "BONO 3"
+      },
+      {
+        "name": "Guía de movilidad para cadera y piernas",
+        "value_label": "BONO 4"
+      }
+    ]
+  },
+  "tone_of_voice": {
+    "language": "Spanish",
+    "dialect": "Neutral Spanish",
+    "characteristics": [
+      "Motivador",
+      "Directo",
+      "Femenino",
+      "Seguro",
+      "Cercano",
+      "Profesional",
+      "Sin exageraciones"
+    ],
+    "person": "Second person singular",
+    "preferred_pronoun": "Tú",
+    "sentence_style": "Short and energetic",
+    "vocabulary": [
+      "Activa",
+      "Fortalece",
+      "Eleva",
+      "Define",
+      "Progresa",
+      "Entrena",
+      "Construye",
+      "Transforma",
+      "Curvas",
+      "Fuerza",
+      "Confianza"
+    ],
+    "avoid_vocabulary": [
+      "Cuerpo perfecto",
+      "Resultado garantizado",
+      "Milagro",
+      "Sin esfuerzo",
+      "Cambia tu cuerpo de inmediato",
+      "Elimina todos tus defectos",
+      "Bumbum",
+      "Cuerpo irresistible"
+    ],
+    "copy_examples": {
+      "motivational": "No necesitas entrenar más. Necesitas entrenar con una estrategia clara.",
+      "authority": "Cada fase del protocolo tiene un objetivo específico dentro de tu evolución.",
+      "emotional": "Construye fuerza, mejora tus curvas y recupera la confianza en tu cuerpo.",
+      "objection": "Puedes comenzar desde casa, incluso si tienes poca experiencia.",
+      "cta": "Empieza hoy tu Protocolo Glúteos Brasileños."
+    }
+  },
+  "motion_design": {
+    "general_style": "Subtle and energetic",
+    "duration": {
+      "fast": "150ms",
+      "normal": "300ms",
+      "slow": "600ms"
+    },
+    "easing": {
+      "default": "cubic-bezier(0.22, 1, 0.36, 1)",
+      "entrance": "cubic-bezier(0.16, 1, 0.3, 1)"
+    },
+    "allowed_animations": [
+      "Fade up",
+      "Soft scale",
+      "Progress line",
+      "Button pulse",
+      "Image parallax",
+      "Number count-up",
+      "Card hover elevation"
+    ],
+    "button_pulse": {
+      "enabled": true,
+      "interval": "5s",
+      "scale": 1.03,
+      "intensity": "subtle"
+    },
+    "reduce_motion_support": true
+  },
+  "responsive_design": {
+    "breakpoints": {
+      "mobile": "0-639px",
+      "tablet": "640-1023px",
+      "desktop": "1024-1439px",
+      "wide": "1440px+"
+    },
+    "mobile_rules": [
+      "Utilizar una sola columna",
+      "Botones con ancho completo",
+      "Texto alineado al centro en hero y CTA final",
+      "Mantener textos de párrafo alineados a la izquierda",
+      "Evitar títulos con más de cuatro líneas",
+      "Usar imágenes en proporción 4:5",
+      "Aplicar padding lateral mínimo de 20px",
+      "Mantener CTAs con altura mínima de 56px",
+      "Ocultar navegación secundaria",
+      "Usar accordion para FAQ"
+    ],
+    "desktop_rules": [
+      "Hero en dos columnas",
+      "Cards de beneficios en tres o cuatro columnas",
+      "Contenido limitado a 1200px",
+      "Alternar secciones de imagen y texto",
+      "Utilizar áreas amplias de respiro"
+    ]
+  },
+  "accessibility": {
+    "minimum_contrast_ratio": "4.5:1",
+    "button_minimum_height": "44px",
+    "button_minimum_width": "44px",
+    "body_minimum_font_size": "16px",
+    "focus_ring": "0 0 0 3px rgba(255, 61, 127, 0.35)",
+    "requirements": [
+      "Añadir alt text descriptivo en todas las imágenes",
+      "No transmitir información solamente por color",
+      "Mantener orden lógico de headings",
+      "Permitir navegación por teclado",
+      "Añadir labels visibles en formularios",
+      "Respetar prefers-reduced-motion",
+      "Utilizar botones reales para acciones"
+    ]
+  },
+  "seo": {
+    "title": "Protocolo Glúteos Brasileños | Entrenamiento para Glúteos",
+    "meta_description": "Descubre un protocolo progresivo de entrenamiento para fortalecer, elevar y definir tus glúteos desde casa o en el gimnasio.",
+    "keywords": [
+      "entrenamiento de glúteos",
+      "glúteos brasileños",
+      "rutina para glúteos",
+      "ejercicios para glúteos",
+      "entrenamiento femenino",
+      "glúteos en casa",
+      "protocolo de glúteos"
+    ],
+    "og_title": "Protocolo Glúteos Brasileños",
+    "og_description": "Activa, fortalece y define tus glúteos con un protocolo progresivo.",
+    "og_image_ratio": "1.91:1",
+    "twitter_card": "summary_large_image"
+  },
+  "conversion_rules": {
+    "cta_frequency": "Mostrar un CTA principal después de cada dos o tres secciones.",
+    "sticky_mobile_cta": {
+      "enabled": true,
+      "label": "EMPEZAR EL PROTOCOLO",
+      "background": "#FF3D7F",
+      "text_color": "#FFFFFF"
+    },
+    "trust_elements": [
+      "Garantía",
+      "Pago seguro",
+      "Acceso inmediato",
+      "Testimonios",
+      "Presentación del entrenador",
+      "Vista previa del producto",
+      "Preguntas frecuentes"
+    ],
+    "urgency_policy": {
+      "allowed": [
+        "Fecha real de cierre",
+        "Precio promocional real",
+        "Bonos disponibles durante una campaña",
+        "Plazas limitadas cuando exista límite real"
+      ],
+      "avoid": [
+        "Contadores que reinician",
+        "Falsa escasez",
+        "Notificaciones falsas de compra",
+        "Plazas limitadas inexistentes"
+      ]
+    }
+  },
+  "design_tokens": {
+    "color_primary": "#FF3D7F",
+    "color_primary_hover": "#D92667",
+    "color_secondary": "#5B163A",
+    "color_secondary_dark": "#320C22",
+    "color_accent": "#32B768",
+    "color_gold": "#D9A441",
+    "color_background": "#FFF9F6",
+    "color_background_soft": "#FFF0F5",
+    "color_surface": "#FFFFFF",
+    "color_dark": "#161014",
+    "color_text": "#171116",
+    "color_text_secondary": "#5F525A",
+    "color_text_muted": "#8C7D86",
+    "color_border": "#F0E3E9",
+    "font_heading": "Montserrat, Arial, sans-serif",
+    "font_body": "Inter, Arial, sans-serif",
+    "radius_sm": "8px",
+    "radius_md": "14px",
+    "radius_lg": "20px",
+    "radius_xl": "28px",
+    "radius_full": "999px",
+    "shadow_sm": "0 4px 16px rgba(50, 12, 34, 0.06)",
+    "shadow_md": "0 12px 32px rgba(50, 12, 34, 0.10)",
+    "shadow_lg": "0 24px 64px rgba(50, 12, 34, 0.16)",
+    "container_max": "1200px",
+    "section_spacing_desktop": "112px",
+    "section_spacing_mobile": "64px",
+    "transition_default": "300ms cubic-bezier(0.22, 1, 0.36, 1)"
+  },
+  "css_variables": {
+    "--brand-primary": "#FF3D7F",
+    "--brand-primary-dark": "#D92667",
+    "--brand-secondary": "#5B163A",
+    "--brand-secondary-dark": "#320C22",
+    "--brand-accent": "#32B768",
+    "--brand-gold": "#D9A441",
+    "--background-main": "#FFF9F6",
+    "--background-soft": "#FFF0F5",
+    "--background-dark": "#161014",
+    "--surface": "#FFFFFF",
+    "--text-primary": "#171116",
+    "--text-secondary": "#5F525A",
+    "--text-muted": "#8C7D86",
+    "--text-inverse": "#FFFFFF",
+    "--border-light": "#F0E3E9",
+    "--font-heading": "Montserrat, Arial, sans-serif",
+    "--font-body": "Inter, Arial, sans-serif",
+    "--radius-button": "14px",
+    "--radius-card": "20px",
+    "--radius-section": "28px",
+    "--shadow-button": "0 10px 24px rgba(217, 38, 103, 0.28)",
+    "--shadow-card": "0 12px 32px rgba(50, 12, 34, 0.10)"
+  },
+  "creative_guidelines": {
+    "static_ad_ratios": [
+      "1:1",
+      "4:5",
+      "9:16"
+    ],
+    "video_ad_ratios": [
+      "9:16",
+      "1:1",
+      "4:5"
+    ],
+    "headline_style": {
+      "maximum_words": 10,
+      "font": "Montserrat ExtraBold",
+      "contrast": "High",
+      "recommended_colors": [
+        "#FFFFFF",
+        "#FF3D7F",
+        "#171116"
+      ]
+    },
+    "creative_angles": [
+      "Activación correcta de los glúteos",
+      "Entrenamientos aleatorios versus protocolo",
+      "Entrenamiento en casa",
+      "Rutinas cortas",
+      "Errores frecuentes",
+      "Progresión para principiantes",
+      "Fuerza y confianza",
+      "Curvas brasileñas"
+    ],
+    "visual_hooks": [
+      "Ejercicio de hip thrust",
+      "Comparación de ejecución incorrecta y correcta",
+      "Calendario de entrenamiento",
+      "Vista del área de miembros",
+      "Rutina con banda elástica",
+      "Coach corrigiendo la postura",
+      "Secuencia rápida de ejercicios"
+    ]
+  },
+  "do_and_dont": {
+    "do": [
+      "Destacar la estructura del protocolo",
+      "Usar imágenes femeninas profesionales",
+      "Combinar rosa, vino y fondos neutros",
+      "Utilizar verde solamente como acento",
+      "Presentar Coach Luca como especialista",
+      "Mostrar ejercicios y área de miembros",
+      "Mantener la comunicación motivadora",
+      "Utilizar testimonios creíbles y específicos"
+    ],
+    "dont": [
+      "Sexualizar excesivamente la comunicación",
+      "Utilizar verde y amarillo como colores dominantes",
+      "Prometer resultados garantizados",
+      "Llenar la página de efectos visuales",
+      "Utilizar más de dos familias tipográficas",
+      "Usar textos largos en botones",
+      "Crear falsa urgencia",
+      "Usar fotografías con edición corporal evidente"
+    ]
+  }
+}

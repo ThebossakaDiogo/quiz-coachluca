@@ -7,10 +7,10 @@ export default function AnalyzingStep({ onComplete }) {
   const [activeCheckIndex, setActiveCheckIndex] = useState(0);
 
   const checks = [
-    { label: "Analizando mapa neuromuscular y perfil de edad...", detail: "Fibras musculares rápidas de alta respuesta identificadas" },
-    { label: "Evaluando consistencia y nivel de compromiso (100%)...", detail: "Nivel de disciplina cualificado con grado ELITE" },
-    { label: "Calculando índice de respuesta glútea profunda (96%)...", detail: "Potencial de crecimiento estimado: +5.2 cm en 28 Días" },
-    { label: "¡ANÁLISIS CONCLUIDO! Generando tu Diagnóstico Exclusivo ✨...", detail: "Perfil 96% compatible liberado para tu plan en casa" },
+    { label: "Analizando mapa neuromuscular y perfil de edad...", detail: "Fibras musculares de alta respuesta identificadas" },
+    { label: "Evaluando nivel de compromiso y respuesta (100%)...", detail: "Nivel de disciplina cualificado para el Protocolo PGB" },
+    { label: "Calculando índice de respuesta glútea profunda (96%)...", detail: "Potencial de transformación de alta firmeza estimado" },
+    { label: "¡ANÁLISIS CONCLUIDO! Generando tu Diagnóstico Exclusivo ✨...", detail: "Perfil 96% compatible liberado para el protocolo" },
   ];
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export default function AnalyzingStep({ onComplete }) {
   const strokeDashoffset = circumference - (progress / 100) * circumference;
 
   return (
-    <div className="relative min-h-dvh overflow-hidden bg-[#59D6CF] py-8 px-4 flex flex-col justify-center items-center font-sans antialiased text-slate-900">
+    <div className="relative min-h-dvh overflow-hidden bg-[#FFF9F6] py-8 px-4 flex flex-col justify-center items-center font-body text-[#171116]">
       
       <div className="relative z-10 w-full max-w-md mx-auto space-y-5">
         
@@ -48,7 +48,7 @@ export default function AnalyzingStep({ onComplete }) {
         <HeaderLogo />
 
         {/* Card Container */}
-        <div className="bg-white rounded-[32px] p-6 sm:p-8 shadow-2xl border border-teal-100 text-center space-y-6 quiz-card overflow-hidden">
+        <div className="bg-white rounded-[24px] p-6 sm:p-8 shadow-xl border border-[#F0E3E9] text-center space-y-6 quiz-card overflow-hidden">
           
           {/* CIRCULAR GAUGE METER */}
           <div className="relative w-40 h-40 mx-auto flex items-center justify-center">
@@ -59,7 +59,7 @@ export default function AnalyzingStep({ onComplete }) {
                 cx="80"
                 cy="80"
                 r={radius}
-                className="stroke-slate-100"
+                className="stroke-[#F0E3E9]"
                 strokeWidth="9"
                 fill="transparent"
               />
@@ -68,7 +68,7 @@ export default function AnalyzingStep({ onComplete }) {
                 cx="80"
                 cy="80"
                 r={radius}
-                className="stroke-[#0D9488] transition-all duration-300 ease-out"
+                className="stroke-[#FF3D7F] transition-all duration-300 ease-out"
                 strokeWidth="9"
                 strokeDasharray={circumference}
                 strokeDashoffset={strokeDashoffset}
@@ -78,48 +78,48 @@ export default function AnalyzingStep({ onComplete }) {
             </svg>
 
             {/* Glowing Inner Core with Counter & Icon */}
-            <div className="absolute inset-4 rounded-full bg-gradient-to-b from-amber-50 to-emerald-50 flex flex-col items-center justify-center border-2 border-amber-300 shadow-inner">
-              <Zap className="w-6 h-6 text-[#EA580C] fill-[#EA580C] animate-pulse" />
-              <span className="text-3xl font-black text-slate-950 font-mono tracking-tight leading-none mt-0.5">
+            <div className="absolute inset-4 rounded-full bg-gradient-to-b from-[#FFF0F5] to-[#FFE1EC] flex flex-col items-center justify-center border-2 border-[#FF8EBA]/40 shadow-inner">
+              <Zap className="w-6 h-6 text-[#FF3D7F] fill-[#FF3D7F] animate-pulse" />
+              <span className="text-3xl font-black text-[#171116] font-heading tracking-tight leading-none mt-0.5">
                 {progress}%
               </span>
-              <span className="text-[9px] font-black uppercase text-emerald-800 tracking-wider">Algoritmo IA</span>
+              <span className="text-[9px] font-bold uppercase text-[#5B163A] tracking-wider font-heading">Protocolo IA</span>
             </div>
 
-            <Sparkles className="absolute -top-1 -right-1 w-6 h-6 text-amber-500 fill-amber-500 animate-bounce" />
+            <Sparkles className="absolute -top-1 -right-1 w-6 h-6 text-[#D9A441] fill-[#D9A441] animate-bounce" />
           </div>
 
-          <div className="space-y-2">
-            <span className="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 text-emerald-900 text-[11px] font-black uppercase tracking-wider px-4 py-1.5 rounded-full shadow-sm">
-              <Activity className="w-3.5 h-3.5 text-emerald-600 animate-pulse" />
-              Diagnóstico Biomecánico IA en Progreso
+          <div className="space-y-2 font-heading">
+            <span className="inline-flex items-center gap-1.5 bg-[#E4F7EB] border border-[#32B768]/40 text-[#21894A] text-[11px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-sm">
+              <Activity className="w-3.5 h-3.5 text-[#32B768] animate-pulse" />
+              Diagnóstico Biomecánico en Progreso
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-950 leading-tight">
+            <h2 className="text-xl sm:text-2xl font-black text-[#171116] leading-tight">
               Sincronizando Perfil Muscular...
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 max-w-xs mx-auto font-semibold leading-relaxed">
-              El algoritmo inteligente del Coach Luca está calibrando tu plan personalizado en casa.
+            <p className="text-xs sm:text-sm text-[#5F525A] max-w-xs mx-auto font-medium leading-relaxed font-body">
+              El algoritmo del Protocolo Glúteos Brasileños está calibrando tu diagnóstico personalizado.
             </p>
           </div>
 
           {/* TELEMETRY CHECKLIST */}
-          <div className="bg-slate-50 rounded-2xl p-4 sm:p-5 border border-slate-200 text-left max-w-sm mx-auto space-y-3.5 shadow-sm">
+          <div className="bg-[#FFF9F6] rounded-xl p-4 sm:p-5 border border-[#F0E3E9] text-left max-w-sm mx-auto space-y-3.5 shadow-sm">
             {checks.map((item, idx) => {
               const isDone = idx <= activeCheckIndex;
               return (
                 <div key={item.label} className="space-y-1">
                   <div className="flex items-center gap-3">
                     {isDone ? (
-                      <CheckCircle2 className="w-4.5 h-4.5 text-emerald-600 shrink-0" />
+                      <CheckCircle2 className="w-4.5 h-4.5 text-[#32B768] shrink-0" />
                     ) : (
-                      <Loader2 className="w-4.5 h-4.5 text-amber-500 animate-spin shrink-0" />
+                      <Loader2 className="w-4.5 h-4.5 text-[#FF3D7F] animate-spin shrink-0" />
                     )}
-                    <span className={`text-xs font-black ${isDone ? 'text-slate-950' : 'text-slate-400'}`}>
+                    <span className={`text-xs font-bold ${isDone ? 'text-[#171116]' : 'text-[#8C7D86]'}`}>
                       {item.label}
                     </span>
                   </div>
                   {isDone && (
-                    <p className="text-[11px] text-emerald-700 font-extrabold pl-7 leading-tight">
+                    <p className="text-[11px] text-[#21894A] font-extrabold pl-7 leading-tight">
                       ↳ {item.detail}
                     </p>
                   )}
@@ -128,8 +128,8 @@ export default function AnalyzingStep({ onComplete }) {
             })}
           </div>
 
-          <div className="pt-1 text-center flex items-center justify-center gap-1.5 text-xs font-bold text-slate-500">
-            <ShieldCheck className="w-4 h-4 text-emerald-600" />
+          <div className="pt-1 text-center flex items-center justify-center gap-1.5 text-xs font-medium text-[#8C7D86]">
+            <ShieldCheck className="w-4 h-4 text-[#32B768]" />
             <span>Procesamiento seguro de datos biomecánicos</span>
           </div>
 

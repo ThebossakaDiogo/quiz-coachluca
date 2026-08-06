@@ -16,8 +16,8 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
     if (val < 18.5) {
       return { 
         label: "IMC Bajo • Alta Respuesta a Volumen Glúteo", 
-        color: "text-amber-700", 
-        bg: "bg-amber-50 border-amber-300", 
+        color: "text-[#D9A441]", 
+        bg: "bg-[#FFF4D9] border-[#D9A441]/40", 
         meterPercent: 25,
         badge: "⚡ Máxima Capacidad de Aumento"
       };
@@ -25,8 +25,8 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
     if (val <= 24.9) {
       return { 
         label: "IMC Saludable • Metabolismo Glúteo Óptimo", 
-        color: "text-[#0D9488]", 
-        bg: "bg-[#0D9488]/10 border-[#0D9488]/30", 
+        color: "text-[#32B768]", 
+        bg: "bg-[#E4F7EB] border-[#32B768]/40", 
         meterPercent: 55,
         badge: "🏆 Relación Estructura-Músculo Ideal"
       };
@@ -34,16 +34,16 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
     if (val <= 29.9) {
       return { 
         label: "IMC Curva Fuerte • Potencial Anti-Flacidez Máximo", 
-        color: "text-[#E11D48]", 
-        bg: "bg-[#E11D48]/10 border-[#E11D48]/30", 
+        color: "text-[#FF3D7F]", 
+        bg: "bg-[#FFE1EC] border-[#FF8EBA]/40", 
         meterPercent: 80,
         badge: "🔥 Quema de Grasa & Elevación Simultánea"
       };
     }
     return { 
       label: "IMC Reestructuración • Estímulo Neuromuscular Profundo", 
-      color: "text-purple-700", 
-      bg: "bg-purple-50 border-purple-300", 
+      color: "text-[#5B163A]", 
+      bg: "bg-[#FFF0F5] border-[#DFC9D3]", 
       meterPercent: 95,
       badge: "🚀 Reducción de Impacto Articular"
     };
@@ -65,7 +65,7 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
   };
 
   return (
-    <div className="relative min-h-dvh overflow-hidden bg-[#59D6CF] py-6 px-3 sm:px-4 flex flex-col justify-center items-center font-sans antialiased text-slate-900">
+    <div className="relative min-h-dvh overflow-hidden bg-[#FFF9F6] py-6 px-3 sm:px-4 flex flex-col justify-center items-center font-body text-[#171116]">
       
       <div className="relative z-10 w-full max-w-lg mx-auto space-y-4">
         
@@ -73,33 +73,33 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
         <HeaderLogo />
 
         {/* Main Card Container */}
-        <div className="bg-white rounded-[32px] p-6 sm:p-8 shadow-2xl border border-teal-100 animate-pop space-y-6 text-center quiz-card">
+        <div className="bg-white rounded-[24px] p-5 sm:p-7 shadow-xl border border-[#F0E3E9] animate-pop space-y-5 text-center quiz-card">
           
           {/* Progress Header */}
-          <div className="space-y-3">
-            <div className="flex items-center justify-between text-xs">
+          <div className="space-y-2.5">
+            <div className="flex items-center justify-between text-xs font-heading">
               <div className="flex items-center gap-2">
                 {onPrevStep && (
                   <button
                     type="button"
                     onClick={onPrevStep}
-                    className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all active:scale-95 shadow-sm shrink-0 cursor-pointer"
+                    className="w-8 h-8 rounded-full bg-[#FFF0F5] hover:bg-[#FFE1EC] text-[#5B163A] flex items-center justify-center transition-all active:scale-95 shadow-sm shrink-0 cursor-pointer border border-[#DFC9D3]"
                     title="Volver a la pregunta anterior"
                   >
                     <ArrowLeft className="w-4 h-4 stroke-[2.5]" />
                   </button>
                 )}
-                <span className="inline-flex items-center gap-1.5 bg-teal-50 text-teal-800 font-bold text-xs px-3.5 py-1 rounded-full border border-teal-200">
-                  <Sparkles className="w-3.5 h-3.5 text-[#0D9488]" />
+                <span className="inline-flex items-center gap-1.5 bg-[#FFE1EC] text-[#B71F58] font-bold text-xs px-3.5 py-1 rounded-full border border-[#FF8EBA]/40">
+                  <Sparkles className="w-3.5 h-3.5 text-[#FF3D7F]" />
                   Paso {currentStep} de {totalSteps}
                 </span>
               </div>
-              <span className="font-mono font-black text-[#0D9488] text-xs">{percentage}%</span>
+              <span className="font-extrabold text-[#FF3D7F] text-xs">{percentage}%</span>
             </div>
 
-            <div className="h-2.5 w-full bg-slate-100 rounded-full overflow-hidden p-0.5">
+            <div className="h-2.5 w-full bg-[#F0E3E9] rounded-full overflow-hidden p-0.5">
               <div 
-                className="h-full bg-[#0D9488] transition-all duration-300 rounded-full"
+                className="h-full bg-gradient-to-r from-[#FF3D7F] to-[#D92667] transition-all duration-300 rounded-full"
                 style={{ width: `${percentage}%` }}
               />
             </div>
@@ -107,30 +107,30 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
 
           {/* QUESTION TITLE & GAMIFIED EYEBROW */}
           <div className="space-y-2">
-            <span className="inline-flex items-center gap-1.5 text-[11px] font-black uppercase tracking-wider text-[#E11D48] bg-rose-50 px-3.5 py-1 rounded-full border border-rose-200 shadow-xs">
-              <Zap className="w-3.5 h-3.5 text-[#E11D48] fill-[#E11D48]" />
+            <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#B71F58] bg-[#FFE1EC] px-3.5 py-1 rounded-full border border-[#FF8EBA]/40 font-heading">
+              <Zap className="w-3.5 h-3.5 text-[#FF3D7F] fill-[#FF3D7F]" />
               Calibración Biomecánica Interactiva
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight leading-tight">
+            <h2 className="text-xl sm:text-2xl font-black text-[#171116] tracking-tight leading-tight font-heading">
               Ingresa tu Estatura y Peso 📏
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-semibold max-w-sm mx-auto">
+            <p className="text-xs sm:text-sm text-[#5F525A] leading-relaxed font-medium max-w-sm mx-auto">
               Ajusta los medidores interactivos para calcular tu IMC y fuerza neuromuscular.
             </p>
           </div>
 
           {/* GAMIFIED CONTROLS GRID */}
-          <form onSubmit={handleSubmit} className="space-y-5 text-left pt-1">
+          <form onSubmit={handleSubmit} className="space-y-4 text-left pt-1">
             
             {/* GAMIFIED HEIGHT CONTROL */}
-            <div className="bg-slate-50 rounded-2xl p-4 sm:p-5 border border-slate-200 space-y-3 shadow-xs">
+            <div className="bg-[#FFF9F6] rounded-[16px] p-4 border border-[#F0E3E9] space-y-2.5">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-black text-slate-800 uppercase tracking-wider flex items-center gap-2">
-                  <Ruler className="w-4 h-4 text-[#0D9488]" />
+                <span className="text-xs font-extrabold text-[#5B163A] uppercase tracking-wider flex items-center gap-2 font-heading">
+                  <Ruler className="w-4 h-4 text-[#FF3D7F]" />
                   Estatura
                 </span>
-                <span className="text-2xl font-black text-slate-950 font-mono tracking-tight bg-white px-3 py-0.5 rounded-xl border border-slate-200 shadow-inner">
-                  {height} <span className="text-xs font-bold text-slate-400">cm</span>
+                <span className="text-xl font-black text-[#171116] font-heading tracking-tight bg-white px-3 py-0.5 rounded-xl border border-[#DFC9D3]">
+                  {height} <span className="text-xs font-bold text-[#8C7D86]">cm</span>
                 </span>
               </div>
 
@@ -139,9 +139,9 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
                 <button
                   type="button"
                   onClick={() => handleHeightStep(-1)}
-                  className="w-11 h-11 rounded-2xl bg-white border-2 border-slate-200 hover:border-[#0D9488] active:scale-95 text-slate-700 font-black text-xl flex items-center justify-center transition-all shadow-sm shrink-0 cursor-pointer"
+                  className="w-10 h-10 rounded-xl bg-white border-2 border-[#DFC9D3] hover:border-[#FF3D7F] active:scale-95 text-[#5B163A] font-black text-xl flex items-center justify-center transition-all shadow-sm shrink-0 cursor-pointer"
                 >
-                  <Minus className="w-5 h-5" />
+                  <Minus className="w-4 h-4" />
                 </button>
 
                 <div className="flex-1 space-y-1">
@@ -151,9 +151,9 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
                     max="200"
                     value={height}
                     onChange={(e) => setHeight(Number(e.target.value))}
-                    className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#0D9488]"
+                    className="w-full h-2.5 bg-[#DFC9D3] rounded-lg appearance-none cursor-pointer accent-[#FF3D7F]"
                   />
-                  <div className="flex justify-between text-[10px] font-bold text-slate-400 px-1 font-mono">
+                  <div className="flex justify-between text-[10px] font-bold text-[#8C7D86] px-1 font-heading">
                     <span>140 cm</span>
                     <span>170 cm</span>
                     <span>200 cm</span>
@@ -163,9 +163,9 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
                 <button
                   type="button"
                   onClick={() => handleHeightStep(1)}
-                  className="w-11 h-11 rounded-2xl bg-[#0D9488] text-white hover:bg-[#0F766E] active:scale-95 font-black text-xl flex items-center justify-center transition-all shadow-md shrink-0 cursor-pointer"
+                  className="w-10 h-10 rounded-xl bg-[#FF3D7F] text-white hover:bg-[#D92667] active:scale-95 font-black text-xl flex items-center justify-center transition-all shadow-md shrink-0 cursor-pointer"
                 >
-                  <Plus className="w-5 h-5" />
+                  <Plus className="w-4 h-4" />
                 </button>
               </div>
 
@@ -176,10 +176,10 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
                     key={val}
                     type="button"
                     onClick={() => setHeight(val)}
-                    className={`flex-1 py-1.5 text-xs font-extrabold rounded-xl border transition-all cursor-pointer ${
+                    className={`flex-1 py-1 text-xs font-bold rounded-xl border transition-all cursor-pointer font-heading ${
                       height === val
-                        ? 'bg-[#0D9488] text-white border-[#0D9488] shadow-sm'
-                        : 'bg-white text-slate-700 border-slate-200 hover:border-[#0D9488]/40'
+                        ? 'bg-[#FF3D7F] text-white border-[#FF3D7F] shadow-sm'
+                        : 'bg-white text-[#5F525A] border-[#F0E3E9] hover:border-[#FF3D7F]/40'
                     }`}
                   >
                     {val}
@@ -189,14 +189,14 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
             </div>
 
             {/* GAMIFIED WEIGHT CONTROL */}
-            <div className="bg-slate-50 rounded-2xl p-4 sm:p-5 border border-slate-200 space-y-3 shadow-xs">
+            <div className="bg-[#FFF9F6] rounded-[16px] p-4 border border-[#F0E3E9] space-y-2.5">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-black text-slate-800 uppercase tracking-wider flex items-center gap-2">
-                  <Weight className="w-4 h-4 text-[#E11D48]" />
+                <span className="text-xs font-extrabold text-[#5B163A] uppercase tracking-wider flex items-center gap-2 font-heading">
+                  <Weight className="w-4 h-4 text-[#FF3D7F]" />
                   Peso Actual
                 </span>
-                <span className="text-2xl font-black text-slate-950 font-mono tracking-tight bg-white px-3 py-0.5 rounded-xl border border-slate-200 shadow-inner">
-                  {weight} <span className="text-xs font-bold text-slate-400">kg</span>
+                <span className="text-xl font-black text-[#171116] font-heading tracking-tight bg-white px-3 py-0.5 rounded-xl border border-[#DFC9D3]">
+                  {weight} <span className="text-xs font-bold text-[#8C7D86]">kg</span>
                 </span>
               </div>
 
@@ -205,9 +205,9 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
                 <button
                   type="button"
                   onClick={() => handleWeightStep(-1)}
-                  className="w-11 h-11 rounded-2xl bg-white border-2 border-slate-200 hover:border-[#E11D48] active:scale-95 text-slate-700 font-black text-xl flex items-center justify-center transition-all shadow-sm shrink-0 cursor-pointer"
+                  className="w-10 h-10 rounded-xl bg-white border-2 border-[#DFC9D3] hover:border-[#FF3D7F] active:scale-95 text-[#5B163A] font-black text-xl flex items-center justify-center transition-all shadow-sm shrink-0 cursor-pointer"
                 >
-                  <Minus className="w-5 h-5" />
+                  <Minus className="w-4 h-4" />
                 </button>
 
                 <div className="flex-1 space-y-1">
@@ -217,9 +217,9 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
                     max="120"
                     value={weight}
                     onChange={(e) => setWeight(Number(e.target.value))}
-                    className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#E11D48]"
+                    className="w-full h-2.5 bg-[#DFC9D3] rounded-lg appearance-none cursor-pointer accent-[#FF3D7F]"
                   />
-                  <div className="flex justify-between text-[10px] font-bold text-slate-400 px-1 font-mono">
+                  <div className="flex justify-between text-[10px] font-bold text-[#8C7D86] px-1 font-heading">
                     <span>40 kg</span>
                     <span>75 kg</span>
                     <span>120 kg</span>
@@ -229,9 +229,9 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
                 <button
                   type="button"
                   onClick={() => handleWeightStep(1)}
-                  className="w-11 h-11 rounded-2xl bg-[#E11D48] text-white hover:bg-[#BE123C] active:scale-95 font-black text-xl flex items-center justify-center transition-all shadow-md shrink-0 cursor-pointer"
+                  className="w-10 h-10 rounded-xl bg-[#FF3D7F] text-white hover:bg-[#D92667] active:scale-95 font-black text-xl flex items-center justify-center transition-all shadow-md shrink-0 cursor-pointer"
                 >
-                  <Plus className="w-5 h-5" />
+                  <Plus className="w-4 h-4" />
                 </button>
               </div>
 
@@ -242,10 +242,10 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
                     key={val}
                     type="button"
                     onClick={() => setWeight(val)}
-                    className={`flex-1 py-1.5 text-xs font-extrabold rounded-xl border transition-all cursor-pointer ${
+                    className={`flex-1 py-1 text-xs font-bold rounded-xl border transition-all cursor-pointer font-heading ${
                       weight === val
-                        ? 'bg-[#E11D48] text-white border-[#E11D48] shadow-sm'
-                        : 'bg-white text-slate-700 border-slate-200 hover:border-[#E11D48]/40'
+                        ? 'bg-[#FF3D7F] text-white border-[#FF3D7F] shadow-sm'
+                        : 'bg-white text-[#5F525A] border-[#F0E3E9] hover:border-[#FF3D7F]/40'
                     }`}
                   >
                     {val}
@@ -255,26 +255,26 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
             </div>
 
             {/* REAL-TIME GAMIFIED BMI SPEEDOMETER / METRIC CARD */}
-            <div className={`p-4 sm:p-5 rounded-2xl border ${bmiDetails.bg} space-y-3 shadow-sm transition-all duration-300`}>
+            <div className={`p-4 rounded-[16px] border ${bmiDetails.bg} space-y-2.5 shadow-sm transition-all duration-300`}>
               <div className="flex items-center justify-between">
-                <span className="text-xs font-black uppercase tracking-wider text-slate-900 flex items-center gap-1.5">
-                  <Activity className="w-4 h-4 text-[#0D9488] animate-pulse" />
+                <span className="text-xs font-extrabold uppercase tracking-wider text-[#171116] flex items-center gap-1.5 font-heading">
+                  <Activity className="w-4 h-4 text-[#FF3D7F] animate-pulse" />
                   IMC Biométrico:
                 </span>
-                <span className="text-xl font-mono font-black text-slate-950 bg-white px-3 py-0.5 rounded-xl border border-slate-200 shadow-sm">
-                  {bmi} <span className="text-[10px] font-bold text-slate-500">kg/m²</span>
+                <span className="text-lg font-black text-[#171116] bg-white px-3 py-0.5 rounded-xl border border-[#DFC9D3] font-heading">
+                  {bmi} <span className="text-[10px] font-bold text-[#8C7D86]">kg/m²</span>
                 </span>
               </div>
 
               {/* VISUAL METRIC GAUGE BAR */}
               <div className="space-y-1">
-                <div className="h-3 w-full bg-slate-200 rounded-full overflow-hidden p-0.5 relative">
+                <div className="h-2.5 w-full bg-[#DFC9D3] rounded-full overflow-hidden p-0.5 relative">
                   <div 
-                    className="h-full bg-[#0D9488] rounded-full transition-all duration-500"
+                    className="h-full bg-[#FF3D7F] rounded-full transition-all duration-500"
                     style={{ width: `${bmiDetails.meterPercent}%` }}
                   />
                 </div>
-                <div className="flex justify-between text-[9px] font-bold text-slate-500 uppercase px-0.5">
+                <div className="flex justify-between text-[9px] font-bold text-[#8C7D86] uppercase px-0.5 font-heading">
                   <span>Bajo</span>
                   <span>Saludable</span>
                   <span>Curva Fuerte</span>
@@ -282,28 +282,28 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
               </div>
 
               {/* DYNAMIC COMPATIBILITY BADGE */}
-              <div className="pt-1 flex items-center justify-between text-xs font-black">
-                <span className="text-[#0D9488] flex items-center gap-1">
+              <div className="pt-1 flex items-center justify-between text-xs font-bold">
+                <span className="text-[#32B768] flex items-center gap-1">
                   <CheckCircle2 className="w-4 h-4 shrink-0" />
                   {bmiDetails.label}
                 </span>
               </div>
             </div>
 
-            {/* ACTION SUBMIT BUTTON (COR SÓLIDA SÓLIDA) */}
+            {/* ACTION SUBMIT BUTTON */}
             <button
               type="submit"
-              className="w-full py-5 sm:py-6 px-8 rounded-2xl bg-[#E11D48] hover:bg-[#BE123C] text-white font-black text-xl sm:text-2xl shadow-lg flex items-center justify-center gap-3 active:scale-[0.98] transition-all cursor-pointer group uppercase tracking-wider text-center"
+              className="w-full py-4 sm:py-5 px-6 rounded-[14px] bg-gradient-to-r from-[#FF3D7F] to-[#D92667] hover:brightness-105 text-white font-extrabold text-lg sm:text-xl shadow-[0_10px_24px_rgba(217,38,103,0.28)] flex items-center justify-center gap-3 active:scale-[0.98] transition-all cursor-pointer group uppercase tracking-wide font-heading"
             >
               <span>CONFIRMAR Y CONTINUAR</span>
-              <ArrowRight className="w-7 h-7 group-hover:translate-x-1.5 transition-transform shrink-0" />
+              <ArrowRight className="w-6 h-6 group-hover:translate-x-1.5 transition-transform shrink-0" />
             </button>
 
           </form>
 
           {/* TRUST BADGE */}
-          <div className="pt-2 text-center border-t border-slate-100 flex items-center justify-center gap-1.5 text-xs font-bold text-slate-400">
-            <ShieldCheck className="w-4 h-4 text-[#0D9488]" />
+          <div className="pt-2 text-center border-t border-[#F0E3E9] flex items-center justify-center gap-1.5 text-xs font-medium text-[#8C7D86]">
+            <ShieldCheck className="w-4 h-4 text-[#32B768]" />
             <span>Medición 100% privada para tu plan biomecánico</span>
           </div>
 

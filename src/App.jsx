@@ -236,7 +236,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#59D6CF] font-sans antialiased selection:bg-rose-500 selection:text-white">
+    <div className="min-h-screen bg-[#FFF9F6] font-body text-[#171116] antialiased selection:bg-[#FF3D7F] selection:text-white">
       {renderCurrentStep()}
     </div>
   );

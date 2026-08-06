@@ -8,20 +8,29 @@ export default {
     extend: {
       colors: {
         brand: {
-          purple: '#B388EB',
-          'purple-dark': '#7C3AED',
-          'purple-light': '#F3E8FF',
-          pink: '#F43F5E',
-          green: '#10B981',
-          'green-hover': '#059669',
-          dark: '#1E1B4B',
-          bg: '#B388EB'
+          primary: '#FF3D7F',
+          'primary-dark': '#D92667',
+          secondary: '#5B163A',
+          'secondary-dark': '#320C22',
+          accent: '#32B768',
+          'accent-dark': '#21894A',
+          gold: '#D9A441',
+          bg: '#FFF9F6',
+          'bg-soft': '#FFF0F5',
+          'bg-dark': '#161014',
+          surface: '#FFFFFF',
+          text: '#171116',
+          'text-secondary': '#5F525A',
+          'text-muted': '#8C7D86',
+          border: '#F0E3E9',
+          'border-dark': '#432C37'
         }
       },
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'],
-        luxury: ['Playfair Display', 'serif'],
-        script: ['Satisfy', 'cursive'],
+        heading: ['Montserrat', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+        sans: ['Inter', 'Montserrat', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
       },
       animation: {
         'pop-in': 'popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',

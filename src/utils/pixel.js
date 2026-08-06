@@ -1,8 +1,13 @@
 /**
  * Meta (Facebook) Pixel Ultra-Advanced Tracking Helper
- * Pixel ID: 4439066176411333
+ * Pixel ID: 826614323775176
  */
 
+export const META_PIXEL_ID = '826614323775176';
+
+/**
+ * Dispatch Meta Pixel events safely with error handling and fallback log
+ */
 export const trackMetaEvent = (eventName, params = {}, isCustom = false) => {
   if (typeof window === 'undefined') return;
 
@@ -24,12 +29,12 @@ export const trackMetaEvent = (eventName, params = {}, isCustom = false) => {
  */
 export const trackQuizStart = () => {
   trackMetaEvent('QuizStart', {
-    content_name: 'Método Glúteos Brasileños - Evaluación',
+    content_name: 'Protocolo Glúteos Brasileños - Evaluación',
     start_time: new Date().toISOString()
   }, true);
-  
+
   trackMetaEvent('Lead', {
-    content_name: 'Inicio del Quiz',
+    content_name: 'Inicio del Quiz PGB',
     status: 'started'
   });
 };
@@ -39,7 +44,7 @@ export const trackQuizStart = () => {
  */
 export const trackQuizStep = (stepNumber, totalSteps, stepData, selectedValue) => {
   const percentage = Math.round((stepNumber / totalSteps) * 100);
-  
+
   trackMetaEvent('QuizStepView', {
     step_number: stepNumber,
     step_slug: stepData?.slug || `paso-${stepNumber}`,
@@ -51,8 +56,9 @@ export const trackQuizStep = (stepNumber, totalSteps, stepData, selectedValue) =
   // Milestone tracking for Facebook Optimization
   if (stepNumber === 1) {
     trackMetaEvent('ViewContent', {
-      content_name: 'Primera Pregunta',
-      content_category: 'Quiz Step'
+      content_name: 'Primera Pregunta - Protocolo PGB',
+      content_category: 'Quiz Step',
+      content_type: 'product'
     });
   } else if (stepNumber === 5) {
     trackMetaEvent('QuizMidpoint', {
@@ -62,7 +68,8 @@ export const trackQuizStep = (stepNumber, totalSteps, stepData, selectedValue) =
   } else if (stepData?.type === 'coach') {
     trackMetaEvent('ViewContent', {
       content_name: 'Presentación Coach Luca',
-      content_category: 'Coach Authority'
+      content_category: 'Coach Authority',
+      content_type: 'product'
     });
   }
 };
@@ -73,7 +80,9 @@ export const trackQuizStep = (stepNumber, totalSteps, stepData, selectedValue) =
 export const trackSummaryView = (userAnswers = {}) => {
   trackMetaEvent('CustomizeProduct', {
     content_name: 'Plan Personalizado Glúteos 28D',
-    user_answers_count: Object.keys(userAnswers).length
+    user_answers_count: Object.keys(userAnswers).length,
+    value: 19.90,
+    currency: 'USD'
   });
 
   trackMetaEvent('QuizCompleted', {
@@ -96,20 +105,31 @@ export const trackAnalyzingStep = () => {
  */
 export const trackCouponUnlocked = () => {
   trackMetaEvent('CouponUnlocked', {
-    coupon_code: 'BRASIL1990',
+    coupon_code: 'PGB1990',
     discount_amount: 77.10,
-    final_price: 19.90
+    final_price: 19.90,
+    currency: 'USD'
   }, true);
 };
 
 /**
- * Event 6: Offer / Result Page Load (InitiateCheckout & High Intent)
+ * Event 6: Offer / Result Page Load (AddToCart & InitiateCheckout)
  */
 export const trackOfferPage = () => {
-  trackMetaEvent('InitiateCheckout', {
-    content_name: 'Brazilian Booty - Coach Luca',
+  trackMetaEvent('AddToCart', {
+    content_name: 'Protocolo Glúteos Brasileños by Coach Luca',
     content_category: 'Programa de Entrenamiento y Nutrición',
-    content_ids: ['gluteos_brasil_1990'],
+    content_type: 'product',
+    content_ids: ['pgb_1990'],
+    value: 19.90,
+    currency: 'USD'
+  });
+
+  trackMetaEvent('InitiateCheckout', {
+    content_name: 'Protocolo Glúteos Brasileños by Coach Luca',
+    content_category: 'Programa de Entrenamiento y Nutrición',
+    content_type: 'product',
+    content_ids: ['pgb_1990'],
     value: 19.90,
     currency: 'USD',
     num_items: 1
@@ -118,16 +138,18 @@ export const trackOfferPage = () => {
   trackMetaEvent('OfferPageView', {
     offer_price: 19.90,
     original_price: 97.00,
-    discount_percentage: '80%'
+    discount_percentage: '80%',
+    pixel_id: META_PIXEL_ID
   }, true);
 };
 
 /**
- * Event 7: Click Checkout Button (High Converting Outbound Click)
+ * Event 7: Click Checkout Button (AddPaymentInfo & Outbound Conversion Click)
  */
 export const trackCheckoutClick = () => {
   trackMetaEvent('AddPaymentInfo', {
-    content_name: 'Método Glúteos Brasileños',
+    content_name: 'Protocolo Glúteos Brasileños',
+    content_category: 'Checkout Outbound',
     value: 19.90,
     currency: 'USD'
   });
@@ -136,6 +158,7 @@ export const trackCheckoutClick = () => {
     checkout_url: 'https://go.centerpag.com/PPU38CQERJL',
     value: 19.90,
     currency: 'USD',
+    pixel_id: META_PIXEL_ID,
     timestamp: new Date().toISOString()
   }, true);
 };

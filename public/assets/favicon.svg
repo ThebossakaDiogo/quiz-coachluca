@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Glow -->
+    <radialGradient id="pgbBgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF3D7F" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#5B163A" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Main Gradient (Rosa Energía a Rosa Profundo) -->
+    <linearGradient id="pgbPrimaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF3D7F"/>
+      <stop offset="100%" stop-color="#D92667"/>
+    </linearGradient>
+
+    <!-- Accent Gradient (Verde Brasil e Dorado) -->
+    <linearGradient id="pgbAccentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#32B768"/>
+      <stop offset="100%" stop-color="#D9A441"/>
+    </linearGradient>
+    
+    <!-- Wine Dark Gradient -->
+    <linearGradient id="pgbWineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5B163A"/>
+      <stop offset="100%" stop-color="#320C22"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Base Circle -->
+  <rect width="512" height="512" rx="128" fill="url(#pgbWineGrad)"/>
+  <circle cx="256" cy="256" r="230" fill="url(#pgbBgGlow)"/>
+
+  <!-- Brazilian Accent Arc -->
+  <path d="M 230 110 C 280 60, 360 70, 380 110 C 340 150, 270 130, 230 110 Z" fill="url(#pgbAccentGrad)"/>
+
+  <!-- PGB Sculpted Curved Shape -->
+  <path d="M 256 160 
+           C 190 140, 95 170, 85 270 
+           C 75 370, 165 445, 256 465 
+           C 347 445, 437 370, 427 270 
+           C 417 170, 322 140, 256 160 Z" 
+        fill="url(#pgbPrimaryGrad)" 
+        stroke="#FF8EBA" 
+        stroke-width="6"/>
+
+  <!-- Central Contour Curve -->
+  <path d="M 256 160 C 250 250, 250 360, 256 465" stroke="#5B163A" stroke-width="16" fill="none" stroke-linecap="round" opacity="0.9"/>
+  <path d="M 256 160 C 250 250, 250 360, 256 465" stroke="#D9A441" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/>
+
+  <!-- PGB Monogram Text Center -->
+  <text x="256" y="300" text-anchor="middle" fill="#FFFFFF" font-family="Montserrat, Arial, sans-serif" font-weight="900" font-size="96" letter-spacing="-2">PGB</text>
+</svg>
