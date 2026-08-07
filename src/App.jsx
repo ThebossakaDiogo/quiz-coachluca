@@ -8,6 +8,7 @@ import GoalStep from './components/GoalStep';
 import AwarenessStep from './components/AwarenessStep';
 import SummaryStep from './components/SummaryStep';
 import AnalyzingStep from './components/AnalyzingStep';
+import VSLStep from './components/VSLStep';
 import CouponStep from './components/CouponStep';
 import ResultStep from './components/ResultStep';
 import { QUIZ_STEPS, ASSETS } from './data/quizData';
@@ -27,16 +28,18 @@ export default function App() {
   const [answers, setAnswers] = useState({});
   const [showSummary, setShowSummary] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [isVSLStep, setIsVSLStep] = useState(false);
   const [isCouponStep, setIsCouponStep] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
 
   const totalSteps = QUIZ_STEPS.length;
   const currentStepData = QUIZ_STEPS[currentStepIndex];
 
-  // INSTANT IMAGE PRELOADER IN BROWSER MEMORY
+  // INSTANT IMAGE & GIF PRELOADER IN BROWSER MEMORY
   useEffect(() => {
     const urlsToPreload = [
       ASSETS.logo,
+      ASSETS.vslCover,
       ASSETS.gifs.sales1,
       ASSETS.gifs.fit1,
       ASSETS.gifs.homeFit,
@@ -58,6 +61,7 @@ export default function App() {
     if (showWelcome) return 'bienvenida';
     if (showSummary) return 'perfil-analizado';
     if (isAnalyzing) return 'analizando-ia';
+    if (isVSLStep) return 'video-presentacion';
     if (isCouponStep) return 'beca-descuento';
     if (isFinished) return 'oferta-final';
     return currentStepData ? `paso-${currentStepIndex + 1}-${currentStepData.slug}` : `paso-${currentStepIndex + 1}`;
@@ -75,7 +79,7 @@ export default function App() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    // Update URL hash dynamically (#boas-vindas, #passo-1-inicio-avaliacao, #bolsa-desconto, etc.)
+    // Update URL hash dynamically (#boas-vindas, #passo-1-inicio-avaliacao, #video-presentacion, #bolsa-desconto, etc.)
     const newHash = `#${currentSlug}`;
     if (window.location.hash !== newHash) {
       window.history.replaceState(null, '', newHash);
@@ -98,7 +102,7 @@ export default function App() {
     if (typeof window.ttq === 'object' && typeof window.ttq.page === 'function') {
       window.ttq.page();
     }
-  }, [currentSlug, currentStepIndex, showWelcome, showSummary, isAnalyzing, isCouponStep, isFinished, answers]);
+  }, [currentSlug, currentStepIndex, showWelcome, showSummary, isAnalyzing, isVSLStep, isCouponStep, isFinished, answers]);
 
   const handleStartQuiz = () => {
     trackQuizStart();
@@ -138,8 +142,13 @@ export default function App() {
   };
 
   const handleAnalyzingComplete = () => {
-    trackCouponUnlocked();
     setIsAnalyzing(false);
+    setIsVSLStep(true);
+  };
+
+  const handleVSLContinue = () => {
+    trackCouponUnlocked();
+    setIsVSLStep(false);
     setIsCouponStep(true);
   };
 
@@ -158,6 +167,9 @@ export default function App() {
     }
     if (isAnalyzing) {
       return <AnalyzingStep onComplete={handleAnalyzingComplete} />;
+    }
+    if (isVSLStep) {
+      return <VSLStep onContinue={handleVSLContinue} />;
     }
     if (isCouponStep) {
       return <CouponStep onClaimCoupon={handleClaimCoupon} />;

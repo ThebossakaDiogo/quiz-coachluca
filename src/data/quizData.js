@@ -24,7 +24,9 @@ export const ASSETS = {
     '30-39': '/assets/30-39-DlwPfCB7.png',
     '40-49': '/assets/40-50-DhYvfFZS.png',
     '50plus': '/assets/50_-BjiVXxuV.png',
-  }
+  },
+  vsl: '/assets/vsl-video.mp4',
+  vslCover: '/assets/capa-vsl.gif'
 };
 
 export const QUIZ_STEPS = [

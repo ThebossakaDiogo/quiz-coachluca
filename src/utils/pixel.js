@@ -169,3 +169,38 @@ export const trackCheckoutClick = () => {
   }
 };
 
+/**
+ * Event 8: VSL Video Page View
+ */
+export const trackVSLView = () => {
+  trackMetaEvent('VSLView', {
+    content_name: 'Protocolo Glúteos Brasileños - Video VSL',
+    content_category: 'VSL Stage'
+  }, true);
+
+  trackMetaEvent('ViewContent', {
+    content_name: 'Presentación Oficial Video - VSL Glúteos',
+    content_type: 'video'
+  });
+};
+
+/**
+ * Event 9: VSL Video Play Started
+ */
+export const trackVSLPlay = () => {
+  trackMetaEvent('VSLPlay', {
+    content_name: 'VSL Video Started',
+    action: 'play'
+  }, true);
+};
+
+/**
+ * Event 10: VSL Video Completed or Proceed Clicked
+ */
+export const trackVSLComplete = () => {
+  trackMetaEvent('VSLCompleted', {
+    content_name: 'VSL Video Concluded / Next Step',
+    action: 'proceed_to_coupon'
+  }, true);
+};
+
