@@ -3,12 +3,7 @@ import {
   Play, 
   Volume2, 
   VolumeX, 
-  ArrowRight, 
-  Flame, 
-  Sparkles,
-  ShieldCheck,
-  Tv,
-  Lock
+  Tv
 } from 'lucide-react';
 import HeaderLogo from './HeaderLogo';
 import { ASSETS } from '../data/quizData';
@@ -17,14 +12,10 @@ import { trackVSLView, trackVSLPlay, trackVSLComplete } from '../utils/pixel';
 export default function VSLStep({ onContinue }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
-  const [isButtonUnlocked, setIsButtonUnlocked] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
 
   const videoRef = useRef(null);
   const containerRef = useRef(null);
-
-  // Time threshold to unlock CTA button (1 minute = 60s)
-  const UNLOCK_TIME = 60;
 
   useEffect(() => {
     trackVSLView();
@@ -62,16 +53,6 @@ export default function VSLStep({ onContinue }) {
     }
   };
 
-  const handleTimeUpdate = () => {
-    if (!videoRef.current) return;
-    const time = videoRef.current.currentTime;
-
-    // Unlock button exclusively after 1 minute (60 seconds)
-    if (time >= UNLOCK_TIME && !isButtonUnlocked) {
-      setIsButtonUnlocked(true);
-    }
-  };
-
   const handleMuteToggle = (e) => {
     e.stopPropagation();
     if (!videoRef.current) return;
@@ -80,17 +61,17 @@ export default function VSLStep({ onContinue }) {
     setIsMuted(nextMuted);
   };
 
-  const handleEnded = () => {
-    setIsPlaying(false);
-    setIsButtonUnlocked(true);
-  };
-
   const handleContinue = () => {
     trackVSLComplete();
     if (videoRef.current) {
       videoRef.current.pause();
     }
     onContinue();
+  };
+
+  const handleEnded = () => {
+    setIsPlaying(false);
+    handleContinue();
   };
 
   return (
@@ -134,7 +115,6 @@ export default function VSLStep({ onContinue }) {
               disablePictureInPicture
               controlsList="nofullscreen nodownload noremoteplayback noplaybackrate"
               onContextMenu={(e) => e.preventDefault()}
-              onTimeUpdate={handleTimeUpdate}
               onEnded={handleEnded}
               onPause={() => setIsPlaying(false)}
               onPlay={() => setIsPlaying(true)}
@@ -214,37 +194,6 @@ export default function VSLStep({ onContinue }) {
               </div>
             </button>
 
-          </div>
-
-          {/* ACTION BUTTON - UNLOCKED EXCLUSIVELY AFTER 1 MINUTE (60s) */}
-          <div className="pt-1">
-            {isButtonUnlocked ? (
-              <div className="space-y-2 animate-pop">
-                <button
-                  type="button"
-                  onClick={handleContinue}
-                  className="w-full py-4 px-5 rounded-[14px] bg-gradient-to-r from-[#FF3D7F] to-[#D92667] hover:brightness-105 text-white font-extrabold text-base sm:text-lg shadow-[0_10px_24px_rgba(217,38,103,0.28)] flex items-center justify-center gap-2.5 active:scale-[0.98] transition-all cursor-pointer group uppercase tracking-wide font-heading"
-                >
-                  <Flame className="w-5 h-5 text-[#D9A441] fill-[#D9A441] shrink-0" />
-                  <span>CONTINUAR Y LIBERAR MI BECA 🎁</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform shrink-0" />
-                </button>
-
-                <div className="flex items-center justify-center gap-3 text-[10px] sm:text-[11px] font-medium text-[#8C7D86]">
-                  <span className="flex items-center gap-1">
-                    <ShieldCheck className="w-3.5 h-3.5 text-[#32B768]" /> Garantía 7 Días
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Sparkles className="w-3.5 h-3.5 text-[#FF3D7F]" /> Descuento de $ 19,90
-                  </span>
-                </div>
-              </div>
-            ) : (
-              <div className="bg-[#FFF9F6] border border-[#F0E3E9] rounded-xl p-2.5 flex items-center justify-center gap-2 text-xs font-semibold text-[#8C7D86]">
-                <Lock className="w-3.5 h-3.5 text-[#FF3D7F] shrink-0 animate-pulse" />
-                <span>El botón de descuento se desbloqueará en el vídeo...</span>
-              </div>
-            )}
           </div>
 
         </div>

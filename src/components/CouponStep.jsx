@@ -108,7 +108,7 @@ export default function CouponStep({ onClaimCoupon }) {
     ctx.textBaseline = 'middle';
     ctx.fillText('✨ RASPA AQUÍ CON EL DEDO ✨', width / 2, height / 2 - 10);
     ctx.font = 'bold 11px Montserrat, sans-serif';
-    ctx.fillText('👉 Revelar Descuento Especial de $ 19,90 👈', width / 2, height / 2 + 14);
+    ctx.fillText('👉 Revelar Descuento Secreto Exclusivo 👈', width / 2, height / 2 + 14);
 
     const checkScratchedPercentage = () => {
       try {
@@ -221,7 +221,7 @@ export default function CouponStep({ onClaimCoupon }) {
         <div className="bg-[#320C22] text-white rounded-2xl p-2.5 px-3.5 shadow-md flex items-center justify-between text-xs font-bold font-heading border border-[#FF8EBA]/40 animate-pulse">
           <span className="flex items-center gap-1.5">
             <AlertTriangle className="w-4 h-4 text-[#FF8EBA] shrink-0" />
-            <span>⚠️ ATENCIÓN: SOLO QUEDAN 2 PLAZAS A ESTE PRECIO</span>
+            <span>⚠️ ATENCIÓN: SOLO QUEDAN 2 PLAZAS CON ESTA BECA</span>
           </span>
           <span className="font-mono bg-black/40 px-2 py-0.5 rounded text-[#FF8EBA] font-black text-xs">
             {formatTime(timeLeft)}
@@ -241,10 +241,10 @@ export default function CouponStep({ onClaimCoupon }) {
             <h2 className="text-xl sm:text-2xl font-black text-[#171116] leading-tight font-heading">
               {isUnlocked ? (
                 <span className="text-[#FF3D7F]">
-                  🎉 ¡DESCUENTO ESPECIAL DE $ 19,90 LIBERADO!
+                  🎉 ¡BECA DE DESCUENTO SECRETO DESBLOQUEADA!
                 </span>
               ) : (
-                <span>¡Raspa la Tarjeta Dorada para Liberar tu Descuento de $ 19,90! 🎁</span>
+                <span>¡Raspa la Tarjeta Dorada para Descubrir tu Descuento Especial! 🎁</span>
               )}
             </h2>
 
@@ -252,7 +252,7 @@ export default function CouponStep({ onClaimCoupon }) {
             <div className="bg-[#FFF9F6] rounded-xl p-3.5 border border-[#F0E3E9] text-left space-y-2 text-xs">
               <div className="flex items-center gap-2 text-[#171116] font-bold font-heading">
                 <CheckCircle2 className="w-4 h-4 text-[#32B768] shrink-0" />
-                <span>Lo que vas a recibir hoy por Solo $ 19,90:</span>
+                <span>Lo que incluye tu Beca Exclusiva hoy:</span>
               </div>
               <ul className="space-y-1.5 text-[#5F525A] font-medium text-[11px]">
                 <li className="flex items-center justify-between">
@@ -294,28 +294,28 @@ export default function CouponStep({ onClaimCoupon }) {
 
               <div className="space-y-1">
                 <span className="inline-block bg-[#FF3D7F] text-white text-[11px] font-black px-4 py-1 rounded-full uppercase tracking-wider shadow-md">
-                  🎊 ¡DESCUENTO ESPECIAL LIBERADO! 🎊
+                  🎊 ¡DESCUENTO SECRETO LIBERADO! 🎊
                 </span>
                 
-                {/* Price Breakdown */}
+                {/* Mystery Discount Breakdown without revealing exact price */}
                 <div className="pt-2 flex items-center justify-center gap-3">
                   <span className="text-base sm:text-lg font-bold text-[#8C7D86] line-through">
                     $ 97,00
                   </span>
                   <div className="flex flex-col items-start">
                     <span className="text-3xl sm:text-4xl font-black text-[#FF3D7F] tracking-tight leading-none">
-                      $ 19,90
+                      🎁 80% OFF
                     </span>
-                    <span className="text-[10px] font-bold text-white uppercase pt-0.5">¡Pago Único • Acceso Inmediato!</span>
+                    <span className="text-[10px] font-bold text-white uppercase pt-0.5">¡Beca de Máximo Descuento!</span>
                   </div>
                 </div>
-                <p className="text-xs font-bold text-[#FF8EBA] pt-1">Ahorro inmediato de $ 77,10 (Pagas solo $ 19,90)</p>
+                <p className="text-xs font-bold text-[#FF8EBA] pt-1">🔥 Precio especial exclusivo reservado para tu perfil</p>
               </div>
 
               {isUnlocked && (
                 <div className="bg-white/10 border border-[#FF8EBA]/40 text-white rounded-xl p-2 flex items-center justify-center gap-2 text-xs font-bold animate-pop shadow-xs">
                   <Clock className="w-4 h-4 text-[#FF3D7F]" />
-                  <span>Tu beca de $ 19,90 expira en: <span className="font-mono text-sm text-[#FF3D7F] font-black">{formatTime(timeLeft)}</span></span>
+                  <span>Tu beca con descuento exclusivo expira en: <span className="font-mono text-sm text-[#FF3D7F] font-black">{formatTime(timeLeft)}</span></span>
                 </div>
               )}
             </div>
@@ -351,12 +351,12 @@ export default function CouponStep({ onClaimCoupon }) {
               className="w-full py-4 sm:py-5 px-6 rounded-[14px] bg-gradient-to-r from-[#FF3D7F] to-[#D92667] hover:brightness-105 text-white font-extrabold text-lg sm:text-xl shadow-[0_10px_24px_rgba(217,38,103,0.28)] flex items-center justify-center gap-3 active:scale-[0.98] transition-all cursor-pointer group uppercase tracking-wide font-heading"
             >
               <Flame className="w-6 h-6 text-[#D9A441] fill-[#D9A441] shrink-0" />
-              <span>GARANTIZAR PLAN POR $ 19,90</span>
+              <span>RECLAMAR MI DESCUENTO Y CONTINUAR</span>
               <ArrowRight className="w-6 h-6 group-hover:translate-x-1.5 transition-transform shrink-0" />
             </button>
           ) : (
             <p className="text-xs font-bold text-[#5B163A] animate-pulse font-heading">
-              👉 Mueve el dedo sobre la tarjeta dorada para raspar y liberar los $ 19,90
+              👉 Mueve el dedo sobre la tarjeta dorada para raspar y descubrir tu descuento secreto
             </p>
           )}
 
@@ -365,7 +365,7 @@ export default function CouponStep({ onClaimCoupon }) {
               <ShieldCheck className="w-3.5 h-3.5 text-[#32B768]" /> Garantía 7 Días
             </span>
             <span className="flex items-center gap-1">
-              <Tag className="w-3.5 h-3.5 text-[#FF3D7F]" /> Cupón #PGB1990
+              <Tag className="w-3.5 h-3.5 text-[#FF3D7F]" /> Cupón VIP Activado
             </span>
           </div>
 
