@@ -1,11 +1,11 @@
 /**
  * Meta (Facebook) Pixel Ultra-Advanced Tracking Helper
- * Pixel ID: 1086760650449299
+ * Pixel ID: 1636246821834919
  */
 
 import { CHECKOUT_URL } from '../data/quizData';
 
-export const META_PIXEL_ID = '1086760650449299';
+export const META_PIXEL_ID = '1636246821834919';
 
 /**
  * Dispatch Meta Pixel events safely with error handling and fallback log
