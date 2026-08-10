@@ -1,11 +1,11 @@
 /**
  * Meta (Facebook) Pixel Ultra-Advanced Tracking Helper
- * Pixel ID: 826614323775176
+ * Pixel ID: 1086760650449299
  */
 
 import { CHECKOUT_URL } from '../data/quizData';
 
-export const META_PIXEL_ID = '826614323775176';
+export const META_PIXEL_ID = '1086760650449299';
 
 /**
  * Dispatch Meta Pixel events safely with error handling and fallback log
@@ -16,9 +16,16 @@ export const trackMetaEvent = (eventName, params = {}, isCustom = false) => {
   try {
     if (typeof window.fbq === 'function') {
       if (isCustom) {
-        window.fbq('trackCustom', eventName, params);
+        window.fbq('trackCustom', eventName, {
+          ...params,
+          pixel_id: META_PIXEL_ID,
+          timestamp: new Date().toISOString()
+        });
       } else {
-        window.fbq('track', eventName, params);
+        window.fbq('track', eventName, {
+          ...params,
+          pixel_id: META_PIXEL_ID
+        });
       }
     }
   } catch (err) {
@@ -27,45 +34,77 @@ export const trackMetaEvent = (eventName, params = {}, isCustom = false) => {
 };
 
 /**
+ * Dynamic PageView Trigger for Hash Changes and Step Navigation
+ */
+export const trackPageView = (pageSlug = '', extraData = {}) => {
+  trackMetaEvent('PageView', {
+    page_slug: pageSlug,
+    page_location: typeof window !== 'undefined' ? window.location.href : '',
+    ...extraData
+  });
+};
+
+/**
  * Event 1: Start Quiz (Bienvenida -> Paso 1)
  */
 export const trackQuizStart = () => {
   trackMetaEvent('QuizStart', {
     content_name: 'Protocolo Glúteos Brasileños - Evaluación',
+    funnel_stage: 'quiz_start',
     start_time: new Date().toISOString()
   }, true);
 
   trackMetaEvent('Lead', {
     content_name: 'Inicio del Quiz PGB',
+    content_category: 'Quiz Funnel',
     status: 'started'
   });
 };
 
 /**
- * Event 2: Step Answered / Step View
+ * Event 2: Step Answered / Step View with Progress Milestones
  */
 export const trackQuizStep = (stepNumber, totalSteps, stepData, selectedValue) => {
   const percentage = Math.round((stepNumber / totalSteps) * 100);
+  const stepSlug = stepData?.slug || `paso-${stepNumber}`;
 
-  trackMetaEvent('QuizStepView', {
+  // Custom step specific event
+  trackMetaEvent(`QuizStep_${stepNumber}`, {
     step_number: stepNumber,
-    step_slug: stepData?.slug || `paso-${stepNumber}`,
+    step_slug: stepSlug,
     question_title: stepData?.title || '',
     selected_value: selectedValue || '',
     progress_percentage: `${percentage}%`
   }, true);
 
-  // Milestone tracking for Facebook Optimization
+  trackMetaEvent('QuizStepView', {
+    step_number: stepNumber,
+    total_steps: totalSteps,
+    step_slug: stepSlug,
+    progress_percentage: `${percentage}%`
+  }, true);
+
+  // Progressive Milestone tracking for Meta Pixel Optimization
   if (stepNumber === 1) {
     trackMetaEvent('ViewContent', {
       content_name: 'Primera Pregunta - Protocolo PGB',
       content_category: 'Quiz Step',
       content_type: 'product'
     });
-  } else if (stepNumber === 5) {
-    trackMetaEvent('QuizMidpoint', {
-      step_number: 5,
-      progress: '40%'
+  } else if (stepNumber === 4) {
+    trackMetaEvent('QuizProgress25', {
+      step_number: stepNumber,
+      progress: '25%'
+    }, true);
+  } else if (stepNumber === 7) {
+    trackMetaEvent('QuizProgress50', {
+      step_number: stepNumber,
+      progress: '50%'
+    }, true);
+  } else if (stepNumber === 10) {
+    trackMetaEvent('QuizProgress75', {
+      step_number: stepNumber,
+      progress: '75%'
     }, true);
   } else if (stepData?.type === 'coach') {
     trackMetaEvent('ViewContent', {
@@ -89,6 +128,7 @@ export const trackSummaryView = (userAnswers = {}) => {
 
   trackMetaEvent('QuizCompleted', {
     status: 'completed',
+    answers_count: Object.keys(userAnswers).length,
     timestamp: new Date().toISOString()
   }, true);
 };
@@ -98,8 +138,13 @@ export const trackSummaryView = (userAnswers = {}) => {
  */
 export const trackAnalyzingStep = () => {
   trackMetaEvent('Search', {
-    search_string: 'Análisis Biomecánico IA Glúteos'
+    search_string: 'Análisis Biomecánico IA Glúteos',
+    content_category: 'IA Diagnostics'
   });
+
+  trackMetaEvent('DiagnosingProfile', {
+    status: 'analyzing_metrics'
+  }, true);
 };
 
 /**
@@ -107,11 +152,17 @@ export const trackAnalyzingStep = () => {
  */
 export const trackCouponUnlocked = () => {
   trackMetaEvent('CouponUnlocked', {
-    coupon_code: 'PGB1990',
-    discount_amount: 77.10,
-    final_price: 19.90,
+    coupon_code: 'BECA_VIP',
+    discount_percentage: '80%',
+    status: 'unlocked',
     currency: 'USD'
   }, true);
+
+  trackMetaEvent('ViewContent', {
+    content_name: 'Beca y Cupón Misterioso Desbloqueado',
+    content_category: 'Promotion Reward',
+    content_type: 'product'
+  });
 };
 
 /**
@@ -146,9 +197,23 @@ export const trackOfferPage = () => {
 };
 
 /**
+ * Get final checkout URL preserving any UTM tracking parameters from current page
+ */
+export const getFinalCheckoutUrl = () => {
+  if (typeof window === 'undefined') return CHECKOUT_URL;
+  const search = window.location.search;
+  if (!search) return CHECKOUT_URL;
+  const cleanSearch = search.startsWith('?') ? search.slice(1) : search;
+  const separator = CHECKOUT_URL.includes('?') ? '&' : '?';
+  return `${CHECKOUT_URL}${separator}${cleanSearch}`;
+};
+
+/**
  * Event 7: Click Checkout Button (AddPaymentInfo & Outbound Conversion Click)
  */
 export const trackCheckoutClick = () => {
+  const destinationUrl = getFinalCheckoutUrl();
+
   trackMetaEvent('AddPaymentInfo', {
     content_name: 'Protocolo Glúteos Brasileños',
     content_category: 'Checkout Outbound',
@@ -157,7 +222,7 @@ export const trackCheckoutClick = () => {
   });
 
   trackMetaEvent('ClickCheckoutButton', {
-    checkout_url: CHECKOUT_URL,
+    checkout_url: destinationUrl,
     value: 19.90,
     currency: 'USD',
     pixel_id: META_PIXEL_ID,
@@ -165,7 +230,7 @@ export const trackCheckoutClick = () => {
   }, true);
 
   if (typeof window !== 'undefined') {
-    window.location.href = CHECKOUT_URL;
+    window.location.href = destinationUrl;
   }
 };
 
@@ -203,4 +268,3 @@ export const trackVSLComplete = () => {
     action: 'proceed_to_coupon'
   }, true);
 };
-

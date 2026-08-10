@@ -1,4 +1,4 @@
-export const CHECKOUT_URL = 'https://checkout.centerpag.com/pay/PPU38CQEMDT?';
+export const CHECKOUT_URL = 'https://go.centerpag.com/PPU38CQF7KS';
 
 export const ASSETS = {
   logo: '/assets/LOGO3-WGBt60gj.webp',
@@ -35,7 +35,7 @@ export const QUIZ_STEPS = [
     slug: 'inicio-evaluacion',
     type: 'question',
     headerBadge: "🔥 Brazilian Booty",
-    eyebrow: "Paso 1 de 12",
+    eyebrow: "Paso 1 de 14",
     title: "¿Quieres levantar, redondear y aumentar tus glúteos en 28 Días entrenando en casa?",
     subtitle: "Descubre la estimulación neuromuscular profunda (8-10 min/día) calibrada para tu tipo de cuerpo. Sin gimnasio, sin pesas pesadas y sin cirugías. 🚀",
     options: [
@@ -49,7 +49,7 @@ export const QUIZ_STEPS = [
     slug: 'edad',
     type: 'age',
     headerBadge: "Protocolo Glúteos Brasileños",
-    eyebrow: "Paso 2 de 13",
+    eyebrow: "Paso 2 de 14",
     title: "Selecciona tu rango de edad",
     subtitle: "Esto ayuda a calcular tu tasa de respuesta muscular e intensidad metabólica.",
     options: [
@@ -64,7 +64,7 @@ export const QUIZ_STEPS = [
     slug: 'medidas-corporales',
     type: 'body-metrics',
     headerBadge: "Protocolo Glúteos Brasileños",
-    eyebrow: "Paso 3 de 13",
+    eyebrow: "Paso 3 de 14",
     title: "Ingresa tu Estatura y Peso Actual",
     subtitle: "Calcula tu Índice de Masa Corporal (IMC) y el nivel de resistencia neuromuscular para tus glúteos.",
     options: []
@@ -74,7 +74,7 @@ export const QUIZ_STEPS = [
     slug: 'molestia',
     type: 'question',
     headerBadge: "Protocolo Glúteos Brasileños",
-    eyebrow: "Paso 3 de 12",
+    eyebrow: "Paso 4 de 14",
     title: "¿Qué es lo que más te molesta cuando te miras al espejo?",
     subtitle: "Identificar tu principal punto de insatisfacción permite activar el estímulo neuromuscular correcto.",
     options: [
@@ -85,11 +85,11 @@ export const QUIZ_STEPS = [
     ]
   },
   {
-    id: 4,
+    id: 5,
     slug: 'gluteo-timido',
     type: 'awareness',
     headerBadge: "Protocolo Glúteos Brasileños",
-    eyebrow: "Paso 4 de 13",
+    eyebrow: "Paso 5 de 14",
     title: "¿Por qué entrenas duro y tus glúteos no reaccionan?",
     subtitle: "Descubre el fenómeno biomecánico de la amnesia glútea.",
     options: [
@@ -98,11 +98,11 @@ export const QUIZ_STEPS = [
     ]
   },
   {
-    id: 5,
+    id: 6,
     slug: 'inseguridad',
     type: 'question',
     headerBadge: "Protocolo Glúteos Brasileños",
-    eyebrow: "Paso 5 de 13",
+    eyebrow: "Paso 6 de 14",
     title: "¿Has dejado de usar ropa ajustada o trajes de baño por no sentirte confiada?",
     subtitle: "Nuestra meta es devolverte el 100% de tu autoestima y seguridad con tu cuerpo.",
     options: [
@@ -112,11 +112,11 @@ export const QUIZ_STEPS = [
     ]
   },
   {
-    id: 5,
+    id: 7,
     slug: 'creencia',
     type: 'question',
     headerBadge: "Protocolo Glúteos Brasileños",
-    eyebrow: "Paso 5 de 12",
+    eyebrow: "Paso 7 de 14",
     title: "¿Crees que es posible transformar tus glúteos con entrenamientos rápidos y enfocados en casa?",
     subtitle: "La clave es el estímulo profundo de las fibras musculares, no horas agotadoras en el gimnasio.",
     options: [
@@ -126,11 +126,11 @@ export const QUIZ_STEPS = [
     ]
   },
   {
-    id: 6,
+    id: 8,
     slug: 'disposicion',
     type: 'question',
     headerBadge: "Protocolo Glúteos Brasileños",
-    eyebrow: "Paso 6 de 12",
+    eyebrow: "Paso 8 de 14",
     title: "Si existiera un método comprobado que combine entrenamientos cortos y un plan de alimentación sencillo, ¿lo probarías?",
     subtitle: "Sin dietas extremas ni horas cansadas de cardio.",
     options: [
@@ -140,11 +140,11 @@ export const QUIZ_STEPS = [
     ]
   },
   {
-    id: 7,
+    id: 9,
     slug: 'tiempo',
     type: 'question',
     headerBadge: "Protocolo Glúteos Brasileños",
-    eyebrow: "Paso 7 de 12",
+    eyebrow: "Paso 9 de 14",
     title: "¿Cuánto tiempo tienes disponible al día para hacer tus rutinas?",
     subtitle: "Ajustamos los ejercicios de forma ultraeficiente para adaptarse a tu rutina.",
     options: [
@@ -154,11 +154,11 @@ export const QUIZ_STEPS = [
     ]
   },
   {
-    id: 8,
+    id: 10,
     slug: 'dias-entrenamiento',
     type: 'question',
     headerBadge: "Protocolo Glúteos Brasileños",
-    eyebrow: "Paso 8 de 12",
+    eyebrow: "Paso 10 de 14",
     title: "¿Cuántos días a la semana prefieres entrenar?",
     subtitle: "El descanso estratégico es fundamental para que el músculo crezca rápido.",
     options: [
@@ -168,11 +168,11 @@ export const QUIZ_STEPS = [
     ]
   },
   {
-    id: 9,
+    id: 11,
     slug: 'comidas',
     type: 'question',
     headerBadge: "Protocolo Glúteos Brasileños",
-    eyebrow: "Paso 9 de 12",
+    eyebrow: "Paso 11 de 14",
     title: "¿Cuántas comidas haces al día normalmente?",
     subtitle: "💡 ¡Esta es la clave de tu metabolismo! El Coach Luca descubrió que el 90% de las personas fallan aquí y por eso no logran definir ni levantar los glúteos.",
     options: [
@@ -182,11 +182,11 @@ export const QUIZ_STEPS = [
     ]
   },
   {
-    id: 10,
+    id: 12,
     slug: 'coach-luca',
     type: 'coach',
     headerBadge: "Protocolo Glúteos Brasileños",
-    eyebrow: "Paso 10 de 12",
+    eyebrow: "Paso 12 de 14",
     title: "Conoce al Coach Luca",
     subtitle: "Especialista internacional en biomecánica y moldeado de glúteos femeninos.",
     coachInfo: {
@@ -202,11 +202,11 @@ export const QUIZ_STEPS = [
     ]
   },
   {
-    id: 11,
+    id: 13,
     slug: 'compromiso',
     type: 'question',
     headerBadge: "Protocolo Glúteos Brasileños",
-    eyebrow: "Paso 11 de 12",
+    eyebrow: "Paso 13 de 14",
     title: "¿Cuál es tu nivel de compromiso para transformar tu cuerpo?",
     subtitle: "Buscamos mujeres totalmente dispuestas a ver resultados visibles en pocas semanas.",
     options: [
@@ -216,11 +216,11 @@ export const QUIZ_STEPS = [
     ]
   },
   {
-    id: 12,
+    id: 14,
     slug: 'objetivo-final',
     type: 'goal',
     headerBadge: "Protocolo Glúteos Brasileños",
-    eyebrow: "Paso 12 de 12",
+    eyebrow: "Paso 14 de 14",
     title: "¿Cuál es tu objetivo de glúteos ideal?",
     subtitle: "Selecciona la forma y silueta que deseas alcanzar.",
     options: [

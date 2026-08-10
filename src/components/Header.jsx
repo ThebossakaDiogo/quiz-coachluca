@@ -13,15 +13,11 @@ export default function Header({ currentStep, totalSteps, isFinished }) {
 
       <div className="max-w-md mx-auto py-2 px-4 flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 rounded-lg bg-[#5B163A] flex items-center justify-center p-1 border border-[#FF3D7F]/30 shrink-0">
-            <img src="/assets/favicon.svg" alt="PGB Logo" className="w-full h-full object-contain" />
-          </div>
-          <div className="flex flex-col leading-none">
-            <span className="font-black text-[#171116] text-sm sm:text-base tracking-tight font-heading uppercase">
-              PROTOCOLO <span className="text-[#FF3D7F]">PGB</span>
-            </span>
-            <span className="text-[9px] font-bold text-[#5F525A]">by Coach Luca</span>
-          </div>
+          <img 
+            src="/assets/LOGO3-WGBt60gj.webp" 
+            alt="Protocolo Glúteos Brasileños" 
+            className="h-8 sm:h-9 w-auto max-w-[140px] sm:max-w-[170px] object-contain" 
+          />
         </div>
 
         <div className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#FFE1EC] text-[#B71F58] border border-[#FF8EBA]/40 flex items-center gap-1">

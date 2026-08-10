@@ -14,7 +14,7 @@ import {
   Tag,
   AlertTriangle
 } from 'lucide-react';
-import { TESTIMONIALS, BEFORE_AFTER_CASES, ASSETS } from '../data/quizData';
+import { TESTIMONIALS, BEFORE_AFTER_CASES, ASSETS, CHECKOUT_URL } from '../data/quizData';
 import { trackCheckoutClick } from '../utils/pixel';
 import HeaderLogo from './HeaderLogo';
 import DiagnosticReportCard from './DiagnosticReportCard';
@@ -349,15 +349,18 @@ export default function ResultStep({ userAnswers }) {
 
           {/* HIGH-CONVERTING CTA BUTTON */}
           <div className="space-y-3 pt-1">
-            <button
-              type="button"
-              onClick={trackCheckoutClick}
-              className="w-full py-4 sm:py-5 px-6 rounded-[14px] bg-gradient-to-r from-[#FF3D7F] to-[#D92667] hover:brightness-105 text-white font-extrabold text-lg sm:text-xl shadow-[0_10px_24px_rgba(217,38,103,0.28)] flex items-center justify-center gap-3 active:scale-[0.98] transition-all cursor-pointer group uppercase tracking-wide font-heading border-none"
+            <a
+              href={CHECKOUT_URL}
+              onClick={(e) => {
+                e.preventDefault();
+                trackCheckoutClick();
+              }}
+              className="w-full py-4 sm:py-5 px-6 rounded-[14px] bg-gradient-to-r from-[#FF3D7F] to-[#D92667] hover:brightness-105 text-white font-extrabold text-lg sm:text-xl shadow-[0_10px_24px_rgba(217,38,103,0.28)] flex items-center justify-center gap-3 active:scale-[0.98] transition-all cursor-pointer group uppercase tracking-wide font-heading border-none text-center no-underline"
             >
               <Flame className="w-6 h-6 text-[#D9A441] fill-[#D9A441] shrink-0" />
               <span>QUIERO EMPEZAR EL PROTOCOLO</span>
               <ArrowRight className="w-6 h-6 group-hover:translate-x-1.5 transition-transform shrink-0" />
-            </button>
+            </a>
 
             <div className="flex items-center justify-center gap-4 text-[#8C7D86] text-xs font-medium pt-1">
               <span className="flex items-center gap-1">
