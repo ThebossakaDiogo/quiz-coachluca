@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import HeaderLogo from './HeaderLogo';
 import { ASSETS } from '../data/quizData';
-import { trackVSLView, trackVSLPlay, trackVSLComplete } from '../utils/pixel';
+import { trackVSLView, trackVSLPlay, trackVSLComplete, trackVSLProgress } from '../utils/pixel';
 
 export default function VSLStep({ onContinue }) {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -24,6 +24,8 @@ export default function VSLStep({ onContinue }) {
   const videoRef = useRef(null);
   const containerRef = useRef(null);
   const rafRef = useRef(null);
+  const tracked50 = useRef(false);
+  const tracked80 = useRef(false);
 
   useEffect(() => {
     trackVSLView();
@@ -58,6 +60,15 @@ export default function VSLStep({ onContinue }) {
         const duration = videoRef.current.duration || 60;
         const pct = calculateRetentionProgress(current, duration);
         setProgressPercent(pct);
+
+        if (pct >= 50 && !tracked50.current) {
+          tracked50.current = true;
+          trackVSLProgress(50);
+        }
+        if (pct >= 80 && !tracked80.current) {
+          tracked80.current = true;
+          trackVSLProgress(80);
+        }
 
         if (pct >= 98 || (duration > 0 && current >= duration - 1.5)) {
           setIsUnlocked(true);

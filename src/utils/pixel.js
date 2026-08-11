@@ -1,43 +1,118 @@
 /**
- * Meta (Facebook) Pixel Ultra-Advanced Tracking Helper
- * Pixel ID: 1636246821834919
+ * Meta (Facebook) Pixel Ultra-Advanced & Intelligent Tracking Helper
+ * Pixel ID: 1370642311691579
+ * Features:
+ * - Persistent UTM & Query parameter preservation across sessions and steps
+ * - Automatic Facebook Browser ID (_fbp) & Click ID (_fbc / fbclid) forwarding to Checkout
+ * - Deterministic eventID generation for Meta CAPI (Conversions API) deduplication
+ * - Deep funnel step milestones, engagement & video retention tracking
  */
 
 import { CHECKOUT_URL } from '../data/quizData';
 
-export const META_PIXEL_ID = '1636246821834919';
+export const META_PIXEL_ID = '1370642311691579';
+const UTM_STORAGE_KEY = 'pgb_persisted_utms';
 
 /**
- * Dispatch Meta Pixel events safely with error handling and fallback log
+ * Capture and persist URL query parameters (UTMs, fbclid, src, etc.)
  */
-export const trackMetaEvent = (eventName, params = {}, isCustom = false) => {
-  if (typeof window === 'undefined') return;
+export const captureAndPersistUTMs = () => {
+  if (typeof window === 'undefined') return {};
+
+  try {
+    const currentParams = new URLSearchParams(window.location.search);
+    const saved = localStorage.getItem(UTM_STORAGE_KEY);
+    const persisted = saved ? JSON.parse(saved) : {};
+
+    const utmKeys = [
+      'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
+      'src', 'sck', 'xcod', 'fbclid', 'gclid', 'ttclid'
+    ];
+
+    let hasNew = false;
+    utmKeys.forEach((key) => {
+      const val = currentParams.get(key);
+      if (val) {
+        persisted[key] = val;
+        hasNew = true;
+      }
+    });
+
+    // Also capture any custom URL query params
+    currentParams.forEach((val, key) => {
+      if (!persisted[key]) {
+        persisted[key] = val;
+        hasNew = true;
+      }
+    });
+
+    if (hasNew || !saved) {
+      localStorage.setItem(UTM_STORAGE_KEY, JSON.stringify(persisted));
+    }
+
+    return persisted;
+  } catch {
+    return {};
+  }
+};
+
+/**
+ * Get cookie by name helper (for _fbp, _fbc)
+ */
+export const getCookie = (name) => {
+  if (typeof document === 'undefined') return '';
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift() || '';
+  return '';
+};
+
+/**
+ * Generate unique/deterministic Event ID for CAPI deduplication
+ */
+export const generateEventID = (eventName, step = '') => {
+  const timestamp = Date.now();
+  const randomPart = Math.random().toString(36).substring(2, 8);
+  return `${eventName}_${step ? `${step}_` : ''}${timestamp}_${randomPart}`;
+};
+
+/**
+ * Dispatch Meta Pixel events safely with Advanced Parameters & EventID
+ */
+export const trackMetaEvent = (eventName, params = {}, isCustom = false, customEventID = null) => {
+  if (typeof window === 'undefined') return null;
+
+  const eventID = customEventID || generateEventID(eventName);
 
   try {
     if (typeof window.fbq === 'function') {
+      const payload = {
+        ...params,
+        pixel_id: META_PIXEL_ID,
+        timestamp: new Date().toISOString()
+      };
+
+      const options = { eventID };
+
       if (isCustom) {
-        window.fbq('trackCustom', eventName, {
-          ...params,
-          pixel_id: META_PIXEL_ID,
-          timestamp: new Date().toISOString()
-        });
+        window.fbq('trackCustom', eventName, payload, options);
       } else {
-        window.fbq('track', eventName, {
-          ...params,
-          pixel_id: META_PIXEL_ID
-        });
+        window.fbq('track', eventName, payload, options);
       }
     }
   } catch (err) {
     console.warn('[Meta Pixel Tracking Warning]:', err);
   }
+
+  return eventID;
 };
 
 /**
  * Dynamic PageView Trigger for Hash Changes and Step Navigation
  */
 export const trackPageView = (pageSlug = '', extraData = {}) => {
-  trackMetaEvent('PageView', {
+  captureAndPersistUTMs();
+  return trackMetaEvent('PageView', {
     page_slug: pageSlug,
     page_location: typeof window !== 'undefined' ? window.location.href : '',
     ...extraData
@@ -48,17 +123,18 @@ export const trackPageView = (pageSlug = '', extraData = {}) => {
  * Event 1: Start Quiz (Bienvenida -> Paso 1)
  */
 export const trackQuizStart = () => {
+  const eventID = generateEventID('Lead', 'start');
+
   trackMetaEvent('QuizStart', {
     content_name: 'Protocolo Glúteos Brasileños - Evaluación',
-    funnel_stage: 'quiz_start',
-    start_time: new Date().toISOString()
-  }, true);
+    funnel_stage: 'quiz_start'
+  }, true, eventID);
 
   trackMetaEvent('Lead', {
     content_name: 'Inicio del Quiz PGB',
     content_category: 'Quiz Funnel',
     status: 'started'
-  });
+  }, false, eventID);
 };
 
 /**
@@ -84,7 +160,7 @@ export const trackQuizStep = (stepNumber, totalSteps, stepData, selectedValue) =
     progress_percentage: `${percentage}%`
   }, true);
 
-  // Progressive Milestone tracking for Meta Pixel Optimization
+  // Progressive Milestone tracking for Meta Pixel Algorithm Optimization
   if (stepNumber === 1) {
     trackMetaEvent('ViewContent', {
       content_name: 'Primera Pregunta - Protocolo PGB',
@@ -119,18 +195,20 @@ export const trackQuizStep = (stepNumber, totalSteps, stepData, selectedValue) =
  * Event 3: Summary Step (Perfil Analizado)
  */
 export const trackSummaryView = (userAnswers = {}) => {
+  const eventID = generateEventID('CustomizeProduct', 'summary');
+
   trackMetaEvent('CustomizeProduct', {
     content_name: 'Plan Personalizado Glúteos 28D',
     user_answers_count: Object.keys(userAnswers).length,
     value: 19.90,
     currency: 'USD'
-  });
+  }, false, eventID);
 
   trackMetaEvent('QuizCompleted', {
     status: 'completed',
     answers_count: Object.keys(userAnswers).length,
     timestamp: new Date().toISOString()
-  }, true);
+  }, true, eventID);
 };
 
 /**
@@ -169,6 +247,8 @@ export const trackCouponUnlocked = () => {
  * Event 6: Offer / Result Page Load (AddToCart & InitiateCheckout)
  */
 export const trackOfferPage = () => {
+  const eventID = generateEventID('InitiateCheckout', 'offer');
+
   trackMetaEvent('AddToCart', {
     content_name: 'Protocolo Glúteos Brasileños by Coach Luca',
     content_category: 'Programa de Entrenamiento y Nutrición',
@@ -176,7 +256,7 @@ export const trackOfferPage = () => {
     content_ids: ['pgb_1990'],
     value: 19.90,
     currency: 'USD'
-  });
+  }, false, eventID);
 
   trackMetaEvent('InitiateCheckout', {
     content_name: 'Protocolo Glúteos Brasileños by Coach Luca',
@@ -186,26 +266,43 @@ export const trackOfferPage = () => {
     value: 19.90,
     currency: 'USD',
     num_items: 1
-  });
+  }, false, eventID);
 
   trackMetaEvent('OfferPageView', {
     offer_price: 19.90,
     original_price: 97.00,
     discount_percentage: '80%',
     pixel_id: META_PIXEL_ID
-  }, true);
+  }, true, eventID);
 };
 
 /**
- * Get final checkout URL preserving any UTM tracking parameters from current page
+ * Builds the complete destination checkout URL with all persisted UTMs, fbclid, _fbp and _fbc
  */
 export const getFinalCheckoutUrl = () => {
   if (typeof window === 'undefined') return CHECKOUT_URL;
-  const search = window.location.search;
-  if (!search) return CHECKOUT_URL;
-  const cleanSearch = search.startsWith('?') ? search.slice(1) : search;
+
+  const persisted = captureAndPersistUTMs();
+  const searchParams = new URLSearchParams(window.location.search);
+
+  // Merge persisted params
+  Object.entries(persisted).forEach(([key, val]) => {
+    if (val && !searchParams.has(key)) {
+      searchParams.set(key, val);
+    }
+  });
+
+  // Attach Meta Facebook browser/click tracking cookies if available
+  const fbp = getCookie('_fbp');
+  const fbc = getCookie('_fbc');
+  if (fbp && !searchParams.has('fbp')) searchParams.set('fbp', fbp);
+  if (fbc && !searchParams.has('fbc')) searchParams.set('fbc', fbc);
+
+  const queryString = searchParams.toString();
+  if (!queryString) return CHECKOUT_URL;
+
   const separator = CHECKOUT_URL.includes('?') ? '&' : '?';
-  return `${CHECKOUT_URL}${separator}${cleanSearch}`;
+  return `${CHECKOUT_URL}${separator}${queryString}`;
 };
 
 /**
@@ -213,13 +310,14 @@ export const getFinalCheckoutUrl = () => {
  */
 export const trackCheckoutClick = () => {
   const destinationUrl = getFinalCheckoutUrl();
+  const eventID = generateEventID('AddPaymentInfo', 'cta_click');
 
   trackMetaEvent('AddPaymentInfo', {
     content_name: 'Protocolo Glúteos Brasileños',
     content_category: 'Checkout Outbound',
     value: 19.90,
     currency: 'USD'
-  });
+  }, false, eventID);
 
   trackMetaEvent('ClickCheckoutButton', {
     checkout_url: destinationUrl,
@@ -227,7 +325,7 @@ export const trackCheckoutClick = () => {
     currency: 'USD',
     pixel_id: META_PIXEL_ID,
     timestamp: new Date().toISOString()
-  }, true);
+  }, true, eventID);
 
   if (typeof window !== 'undefined') {
     window.location.href = destinationUrl;
@@ -260,7 +358,17 @@ export const trackVSLPlay = () => {
 };
 
 /**
- * Event 10: VSL Video Completed or Proceed Clicked
+ * Event 10: VSL Video Retention Milestones (50%, 80%, 100%)
+ */
+export const trackVSLProgress = (percent) => {
+  trackMetaEvent(`VSLProgress_${percent}`, {
+    milestone: `${percent}%`,
+    content_name: 'VSL Retention Milestone'
+  }, true);
+};
+
+/**
+ * Event 11: VSL Video Completed or Proceed Clicked
  */
 export const trackVSLComplete = () => {
   trackMetaEvent('VSLCompleted', {
