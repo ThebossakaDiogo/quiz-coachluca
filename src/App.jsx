@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import WelcomeStep from './components/WelcomeStep';
 import QuizCard from './components/QuizCard';
 import AgeStep from './components/AgeStep';
@@ -21,6 +21,8 @@ import {
   trackCouponUnlocked, 
   trackOfferPage 
 } from './utils/pixel';
+
+import ScrollIndicator from './components/ScrollIndicator';
 
 const STORAGE_ANSWERS_KEY = 'pgb_quiz_answers';
 const STORAGE_SLUG_KEY = 'pgb_current_slug';
@@ -200,10 +202,8 @@ export const resolveStateFromSlug = (rawSlug) => {
 };
 
 export default function App() {
-  // Read initial slug from URL hash or localStorage so F5 always restores the exact current page
   const initialHash = typeof window !== 'undefined' ? window.location.hash : '';
-  const initialStorageSlug = typeof window !== 'undefined' ? localStorage.getItem(STORAGE_SLUG_KEY) : '';
-  const initialResolved = resolveStateFromSlug(initialHash || initialStorageSlug || 'bienvenida');
+  const initialResolved = resolveStateFromSlug(initialHash || 'bienvenida');
 
   const [showWelcome, setShowWelcome] = useState(initialResolved.showWelcome);
   const [currentStepIndex, setCurrentStepIndex] = useState(initialResolved.currentStepIndex);
@@ -216,6 +216,7 @@ export default function App() {
 
   const totalSteps = QUIZ_STEPS.length;
   const currentStepData = QUIZ_STEPS[currentStepIndex] || QUIZ_STEPS[0];
+  const isNavigating = useRef(false);
 
   // INSTANT IMAGE & GIF PRELOADER IN BROWSER MEMORY
   useEffect(() => {
@@ -238,7 +239,7 @@ export default function App() {
     });
   }, []);
 
-  // COMPUTED CURRENT SLUG FOR TRACKING PIXELS & URL HARMONY
+  // COMPUTED CURRENT SLUG
   const currentSlug = getSlugForState({
     showWelcome,
     showSummary,
@@ -263,7 +264,7 @@ export default function App() {
     saveAnswersToStorage(answers);
   }, [answers]);
 
-  // AUTOMATIC URL SLUG SYNCHRONIZATION & LOCALSTORAGE CACHE
+  // AUTOMATIC URL SLUG SYNCHRONIZATION
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
@@ -277,7 +278,7 @@ export default function App() {
       // Ignore
     }
 
-    // Fire Custom Pixel Event for Meta Pixel, TikTok Pixel, Google Analytics & UTMify
+    // Fire Custom Pixel Event
     window.dispatchEvent(new CustomEvent('quiz_step_change', {
       detail: { 
         slug: currentSlug, 
@@ -290,11 +291,110 @@ export default function App() {
       trackOfferPage();
     }
 
-    // Trigger TikTok Pixel if installed
-    if (typeof window.ttq === 'object' && typeof window.ttq.page === 'function') {
-      window.ttq.page();
-    }
+    // Scroll to top on step transition
+    window.scrollTo({ top: 0, behavior: 'instant' });
+
+    let hasInteracted = false;
+    let cancelCurrentAnim = null;
+
+    const handleUserInteraction = () => {
+      hasInteracted = true;
+      if (cancelCurrentAnim) {
+        cancelCurrentAnim();
+        cancelCurrentAnim = null;
+      }
+    };
+
+    window.addEventListener('touchstart', handleUserInteraction, { passive: true });
+    window.addEventListener('wheel', handleUserInteraction, { passive: true });
+    window.addEventListener('pointerdown', handleUserInteraction, { passive: true });
+    window.addEventListener('keydown', handleUserInteraction, { passive: true });
+
+    // Custom ultra-smooth motion animator using requestAnimationFrame and easeInOutCubic
+    const smoothMotionScrollTo = (targetY, duration = 1400) => {
+      if (typeof window === 'undefined' || hasInteracted) return;
+      
+      const startY = window.scrollY || window.pageYOffset || 0;
+      const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+      const finalY = Math.min(Math.max(0, targetY), maxScroll);
+      const distance = finalY - startY;
+
+      if (Math.abs(distance) < 8) return;
+
+      let startTime = null;
+      let animId = null;
+      let isCancelled = false;
+
+      // Soft cubic easing for a silky motion descent
+      const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+      const step = (timestamp) => {
+        if (isCancelled || hasInteracted) return;
+        if (!startTime) startTime = timestamp;
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(1, elapsed / duration);
+        const ease = easeInOutCubic(progress);
+
+        window.scrollTo(0, startY + distance * ease);
+
+        if (progress < 1) {
+          animId = requestAnimationFrame(step);
+        }
+      };
+
+      animId = requestAnimationFrame(step);
+
+      cancelCurrentAnim = () => {
+        isCancelled = true;
+        if (animId) cancelAnimationFrame(animId);
+      };
+    };
+
+    // PHASE 1: SILKY SUBTLE DESCENT (80px over 1200ms) AT 1.2s
+    const hintTimer = setTimeout(() => {
+      if (typeof window !== 'undefined' && !hasInteracted) {
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = window.innerHeight;
+        if (scrollHeight > clientHeight + 120 && window.scrollY <= 25) {
+          smoothMotionScrollTo(window.scrollY + 90, 1300);
+        }
+      }
+    }, 1200);
+
+    // PHASE 2: PROGRESSIVE GENTLE GLIDE TO ACTION BUTTON AT 3.2s IF NO USER ACTION
+    const guideTimer = setTimeout(() => {
+      if (typeof window !== 'undefined' && !hasInteracted) {
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = window.innerHeight;
+        if (scrollHeight > clientHeight + 140 && window.scrollY <= 160) {
+          const targetAction = document.querySelector('button[type="submit"]') ||
+                               document.querySelector('a[href*="centerpag"]') ||
+                               document.querySelector('.quiz-card button:last-of-type') ||
+                               document.querySelector('button.group');
+
+          if (targetAction) {
+            const rect = targetAction.getBoundingClientRect();
+            const targetPos = window.scrollY + rect.top - (window.innerHeight / 2) + (rect.height / 2);
+            smoothMotionScrollTo(targetPos, 1800);
+          } else {
+            smoothMotionScrollTo(window.scrollY + 340, 1600);
+          }
+        }
+      }
+    }, 3200);
+
+    return () => {
+      clearTimeout(hintTimer);
+      clearTimeout(guideTimer);
+      if (cancelCurrentAnim) cancelCurrentAnim();
+      window.removeEventListener('touchstart', handleUserInteraction);
+      window.removeEventListener('wheel', handleUserInteraction);
+      window.removeEventListener('pointerdown', handleUserInteraction);
+      window.removeEventListener('keydown', handleUserInteraction);
+    };
   }, [currentSlug, getStepNumber, isFinished, answers]);
+
+
 
   // HANDLE BROWSER BACK/FORWARD AND MANUAL HASH CHANGES
   useEffect(() => {
@@ -322,7 +422,9 @@ export default function App() {
   const navigateToSlug = (targetSlug) => {
     if (typeof window !== 'undefined') {
       const newHash = `#${targetSlug}`;
-      window.location.hash = newHash;
+      if (window.location.hash !== newHash) {
+        window.location.hash = newHash;
+      }
     }
     const resolved = resolveStateFromSlug(targetSlug);
     setShowWelcome(resolved.showWelcome);
@@ -336,11 +438,21 @@ export default function App() {
 
   const handleStartQuiz = () => {
     trackQuizStart();
+    // Reset answers so new quiz runs clean without pre-selected answers from previous sessions
+    setAnswers({});
+    try {
+      localStorage.removeItem(STORAGE_ANSWERS_KEY);
+    } catch {
+      // Ignore
+    }
     const nextSlug = `paso-1-${QUIZ_STEPS[0].slug}`;
     navigateToSlug(nextSlug);
   };
 
   const handleSelectOption = (value) => {
+    if (isNavigating.current) return;
+    isNavigating.current = true;
+
     const stepData = currentStepData;
     const newAnswers = { ...answers, [stepData.id]: value };
     setAnswers(newAnswers);
@@ -351,14 +463,16 @@ export default function App() {
       trackSummaryView(newAnswers);
       setTimeout(() => {
         navigateToSlug('perfil-analizado');
-      }, 160);
+        isNavigating.current = false;
+      }, 100);
     } else {
       setTimeout(() => {
         const nextIdx = currentStepIndex + 1;
         const nextStep = QUIZ_STEPS[nextIdx];
         const nextSlug = `paso-${nextIdx + 1}-${nextStep.slug}`;
         navigateToSlug(nextSlug);
-      }, 160);
+        isNavigating.current = false;
+      }, 100);
     }
   };
 
@@ -428,7 +542,6 @@ export default function App() {
           stepData={currentStepData}
           onSelectOption={handleSelectOption}
           onPrevStep={handlePrevStep}
-          selectedValue={answers[currentStepData.id]}
           currentStep={currentStepIndex + 1}
           totalSteps={totalSteps}
         />
@@ -474,7 +587,6 @@ export default function App() {
           stepData={currentStepData}
           onSelectOption={handleSelectOption}
           onPrevStep={handlePrevStep}
-          selectedValue={answers[currentStepData.id]}
           currentStep={currentStepIndex + 1}
           totalSteps={totalSteps}
         />
@@ -485,16 +597,18 @@ export default function App() {
         stepData={currentStepData}
         onSelectOption={handleSelectOption}
         onPrevStep={handlePrevStep}
-        selectedValue={answers[currentStepData.id]}
         currentStep={currentStepIndex + 1}
         totalSteps={totalSteps}
       />
     );
+
   };
 
   return (
-    <div className="min-h-screen bg-[#FFF9F6] font-body text-[#171116] antialiased selection:bg-[#FF3D7F] selection:text-white">
+    <div className="min-h-screen bg-[#F9EDF6] font-body text-[#1F121C] antialiased selection:bg-[#E63988] selection:text-white">
       {renderCurrentStep()}
+      <ScrollIndicator key={currentSlug} />
     </div>
   );
 }
+

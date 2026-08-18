@@ -8,22 +8,27 @@ export default {
     extend: {
       colors: {
         brand: {
-          primary: '#FF3D7F',
-          'primary-dark': '#D92667',
-          secondary: '#5B163A',
-          'secondary-dark': '#320C22',
-          accent: '#32B768',
-          'accent-dark': '#21894A',
-          gold: '#D9A441',
-          bg: '#FFF9F6',
-          'bg-soft': '#FFF0F5',
-          'bg-dark': '#161014',
+          primary: '#E63988',
+          'primary-light': '#FF65AA',
+          'primary-dark': '#B81E64',
+          magenta: '#D8387D',
+          'magenta-deep': '#4A0E31',
+          secondary: '#4A154B',
+          'secondary-dark': '#2B0A2C',
+          accent: '#10B981',
+          'accent-dark': '#059669',
+          coral: '#FF7051',
+          'coral-dark': '#E65333',
+          gold: '#E5A638',
+          bg: '#F9EDF6',
+          'bg-soft': '#FDF4FA',
+          'bg-dark': '#1C0D17',
           surface: '#FFFFFF',
-          text: '#171116',
-          'text-secondary': '#5F525A',
-          'text-muted': '#8C7D86',
-          border: '#F0E3E9',
-          'border-dark': '#432C37'
+          text: '#1F121C',
+          'text-secondary': '#635360',
+          'text-muted': '#968493',
+          border: '#F0DCEB',
+          'border-dark': '#48273F'
         }
       },
       fontFamily: {

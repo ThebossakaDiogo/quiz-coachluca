@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Fingerprint, CheckCircle2, Lock, Sparkles } from 'lucide-react';
+import HeaderLogo from './HeaderLogo';
 
 export default function FingerprintStep({ onScanComplete, currentStep, totalSteps }) {
   const [scanning, setScanning] = useState(false);
@@ -38,11 +39,11 @@ export default function FingerprintStep({ onScanComplete, currentStep, totalStep
     return () => clearInterval(timer);
   }, [scanning, progress, onScanComplete]);
 
-  let buttonStyle = 'bg-white border-4 border-amber-300 text-[#EA580C] hover:border-[#EA580C] hover:shadow-md active:scale-95';
+  let buttonStyle = 'bg-white border-4 border-[#F0DCEB] text-[#E63988] hover:border-[#E63988] hover:shadow-md active:scale-95';
   if (completed) {
-    buttonStyle = 'bg-emerald-50 border-4 border-[#16A34A] text-[#16A34A] shadow-lg shadow-emerald-500/20';
+    buttonStyle = 'bg-[#ECFDF5] border-4 border-[#10B981] text-[#10B981] shadow-lg shadow-[#10B981]/20';
   } else if (scanning) {
-    buttonStyle = 'bg-amber-50 border-4 border-[#EA580C] text-[#EA580C] shadow-xl shadow-amber-500/30 scale-105';
+    buttonStyle = 'bg-[#FDF2F8] border-4 border-[#E63988] text-[#E63988] shadow-xl shadow-[#E63988]/30 scale-105';
   }
 
   let progressStateLabel = '';
@@ -53,23 +54,27 @@ export default function FingerprintStep({ onScanComplete, currentStep, totalStep
   }
 
   return (
-    <div className="relative min-h-dvh overflow-hidden bg-[#59D6CF] py-6 flex flex-col justify-center items-center font-sans antialiased">
-      <div className="relative z-10 mx-auto flex w-full max-w-[460px] flex-col px-4">
-        <div className="rounded-[28px] bg-white px-7 pb-7 pt-8 shadow-2xl border border-teal-100 animate-fade-in text-center">
-          
-          <p className="text-center text-[11px] font-bold uppercase tracking-[0.14em] text-[#EA580C]">
-            Calibración Biométrica
-          </p>
+    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-b from-[#F6DBEE] via-[#F9EDF6] to-[#FCF5FA] py-6 flex flex-col justify-center items-center font-body text-[#1F121C]">
+      <div className="relative z-10 mx-auto flex w-full max-w-[460px] flex-col px-4 space-y-3.5">
+        
+        <HeaderLogo />
 
-          <h1 className="mt-2 text-center text-[24px] sm:text-[26px] font-extrabold leading-[1.15] tracking-tight text-[#0F172A]">
-            Escanea tu <span className="text-[#EA580C]">Impronta Metabólica</span>
+        <div className="rounded-[28px] bg-white px-6 sm:px-8 pb-7 pt-8 shadow-xl border border-[#F0DCEB] animate-pop text-center space-y-3">
+          
+          <div className="inline-flex items-center gap-1.5 bg-[#FDF2F8] border border-[#F0DCEB] text-[#B81E64] text-[11px] font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-2xs font-heading">
+            <Sparkles className="w-3.5 h-3.5 text-[#E63988]" />
+            <span>Calibración Biométrica</span>
+          </div>
+
+          <h1 className="text-xl sm:text-2xl font-black leading-tight tracking-tight text-[#1F121C] font-heading">
+            Escanea tu <span className="text-[#E63988]">Impronta Metabólica</span>
           </h1>
 
-          <p className="mt-2 text-center text-[13px] leading-[1.45] text-[#475569]">
-            Toca o haz clic en el sensor biométrico a continuación para calibrar tu rutina personalizada de 28 días.
+          <p className="text-xs sm:text-sm leading-relaxed text-[#635360] font-medium font-body">
+            Toca o mantén presionado el sensor biométrico para calibrar tu rutina personalizada de 28 días.
           </p>
 
-          <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50/40 p-6 flex flex-col items-center justify-center space-y-4">
+          <div className="mt-4 rounded-2xl border border-[#F0DCEB] bg-[#FDF4FA] p-6 flex flex-col items-center justify-center space-y-4 shadow-xs">
             
             {/* Interactive Fingerprint Scanner Container */}
             <button
@@ -77,7 +82,7 @@ export default function FingerprintStep({ onScanComplete, currentStep, totalStep
               onMouseDown={startScan}
               onTouchStart={startScan}
               onClick={startScan}
-              className={`relative w-28 h-28 rounded-full flex items-center justify-center transition-all duration-300 ${buttonStyle}`}
+              className={`relative w-28 h-28 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer ${buttonStyle}`}
             >
               {/* Progress Ring Overlay */}
               <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
@@ -91,7 +96,7 @@ export default function FingerprintStep({ onScanComplete, currentStep, totalStep
                   cx="50"
                   cy="50"
                   r="45"
-                  className="stroke-[#16A34A] fill-none transition-all duration-150"
+                  className="stroke-[#10B981] fill-none transition-all duration-150"
                   strokeWidth="6"
                   strokeDasharray="283"
                   strokeDashoffset={283 - (283 * progress) / 100}
@@ -100,33 +105,33 @@ export default function FingerprintStep({ onScanComplete, currentStep, totalStep
               </svg>
 
               {completed ? (
-                <CheckCircle2 className="w-14 h-14 text-[#16A34A] animate-bounce" />
+                <CheckCircle2 className="w-14 h-14 text-[#10B981] animate-bounce" />
               ) : (
                 <Fingerprint className={`w-14 h-14 transition-transform ${scanning ? 'animate-pulse scale-110' : ''}`} />
               )}
             </button>
 
             {/* Live Scan Progress Status */}
-            <div className="space-y-1 w-full max-w-xs">
-              <span className="text-xs font-extrabold text-[#0F172A] block">
+            <div className="space-y-1 w-full max-w-xs font-heading">
+              <span className="text-xs font-black text-[#1F121C] block">
                 {progress}% {progressStateLabel}
               </span>
-              <p className="text-[12px] font-medium text-[#64748B] min-h-[36px] flex items-center justify-center">
+              <p className="text-[12px] font-bold text-[#4A154B] min-h-[36px] flex items-center justify-center">
                 {statusText}
               </p>
             </div>
 
             {/* Instruction Tag */}
             {!scanning && !completed && (
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-[#EA580C] text-[11px] font-bold border border-amber-300">
-                <Sparkles className="w-3.5 h-3.5" /> Toca el sensor para iniciar
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FDF2F8] text-[#B81E64] text-[11px] font-bold border border-[#F0DCEB] font-heading shadow-2xs">
+                <Sparkles className="w-3.5 h-3.5 text-[#E63988]" /> Toca el sensor para iniciar
               </div>
             )}
           </div>
 
-          <div className="mt-5 flex items-center justify-center gap-6 pt-1 text-[10px] font-semibold uppercase tracking-wide text-[#64748B]">
+          <div className="mt-4 flex items-center justify-center gap-6 pt-1 text-[11px] font-medium text-[#968493]">
             <div className="flex items-center gap-1.5">
-              <Lock className="h-3.5 w-3.5 text-emerald-600" />
+              <Lock className="h-3.5 w-3.5 text-[#10B981]" />
               <span>Escaneo 100% Seguro y Privado</span>
             </div>
           </div>

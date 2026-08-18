@@ -1,6 +1,6 @@
 /**
  * Meta (Facebook) Pixel Ultra-Advanced & Intelligent Tracking Helper
- * Pixel ID: 1041491745145991
+ * Pixel ID: 1780867106266483
  * Features:
  * - Persistent UTM & Query parameter preservation across sessions and steps
  * - Automatic Facebook Browser ID (_fbp) & Click ID (_fbc / fbclid) forwarding to Checkout
@@ -10,7 +10,7 @@
 
 import { CHECKOUT_URL } from '../data/quizData';
 
-export const META_PIXEL_ID = '1041491745145991';
+export const META_PIXEL_ID = '1780867106266483';
 const UTM_STORAGE_KEY = 'pgb_persisted_utms';
 
 /**
@@ -72,8 +72,16 @@ export const getCookie = (name) => {
  */
 export const generateEventID = (eventName, step = '') => {
   const timestamp = Date.now();
-  const randomPart = Math.random().toString(36).substring(2, 8);
-  return `${eventName}_${step ? `${step}_` : ''}${timestamp}_${randomPart}`;
+  let randomPart = '';
+  if (typeof window !== 'undefined' && window.crypto?.getRandomValues) {
+    const array = new Uint32Array(1);
+    window.crypto.getRandomValues(array);
+    randomPart = array[0].toString(36);
+  } else {
+    randomPart = (Math.floor(Date.now() + 1000)).toString(36);
+  }
+  const prefix = step ? `${eventName}_${step}_` : `${eventName}_`;
+  return `${prefix}${timestamp}_${randomPart}`;
 };
 
 /**
