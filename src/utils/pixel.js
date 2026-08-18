@@ -1,6 +1,6 @@
 /**
  * Meta (Facebook) Pixel Ultra-Advanced & Intelligent Tracking Helper
- * Pixel ID: 1780867106266483
+ * Pixel ID: 5389969317804366
  * Features:
  * - Persistent UTM & Query parameter preservation across sessions and steps
  * - Automatic Facebook Browser ID (_fbp) & Click ID (_fbc / fbclid) forwarding to Checkout
@@ -8,10 +8,12 @@
  * - Deep funnel step milestones, engagement & video retention tracking
  */
 
-import { CHECKOUT_URL } from '../data/quizData';
+import { CHECKOUT_URL, DOWNSELL_CHECKOUT_URL } from '../data/quizData';
 
-export const META_PIXEL_ID = '1780867106266483';
+export const META_PIXEL_ID = '5389969317804366';
+
 const UTM_STORAGE_KEY = 'pgb_persisted_utms';
+
 
 /**
  * Capture and persist URL query parameters (UTMs, fbclid, src, etc.)
@@ -309,8 +311,39 @@ export const getFinalCheckoutUrl = () => {
   const queryString = searchParams.toString();
   if (!queryString) return CHECKOUT_URL;
 
-  const separator = CHECKOUT_URL.includes('?') ? '&' : '?';
-  return `${CHECKOUT_URL}${separator}${queryString}`;
+  // Clean trailing ? or & from base checkout url
+  const cleanBaseUrl = CHECKOUT_URL.replace(/[?&]+$/, '');
+  const separator = cleanBaseUrl.includes('?') ? '&' : '?';
+  return `${cleanBaseUrl}${separator}${queryString}`;
+};
+
+/**
+ * Builds the complete downsell checkout URL ($5.90) with all persisted UTMs
+ */
+export const getFinalDownsellCheckoutUrl = () => {
+  const baseUrl = DOWNSELL_CHECKOUT_URL || 'https://go.centerpag.com/PPU38CQFF6S';
+  if (typeof window === 'undefined') return baseUrl;
+
+  const persisted = captureAndPersistUTMs();
+  const searchParams = new URLSearchParams(window.location.search);
+
+  Object.entries(persisted).forEach(([key, val]) => {
+    if (val && !searchParams.has(key)) {
+      searchParams.set(key, val);
+    }
+  });
+
+  const fbp = getCookie('_fbp');
+  const fbc = getCookie('_fbc');
+  if (fbp && !searchParams.has('fbp')) searchParams.set('fbp', fbp);
+  if (fbc && !searchParams.has('fbc')) searchParams.set('fbc', fbc);
+
+  const queryString = searchParams.toString();
+  if (!queryString) return baseUrl;
+
+  const cleanBaseUrl = baseUrl.replace(/[?&]+$/, '');
+  const separator = cleanBaseUrl.includes('?') ? '&' : '?';
+  return `${cleanBaseUrl}${separator}${queryString}`;
 };
 
 /**
@@ -339,6 +372,35 @@ export const trackCheckoutClick = () => {
     window.location.href = destinationUrl;
   }
 };
+
+/**
+ * Event 7B: Click Downsell Checkout Button ($5.90 Special Emergency Subsidio)
+ */
+export const trackDownsellCheckoutClick = () => {
+  const destinationUrl = getFinalDownsellCheckoutUrl();
+  const eventID = generateEventID('AddPaymentInfo', 'downsell_click');
+
+  trackMetaEvent('AddPaymentInfo', {
+    content_name: 'Protocolo Glúteos Brasileños - Subsidio 5.90',
+    content_category: 'Downsell Checkout Outbound',
+    value: 5.90,
+    currency: 'USD'
+  }, false, eventID);
+
+  trackMetaEvent('ClickCheckoutButton', {
+    checkout_url: destinationUrl,
+    value: 5.90,
+    currency: 'USD',
+    offer_type: 'emergency_subsidio',
+    pixel_id: META_PIXEL_ID,
+    timestamp: new Date().toISOString()
+  }, true, eventID);
+
+  if (typeof window !== 'undefined') {
+    window.location.href = destinationUrl;
+  }
+};
+
 
 /**
  * Event 8: VSL Video Page View
@@ -384,3 +446,15 @@ export const trackVSLComplete = () => {
     action: 'proceed_to_coupon'
   }, true);
 };
+
+/**
+ * Event 12: BackRedirect Retention Page View
+ */
+export const trackBackredirectView = () => {
+  trackMetaEvent('BackRedirectView', {
+    content_name: 'BackRedirect Retention Page',
+    content_category: 'Retention / Value Showcase',
+    action: 'back_intercepted'
+  }, true);
+};
+

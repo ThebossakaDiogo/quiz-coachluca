@@ -11,6 +11,7 @@ import AnalyzingStep from './components/AnalyzingStep';
 import VSLStep from './components/VSLStep';
 import CouponStep from './components/CouponStep';
 import ResultStep from './components/ResultStep';
+import BackRedirectStep from './components/BackRedirectStep';
 import { QUIZ_STEPS, ASSETS } from './data/quizData';
 
 import { 
@@ -59,8 +60,10 @@ export const getSlugForState = ({
   isVSLStep,
   isCouponStep,
   isFinished,
+  isBackRedirect,
   currentStepIndex
 }) => {
+  if (isBackRedirect) return 'oportunidad-exclusiva';
   if (showWelcome) return 'bienvenida';
   if (showSummary) return 'perfil-analizado';
   if (isAnalyzing) return 'analizando-ia';
@@ -81,6 +84,25 @@ export const getSlugForState = ({
 export const resolveStateFromSlug = (rawSlug) => {
   const clean = (rawSlug || '').replace(/^#\/?/, '').trim().toLowerCase();
 
+  if (
+    clean === 'oportunidad-exclusiva' || 
+    clean === 'plan-especial' || 
+    clean === 'descuento-especial' || 
+    clean === 'retenida' || 
+    clean === 'backredirect'
+  ) {
+    return {
+      showWelcome: false,
+      currentStepIndex: QUIZ_STEPS.length - 1,
+      showSummary: false,
+      isAnalyzing: false,
+      isVSLStep: false,
+      isCouponStep: false,
+      isFinished: false,
+      isBackRedirect: true
+    };
+  }
+
   if (!clean || clean === 'bienvenida' || clean === 'inicio' || clean === 'boas-vindas') {
     return {
       showWelcome: true,
@@ -89,7 +111,8 @@ export const resolveStateFromSlug = (rawSlug) => {
       isAnalyzing: false,
       isVSLStep: false,
       isCouponStep: false,
-      isFinished: false
+      isFinished: false,
+      isBackRedirect: false
     };
   }
 
@@ -101,7 +124,8 @@ export const resolveStateFromSlug = (rawSlug) => {
       isAnalyzing: false,
       isVSLStep: false,
       isCouponStep: false,
-      isFinished: false
+      isFinished: false,
+      isBackRedirect: false
     };
   }
 
@@ -113,7 +137,8 @@ export const resolveStateFromSlug = (rawSlug) => {
       isAnalyzing: true,
       isVSLStep: false,
       isCouponStep: false,
-      isFinished: false
+      isFinished: false,
+      isBackRedirect: false
     };
   }
 
@@ -125,7 +150,8 @@ export const resolveStateFromSlug = (rawSlug) => {
       isAnalyzing: false,
       isVSLStep: true,
       isCouponStep: false,
-      isFinished: false
+      isFinished: false,
+      isBackRedirect: false
     };
   }
 
@@ -137,7 +163,8 @@ export const resolveStateFromSlug = (rawSlug) => {
       isAnalyzing: false,
       isVSLStep: false,
       isCouponStep: true,
-      isFinished: false
+      isFinished: false,
+      isBackRedirect: false
     };
   }
 
@@ -149,7 +176,8 @@ export const resolveStateFromSlug = (rawSlug) => {
       isAnalyzing: false,
       isVSLStep: false,
       isCouponStep: false,
-      isFinished: true
+      isFinished: true,
+      isBackRedirect: false
     };
   }
 
@@ -168,7 +196,8 @@ export const resolveStateFromSlug = (rawSlug) => {
       isAnalyzing: false,
       isVSLStep: false,
       isCouponStep: false,
-      isFinished: false
+      isFinished: false,
+      isBackRedirect: false
     };
   }
 
@@ -184,7 +213,8 @@ export const resolveStateFromSlug = (rawSlug) => {
         isAnalyzing: false,
         isVSLStep: false,
         isCouponStep: false,
-        isFinished: false
+        isFinished: false,
+        isBackRedirect: false
       };
     }
   }
@@ -197,7 +227,8 @@ export const resolveStateFromSlug = (rawSlug) => {
     isAnalyzing: false,
     isVSLStep: false,
     isCouponStep: false,
-    isFinished: false
+    isFinished: false,
+    isBackRedirect: false
   };
 };
 
@@ -213,6 +244,7 @@ export default function App() {
   const [isVSLStep, setIsVSLStep] = useState(initialResolved.isVSLStep);
   const [isCouponStep, setIsCouponStep] = useState(initialResolved.isCouponStep);
   const [isFinished, setIsFinished] = useState(initialResolved.isFinished);
+  const [isBackRedirect, setIsBackRedirect] = useState(initialResolved.isBackRedirect);
 
   const totalSteps = QUIZ_STEPS.length;
   const currentStepData = QUIZ_STEPS[currentStepIndex] || QUIZ_STEPS[0];
@@ -247,17 +279,19 @@ export default function App() {
     isVSLStep,
     isCouponStep,
     isFinished,
+    isBackRedirect,
     currentStepIndex
   });
 
   const getStepNumber = useCallback(() => {
+    if (isBackRedirect) return totalSteps + 4;
     if (showWelcome) return 0;
     if (isFinished) return totalSteps + 3;
     if (isCouponStep) return totalSteps + 2;
     if (isVSLStep) return totalSteps + 1;
     if (isAnalyzing || showSummary) return totalSteps;
     return currentStepIndex + 1;
-  }, [showWelcome, isFinished, isCouponStep, isVSLStep, isAnalyzing, showSummary, currentStepIndex, totalSteps]);
+  }, [showWelcome, isFinished, isCouponStep, isVSLStep, isAnalyzing, showSummary, isBackRedirect, currentStepIndex, totalSteps]);
 
   // SAVE ANSWERS TO LOCALSTORAGE ON EVERY UPDATE
   useEffect(() => {
@@ -394,7 +428,25 @@ export default function App() {
     };
   }, [currentSlug, getStepNumber, isFinished, answers]);
 
+  // BACKREDIRECT TRAP & RETENTION LOGIC
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
 
+    // When on conversion-critical stages, push a trap history state to catch back button
+    if (isVSLStep || isCouponStep || isFinished || showSummary) {
+      window.history.pushState({ pgb_trap: true }, '', window.location.href);
+
+      const handlePopState = () => {
+        // If user presses browser back button on conversion pages, intercept and show the high value retention page
+        if (!isBackRedirect) {
+          navigateToSlug('oportunidad-exclusiva');
+        }
+      };
+
+      window.addEventListener('popstate', handlePopState);
+      return () => window.removeEventListener('popstate', handlePopState);
+    }
+  }, [isVSLStep, isCouponStep, isFinished, showSummary, isBackRedirect]);
 
   // HANDLE BROWSER BACK/FORWARD AND MANUAL HASH CHANGES
   useEffect(() => {
@@ -408,14 +460,13 @@ export default function App() {
       setIsVSLStep(resolved.isVSLStep);
       setIsCouponStep(resolved.isCouponStep);
       setIsFinished(resolved.isFinished);
+      setIsBackRedirect(resolved.isBackRedirect);
     };
 
     window.addEventListener('hashchange', handleHashChange);
-    window.addEventListener('popstate', handleHashChange);
 
     return () => {
       window.removeEventListener('hashchange', handleHashChange);
-      window.removeEventListener('popstate', handleHashChange);
     };
   }, []);
 
@@ -434,6 +485,7 @@ export default function App() {
     setIsVSLStep(resolved.isVSLStep);
     setIsCouponStep(resolved.isCouponStep);
     setIsFinished(resolved.isFinished);
+    setIsBackRedirect(resolved.isBackRedirect);
   };
 
   const handleStartQuiz = () => {
@@ -477,7 +529,9 @@ export default function App() {
   };
 
   const handlePrevStep = () => {
-    if (isFinished) {
+    if (isBackRedirect) {
+      navigateToSlug('oferta-final');
+    } else if (isFinished) {
       navigateToSlug('beca-descuento');
     } else if (isCouponStep) {
       navigateToSlug('video-presentacion');
@@ -518,6 +572,13 @@ export default function App() {
   };
 
   const renderCurrentStep = () => {
+    if (isBackRedirect) {
+      return (
+        <BackRedirectStep
+          onBackToQuiz={() => navigateToSlug('oferta-final')}
+        />
+      );
+    }
     if (showWelcome) {
       return <WelcomeStep onStart={handleStartQuiz} />;
     }
@@ -601,7 +662,6 @@ export default function App() {
         totalSteps={totalSteps}
       />
     );
-
   };
 
   return (
@@ -611,4 +671,3 @@ export default function App() {
     </div>
   );
 }
-
