@@ -113,11 +113,11 @@ export default function ResultStep({ userAnswers }) {
           {/* DIAGNOSTIC REPORT DASHBOARD CARD */}
           <DiagnosticReportCard userAnswers={userAnswers} />
 
-          {/* $ 19,90 DISCOUNT UNLOCKED BANNER */}
+          {/* $ 9,90 DISCOUNT UNLOCKED BANNER */}
           <div className="bg-gradient-to-r from-[#FFF4D9] to-[#FFF9F6] text-[#171116] rounded-[20px] p-5 shadow-lg text-center space-y-2.5 border-2 border-[#D9A441] animate-pop font-heading">
             <div className="inline-flex items-center gap-1.5 bg-[#5B163A] text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-md">
               <Tag className="w-4 h-4 text-[#D9A441] fill-[#D9A441]" />
-              CUPÓN EXCLUSIVO APLICADO (#PGB1990)
+              CUPÓN EXCLUSIVO APLICADO (#PGB990)
             </div>
             
             <div className="flex items-center justify-center gap-3 pt-1">
@@ -126,14 +126,14 @@ export default function ResultStep({ userAnswers }) {
               </span>
               <div className="flex flex-col items-start">
                 <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#FF3D7F] tracking-tight leading-none">
-                  $ 19,90
+                  $ 9,90
                 </span>
                 <span className="text-[11px] font-bold text-[#5B163A] uppercase pt-0.5">¡Pago Único • Acceso Inmediato!</span>
               </div>
             </div>
             
             <p className="text-xs font-bold text-[#5B163A] bg-white py-1.5 px-3 rounded-xl border border-[#D9A441]/50 inline-block shadow-xs font-body">
-              🎉 ¡Ahorras $ 77,10 y pagas solo $ 19,90 por acceso completo de por vida!
+              🎉 ¡Ahorras $ 87,10 y pagas solo $ 9,90 por acceso completo de por vida!
             </p>
           </div>
 

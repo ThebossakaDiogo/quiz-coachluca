@@ -1,4 +1,4 @@
-export const CHECKOUT_URL = 'https://go.centerpag.com/PPU38CQF4DB';
+export const CHECKOUT_URL = 'https://go.centerpag.com/PPU38CQFE5J';
 
 export const ASSETS = {
   logo: '/assets/LOGO3-WGBt60gj.webp',

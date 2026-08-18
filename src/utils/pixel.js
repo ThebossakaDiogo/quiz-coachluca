@@ -1,6 +1,6 @@
 /**
  * Meta (Facebook) Pixel Ultra-Advanced & Intelligent Tracking Helper
- * Pixel ID: 1370642311691579
+ * Pixel ID: 1041491745145991
  * Features:
  * - Persistent UTM & Query parameter preservation across sessions and steps
  * - Automatic Facebook Browser ID (_fbp) & Click ID (_fbc / fbclid) forwarding to Checkout
@@ -10,7 +10,7 @@
 
 import { CHECKOUT_URL } from '../data/quizData';
 
-export const META_PIXEL_ID = '1370642311691579';
+export const META_PIXEL_ID = '1041491745145991';
 const UTM_STORAGE_KEY = 'pgb_persisted_utms';
 
 /**
@@ -253,8 +253,8 @@ export const trackOfferPage = () => {
     content_name: 'Protocolo Glúteos Brasileños by Coach Luca',
     content_category: 'Programa de Entrenamiento y Nutrición',
     content_type: 'product',
-    content_ids: ['pgb_1990'],
-    value: 19.90,
+    content_ids: ['pgb_990'],
+    value: 9.90,
     currency: 'USD'
   }, false, eventID);
 
@@ -262,16 +262,16 @@ export const trackOfferPage = () => {
     content_name: 'Protocolo Glúteos Brasileños by Coach Luca',
     content_category: 'Programa de Entrenamiento y Nutrición',
     content_type: 'product',
-    content_ids: ['pgb_1990'],
-    value: 19.90,
+    content_ids: ['pgb_990'],
+    value: 9.90,
     currency: 'USD',
     num_items: 1
   }, false, eventID);
 
   trackMetaEvent('OfferPageView', {
-    offer_price: 19.90,
+    offer_price: 9.90,
     original_price: 97.00,
-    discount_percentage: '80%',
+    discount_percentage: '90%',
     pixel_id: META_PIXEL_ID
   }, true, eventID);
 };
@@ -315,13 +315,13 @@ export const trackCheckoutClick = () => {
   trackMetaEvent('AddPaymentInfo', {
     content_name: 'Protocolo Glúteos Brasileños',
     content_category: 'Checkout Outbound',
-    value: 19.90,
+    value: 9.90,
     currency: 'USD'
   }, false, eventID);
 
   trackMetaEvent('ClickCheckoutButton', {
     checkout_url: destinationUrl,
-    value: 19.90,
+    value: 9.90,
     currency: 'USD',
     pixel_id: META_PIXEL_ID,
     timestamp: new Date().toISOString()
