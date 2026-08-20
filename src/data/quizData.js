@@ -1,4 +1,4 @@
-export const CHECKOUT_URL = 'https://pay.hotmart.com/H107248449S';
+export const CHECKOUT_URL = 'https://go.centerpag.com/PPU38CQFFI8';
 export const DOWNSELL_CHECKOUT_URL = 'https://go.centerpag.com/PPU38CQFF6S';
 
 export const ASSETS = {

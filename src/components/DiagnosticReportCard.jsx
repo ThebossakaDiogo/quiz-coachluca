@@ -23,77 +23,77 @@ export default function DiagnosticReportCard({ userAnswers }) {
   const ageText = getAgeLabel(selectedAge);
 
   return (
-    <div className="bg-white rounded-[24px] p-4 sm:p-6 border-2 border-[#F0DCEB] shadow-md space-y-4 text-left font-body">
+    <div className="bg-white rounded-[24px] p-4 sm:p-6 border-2 border-[#FDE2EE] shadow-md space-y-4 text-left font-body">
       
       {/* HEADER SECTION */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#F0DCEB]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#FDE2EE]">
         <div className="text-left space-y-0.5 font-heading">
           <div className="flex items-center gap-2">
-            <Activity className="w-5 h-5 text-[#E63988] animate-pulse" />
-            <h3 className="text-xl sm:text-2xl font-black text-[#1F121C] tracking-tight">
+            <Activity className="w-5 h-5 text-[#FF2A85] animate-pulse" />
+            <h3 className="text-xl sm:text-2xl font-black text-[#2B0B2E] tracking-tight">
               Informe Biométrico & Metabólico
             </h3>
           </div>
-          <p className="text-xs text-[#635360] font-semibold font-body">
-            Calibrado para <span className="text-[#E63988] font-bold">{height} cm • {weight} kg • {ageText}</span>
+          <p className="text-xs text-[#6C586B] font-semibold font-body">
+            Calibrado para <span className="text-[#FF2A85] font-black">{height} cm • {weight} kg • {ageText}</span>
           </p>
         </div>
 
-        <div className="inline-flex items-center gap-1.5 bg-[#FDF2F8] text-[#B81E64] text-xs font-bold px-3.5 py-1.5 rounded-full border border-[#F0DCEB] self-start sm:self-auto shadow-2xs font-heading">
-          <Sparkles className="w-3.5 h-3.5 text-[#E63988]" />
+        <div className="inline-flex items-center gap-1.5 bg-[#FFFBE6] text-[#2B0B2E] text-xs font-black px-3.5 py-1.5 rounded-full border-2 border-[#FFE600] self-start sm:self-auto shadow-[2px_2px_0px_#FF2A85] font-heading">
+          <Sparkles className="w-3.5 h-3.5 text-[#FF2A85]" />
           <span>Diagnóstico PGB IA</span>
         </div>
       </div>
 
       {/* REALISTIC BIOMETRIC SNAPSHOT DASHBOARD */}
-      <div className="bg-gradient-to-r from-[#4A154B] via-[#2B0A2C] to-[#1F121C] text-white rounded-[20px] p-4 border border-[#F0DCEB]/30 shadow-md space-y-3 text-left font-heading">
+      <div className="bg-gradient-to-r from-[#2B0B2E] via-[#3D1040] to-[#1F0721] text-white rounded-[20px] p-4 border border-[#FFE600]/30 shadow-md space-y-3 text-left font-heading">
         <div className="flex items-center justify-between border-b border-white/15 pb-2">
-          <span className="text-[10px] font-black uppercase tracking-wider text-[#FFA5CD]">
+          <span className="text-[10px] font-black uppercase tracking-wider text-[#FFE600]">
             📊 BIOMETRÍA CORPORAL PROCESADA
           </span>
-          <span className="text-[10px] font-mono font-bold bg-[#E63988]/30 px-2 py-0.5 rounded text-[#FFA5CD]">
+          <span className="text-[10px] font-mono font-bold bg-[#FF2A85]/40 px-2 py-0.5 rounded text-white border border-[#FF2A85]/50">
             CONFIRMADAS
           </span>
         </div>
 
         <div className="grid grid-cols-3 gap-2 text-center font-heading">
           <div className="bg-white/10 p-2.5 rounded-xl border border-white/10">
-            <span className="text-[10px] font-bold text-[#FFA5CD] uppercase block">Estatura</span>
+            <span className="text-[10px] font-bold text-[#FFE600] uppercase block">Estatura</span>
             <span className="text-base sm:text-lg font-black text-white font-mono">{height} cm</span>
           </div>
           <div className="bg-white/10 p-2.5 rounded-xl border border-white/10">
-            <span className="text-[10px] font-bold text-[#FFA5CD] uppercase block">Peso Actual</span>
+            <span className="text-[10px] font-bold text-[#FFE600] uppercase block">Peso Actual</span>
             <span className="text-base sm:text-lg font-black text-white font-mono">{weight} kg</span>
           </div>
-          <div className="bg-white/10 p-2.5 rounded-xl border border-[#E5A638]/40">
-            <span className="text-[10px] font-bold text-[#E5A638] uppercase block">IMC Calculado</span>
-            <span className="text-base sm:text-lg font-black text-[#E5A638] font-mono">{bmi}</span>
+          <div className="bg-white/10 p-2.5 rounded-xl border border-[#FFE600]/60">
+            <span className="text-[10px] font-black text-[#FFE600] uppercase block">IMC Calculado</span>
+            <span className="text-base sm:text-lg font-black text-[#FFE600] font-mono">{bmi}</span>
           </div>
         </div>
       </div>
 
       {/* LEGEND & METABOLIC METRICS BREAKDOWN */}
       <div className="space-y-3">
-        <div className="flex items-center justify-between text-xs font-bold text-[#635360] px-1 font-heading">
+        <div className="flex items-center justify-between text-xs font-bold text-[#6C586B] px-1 font-heading">
           <span>Curva de Activación Muscular Progresiva</span>
           <span className="text-[#10B981] font-black">28 Días</span>
         </div>
 
         {/* CUSTOM GRAPHICAL VISUALIZATION */}
-        <div className="bg-[#FDF4FA] p-4 rounded-[20px] border border-[#F0DCEB] space-y-3">
+        <div className="bg-[#FFF4FA] p-4 rounded-[20px] border border-[#FDE2EE] space-y-3">
           
           {/* Visual Legend */}
-          <div className="flex items-center gap-4 text-[11px] font-bold text-[#635360] font-heading flex-wrap">
+          <div className="flex items-center gap-4 text-[11px] font-bold text-[#6C586B] font-heading flex-wrap">
             <div className="flex items-center gap-1.5">
               <div className="w-3 h-3 rounded-full bg-[#10B981]" />
               <span>Síntesis Glútea</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <div className="w-3 h-3 rounded-full bg-[#E5A638]" />
+              <div className="w-3 h-3 rounded-full bg-[#FFB800]" />
               <span>Respuesta Anti-Flacidez</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <div className="w-3 h-3 rounded-full bg-[#E63988]" />
+              <div className="w-3 h-3 rounded-full bg-[#FF2A85]" />
               <span>Actividad Metabólica</span>
             </div>
           </div>
@@ -107,15 +107,15 @@ export default function DiagnosticReportCard({ userAnswers }) {
                   <stop offset="100%" stopColor="#10B981" stopOpacity="0.0" />
                 </linearGradient>
                 <linearGradient id="pgbPinkGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#E63988" stopOpacity="0.3" />
-                  <stop offset="100%" stopColor="#E63988" stopOpacity="0.0" />
+                  <stop offset="0%" stopColor="#FF2A85" stopOpacity="0.3" />
+                  <stop offset="100%" stopColor="#FF2A85" stopOpacity="0.0" />
                 </linearGradient>
               </defs>
 
               {/* Grid Lines */}
-              <line x1="0" y1="25" x2="300" y2="25" stroke="#F0DCEB" strokeDasharray="3 3" />
-              <line x1="0" y1="50" x2="300" y2="50" stroke="#F0DCEB" strokeDasharray="3 3" />
-              <line x1="0" y1="75" x2="300" y2="75" stroke="#F0DCEB" strokeDasharray="3 3" />
+              <line x1="0" y1="25" x2="300" y2="25" stroke="#FDE2EE" strokeDasharray="3 3" />
+              <line x1="0" y1="50" x2="300" y2="50" stroke="#FDE2EE" strokeDasharray="3 3" />
+              <line x1="0" y1="75" x2="300" y2="75" stroke="#FDE2EE" strokeDasharray="3 3" />
 
               {/* Area 1 */}
               <path
@@ -139,7 +139,7 @@ export default function DiagnosticReportCard({ userAnswers }) {
               <path
                 d="M 0,90 Q 75,75 150,45 T 300,20"
                 fill="none"
-                stroke="#E63988"
+                stroke="#FF2A85"
                 strokeWidth="2.5"
                 strokeDasharray="4 4"
                 strokeLinecap="round"
@@ -167,59 +167,59 @@ export default function DiagnosticReportCard({ userAnswers }) {
       {/* SUMMARY STATS GRID */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left font-heading">
         {/* STAT CARD 1 */}
-        <div className="bg-[#FDF4FA] p-4 rounded-2xl border border-[#F0DCEB] space-y-1.5 shadow-2xs">
-          <span className="text-xs font-bold text-[#968493] block uppercase tracking-wider">
+        <div className="bg-[#FFF4FA] p-4 rounded-2xl border border-[#FDE2EE] space-y-1.5 shadow-2xs">
+          <span className="text-xs font-black text-[#6C586B] block uppercase tracking-wider">
             Índice de Activación Glútea
           </span>
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-black text-[#1F121C] font-heading tracking-tight">
+            <span className="text-2xl font-black text-[#2B0B2E] font-heading tracking-tight">
               96.4%
             </span>
-            <div className="flex items-center gap-1 bg-[#ECFDF5] text-[#065F46] text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-[#10B981]/40">
+            <div className="flex items-center gap-1 bg-[#ECFDF5] text-[#065F46] text-[11px] font-black px-2.5 py-0.5 rounded-full border border-[#10B981]/40">
               <TrendingUp className="w-3.5 h-3.5 text-[#10B981]" />
               <span>+14.2% vs Media</span>
             </div>
           </div>
-          <p className="text-[11px] text-[#635360] font-medium font-body">
+          <p className="text-[11px] text-[#6C586B] font-medium font-body">
             Respuesta muscular clasificada en rango óptimo.
           </p>
         </div>
 
         {/* STAT CARD 2 */}
-        <div className="bg-[#FDF4FA] p-4 rounded-2xl border border-[#F0DCEB] space-y-1.5 shadow-2xs">
-          <span className="text-xs font-bold text-[#968493] block uppercase tracking-wider">
+        <div className="bg-[#FFF4FA] p-4 rounded-2xl border border-[#FDE2EE] space-y-1.5 shadow-2xs">
+          <span className="text-xs font-black text-[#6C586B] block uppercase tracking-wider">
             Potencial de Crecimiento
           </span>
           <div className="flex items-center gap-2">
             <span className="text-2xl font-black text-[#10B981] font-heading tracking-tight">
               +5.2 cm
             </span>
-            <div className="flex items-center gap-1 bg-[#FDF2F8] text-[#B81E64] text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-[#F0DCEB]">
-              <Zap className="w-3.5 h-3.5 text-[#E63988] fill-[#E63988]" />
+            <div className="flex items-center gap-1 bg-[#FFFBE6] text-[#2B0B2E] text-[11px] font-black px-2.5 py-0.5 rounded-full border border-[#FFE600]">
+              <Zap className="w-3.5 h-3.5 text-[#FF2A85] fill-[#FFE600]" />
               <span>Estimación 28D</span>
             </div>
           </div>
-          <p className="text-[11px] text-[#635360] font-medium font-body">
+          <p className="text-[11px] text-[#6C586B] font-medium font-body">
             Aumento estimado en circunferencia en 4 semanas.
           </p>
         </div>
       </div>
 
       {/* DETAILED METRICS LIST WITH ICONS */}
-      <div className="bg-[#FDF4FA] rounded-2xl p-4 sm:p-5 border border-[#F0DCEB] text-left space-y-3 shadow-2xs divide-y divide-[#F0DCEB]">
+      <div className="bg-[#FFF4FA] rounded-2xl p-4 sm:p-5 border border-[#FDE2EE] text-left space-y-3 shadow-2xs divide-y divide-[#FDE2EE]">
         
         {/* METRIC 1 */}
         <div className="flex items-center justify-between pt-1 first:pt-0">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-[#FDF2F8] border border-[#F0DCEB] flex items-center justify-center text-[#E63988] shrink-0 font-bold">
+            <div className="w-8 h-8 rounded-xl bg-[#FFFBE6] border border-[#FFE600] flex items-center justify-center text-[#FF2A85] shrink-0 font-bold">
               ⏱️
             </div>
             <div>
-              <span className="text-xs font-bold text-[#1F121C] block font-heading">Tiempo de Respuesta Neuromuscular</span>
-              <span className="text-[11px] text-[#635360] font-medium font-body">Estimulación diaria requerida</span>
+              <span className="text-xs font-black text-[#2B0B2E] block font-heading">Tiempo de Respuesta Neuromuscular</span>
+              <span className="text-[11px] text-[#6C586B] font-medium font-body">Estimulación diaria requerida</span>
             </div>
           </div>
-          <span className="text-xs sm:text-sm font-extrabold text-[#1F121C] font-heading">8.2 min/día</span>
+          <span className="text-xs sm:text-sm font-black text-[#2B0B2E] font-heading">8.2 min/día</span>
         </div>
 
         {/* METRIC 2 */}
@@ -229,39 +229,39 @@ export default function DiagnosticReportCard({ userAnswers }) {
               🔥
             </div>
             <div>
-              <span className="text-xs font-bold text-[#1F121C] block font-heading">Tasa Metabólica Basal Estimada</span>
-              <span className="text-[11px] text-[#635360] font-medium font-body">Gasto calórico de síntesis</span>
+              <span className="text-xs font-black text-[#2B0B2E] block font-heading">Tasa Metabólica Basal Estimada</span>
+              <span className="text-[11px] text-[#6C586B] font-medium font-body">Gasto calórico de síntesis</span>
             </div>
           </div>
-          <span className="text-xs sm:text-sm font-extrabold text-[#10B981] font-heading">{bmr.toLocaleString()} kcal/día</span>
+          <span className="text-xs sm:text-sm font-black text-[#10B981] font-heading">{bmr.toLocaleString()} kcal/día</span>
         </div>
 
         {/* METRIC 3 */}
         <div className="flex items-center justify-between pt-3">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-[#FFF9EB] border border-[#E5A638]/40 flex items-center justify-center text-[#E5A638] shrink-0 font-bold">
+            <div className="w-8 h-8 rounded-xl bg-[#FFFBE6] border border-[#FFE600] flex items-center justify-center text-[#FFB800] shrink-0 font-bold">
               🎯
             </div>
             <div>
-              <span className="text-xs font-bold text-[#1F121C] block font-heading">Reclutamiento de Fibras</span>
-              <span className="text-[11px] text-[#635360] font-medium font-body">Tipo de fibra hipertrófica</span>
+              <span className="text-xs font-black text-[#2B0B2E] block font-heading">Reclutamiento de Fibras</span>
+              <span className="text-[11px] text-[#6C586B] font-medium font-body">Tipo de fibra hipertrófica</span>
             </div>
           </div>
-          <span className="text-xs sm:text-sm font-extrabold text-[#4A154B] font-heading">Tipo II (Alta Respuesta)</span>
+          <span className="text-xs sm:text-sm font-black text-[#2B0B2E] font-heading">Tipo II (Alta Respuesta)</span>
         </div>
 
         {/* METRIC 4 */}
         <div className="flex items-center justify-between pt-3">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-[#FDF2F8] border border-[#F0DCEB] flex items-center justify-center text-[#E63988] shrink-0 font-bold">
+            <div className="w-8 h-8 rounded-xl bg-[#FFF4FA] border border-[#FDE2EE] flex items-center justify-center text-[#FF2A85] shrink-0 font-bold">
               🏠
             </div>
             <div>
-              <span className="text-xs font-bold text-[#1F121C] block font-heading">Nivel de Equipamiento</span>
-              <span className="text-[11px] text-[#635360] font-medium font-body">Sin gimnasio ni pesas</span>
+              <span className="text-xs font-black text-[#2B0B2E] block font-heading">Nivel de Equipamiento</span>
+              <span className="text-[11px] text-[#6C586B] font-medium font-body">Sin gimnasio ni pesas</span>
             </div>
           </div>
-          <span className="text-xs sm:text-sm font-extrabold text-[#E63988] font-heading">100% Corporal</span>
+          <span className="text-xs sm:text-sm font-black text-[#FF2A85] font-heading">100% Corporal</span>
         </div>
 
       </div>

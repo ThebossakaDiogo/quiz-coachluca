@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { 
   Volume2, 
   VolumeX, 
@@ -17,6 +17,44 @@ import { trackVSLView, trackVSLPlay, trackVSLComplete, trackVSLProgress } from '
 
 // Target duration in seconds of video playback to reach 100% (fast paced sensation)
 const TARGET_PLAYED_SECONDS_FOR_100 = 12.0;
+
+function computeProgress(currentTime, duration) {
+  const effectiveTarget = Math.min(TARGET_PLAYED_SECONDS_FOR_100, duration * 0.7);
+  const ratio = Math.min(1, currentTime / effectiveTarget);
+  return {
+    ratio,
+    percent: Math.min(100, Math.round(Math.pow(ratio, 0.88) * 100))
+  };
+}
+
+function getStatusMessage(isLoaderActive, roundedProgress) {
+  if (!isLoaderActive) {
+    return '👆 Toca en el vídeo para activar el audio y desbloquear tu Beca...';
+  }
+  if (roundedProgress >= 100) return '🎉 ¡BECA DEL 80% DESBLOQUEADA CON ÉXITO!';
+  if (roundedProgress >= 70) return '🔥 ¡Últimos segundos! Desbloqueando tu Beca...';
+  if (roundedProgress >= 30) return '⚡ Calibrando tu cupón exclusivo y diagnóstico...';
+  return '▶️ Calibrando estímulo biomecánico en tiempo real...';
+}
+
+function getBadgeLabel(roundedProgress, isLoaderActive) {
+  if (roundedProgress >= 100) return 'BECA LIBERADA';
+  if (isLoaderActive) return `BECA: ${roundedProgress}%`;
+  return 'TOCA PARA ACTIVAR';
+}
+
+function getBottomPillText(isLoaderActive, roundedProgress) {
+  if (!isLoaderActive) {
+    return '👆 Toca para activar audio y desbloquear tu Beca';
+  }
+  if (roundedProgress >= 100) {
+    return '🎉 ¡Beca Desbloqueada! Toca abajo para reclamar';
+  }
+  if (roundedProgress >= 70) {
+    return '🔥 ¡Últimos segundos! Desbloqueando Beca...';
+  }
+  return 'Mira la explicación para desbloquear tu Beca del 80%';
+}
 
 export default function VSLStep({ onContinue }) {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -45,18 +83,13 @@ export default function VSLStep({ onContinue }) {
   }, []);
 
   // SYNCHRONIZED PROGRESS CALCULATOR TIED TO REAL VIDEO PLAYBACK
-  const handleTimeUpdate = () => {
+  const handleTimeUpdate = useCallback(() => {
     if (!isLoaderActive || !videoRef.current) return;
 
     const currentTime = videoRef.current.currentTime || 0;
     const duration = videoRef.current.duration || TARGET_PLAYED_SECONDS_FOR_100;
+    const { ratio, percent: pct } = computeProgress(currentTime, duration);
 
-    // Accelerated ratio: maps playback so it reaches 100% smoothly and quickly
-    const effectiveTarget = Math.min(TARGET_PLAYED_SECONDS_FOR_100, duration * 0.7);
-    const ratio = Math.min(1, currentTime / effectiveTarget);
-
-    // Dynamic curve that feels fast and responsive
-    const pct = Math.min(100, Math.round(Math.pow(ratio, 0.88) * 100));
     setProgressPercent(pct);
 
     if (pct >= 50 && !tracked50.current) {
@@ -70,13 +103,12 @@ export default function VSLStep({ onContinue }) {
     if (pct >= 100 || ratio >= 1) {
       setIsUnlocked(true);
     }
-  };
+  }, [isLoaderActive]);
 
   // ACTIVATE VSL WITH SOUND AND START LOADER ON USER CLICK (ALWAYS FROM 0:00)
   const handleActivateAndPlay = () => {
     if (!videoRef.current) return;
 
-    // ALWAYS reset currentTime to 0 so the video plays from the very beginning with audio
     videoRef.current.currentTime = 0;
     videoRef.current.muted = false;
     setIsMuted(false);
@@ -89,7 +121,6 @@ export default function VSLStep({ onContinue }) {
       setIsPlaying(true);
     });
   };
-
 
   const handlePlayToggle = () => {
     if (!isLoaderActive) {
@@ -106,6 +137,13 @@ export default function VSLStep({ onContinue }) {
       videoRef.current.play().then(() => {
         setIsPlaying(true);
       });
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handlePlayToggle();
     }
   };
 
@@ -141,20 +179,12 @@ export default function VSLStep({ onContinue }) {
   };
 
   const roundedProgress = Math.round(progressPercent);
-
-  // Dynamic progress status message
-  const getStatusMessage = () => {
-    if (!isLoaderActive) {
-      return '👆 Toca en el vídeo para activar el audio y desbloquear tu Beca...';
-    }
-    if (roundedProgress >= 100) return '🎉 ¡BECA DEL 80% DESBLOQUEADA CON ÉXITO!';
-    if (roundedProgress >= 70) return '🔥 ¡Últimos segundos! Desbloqueando tu Beca...';
-    if (roundedProgress >= 30) return '⚡ Calibrando tu cupón exclusivo y diagnóstico...';
-    return '▶️ Calibrando estímulo biomecánico en tiempo real...';
-  };
+  const statusMessage = getStatusMessage(isLoaderActive, roundedProgress);
+  const badgeLabel = getBadgeLabel(roundedProgress, isLoaderActive);
+  const bottomPillText = getBottomPillText(isLoaderActive, roundedProgress);
 
   return (
-    <div className="min-h-dvh bg-gradient-to-b from-[#F6DBEE] via-[#F9EDF6] to-[#FCF5FA] py-6 px-3.5 sm:px-6 flex flex-col justify-center items-center font-body text-[#1F121C]">
+    <div className="min-h-dvh bg-gradient-to-b from-[#FFF2D6] via-[#FFF5F9] to-[#FFF9F2] py-6 px-3.5 sm:px-6 flex flex-col justify-center items-center font-body text-[#2B0B2E]">
       
       <div className="w-full max-w-lg sm:max-w-xl mx-auto space-y-3.5">
         
@@ -162,53 +192,53 @@ export default function VSLStep({ onContinue }) {
         <HeaderLogo />
 
         {/* Clean Main VSL Card */}
-        <div className="bg-white rounded-[28px] p-4 sm:p-7 shadow-xl border border-[#F0DCEB] space-y-4 text-center quiz-card animate-pop">
+        <div className="bg-white rounded-[28px] p-4 sm:p-7 shadow-xl border border-[#FDE2EE] space-y-4 text-center quiz-card animate-pop">
           
           {/* Header Badge & Title */}
           <div className="space-y-1.5">
-            <div className="inline-flex items-center gap-1.5 bg-[#FDF2F8] text-[#B81E64] border border-[#F0DCEB] text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-2xs font-heading">
-              <Tv className="w-3.5 h-3.5 text-[#E63988]" />
+            <div className="inline-flex items-center gap-1.5 bg-[#FFFBE6] text-[#2B0B2E] border-2 border-[#FFE600] text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-[2px_2px_0px_#FF2A85] font-heading">
+              <Tv className="w-3.5 h-3.5 text-[#FF2A85]" />
               <span>Vídeo Exclusivo • Protocolo Glúteos</span>
             </div>
 
-            <h2 className="text-xl sm:text-2xl font-black text-[#1F121C] leading-tight font-heading">
+            <h2 className="text-xl sm:text-2xl font-black text-[#2B0B2E] leading-tight font-heading">
               Mira la Explicación Antes de Continuar 🍑
             </h2>
             
-            <p className="text-xs sm:text-sm text-[#635360] font-medium leading-relaxed font-body max-w-md mx-auto">
-              Aprende el estímulo neuromuscular de <strong className="text-[#E63988]">8 a 10 min/día</strong> desde casa.
+            <p className="text-xs sm:text-sm text-[#6C586B] font-medium leading-relaxed font-body max-w-md mx-auto">
+              Aprende el estímulo neuromuscular de <strong className="text-[#FF2A85]">8 a 10 min/día</strong> desde casa.
             </p>
           </div>
 
           {/* EXTERNAL PROGRESS BAR (TIED TO VIDEO PLAYBACK, FAST PACED) */}
           <div className={`rounded-[22px] p-3.5 border-2 transition-all duration-300 space-y-2 text-left ${
             isLoaderActive 
-              ? 'bg-gradient-to-r from-[#FDF2F8] via-[#FCE7F3] to-[#FDF2F8] border-[#E63988]/50 shadow-xs' 
-              : 'bg-[#FDF4FA] border-[#F0DCEB]'
+              ? 'bg-gradient-to-r from-[#FFFBE6] via-[#FFF4FA] to-[#FFFBE6] border-[#FF2A85]/50 shadow-xs' 
+              : 'bg-[#FFF4FA] border-[#FDE2EE]'
           }`}>
             <div className="flex items-center justify-between gap-2 font-heading">
-              <span className="inline-flex items-center gap-1.5 text-[11px] font-extrabold text-[#4A154B]">
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-black text-[#2B0B2E]">
                 {roundedProgress >= 100 ? (
                   <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0" />
                 ) : (
-                  <Flame className={`w-4 h-4 shrink-0 ${isLoaderActive ? 'text-[#E63988] fill-[#E63988] animate-pulse' : 'text-[#968493]'}`} />
+                  <Flame className={`w-4 h-4 shrink-0 ${isLoaderActive ? 'text-[#FF2A85] fill-[#FFE600] animate-pulse' : 'text-[#968493]'}`} />
                 )}
                 <span>DESBLOQUEO DE BECA:</span>
               </span>
               <span className={`font-black text-sm px-2.5 py-0.5 rounded-full border shadow-2xs ${
-                isLoaderActive ? 'text-[#E63988] bg-white border-[#F0DCEB]' : 'text-[#968493] bg-white/70 border-[#F0DCEB]'
+                isLoaderActive ? 'text-[#FF2A85] bg-white border-[#FFE600]' : 'text-[#968493] bg-white/70 border-[#FDE2EE]'
               }`}>
                 {roundedProgress}%
               </span>
             </div>
 
             {/* Progress Track */}
-            <div className="relative w-full h-3.5 bg-white/90 rounded-full overflow-hidden p-0.5 border border-[#F0DCEB] shadow-inner">
+            <div className="relative w-full h-3.5 bg-white/90 rounded-full overflow-hidden p-0.5 border border-[#FDE2EE] shadow-inner">
               <div 
                 className={`relative h-full rounded-full transition-all duration-150 ease-out ${
                   isLoaderActive
-                    ? 'bg-gradient-to-r from-[#FF7051] via-[#E63988] via-[#FF65AA] to-[#10B981] shadow-[0_0_12px_rgba(230,57,136,0.6)]'
-                    : 'bg-[#F0DCEB]'
+                    ? 'bg-gradient-to-r from-[#FF2A85] via-[#FFE600] to-[#10B981] shadow-[0_0_12px_rgba(255,42,133,0.6)]'
+                    : 'bg-[#FDE2EE]'
                 }`}
                 style={{ width: `${Math.max(isLoaderActive ? 2 : 0, progressPercent)}%` }}
               >
@@ -219,19 +249,18 @@ export default function VSLStep({ onContinue }) {
             </div>
 
             {/* Dynamic Status Text */}
-            <p className={`text-[11px] font-bold flex items-center gap-1.5 font-heading pt-0.5 ${
-              isLoaderActive ? 'text-[#4A154B]' : 'text-[#E63988] animate-pulse'
+            <p className={`text-[11px] font-black flex items-center gap-1.5 font-heading pt-0.5 ${
+              isLoaderActive ? 'text-[#2B0B2E]' : 'text-[#FF2A85] animate-pulse'
             }`}>
-              <Sparkles className="w-3.5 h-3.5 text-[#E63988] shrink-0" />
-              <span className="truncate">{getStatusMessage()}</span>
+              <Sparkles className="w-3.5 h-3.5 text-[#FF2A85] shrink-0" />
+              <span className="truncate">{statusMessage}</span>
             </p>
           </div>
 
           {/* MODERN VERTICAL VIDEO PLAYER */}
           <div 
             ref={containerRef}
-            onClick={handlePlayToggle}
-            className="relative w-full max-w-[420px] sm:max-w-[460px] mx-auto rounded-[24px] overflow-hidden shadow-[0_14px_45px_rgba(230,57,136,0.22)] ring-4 ring-[#E63988]/20 border-2 border-[#E63988]/40 aspect-[9/13.5] select-none flex items-center justify-center group bg-black transition-all hover:ring-[#E63988]/40 cursor-pointer"
+            className="relative w-full max-w-[420px] sm:max-w-[460px] mx-auto rounded-[24px] overflow-hidden shadow-[0_14px_45px_rgba(255,42,133,0.30)] ring-4 ring-[#FF2A85]/20 border-2 border-[#FF2A85]/50 aspect-[9/13.5] select-none flex items-center justify-center group bg-black transition-all hover:ring-[#FF2A85]/40"
           >
             
             {/* HTML5 Video Element */}
@@ -253,10 +282,18 @@ export default function VSLStep({ onContinue }) {
               <track kind="captions" />
             </video>
 
+            {/* Native Full-Area Click Layer for Play / Pause */}
+            <button
+              type="button"
+              onClick={handlePlayToggle}
+              aria-label="Reproducir o pausar vídeo explicativo"
+              className="absolute inset-0 z-10 w-full h-full bg-transparent cursor-pointer border-0 outline-hidden focus-visible:ring-4 focus-visible:ring-[#FFE600]"
+            />
+
             {/* 1. TOP EDGE-TO-EDGE PROGRESS BAR WITH GLOW */}
-            <div className="absolute top-0 left-0 right-0 z-40 h-3 bg-black/70 backdrop-blur-xs overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 z-40 h-3 bg-black/70 backdrop-blur-xs overflow-hidden pointer-events-none">
               <div 
-                className="relative h-full rounded-r-full bg-gradient-to-r from-[#FF7051] via-[#E63988] via-[#FF65AA] to-[#FFA5CD] shadow-[0_0_18px_rgba(230,57,136,1)] transition-all duration-150 ease-out"
+                className="relative h-full rounded-r-full bg-gradient-to-r from-[#FF2A85] via-[#FFE600] to-[#10B981] shadow-[0_0_18px_rgba(255,42,133,1)] transition-all duration-150 ease-out"
                 style={{ width: `${Math.max(isLoaderActive ? 2 : 0, progressPercent)}%` }}
               >
                 {isLoaderActive && isPlaying && (
@@ -269,20 +306,20 @@ export default function VSLStep({ onContinue }) {
             <div className="absolute top-4 left-3 right-3 z-40 flex items-center justify-between pointer-events-none">
               
               {/* Left Live Badge */}
-              <div className="inline-flex items-center gap-1.5 bg-black/80 backdrop-blur-md border border-[#FFA5CD]/50 text-white text-[10px] sm:text-[11px] font-black uppercase px-3 py-1 rounded-full shadow-lg font-heading">
-                <span className="w-2 h-2 rounded-full bg-[#E63988] animate-ping" />
+              <div className="inline-flex items-center gap-1.5 bg-black/80 backdrop-blur-md border border-[#FFE600]/60 text-white text-[10px] sm:text-[11px] font-black uppercase px-3 py-1 rounded-full shadow-lg font-heading">
+                <span className="w-2 h-2 rounded-full bg-[#FF2A85] animate-ping" />
                 <span>EN VIVO</span>
               </div>
 
               {/* Center Dynamic Retention Percentage Badge */}
-              <div className="inline-flex items-center gap-1.5 bg-black/85 backdrop-blur-md border border-[#FFA5CD]/60 text-white text-[10px] sm:text-[11px] font-black px-3.5 py-1 rounded-full shadow-lg font-heading animate-pulse">
+              <div className="inline-flex items-center gap-1.5 bg-black/85 backdrop-blur-md border border-[#FFE600]/70 text-white text-[10px] sm:text-[11px] font-black px-3.5 py-1 rounded-full shadow-lg font-heading animate-pulse">
                 {roundedProgress >= 100 ? (
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
                 ) : (
-                  <Zap className="w-3.5 h-3.5 text-[#E63988] fill-[#FFA5CD] shrink-0" />
+                  <Zap className="w-3.5 h-3.5 text-[#FFE600] fill-[#FFE600] shrink-0" />
                 )}
-                <span className="bg-gradient-to-r from-white via-[#FDF2F8] to-[#FFA5CD] bg-clip-text text-transparent">
-                  {roundedProgress >= 100 ? 'BECA LIBERADA' : isLoaderActive ? `BECA: ${roundedProgress}%` : 'TOCA PARA ACTIVAR'}
+                <span className="bg-gradient-to-r from-white via-[#FFF4FA] to-[#FFE600] bg-clip-text text-transparent">
+                  {badgeLabel}
                 </span>
               </div>
 
@@ -290,7 +327,7 @@ export default function VSLStep({ onContinue }) {
               <button
                 type="button"
                 onClick={handleMuteToggle}
-                className="pointer-events-auto w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/80 backdrop-blur-md text-white flex items-center justify-center hover:bg-[#E63988] transition-all cursor-pointer border border-white/25 shadow-lg active:scale-90"
+                className="pointer-events-auto w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/80 backdrop-blur-md text-white flex items-center justify-center hover:bg-[#FF2A85] transition-all cursor-pointer border border-white/25 shadow-lg active:scale-90"
                 title={isMuted ? 'Activar Sonido' : 'Silenciar'}
               >
                 {isMuted ? (
@@ -303,12 +340,12 @@ export default function VSLStep({ onContinue }) {
 
             {/* 3. FLOATING PERSISTENT BOTTOM RETENTION PILL */}
             <div className="absolute bottom-3.5 left-3 right-3 z-30 pointer-events-none">
-              <div className="relative bg-black/85 backdrop-blur-md border border-[#FFA5CD]/40 rounded-full px-3.5 py-2 overflow-hidden shadow-xl text-center">
+              <div className="relative bg-black/85 backdrop-blur-md border border-[#FFE600]/50 rounded-full px-3.5 py-2 overflow-hidden shadow-xl text-center">
                 
                 {/* Subtle Inner Fill Layer in Pink Gradient */}
                 {isLoaderActive && (
                   <div 
-                    className="absolute inset-y-0 left-0 bg-gradient-to-r from-[#E63988]/30 via-[#FF65AA]/25 to-[#FFA5CD]/20 transition-all duration-150 ease-out pointer-events-none"
+                    className="absolute inset-y-0 left-0 bg-gradient-to-r from-[#FF2A85]/30 via-[#FFE600]/25 to-[#FF5EAA]/20 transition-all duration-150 ease-out pointer-events-none"
                     style={{ width: `${progressPercent}%` }}
                   />
                 )}
@@ -316,44 +353,41 @@ export default function VSLStep({ onContinue }) {
                 {/* Bottom Micro-Bar Line */}
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/40">
                   <div 
-                    className="h-full rounded-full bg-gradient-to-r from-[#FF7051] via-[#E63988] via-[#FF65AA] to-[#FFA5CD] transition-all duration-150 ease-out shadow-[0_0_8px_#FFA5CD]"
+                    className="h-full rounded-full bg-gradient-to-r from-[#FF2A85] via-[#FFE600] to-[#10B981] transition-all duration-150 ease-out shadow-[0_0_8px_#FFE600]"
                     style={{ width: `${isLoaderActive ? progressPercent : 0}%` }}
                   />
                 </div>
 
                 {/* Text Content */}
                 <div className="relative z-10 flex items-center justify-center gap-1.5 text-[10px] sm:text-[11px] font-bold text-white font-heading">
-                  <Sparkles className="w-3.5 h-3.5 text-[#FFA5CD] fill-[#FFA5CD] shrink-0" />
-                  <span className="truncate">
-                    {!isLoaderActive
-                      ? '👆 Toca para activar audio y desbloquear tu Beca'
-                      : roundedProgress >= 100 
-                        ? '🎉 ¡Beca Desbloqueada! Toca abajo para reclamar' 
-                        : roundedProgress >= 70
-                          ? '🔥 ¡Últimos segundos! Desbloqueando Beca...' 
-                          : 'Mira la explicación para desbloquear tu Beca del 80%'}
-                  </span>
+                  <Sparkles className="w-3.5 h-3.5 text-[#FFE600] fill-[#FFE600] shrink-0" />
+                  <span className="truncate">{bottomPillText}</span>
                 </div>
               </div>
             </div>
 
             {/* 4. CENTRAL OVERLAY BUTTON (VISIBLE WHEN MUTED / BEFORE CLICK) */}
             {(!isLoaderActive || isMuted) && (
-              <div className="absolute inset-0 z-20 w-full h-full bg-black/35 flex flex-col items-center justify-center text-center p-4">
-                <div className="flex flex-col items-center gap-2.5 max-w-xs p-4 sm:p-5 rounded-2xl bg-black/80 backdrop-blur-md border border-[#FFA5CD]/60 shadow-2xl animate-pop">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-[#FF7051] via-[#E63988] to-[#FFA5CD] text-white flex items-center justify-center shadow-[0_0_35px_rgba(230,57,136,0.95)] border-2 border-white animate-pulse">
+              <button
+                type="button"
+                onClick={handleActivateAndPlay}
+                aria-label="Tocar para activar audio"
+                className="absolute inset-0 z-20 w-full h-full bg-black/35 flex flex-col items-center justify-center text-center p-4 cursor-pointer border-0 outline-hidden"
+              >
+                <div className="flex flex-col items-center gap-2.5 max-w-xs p-4 sm:p-5 rounded-2xl bg-black/80 backdrop-blur-md border border-[#FFE600]/60 shadow-2xl animate-pop">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-[#FF2A85] via-[#FFE600] to-[#FF007F] text-white flex items-center justify-center shadow-[0_0_35px_rgba(255,42,133,0.95)] border-2 border-white animate-pulse">
                     <Volume2 className="w-8 h-8 text-white fill-white" />
                   </div>
                   <div className="space-y-0.5 font-heading">
                     <span className="text-white font-black text-sm uppercase block tracking-wide">
                       🔊 TOCAR PARA ACTIVAR AUDIO
                     </span>
-                    <span className="text-[#FFA5CD] text-[11px] font-bold block">
+                    <span className="text-[#FFE600] text-[11px] font-bold block">
                       Haz clic para iniciar la Beca del 80%
                     </span>
                   </div>
                 </div>
-              </div>
+              </button>
             )}
 
           </div>
@@ -364,7 +398,7 @@ export default function VSLStep({ onContinue }) {
               <button
                 type="button"
                 onClick={handleContinue}
-                className="w-full py-4 sm:py-5 px-6 rounded-[20px] bg-gradient-to-r from-[#FF7051] via-[#E63988] to-[#10B981] hover:brightness-105 text-white font-black text-base sm:text-lg shadow-[0_12px_28px_rgba(230,57,136,0.38)] flex items-center justify-center gap-2.5 active:scale-[0.98] transition-all cursor-pointer font-heading uppercase tracking-wide group animate-pulse"
+                className="w-full py-4 sm:py-5 px-6 rounded-[20px] bg-gradient-to-r from-[#FF2A85] via-[#FF007F] to-[#10B981] hover:brightness-105 text-white font-black text-base sm:text-lg shadow-[0_12px_28px_rgba(255,42,133,0.38)] flex items-center justify-center gap-2.5 active:scale-[0.98] transition-all cursor-pointer font-heading uppercase tracking-wide group animate-pulse"
               >
                 <Gift className="w-5 h-5 text-white fill-white shrink-0" />
                 <span>¡RECLAMAR MI BECA Y CUPÓN VIP!</span>

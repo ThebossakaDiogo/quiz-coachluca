@@ -1,6 +1,6 @@
 /**
  * Meta (Facebook) Pixel Ultra-Advanced & Intelligent Tracking Helper
- * Pixel ID: 1082594377734443
+ * Pixel ID: 1346027510656956
  * Features:
  * - Persistent UTM & Query parameter preservation across sessions and steps
  * - Automatic Facebook Browser ID (_fbp) & Click ID (_fbc / fbclid) forwarding to Checkout
@@ -10,7 +10,7 @@
 
 import { CHECKOUT_URL, DOWNSELL_CHECKOUT_URL } from '../data/quizData';
 
-export const META_PIXEL_ID = '1082594377734443';
+export const META_PIXEL_ID = '1346027510656956';
 
 const UTM_STORAGE_KEY = 'pgb_persisted_utms';
 

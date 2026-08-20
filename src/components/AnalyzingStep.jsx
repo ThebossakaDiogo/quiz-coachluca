@@ -40,7 +40,7 @@ export default function AnalyzingStep({ onComplete }) {
   const strokeDashoffset = circumference - (progress / 100) * circumference;
 
   return (
-    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-b from-[#F6DBEE] via-[#F9EDF6] to-[#FCF5FA] py-8 px-4 flex flex-col justify-center items-center font-body text-[#1F121C]">
+    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-b from-[#FFF2D6] via-[#FFF5F9] to-[#FFF9F2] py-8 px-4 flex flex-col justify-center items-center font-body text-[#2B0B2E]">
       
       <div className="relative z-10 w-full max-w-md mx-auto space-y-4">
         
@@ -48,7 +48,7 @@ export default function AnalyzingStep({ onComplete }) {
         <HeaderLogo />
 
         {/* Card Container */}
-        <div className="bg-white rounded-[26px] p-6 sm:p-8 shadow-xl border border-[#F0DCEB] text-center space-y-6 quiz-card overflow-hidden">
+        <div className="bg-white rounded-[28px] p-6 sm:p-8 shadow-xl border border-[#FDE2EE] text-center space-y-6 quiz-card overflow-hidden">
           
           {/* CIRCULAR GAUGE METER */}
           <div className="relative w-40 h-40 mx-auto flex items-center justify-center">
@@ -59,7 +59,7 @@ export default function AnalyzingStep({ onComplete }) {
                 cx="80"
                 cy="80"
                 r={radius}
-                className="stroke-[#F0DCEB]"
+                className="stroke-[#FDE2EE]"
                 strokeWidth="9"
                 fill="transparent"
               />
@@ -68,7 +68,7 @@ export default function AnalyzingStep({ onComplete }) {
                 cx="80"
                 cy="80"
                 r={radius}
-                className="stroke-[#E63988] transition-all duration-300 ease-out"
+                className="stroke-[#FF2A85] transition-all duration-300 ease-out"
                 strokeWidth="9"
                 strokeDasharray={circumference}
                 strokeDashoffset={strokeDashoffset}
@@ -78,32 +78,32 @@ export default function AnalyzingStep({ onComplete }) {
             </svg>
 
             {/* Glowing Inner Core with Counter & Icon */}
-            <div className="absolute inset-4 rounded-full bg-gradient-to-b from-[#FDF2F8] to-[#F9EDF6] flex flex-col items-center justify-center border-2 border-[#F0DCEB] shadow-inner">
-              <Zap className="w-6 h-6 text-[#E63988] fill-[#E63988] animate-pulse" />
-              <span className="text-3xl font-black text-[#1F121C] font-heading tracking-tight leading-none mt-0.5">
+            <div className="absolute inset-4 rounded-full bg-gradient-to-b from-[#FFFBE6] to-[#FFF4FA] flex flex-col items-center justify-center border-2 border-[#FFE600] shadow-inner">
+              <Zap className="w-6 h-6 text-[#FF2A85] fill-[#FFE600] animate-pulse" />
+              <span className="text-3xl font-black text-[#2B0B2E] font-heading tracking-tight leading-none mt-0.5">
                 {progress}%
               </span>
-              <span className="text-[9px] font-bold uppercase text-[#4A154B] tracking-wider font-heading">Protocolo IA</span>
+              <span className="text-[9px] font-black uppercase text-[#2B0B2E] tracking-wider font-heading">Protocolo IA</span>
             </div>
 
-            <Sparkles className="absolute -top-1 -right-1 w-6 h-6 text-[#E5A638] fill-[#E5A638] animate-bounce" />
+            <Sparkles className="absolute -top-1 -right-1 w-6 h-6 text-[#FFE600] fill-[#FFE600] animate-bounce" />
           </div>
 
           <div className="space-y-2 font-heading">
-            <span className="inline-flex items-center gap-1.5 bg-[#ECFDF5] border border-[#10B981]/40 text-[#059669] text-[11px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-xs">
+            <span className="inline-flex items-center gap-1.5 bg-[#FFFBE6] border border-[#FFE600] text-[#2B0B2E] text-[11px] font-black uppercase tracking-wider px-4 py-1.5 rounded-full shadow-[2px_2px_0px_#FF2A85]">
               <Activity className="w-3.5 h-3.5 text-[#10B981] animate-pulse" />
               Diagnóstico Biomecánico en Progreso
             </span>
-            <h2 className="text-xl sm:text-2xl font-black text-[#1F121C] leading-tight">
+            <h2 className="text-xl sm:text-2xl font-black text-[#2B0B2E] leading-tight">
               Sincronizando Perfil Muscular...
             </h2>
-            <p className="text-xs sm:text-sm text-[#635360] max-w-xs mx-auto font-medium leading-relaxed font-body">
+            <p className="text-xs sm:text-sm text-[#6C586B] max-w-xs mx-auto font-medium leading-relaxed font-body">
               El algoritmo del Protocolo Glúteos Brasileños está calibrando tu diagnóstico personalizado.
             </p>
           </div>
 
           {/* TELEMETRY CHECKLIST */}
-          <div className="bg-[#FDF4FA] rounded-2xl p-4 sm:p-5 border border-[#F0DCEB] text-left max-w-sm mx-auto space-y-3.5 shadow-xs">
+          <div className="bg-[#FFF4FA] rounded-2xl p-4 sm:p-5 border border-[#FDE2EE] text-left max-w-sm mx-auto space-y-3.5 shadow-xs">
             {checks.map((item, idx) => {
               const isDone = idx <= activeCheckIndex;
               return (
@@ -112,9 +112,9 @@ export default function AnalyzingStep({ onComplete }) {
                     {isDone ? (
                       <CheckCircle2 className="w-4.5 h-4.5 text-[#10B981] shrink-0" />
                     ) : (
-                      <Loader2 className="w-4.5 h-4.5 text-[#E63988] animate-spin shrink-0" />
+                      <Loader2 className="w-4.5 h-4.5 text-[#FF2A85] animate-spin shrink-0" />
                     )}
-                    <span className={`text-xs font-bold ${isDone ? 'text-[#1F121C]' : 'text-[#968493]'}`}>
+                    <span className={`text-xs font-bold ${isDone ? 'text-[#2B0B2E]' : 'text-[#968493]'}`}>
                       {item.label}
                     </span>
                   </div>

@@ -58,20 +58,20 @@ export default function ResultStep({ userAnswers }) {
   };
 
   return (
-    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-b from-[#F6DBEE] via-[#F9EDF6] to-[#FCF5FA] py-6 px-3.5 sm:px-5 flex flex-col justify-center items-center font-body text-[#1F121C]">
+    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-b from-[#FFF2D6] via-[#FFF5F9] to-[#FFF9F2] py-6 px-3.5 sm:px-5 flex flex-col justify-center items-center font-body text-[#2B0B2E]">
       
       {/* LIVE SOCIAL PROOF POP-UP NOTIFICATION */}
       {recentBuyer && (
-        <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-[#4A154B] text-white border border-[#F0DCEB] px-4 py-2.5 rounded-2xl shadow-2xl backdrop-blur-md flex items-center gap-3 text-xs animate-pop font-heading">
+        <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-[#2B0B2E] text-white border-2 border-[#FFE600] px-4 py-2.5 rounded-2xl shadow-2xl backdrop-blur-md flex items-center gap-3 text-xs animate-pop font-heading">
           <div className="w-8 h-8 rounded-full bg-[#10B981] flex items-center justify-center text-white font-black shrink-0 shadow-xs">
             ✓
           </div>
           <div>
-            <p className="font-extrabold text-white leading-tight">
-              {recentBuyer.name} <span className="text-[#FFA5CD] font-normal">({recentBuyer.city})</span>
+            <p className="font-black text-white leading-tight">
+              {recentBuyer.name} <span className="text-[#FFE600] font-normal">({recentBuyer.city})</span>
             </p>
-            <p className="text-[10px] text-[#FDF2F8] font-bold">
-              Obtuvo el protocolo de <span className="underline font-black">$ 9,90</span> {recentBuyer.time} 🎉
+            <p className="text-[10px] text-[#FFF4FA] font-bold">
+              Obtuvo el protocolo de <span className="underline font-black text-[#FFE600]">$ 9,90</span> {recentBuyer.time} 🎉
             </p>
           </div>
         </div>
@@ -83,30 +83,30 @@ export default function ResultStep({ userAnswers }) {
         <HeaderLogo />
 
         {/* URGENCY ALERT BANNER */}
-        <div className="bg-[#4A154B] text-white rounded-2xl p-2.5 px-4 shadow-md flex items-center justify-between text-xs font-bold font-heading border border-[#F0DCEB] animate-pulse">
+        <div className="bg-[#2B0B2E] text-white rounded-2xl p-2.5 px-4 shadow-md flex items-center justify-between text-xs font-black font-heading border-2 border-[#FFE600] animate-pulse">
           <span className="flex items-center gap-1.5">
-            <AlertTriangle className="w-4 h-4 text-[#FFA5CD] shrink-0" />
-            <span className="text-[11px]">⚠️ ATENCIÓN: SOLO QUEDAN 2 PLAZAS A ESTE PRECIO</span>
+            <AlertTriangle className="w-4 h-4 text-[#FFE600] shrink-0" />
+            <span className="text-[11px] text-[#FFE600]">⚠️ ATENCIÓN: SOLO QUEDAN 2 PLAZAS A ESTE PRECIO</span>
           </span>
-          <span className="font-mono bg-black/40 px-2 py-0.5 rounded text-[#FFA5CD] font-black text-xs">
+          <span className="font-mono bg-black/50 px-2 py-0.5 rounded text-[#FFE600] font-black text-xs">
             {formatTime(timeLeft)}
           </span>
         </div>
 
         {/* Main Card */}
-        <div className="bg-white rounded-[28px] p-5 sm:p-7 shadow-xl border border-[#F0DCEB] animate-pop space-y-5 quiz-card">
+        <div className="bg-white rounded-[28px] p-5 sm:p-7 shadow-xl border border-[#FDE2EE] animate-pop space-y-5 quiz-card">
           
           {/* Top Question / Result Banner */}
-          <div className="rounded-[24px] p-5 text-center space-y-2 shadow-[0_12px_28px_rgba(216,56,125,0.3)] quiz-question-banner relative overflow-hidden font-heading text-white">
-            <span className="inline-flex items-center gap-1.5 bg-white/20 border border-white/30 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-white shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-[#E5A638] fill-[#E5A638]" />
+          <div className="rounded-[24px] p-5 text-center space-y-2 shadow-[0_14px_32px_rgba(255,42,133,0.38)] quiz-question-banner relative overflow-hidden font-heading text-white">
+            <span className="inline-flex items-center gap-1.5 bg-[#FFFBE6] text-[#2B0B2E] border-2 border-[#FFE600] px-3.5 py-1 rounded-full text-xs font-black uppercase tracking-wider shadow-[2px_2px_0px_#FF2A85]">
+              <Sparkles className="w-3.5 h-3.5 text-[#FF2A85] fill-[#FFE600]" />
               Diagnóstico de Perfil Completo
             </span>
             <h2 className="text-xl sm:text-2xl font-black leading-tight text-white drop-shadow-xs">
               Tu Protocolo Glúteos Brasileños
             </h2>
-            <p className="text-xs sm:text-sm text-white/90 font-medium font-body">
-              Calibrado a medida para tu rango de edad <span className="font-bold underline decoration-white">{selectedAge}</span>
+            <p className="text-xs sm:text-sm text-white/95 font-medium font-body">
+              Calibrado a medida para tu rango de edad <span className="font-black underline decoration-[#FFE600]">{selectedAge}</span>
             </p>
           </div>
 
@@ -114,9 +114,9 @@ export default function ResultStep({ userAnswers }) {
           <DiagnosticReportCard userAnswers={userAnswers} />
 
           {/* $ 9,90 DISCOUNT UNLOCKED BANNER */}
-          <div className="bg-gradient-to-r from-[#FFF9EB] to-[#FDF4FA] text-[#1F121C] rounded-[22px] p-5 shadow-md text-center space-y-2.5 border-2 border-[#E5A638] animate-pop font-heading">
-            <div className="inline-flex items-center gap-1.5 bg-[#4A154B] text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-md">
-              <Tag className="w-4 h-4 text-[#E5A638] fill-[#E5A638]" />
+          <div className="bg-gradient-to-r from-[#FFFBE6] to-[#FFF4FA] text-[#2B0B2E] rounded-[22px] p-5 shadow-md text-center space-y-2.5 border-2 border-[#FFE600] animate-pop font-heading">
+            <div className="inline-flex items-center gap-1.5 bg-[#2B0B2E] text-white px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider shadow-md">
+              <Tag className="w-4 h-4 text-[#FFE600] fill-[#FFE600]" />
               CUPÓN EXCLUSIVO APLICADO (#PGB990)
             </div>
             
@@ -125,51 +125,51 @@ export default function ResultStep({ userAnswers }) {
                 $ 97,00
               </span>
               <div className="flex flex-col items-start">
-                <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#E63988] tracking-tight leading-none">
+                <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#FF2A85] tracking-tight leading-none drop-shadow-xs">
                   $ 9,90
                 </span>
-                <span className="text-[11px] font-bold text-[#4A154B] uppercase pt-0.5">¡Pago Único • Acceso Inmediato!</span>
+                <span className="text-[11px] font-black text-[#2B0B2E] uppercase pt-0.5">¡Pago Único • Acceso Inmediato!</span>
               </div>
             </div>
             
-            <p className="text-xs font-bold text-[#4A154B] bg-white py-1.5 px-3 rounded-xl border border-[#E5A638]/50 inline-block shadow-2xs font-body">
-              🎉 ¡Ahorras $ 87,10 y pagas solo $ 9,90 por acceso completo de por vida!
+            <p className="text-xs font-black text-[#2B0B2E] bg-white py-1.5 px-3 rounded-xl border border-[#FFE600] inline-block shadow-2xs font-body">
+              🎉 ¡Ahorras $ 87,10 y pagas solo <span className="text-[#FF2A85] font-black">$ 9,90</span> por acceso completo de por vida!
             </p>
           </div>
 
           {/* APP PREVIEW BANNER */}
-          <div className="relative rounded-[22px] overflow-hidden border-2 border-[#F0DCEB] shadow-xl group">
+          <div className="relative rounded-[22px] overflow-hidden border-2 border-[#FDE2EE] shadow-xl group">
             <img 
               src={ASSETS.gifs.sales1} 
               alt="Protocolo Glúteos Brasileños App Preview" 
               className="w-full object-cover max-h-64 sm:max-h-72 group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute top-3 left-3 bg-[#4A154B]/90 backdrop-blur-md text-white text-xs font-bold px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg border border-[#F0DCEB]/40 font-heading">
-              <Zap className="w-4 h-4 text-[#E5A638] fill-[#E5A638]" />
+            <div className="absolute top-3 left-3 bg-[#2B0B2E]/90 backdrop-blur-md text-white text-xs font-black px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg border border-[#FFE600] font-heading">
+              <Zap className="w-4 h-4 text-[#FFE600] fill-[#FFE600]" />
               Acceso Inmediato en tu Móvil
             </div>
           </div>
 
           {/* Core Metrics */}
           <div className="grid grid-cols-2 gap-3">
-            <div className="bg-[#FDF2F8] p-3.5 rounded-2xl border border-[#F0DCEB] text-center shadow-2xs font-heading">
-              <span className="block text-2xl sm:text-3xl font-black text-[#E63988]">+4 a +7 cm</span>
-              <span className="text-xs font-bold text-[#4A154B] uppercase tracking-wide">Volumen Estimado</span>
+            <div className="bg-[#FFF4FA] p-3.5 rounded-2xl border border-[#FDE2EE] text-center shadow-2xs font-heading">
+              <span className="block text-2xl sm:text-3xl font-black text-[#FF2A85]">+4 a +7 cm</span>
+              <span className="text-xs font-black text-[#2B0B2E] uppercase tracking-wide">Volumen Estimado</span>
             </div>
-            <div className="bg-[#FDF2F8] p-3.5 rounded-2xl border border-[#F0DCEB] text-center shadow-2xs font-heading">
-              <span className="block text-2xl sm:text-3xl font-black text-[#E63988]">28 Días</span>
-              <span className="text-xs font-bold text-[#4A154B] uppercase tracking-wide">Resultados Visibles</span>
+            <div className="bg-[#FFF4FA] p-3.5 rounded-2xl border border-[#FDE2EE] text-center shadow-2xs font-heading">
+              <span className="block text-2xl sm:text-3xl font-black text-[#FF2A85]">28 Días</span>
+              <span className="text-xs font-black text-[#2B0B2E] uppercase tracking-wide">Resultados Visibles</span>
             </div>
           </div>
 
           {/* STACK COMPLETO DE VALOR PERCEBIDO */}
-          <div className="bg-[#4A154B] text-white rounded-[24px] p-5 border-2 border-[#F0DCEB] space-y-4 shadow-xl font-heading">
+          <div className="bg-[#2B0B2E] text-white rounded-[24px] p-5 border-2 border-[#FDE2EE] space-y-4 shadow-xl font-heading">
             <div className="flex items-center justify-between border-b border-white/20 pb-3">
               <div className="flex items-center gap-2">
-                <Gift className="w-5 h-5 text-[#E5A638]" />
+                <Gift className="w-5 h-5 text-[#FFE600]" />
                 <h3 className="font-black text-white text-base">Todo lo que vas a recibir en el Protocolo:</h3>
               </div>
-              <span className="bg-[#E63988]/30 text-[#FFA5CD] text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase border border-[#E63988]/40">
+              <span className="bg-[#FF2A85]/30 text-[#FFE4F1] text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase border border-[#FF2A85]/50">
                 Acceso De Por Vida
               </span>
             </div>
@@ -183,7 +183,7 @@ export default function ResultStep({ userAnswers }) {
                   <CheckCircle2 className="w-5 h-5 text-[#10B981] shrink-0 mt-0.5" />
                   <div className="text-xs space-y-0.5">
                     <span className="font-bold text-white block font-heading">📱 Aplicación Exclusiva PGB (Acceso Completo)</span>
-                    <span className="text-[11px] text-[#FDF2F8] block">Entrenamientos guiados en vídeo paso a paso</span>
+                    <span className="text-[11px] text-[#FFF4FA] block">Entrenamientos guiados en vídeo paso a paso</span>
                   </div>
                 </div>
                 <span className="text-xs font-bold text-[#968493] line-through shrink-0 font-heading">$ 97</span>
@@ -195,7 +195,7 @@ export default function ResultStep({ userAnswers }) {
                   <CheckCircle2 className="w-5 h-5 text-[#10B981] shrink-0 mt-0.5" />
                   <div className="text-xs space-y-0.5">
                     <span className="font-bold text-white block font-heading">🏋️‍♀️ Rutinas de 8 a 10 min/día con Coach Luca</span>
-                    <span className="text-[11px] text-[#FDF2F8] block">Activación neuromuscular progresiva sin gimnasio</span>
+                    <span className="text-[11px] text-[#FFF4FA] block">Activación neuromuscular progresiva sin gimnasio</span>
                   </div>
                 </div>
                 <span className="text-xs font-bold text-[#968493] line-through shrink-0 font-heading">$ 67</span>
@@ -207,43 +207,43 @@ export default function ResultStep({ userAnswers }) {
                   <CheckCircle2 className="w-5 h-5 text-[#10B981] shrink-0 mt-0.5" />
                   <div className="text-xs space-y-0.5">
                     <span className="font-bold text-white block font-heading">🥗 Guía Nutricional para Apoyar tus Entrenamientos</span>
-                    <span className="text-[11px] text-[#FDF2F8] block">Plan práctico para volumen y firmeza glútea</span>
+                    <span className="text-[11px] text-[#FFF4FA] block">Plan práctico para volumen y firmeza glútea</span>
                   </div>
                 </div>
                 <span className="text-xs font-bold text-[#968493] line-through shrink-0 font-heading">$ 47</span>
               </div>
 
               {/* BÔNUS 1 */}
-              <div className="flex items-start justify-between gap-3 bg-[#E63988]/25 p-3 rounded-xl border border-[#FFA5CD]/40">
+              <div className="flex items-start justify-between gap-3 bg-[#FF2A85]/25 p-3 rounded-xl border border-[#FF5EAA]/40">
                 <div className="flex items-start gap-2.5">
-                  <Gift className="w-5 h-5 text-[#E5A638] shrink-0 mt-0.5" />
+                  <Gift className="w-5 h-5 text-[#FFE600] shrink-0 mt-0.5" />
                   <div className="text-xs space-y-0.5">
                     <span className="font-bold text-white block font-heading">🎁 BONO 1: Rutina Rápida de 15 Minutos</span>
-                    <span className="text-[11px] text-[#FDF2F8] block">Para días con poco tiempo de entrenamiento</span>
+                    <span className="text-[11px] text-[#FFF4FA] block">Para días con poco tiempo de entrenamiento</span>
                   </div>
                 </div>
                 <span className="text-xs font-bold text-[#10B981] shrink-0 font-heading">GRATIS</span>
               </div>
 
               {/* BÔNUS 2 */}
-              <div className="flex items-start justify-between gap-3 bg-[#E63988]/25 p-3 rounded-xl border border-[#FFA5CD]/40">
+              <div className="flex items-start justify-between gap-3 bg-[#FF2A85]/25 p-3 rounded-xl border border-[#FF5EAA]/40">
                 <div className="flex items-start gap-2.5">
-                  <Gift className="w-5 h-5 text-[#E5A638] shrink-0 mt-0.5" />
+                  <Gift className="w-5 h-5 text-[#FFE600] shrink-0 mt-0.5" />
                   <div className="text-xs space-y-0.5">
                     <span className="font-bold text-white block font-heading">🎁 BONO 2: Calendario Imprimible de Progreso</span>
-                    <span className="text-[11px] text-[#FDF2F8] block">Seguimiento de tu evolución en 28 días</span>
+                    <span className="text-[11px] text-[#FFF4FA] block">Seguimiento de tu evolución en 28 días</span>
                   </div>
                 </div>
                 <span className="text-xs font-bold text-[#10B981] shrink-0 font-heading">GRATIS</span>
               </div>
 
               {/* BÔNUS 3 */}
-              <div className="flex items-start justify-between gap-3 bg-[#E63988]/25 p-3 rounded-xl border border-[#FFA5CD]/40">
+              <div className="flex items-start justify-between gap-3 bg-[#FF2A85]/25 p-3 rounded-xl border border-[#FF5EAA]/40">
                 <div className="flex items-start gap-2.5">
-                  <Users className="w-5 h-5 text-[#FFA5CD] shrink-0 mt-0.5" />
+                  <Users className="w-5 h-5 text-[#FFE600] shrink-0 mt-0.5" />
                   <div className="text-xs space-y-0.5">
                     <span className="font-bold text-white block font-heading">🎁 BONO 3: Guía de Movilidad de Cadera y Piernas</span>
-                    <span className="text-[11px] text-[#FDF2F8] block">Preparación articular para mejor ejecución</span>
+                    <span className="text-[11px] text-[#FFF4FA] block">Preparación articular para mejor ejecución</span>
                   </div>
                 </div>
                 <span className="text-xs font-bold text-[#10B981] shrink-0 font-heading">GRATIS</span>
@@ -252,29 +252,29 @@ export default function ResultStep({ userAnswers }) {
             </div>
 
             {/* RESUMO FINAL DE ECONOMIA */}
-            <div className="bg-[#2B0A2C] rounded-2xl p-4 border border-[#E63988]/40 space-y-2 text-center">
+            <div className="bg-[#19041C] rounded-2xl p-4 border border-[#FF2A85]/50 space-y-2 text-center">
               <div className="flex items-center justify-between text-xs font-bold text-[#968493] font-heading">
                 <span>VALOR TOTAL ACUMULADO:</span>
                 <span className="text-[#968493] line-through text-sm">$ 211,00</span>
               </div>
-              <div className="flex items-center justify-between text-sm sm:text-base font-black text-[#E5A638] font-heading">
+              <div className="flex items-center justify-between text-sm sm:text-base font-black text-[#FFE600] font-heading">
                 <span>TÚ PAGAS HOY SOLO:</span>
-                <span className="text-2xl sm:text-3xl text-[#FF7051] drop-shadow">$ 9,90</span>
+                <span className="text-2xl sm:text-3xl text-[#FF2A85] drop-shadow-xs">$ 9,90</span>
               </div>
-              <p className="text-[11px] font-bold text-[#FFA5CD]">
+              <p className="text-[11px] font-black text-[#FFE600]">
                 ⚡ Ahorro Real de $ 201,10 (Obtienes Descuento de Lanzamiento)
               </p>
             </div>
           </div>
 
           {/* SEÇÃO DE PROVAS SOCIAIS */}
-          <div className="space-y-3 pt-1 border-t border-[#F0DCEB]">
+          <div className="space-y-3 pt-1 border-t border-[#FDE2EE]">
             <div className="flex items-center justify-between font-heading">
-              <h3 className="font-black text-[#1F121C] text-base sm:text-lg flex items-center gap-2">
-                <Users className="w-5 h-5 text-[#E63988]" />
+              <h3 className="font-black text-[#2B0B2E] text-base sm:text-lg flex items-center gap-2">
+                <Users className="w-5 h-5 text-[#FF2A85]" />
                 <span>Resultados Reales de Alumnas</span>
               </h3>
-              <span className="text-xs font-bold bg-[#FDF2F8] text-[#B81E64] px-3 py-1 rounded-full border border-[#F0DCEB]">
+              <span className="text-xs font-black bg-[#FFFBE6] text-[#2B0B2E] px-3 py-1 rounded-full border border-[#FFE600]">
                 +14.800 Casos
               </span>
             </div>
@@ -282,20 +282,20 @@ export default function ResultStep({ userAnswers }) {
             {/* Gallery */}
             <div className="grid grid-cols-2 gap-3">
               {BEFORE_AFTER_CASES.map((item) => (
-                <div key={item.id} className="group rounded-2xl overflow-hidden border border-[#F0DCEB] bg-[#FDF4FA] p-2 space-y-1.5 shadow-2xs hover:shadow-md transition-shadow">
+                <div key={item.id} className="group rounded-2xl overflow-hidden border border-[#FDE2EE] bg-[#FFF4FA] p-2 space-y-1.5 shadow-2xs hover:shadow-md transition-shadow">
                   <div className="relative rounded-xl overflow-hidden h-36 sm:h-44">
                     <img 
                       src={item.image} 
                       alt={item.title} 
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    <span className="absolute bottom-2 right-2 bg-[#4A154B]/90 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-lg border border-white/20 font-heading">
+                    <span className="absolute bottom-2 right-2 bg-[#2B0B2E]/90 text-white text-[10px] font-black px-2.5 py-0.5 rounded-lg border border-[#FFE600] font-heading">
                       {item.tag}
                     </span>
                   </div>
                   <div className="px-1 space-y-0.5 text-left font-heading">
-                    <p className="text-xs font-bold text-[#1F121C] truncate">{item.title}</p>
-                    <p className="text-[11px] text-[#E63988] font-extrabold">{item.detail}</p>
+                    <p className="text-xs font-bold text-[#2B0B2E] truncate">{item.title}</p>
+                    <p className="text-[11px] text-[#FF2A85] font-black">{item.detail}</p>
                   </div>
                 </div>
               ))}
@@ -305,22 +305,22 @@ export default function ResultStep({ userAnswers }) {
           {/* DEPOIMENTOS DE ALUNAS */}
           <div className="space-y-3 pt-1 font-heading">
             <div className="flex items-center justify-between">
-              <h3 className="font-black text-[#1F121C] text-base sm:text-lg flex items-center gap-2">
-                <Star className="w-5 h-5 text-[#E5A638] fill-[#E5A638]" />
+              <h3 className="font-black text-[#2B0B2E] text-base sm:text-lg flex items-center gap-2">
+                <Star className="w-5 h-5 text-[#FFB800] fill-[#FFB800]" />
                 <span>Opiniones Verificadas de Alumnas</span>
               </h3>
             </div>
 
             <div className="space-y-3 font-body">
               {TESTIMONIALS.map((t) => (
-                <div key={t.name} className="bg-[#FDF4FA] rounded-2xl p-4 border border-[#F0DCEB] text-left space-y-2 shadow-2xs">
+                <div key={t.name} className="bg-[#FFF4FA] rounded-2xl p-4 border border-[#FDE2EE] text-left space-y-2 shadow-2xs">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2 font-heading">
-                      <div className="w-8 h-8 rounded-full bg-[#E63988] text-white font-black flex items-center justify-center text-xs">
+                      <div className="w-8 h-8 rounded-full bg-[#FF2A85] text-white font-black flex items-center justify-center text-xs">
                         {t.name[0]}
                       </div>
                       <div>
-                        <span className="font-bold text-[#1F121C] text-xs sm:text-sm block">{t.name}</span>
+                        <span className="font-bold text-[#2B0B2E] text-xs sm:text-sm block">{t.name}</span>
                         <span className="text-[10px] text-[#968493] font-medium">{t.location} • {t.age}</span>
                       </div>
                     </div>
@@ -328,7 +328,7 @@ export default function ResultStep({ userAnswers }) {
                       Alumna Verificada ✓
                     </span>
                   </div>
-                  <p className="text-xs text-[#635360] font-medium leading-relaxed italic">
+                  <p className="text-xs text-[#6C586B] font-medium leading-relaxed italic">
                     "{t.text}"
                   </p>
                 </div>
@@ -342,7 +342,7 @@ export default function ResultStep({ userAnswers }) {
               <ShieldCheck className="w-5 h-5 text-[#10B981]" />
               <span className="font-bold text-xs sm:text-sm">Garantía de Satisfacción de 7 Días (Cero Riesgo)</span>
             </div>
-            <p className="text-xs text-[#635360] leading-relaxed font-medium font-body">
+            <p className="text-xs text-[#6C586B] leading-relaxed font-medium font-body">
               Prueba el Protocolo Glúteos Brasileños por solo $ 9,90 sin riesgo alguno. Si en 7 días no estás plenamente satisfecha con las rutinas, simplemente solicita la devolución y reembolsaremos el 100% de tu dinero inmediatamente.
             </p>
           </div>
@@ -355,16 +355,16 @@ export default function ResultStep({ userAnswers }) {
                 e.preventDefault();
                 trackCheckoutClick();
               }}
-              className="w-full py-4 sm:py-5 px-6 rounded-[20px] bg-gradient-to-r from-[#FF7051] via-[#E63988] to-[#D8387D] hover:brightness-105 text-white font-black text-lg sm:text-xl shadow-[0_12px_28px_rgba(230,57,136,0.32)] flex items-center justify-center gap-3 active:scale-[0.98] transition-all cursor-pointer group uppercase tracking-wide font-heading border-none text-center no-underline"
+              className="w-full py-4 sm:py-5 px-6 rounded-[20px] bg-gradient-to-r from-[#FF2A85] via-[#FF007F] to-[#FF3377] hover:brightness-105 text-white font-black text-lg sm:text-xl shadow-[0_12px_28px_rgba(255,42,133,0.38)] flex items-center justify-center gap-3 active:scale-[0.98] transition-all cursor-pointer group uppercase tracking-wide font-heading border-none text-center no-underline"
             >
-              <Flame className="w-6 h-6 text-[#E5A638] fill-[#E5A638] shrink-0" />
+              <Flame className="w-6 h-6 text-[#FFE600] fill-[#FFE600] shrink-0 drop-shadow-xs" />
               <span>QUIERO EMPEZAR EL PROTOCOLO</span>
               <ArrowRight className="w-6 h-6 group-hover:translate-x-1.5 transition-transform shrink-0" />
             </a>
 
             <div className="flex items-center justify-center gap-4 text-[#968493] text-xs font-medium pt-1">
               <span className="flex items-center gap-1">
-                <Lock className="w-3.5 h-3.5 text-[#E63988]" /> Pago 100% Seguro
+                <Lock className="w-3.5 h-3.5 text-[#FF2A85]" /> Pago 100% Seguro
               </span>
               <span className="flex items-center gap-1">
                 <Clock className="w-3.5 h-3.5 text-[#10B981]" /> Acceso Inmediato
