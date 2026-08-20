@@ -402,6 +402,7 @@ export default function App() {
         const clientHeight = window.innerHeight;
         if (scrollHeight > clientHeight + 140 && window.scrollY <= 160) {
           const targetAction = document.querySelector('button[type="submit"]') ||
+                               document.querySelector('a[href*="hotmart"]') ||
                                document.querySelector('a[href*="centerpag"]') ||
                                document.querySelector('.quiz-card button:last-of-type') ||
                                document.querySelector('button.group');

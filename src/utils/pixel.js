@@ -1,6 +1,6 @@
 /**
  * Meta (Facebook) Pixel Ultra-Advanced & Intelligent Tracking Helper
- * Pixel ID: 5389969317804366
+ * Pixel ID: 1082594377734443
  * Features:
  * - Persistent UTM & Query parameter preservation across sessions and steps
  * - Automatic Facebook Browser ID (_fbp) & Click ID (_fbc / fbclid) forwarding to Checkout
@@ -10,7 +10,7 @@
 
 import { CHECKOUT_URL, DOWNSELL_CHECKOUT_URL } from '../data/quizData';
 
-export const META_PIXEL_ID = '5389969317804366';
+export const META_PIXEL_ID = '1082594377734443';
 
 const UTM_STORAGE_KEY = 'pgb_persisted_utms';
 
@@ -312,7 +312,10 @@ export const getFinalCheckoutUrl = () => {
   if (!queryString) return CHECKOUT_URL;
 
   // Clean trailing ? or & from base checkout url
-  const cleanBaseUrl = CHECKOUT_URL.replace(/[?&]+$/, '');
+  let cleanBaseUrl = CHECKOUT_URL;
+  while (cleanBaseUrl.endsWith('?') || cleanBaseUrl.endsWith('&')) {
+    cleanBaseUrl = cleanBaseUrl.slice(0, -1);
+  }
   const separator = cleanBaseUrl.includes('?') ? '&' : '?';
   return `${cleanBaseUrl}${separator}${queryString}`;
 };
@@ -341,7 +344,10 @@ export const getFinalDownsellCheckoutUrl = () => {
   const queryString = searchParams.toString();
   if (!queryString) return baseUrl;
 
-  const cleanBaseUrl = baseUrl.replace(/[?&]+$/, '');
+  let cleanBaseUrl = baseUrl;
+  while (cleanBaseUrl.endsWith('?') || cleanBaseUrl.endsWith('&')) {
+    cleanBaseUrl = cleanBaseUrl.slice(0, -1);
+  }
   const separator = cleanBaseUrl.includes('?') ? '&' : '?';
   return `${cleanBaseUrl}${separator}${queryString}`;
 };
