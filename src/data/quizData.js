@@ -1,4 +1,4 @@
-export const CHECKOUT_URL = 'https://go.centerpag.com/PPU38CQFFI8';
+export const CHECKOUT_URL = 'https://go.centerpag.com/PPU38CQFE5J';
 export const DOWNSELL_CHECKOUT_URL = 'https://go.centerpag.com/PPU38CQFF6S';
 
 export const ASSETS = {
