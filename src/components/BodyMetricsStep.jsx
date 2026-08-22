@@ -65,7 +65,7 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
   };
 
   return (
-    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-b from-[#FFF2D6] via-[#FFF5F9] to-[#FFF9F2] py-5 px-3.5 sm:px-5 flex flex-col justify-center items-center font-body text-[#2B0B2E]">
+    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-b from-[#240828] via-[#1A041E] to-[#120215] py-5 px-3.5 sm:px-5 flex flex-col justify-center items-center font-body text-white">
       
       <div className="relative z-10 w-full max-w-lg mx-auto space-y-3.5">
         
@@ -78,7 +78,7 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
             <button
               type="button"
               onClick={onPrevStep}
-              className="w-10 h-10 rounded-full bg-white/95 backdrop-blur-md shadow-sm border border-[#FDE2EE] text-[#2B0B2E] flex items-center justify-center transition-all hover:bg-white hover:scale-105 active:scale-95 cursor-pointer"
+              className="w-10 h-10 rounded-full bg-[#240828] backdrop-blur-md shadow-md border border-[#4C1450] text-white flex items-center justify-center transition-all hover:bg-[#340E39] hover:scale-105 active:scale-95 cursor-pointer"
               title="Volver a la pregunta anterior"
             >
               <ArrowLeft className="w-4 h-4 stroke-[2.5]" />
@@ -88,20 +88,20 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
           )}
 
           <div className="text-center">
-            <span className="font-heading font-black text-sm sm:text-base text-[#2B0B2E] tracking-tight">
+            <span className="font-heading font-black text-sm sm:text-base text-white tracking-tight">
               Paso {currentStep}/{totalSteps}
             </span>
           </div>
 
-          <div className="w-10 h-10 rounded-full bg-white/95 backdrop-blur-md shadow-sm border border-[#FDE2EE] text-[#FF2A85] flex items-center justify-center">
+          <div className="w-10 h-10 rounded-full bg-[#240828] backdrop-blur-md shadow-md border border-[#4C1450] text-[#FF2A85] flex items-center justify-center">
             <Bookmark className="w-4 h-4 fill-[#FF2A85]/20 stroke-[2.2]" />
           </div>
         </div>
 
         {/* MAIN QUESTION CARD */}
         <div className="relative rounded-[26px] p-6 text-center text-white shadow-[0_16px_36px_-8px_rgba(255,42,133,0.40)] quiz-question-banner overflow-hidden animate-pop">
-          <div className="inline-flex items-center gap-1.5 bg-[#FFFBE6] text-[#2B0B2E] border-2 border-[#FFE600] text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full mb-2.5 shadow-[2px_2px_0px_#FF2A85] font-heading">
-            <Zap className="w-3 h-3 text-[#FF2A85] fill-[#FFE600]" />
+          <div className="inline-flex items-center gap-1.5 bg-[#FFE600] text-[#19041C] border-2 border-[#FFE600] text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full mb-2.5 shadow-[2px_2px_0px_#FF2A85] font-heading">
+            <Zap className="w-3 h-3 text-[#FF2A85] fill-[#19041C]" />
             <span>Calibración Biomecánica Interactiva</span>
           </div>
 
@@ -109,20 +109,20 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
             Ingresa tu Estatura y Peso 📏
           </h2>
 
-          <p className="text-xs sm:text-sm text-white/95 leading-relaxed max-w-md mx-auto font-medium pt-1 font-body">
+          <p className="text-xs sm:text-sm text-[#FFF4FA] leading-relaxed max-w-md mx-auto font-medium pt-1 font-body">
             Ajusta los medidores interactivos para calcular tu IMC y fuerza neuromuscular.
           </p>
         </div>
 
         {/* MAIN WHITE CARD CONTAINER */}
-        <div className="bg-white rounded-[26px] p-5 sm:p-6 shadow-xl border border-[#FDE2EE] space-y-4 quiz-card animate-pop">
+        <div className="bg-[#240828] rounded-[26px] p-5 sm:p-6 shadow-2xl border border-[#4C1450] space-y-4 quiz-card animate-pop">
           
           {/* PROGRESS BAR */}
           <div className="flex items-center gap-3">
-            <span className="text-[11px] font-black text-[#2B0B2E] uppercase tracking-wider font-heading shrink-0">
+            <span className="text-[11px] font-black text-[#D4BCD0] uppercase tracking-wider font-heading shrink-0">
               Progreso
             </span>
-            <div className="flex-1 h-2.5 bg-[#FDE2EE] rounded-full overflow-hidden p-0.5">
+            <div className="flex-1 h-2.5 bg-[#1A041E] rounded-full overflow-hidden p-0.5">
               <div 
                 className="h-full bg-gradient-to-r from-[#FF2A85] via-[#FFE600] to-[#10B981] transition-all duration-300 rounded-full shadow-xs"
                 style={{ width: `${percentage}%` }}
@@ -137,14 +137,14 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
           <form onSubmit={handleSubmit} className="space-y-4 text-left pt-1">
             
             {/* HEIGHT CONTROL */}
-            <div className="bg-[#FFF4FA] rounded-[20px] p-4 border border-[#FDE2EE] space-y-2.5">
+            <div className="bg-[#1A041E] rounded-[20px] p-4 border border-[#4C1450] space-y-2.5">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-black text-[#2B0B2E] uppercase tracking-wider flex items-center gap-2 font-heading">
+                <span className="text-xs font-black text-white uppercase tracking-wider flex items-center gap-2 font-heading">
                   <Ruler className="w-4 h-4 text-[#FF2A85]" />
                   Estatura
                 </span>
-                <span className="text-xl font-black text-[#2B0B2E] font-heading tracking-tight bg-white px-3.5 py-0.5 rounded-xl border border-[#FDE2EE] shadow-2xs">
-                  {height} <span className="text-xs font-bold text-[#968493]">cm</span>
+                <span className="text-xl font-black text-white font-heading tracking-tight bg-[#240828] px-3.5 py-0.5 rounded-xl border border-[#4C1450] shadow-2xs">
+                  {height} <span className="text-xs font-bold text-[#A890A4]">cm</span>
                 </span>
               </div>
 
@@ -153,7 +153,7 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
                 <button
                   type="button"
                   onClick={() => handleHeightStep(-1)}
-                  className="w-10 h-10 rounded-xl bg-white border-2 border-[#FDE2EE] hover:border-[#FF2A85] active:scale-95 text-[#2B0B2E] font-black text-xl flex items-center justify-center transition-all shadow-2xs shrink-0 cursor-pointer"
+                  className="w-10 h-10 rounded-xl bg-[#240828] border-2 border-[#4C1450] hover:border-[#FF2A85] active:scale-95 text-white font-black text-xl flex items-center justify-center transition-all shadow-2xs shrink-0 cursor-pointer"
                 >
                   <Minus className="w-4 h-4" />
                 </button>
@@ -165,9 +165,9 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
                     max="200"
                     value={height}
                     onChange={(e) => setHeight(Number(e.target.value))}
-                    className="w-full h-2.5 bg-[#FDE2EE] rounded-lg appearance-none cursor-pointer accent-[#FF2A85]"
+                    className="w-full h-2.5 bg-[#2E0832] rounded-lg appearance-none cursor-pointer accent-[#FF2A85]"
                   />
-                  <div className="flex justify-between text-[10px] font-bold text-[#968493] px-1 font-heading">
+                  <div className="flex justify-between text-[10px] font-bold text-[#A890A4] px-1 font-heading">
                     <span>140 cm</span>
                     <span>170 cm</span>
                     <span>200 cm</span>
@@ -193,7 +193,7 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
                     className={`flex-1 py-1 text-xs font-bold rounded-xl border transition-all cursor-pointer font-heading ${
                       height === val
                         ? 'bg-[#FF2A85] text-white border-[#FF2A85] shadow-xs'
-                        : 'bg-white text-[#6C586B] border-[#FDE2EE] hover:border-[#FF2A85]/40'
+                        : 'bg-[#240828] text-[#D4BCD0] border-[#4C1450] hover:border-[#FF2A85]/40'
                     }`}
                   >
                     {val}
@@ -203,14 +203,14 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
             </div>
 
             {/* WEIGHT CONTROL */}
-            <div className="bg-[#FFF4FA] rounded-[20px] p-4 border border-[#FDE2EE] space-y-2.5">
+            <div className="bg-[#1A041E] rounded-[20px] p-4 border border-[#4C1450] space-y-2.5">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-black text-[#2B0B2E] uppercase tracking-wider flex items-center gap-2 font-heading">
+                <span className="text-xs font-black text-white uppercase tracking-wider flex items-center gap-2 font-heading">
                   <Weight className="w-4 h-4 text-[#FF2A85]" />
                   Peso Actual
                 </span>
-                <span className="text-xl font-black text-[#2B0B2E] font-heading tracking-tight bg-white px-3.5 py-0.5 rounded-xl border border-[#FDE2EE] shadow-2xs">
-                  {weight} <span className="text-xs font-bold text-[#968493]">kg</span>
+                <span className="text-xl font-black text-white font-heading tracking-tight bg-[#240828] px-3.5 py-0.5 rounded-xl border border-[#4C1450] shadow-2xs">
+                  {weight} <span className="text-xs font-bold text-[#A890A4]">kg</span>
                 </span>
               </div>
 
@@ -219,7 +219,7 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
                 <button
                   type="button"
                   onClick={() => handleWeightStep(-1)}
-                  className="w-10 h-10 rounded-xl bg-white border-2 border-[#FDE2EE] hover:border-[#FF2A85] active:scale-95 text-[#2B0B2E] font-black text-xl flex items-center justify-center transition-all shadow-2xs shrink-0 cursor-pointer"
+                  className="w-10 h-10 rounded-xl bg-[#240828] border-2 border-[#4C1450] hover:border-[#FF2A85] active:scale-95 text-white font-black text-xl flex items-center justify-center transition-all shadow-2xs shrink-0 cursor-pointer"
                 >
                   <Minus className="w-4 h-4" />
                 </button>
@@ -231,9 +231,9 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
                     max="120"
                     value={weight}
                     onChange={(e) => setWeight(Number(e.target.value))}
-                    className="w-full h-2.5 bg-[#FDE2EE] rounded-lg appearance-none cursor-pointer accent-[#FF2A85]"
+                    className="w-full h-2.5 bg-[#2E0832] rounded-lg appearance-none cursor-pointer accent-[#FF2A85]"
                   />
-                  <div className="flex justify-between text-[10px] font-bold text-[#968493] px-1 font-heading">
+                  <div className="flex justify-between text-[10px] font-bold text-[#A890A4] px-1 font-heading">
                     <span>40 kg</span>
                     <span>75 kg</span>
                     <span>120 kg</span>
@@ -259,7 +259,7 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
                     className={`flex-1 py-1 text-xs font-bold rounded-xl border transition-all cursor-pointer font-heading ${
                       weight === val
                         ? 'bg-[#FF2A85] text-white border-[#FF2A85] shadow-xs'
-                        : 'bg-white text-[#6C586B] border-[#FDE2EE] hover:border-[#FF2A85]/40'
+                        : 'bg-[#240828] text-[#D4BCD0] border-[#4C1450] hover:border-[#FF2A85]/40'
                     }`}
                   >
                     {val}
@@ -269,26 +269,26 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
             </div>
 
             {/* REAL-TIME BMI SPEEDOMETER / METRIC CARD */}
-            <div className={`p-4 rounded-[20px] border ${bmiDetails.bg} space-y-2.5 shadow-sm transition-all duration-300`}>
+            <div className="p-4 rounded-[20px] border border-[#4C1450] bg-[#1A041E] space-y-2.5 shadow-sm transition-all duration-300">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-black uppercase tracking-wider text-[#2B0B2E] flex items-center gap-1.5 font-heading">
+                <span className="text-xs font-black uppercase tracking-wider text-white flex items-center gap-1.5 font-heading">
                   <Activity className="w-4 h-4 text-[#FF2A85] animate-pulse" />
                   IMC Biométrico:
                 </span>
-                <span className="text-lg font-black text-[#2B0B2E] bg-white px-3 py-0.5 rounded-xl border border-[#FDE2EE] font-heading shadow-2xs">
-                  {bmi} <span className="text-[10px] font-bold text-[#968493]">kg/m²</span>
+                <span className="text-lg font-black text-[#FFE600] bg-[#240828] px-3 py-0.5 rounded-xl border border-[#4C1450] font-heading shadow-2xs">
+                  {bmi} <span className="text-[10px] font-bold text-[#A890A4]">kg/m²</span>
                 </span>
               </div>
 
               {/* VISUAL METRIC GAUGE BAR */}
               <div className="space-y-1">
-                <div className="h-2.5 w-full bg-[#FDE2EE] rounded-full overflow-hidden p-0.5 relative">
+                <div className="h-2.5 w-full bg-[#2E0832] rounded-full overflow-hidden p-0.5 relative">
                   <div 
-                    className="h-full bg-[#FF2A85] rounded-full transition-all duration-500"
+                    className="h-full bg-gradient-to-r from-[#FF2A85] via-[#FFE600] to-[#10B981] rounded-full transition-all duration-500"
                     style={{ width: `${bmiDetails.meterPercent}%` }}
                   />
                 </div>
-                <div className="flex justify-between text-[9px] font-bold text-[#968493] uppercase px-0.5 font-heading">
+                <div className="flex justify-between text-[9px] font-bold text-[#A890A4] uppercase px-0.5 font-heading">
                   <span>Bajo</span>
                   <span>Saludable</span>
                   <span>Curva Fuerte</span>
@@ -307,7 +307,7 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
             {/* ACTION SUBMIT BUTTON */}
             <button
               type="submit"
-              className="w-full py-4 sm:py-5 px-6 rounded-[20px] bg-gradient-to-r from-[#FF2A85] via-[#FF007F] to-[#FF3377] hover:brightness-105 text-white font-black text-lg sm:text-xl shadow-[0_12px_28px_rgba(255,42,133,0.38)] flex items-center justify-center gap-3 active:scale-[0.98] transition-all cursor-pointer group uppercase tracking-wide font-heading"
+              className="w-full py-4 sm:py-5 px-6 rounded-[20px] bg-gradient-to-r from-[#FF2A85] via-[#FF007F] to-[#FF3377] hover:brightness-110 text-white font-black text-lg sm:text-xl shadow-[0_12px_28px_rgba(255,42,133,0.45)] flex items-center justify-center gap-3 active:scale-[0.98] transition-all cursor-pointer group uppercase tracking-wide font-heading"
             >
               <span>CONFIRMAR Y CONTINUAR</span>
               <ArrowRight className="w-6 h-6 group-hover:translate-x-1.5 transition-transform shrink-0" />
@@ -316,7 +316,7 @@ export default function BodyMetricsStep({ stepData, onNext, onPrevStep, currentS
           </form>
 
           {/* TRUST BADGE */}
-          <div className="pt-2 text-center border-t border-[#FDE2EE] flex items-center justify-center gap-1.5 text-xs font-medium text-[#968493]">
+          <div className="pt-2 text-center border-t border-[#4C1450] flex items-center justify-center gap-1.5 text-xs font-medium text-[#A890A4]">
             <ShieldCheck className="w-4 h-4 text-[#10B981]" />
             <span>Medición 100% privada para tu plan biomecánico</span>
           </div>

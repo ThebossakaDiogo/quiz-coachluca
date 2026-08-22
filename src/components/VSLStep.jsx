@@ -184,7 +184,7 @@ export default function VSLStep({ onContinue }) {
   const bottomPillText = getBottomPillText(isLoaderActive, roundedProgress);
 
   return (
-    <div className="min-h-dvh bg-gradient-to-b from-[#FFF2D6] via-[#FFF5F9] to-[#FFF9F2] py-6 px-3.5 sm:px-6 flex flex-col justify-center items-center font-body text-[#2B0B2E]">
+    <div className="min-h-dvh bg-gradient-to-b from-[#240828] via-[#1A041E] to-[#120215] py-6 px-3.5 sm:px-6 flex flex-col justify-center items-center font-body text-white">
       
       <div className="w-full max-w-lg sm:max-w-xl mx-auto space-y-3.5">
         
@@ -192,53 +192,49 @@ export default function VSLStep({ onContinue }) {
         <HeaderLogo />
 
         {/* Clean Main VSL Card */}
-        <div className="bg-white rounded-[28px] p-4 sm:p-7 shadow-xl border border-[#FDE2EE] space-y-4 text-center quiz-card animate-pop">
+        <div className="bg-[#240828] rounded-[28px] p-4 sm:p-7 shadow-2xl border border-[#4C1450] space-y-4 text-center quiz-card animate-pop">
           
           {/* Header Badge & Title */}
           <div className="space-y-1.5">
-            <div className="inline-flex items-center gap-1.5 bg-[#FFFBE6] text-[#2B0B2E] border-2 border-[#FFE600] text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-[2px_2px_0px_#FF2A85] font-heading">
-              <Tv className="w-3.5 h-3.5 text-[#FF2A85]" />
+            <div className="inline-flex items-center gap-1.5 bg-[#FFE600] text-[#19041C] border-2 border-[#FFE600] text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-[2px_2px_0px_#FF2A85] font-heading">
+              <Tv className="w-3.5 h-3.5 text-[#19041C]" />
               <span>Vídeo Exclusivo • Protocolo Glúteos</span>
             </div>
 
-            <h2 className="text-xl sm:text-2xl font-black text-[#2B0B2E] leading-tight font-heading">
+            <h2 className="text-xl sm:text-2xl font-black text-white leading-tight font-heading">
               Mira la Explicación Antes de Continuar 🍑
             </h2>
             
-            <p className="text-xs sm:text-sm text-[#6C586B] font-medium leading-relaxed font-body max-w-md mx-auto">
+            <p className="text-xs sm:text-sm text-[#D4BCD0] font-medium leading-relaxed font-body max-w-md mx-auto">
               Aprende el estímulo neuromuscular de <strong className="text-[#FF2A85]">8 a 10 min/día</strong> desde casa.
             </p>
           </div>
 
           {/* EXTERNAL PROGRESS BAR (TIED TO VIDEO PLAYBACK, FAST PACED) */}
-          <div className={`rounded-[22px] p-3.5 border-2 transition-all duration-300 space-y-2 text-left ${
-            isLoaderActive 
-              ? 'bg-gradient-to-r from-[#FFFBE6] via-[#FFF4FA] to-[#FFFBE6] border-[#FF2A85]/50 shadow-xs' 
-              : 'bg-[#FFF4FA] border-[#FDE2EE]'
-          }`}>
+          <div className={`rounded-[22px] p-3.5 border-2 transition-all duration-300 space-y-2 text-left bg-[#1A041E] border-[#4C1450]`}>
             <div className="flex items-center justify-between gap-2 font-heading">
-              <span className="inline-flex items-center gap-1.5 text-[11px] font-black text-[#2B0B2E]">
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-black text-white">
                 {roundedProgress >= 100 ? (
                   <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0" />
                 ) : (
-                  <Flame className={`w-4 h-4 shrink-0 ${isLoaderActive ? 'text-[#FF2A85] fill-[#FFE600] animate-pulse' : 'text-[#968493]'}`} />
+                  <Flame className={`w-4 h-4 shrink-0 ${isLoaderActive ? 'text-[#FF2A85] fill-[#FFE600] animate-pulse' : 'text-[#A890A4]'}`} />
                 )}
                 <span>DESBLOQUEO DE BECA:</span>
               </span>
               <span className={`font-black text-sm px-2.5 py-0.5 rounded-full border shadow-2xs ${
-                isLoaderActive ? 'text-[#FF2A85] bg-white border-[#FFE600]' : 'text-[#968493] bg-white/70 border-[#FDE2EE]'
+                isLoaderActive ? 'text-[#FF2A85] bg-[#240828] border-[#FFE600]' : 'text-[#A890A4] bg-[#240828] border-[#4C1450]'
               }`}>
                 {roundedProgress}%
               </span>
             </div>
 
             {/* Progress Track */}
-            <div className="relative w-full h-3.5 bg-white/90 rounded-full overflow-hidden p-0.5 border border-[#FDE2EE] shadow-inner">
+            <div className="relative w-full h-3.5 bg-[#2E0832] rounded-full overflow-hidden p-0.5 border border-[#4C1450] shadow-inner">
               <div 
                 className={`relative h-full rounded-full transition-all duration-150 ease-out ${
                   isLoaderActive
                     ? 'bg-gradient-to-r from-[#FF2A85] via-[#FFE600] to-[#10B981] shadow-[0_0_12px_rgba(255,42,133,0.6)]'
-                    : 'bg-[#FDE2EE]'
+                    : 'bg-[#4C1450]'
                 }`}
                 style={{ width: `${Math.max(isLoaderActive ? 2 : 0, progressPercent)}%` }}
               >
@@ -250,7 +246,7 @@ export default function VSLStep({ onContinue }) {
 
             {/* Dynamic Status Text */}
             <p className={`text-[11px] font-black flex items-center gap-1.5 font-heading pt-0.5 ${
-              isLoaderActive ? 'text-[#2B0B2E]' : 'text-[#FF2A85] animate-pulse'
+              isLoaderActive ? 'text-[#D4BCD0]' : 'text-[#FF2A85] animate-pulse'
             }`}>
               <Sparkles className="w-3.5 h-3.5 text-[#FF2A85] shrink-0" />
               <span className="truncate">{statusMessage}</span>
@@ -406,7 +402,7 @@ export default function VSLStep({ onContinue }) {
               </button>
             </div>
           ) : (
-            <div className="flex items-center justify-center gap-2 text-xs font-medium text-[#968493] pt-1">
+            <div className="flex items-center justify-center gap-2 text-xs font-medium text-[#A890A4] pt-1">
               <ShieldCheck className="w-4 h-4 text-[#10B981]" />
               <span>Vídeo explicativo oficial con Coach Luca</span>
             </div>

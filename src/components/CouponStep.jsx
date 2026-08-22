@@ -202,7 +202,7 @@ export default function CouponStep({ onClaimCoupon }) {
   };
 
   return (
-    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-b from-[#FFF2D6] via-[#FFF5F9] to-[#FFF9F2] py-6 px-3.5 sm:px-5 flex flex-col justify-center items-center font-body text-[#2B0B2E]">
+    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-b from-[#240828] via-[#1A041E] to-[#120215] py-6 px-3.5 sm:px-5 flex flex-col justify-center items-center font-body text-white">
       
       {/* CANVAS CONFETTI OVERLAY */}
       <canvas 
@@ -216,27 +216,27 @@ export default function CouponStep({ onClaimCoupon }) {
         <HeaderLogo />
 
         {/* URGENCY ALERT BANNER */}
-        <div className="bg-[#2B0B2E] text-white rounded-2xl p-2.5 px-4 shadow-md flex items-center justify-between text-xs font-black font-heading border-2 border-[#FFE600] animate-pulse">
+        <div className="bg-[#1A041E] text-white rounded-2xl p-2.5 px-4 shadow-md flex items-center justify-between text-xs font-black font-heading border-2 border-[#FFE600] animate-pulse">
           <span className="flex items-center gap-1.5">
             <AlertTriangle className="w-4 h-4 text-[#FFE600] shrink-0" />
             <span className="text-[11px] text-[#FFE600]">⚠️ ATENCIÓN: SOLO QUEDAN 2 PLAZAS CON ESTA BECA</span>
           </span>
-          <span className="font-mono bg-black/50 px-2 py-0.5 rounded text-[#FFE600] font-black text-xs">
+          <span className="font-mono bg-black/60 px-2 py-0.5 rounded text-[#FFE600] font-black text-xs">
             {formatTime(timeLeft)}
           </span>
         </div>
 
         {/* Main Card */}
-        <div className="bg-white rounded-[28px] p-5 sm:p-7 shadow-xl border border-[#FDE2EE] animate-pop space-y-5 text-center quiz-card">
+        <div className="bg-[#240828] rounded-[28px] p-5 sm:p-7 shadow-2xl border border-[#4C1450] animate-pop space-y-5 text-center quiz-card">
           
           {/* ANNOUNCEMENT */}
           <div className="space-y-2.5">
-            <div className="inline-flex items-center gap-1.5 bg-[#FFFBE6] text-[#2B0B2E] border-2 border-[#FFE600] text-[11px] sm:text-xs font-black uppercase tracking-wide px-4 py-1.5 rounded-full shadow-[2px_2px_0px_#FF2A85] mx-auto font-heading">
+            <div className="inline-flex items-center gap-1.5 bg-[#FFE600] text-[#19041C] border-2 border-[#FFE600] text-[11px] sm:text-xs font-black uppercase tracking-wide px-4 py-1.5 rounded-full shadow-[2px_2px_0px_#FF2A85] mx-auto font-heading">
               <Trophy className="w-4 h-4 text-[#FF2A85]" />
               <span>🎰 PUNTUACIÓN ELITE: 98.4 / 100 SELECCIONADA</span>
             </div>
 
-            <h2 className="text-xl sm:text-2xl font-black text-[#2B0B2E] leading-tight font-heading">
+            <h2 className="text-xl sm:text-2xl font-black text-white leading-tight font-heading">
               {isUnlocked ? (
                 <span className="text-[#FF2A85]">
                   🎉 ¡BECA DE DESCUENTO SECRETO DESBLOQUEADA!
@@ -247,23 +247,23 @@ export default function CouponStep({ onClaimCoupon }) {
             </h2>
 
             {/* HIGH PERCEIVED VALUE SUMMARY */}
-            <div className="bg-[#FFF4FA] rounded-2xl p-4 border border-[#FDE2EE] text-left space-y-2 text-xs">
-              <div className="flex items-center gap-2 text-[#2B0B2E] font-bold font-heading">
+            <div className="bg-[#1A041E] rounded-2xl p-4 border border-[#4C1450] text-left space-y-2 text-xs">
+              <div className="flex items-center gap-2 text-white font-bold font-heading">
                 <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0" />
                 <span>Lo que incluye tu Beca Exclusiva hoy:</span>
               </div>
-              <ul className="space-y-1.5 text-[#6C586B] font-medium text-[11px]">
+              <ul className="space-y-1.5 text-[#D4BCD0] font-medium text-[11px]">
                 <li className="flex items-center justify-between">
                   <span>📱 Protocolo Glúteos Brasileños (Acceso Digital Completo)</span>
-                  <span className="text-[#968493] line-through">$ 97,00</span>
+                  <span className="text-[#A890A4] line-through">$ 97,00</span>
                 </li>
                 <li className="flex items-center justify-between">
                   <span>🏋️‍♀️ Entrenamientos progresivos con Coach Luca</span>
-                  <span className="text-[#968493] line-through">$ 67,00</span>
+                  <span className="text-[#A890A4] line-through">$ 67,00</span>
                 </li>
                 <li className="flex items-center justify-between">
                   <span>🥗 Guía de alimentación y rutina de activación</span>
-                  <span className="text-[#968493] line-through">$ 47,00</span>
+                  <span className="text-[#A890A4] line-through">$ 47,00</span>
                 </li>
                 <li className="flex items-center justify-between font-black text-[#10B981] font-heading">
                   <span>🎁 Bonos Exclusivos Incluidos HOY MISMO</span>
@@ -276,13 +276,13 @@ export default function CouponStep({ onClaimCoupon }) {
           {/* REAL INTERACTIVE GOLD SCRATCH CARD CONTAINER */}
           <div className={`relative rounded-[22px] p-4 sm:p-5 transition-all duration-500 border-2 ${
             isUnlocked 
-              ? 'bg-gradient-to-r from-[#2B0B2E] to-[#19041C] text-white border-[#FF2A85] shadow-xl ring-4 ring-[#FF2A85]/20 animate-pop' 
-              : 'bg-[#FFFBE6] border-[#FFE600] border-dashed shadow-md'
+              ? 'bg-gradient-to-r from-[#1A041E] via-[#2E0832] to-[#140217] text-white border-[#FF2A85] shadow-xl ring-4 ring-[#FF2A85]/20 animate-pop' 
+              : 'bg-[#1A041E] border-[#FFE600] border-dashed shadow-md'
           }`}>
             
             {/* Cutout edges */}
-            <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border border-[#FDE2EE] pointer-events-none" />
-            <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border border-[#FDE2EE] pointer-events-none" />
+            <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#240828] rounded-full border border-[#4C1450] pointer-events-none" />
+            <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#240828] rounded-full border border-[#4C1450] pointer-events-none" />
 
             {/* UNDERLYING PRIZE TICKET */}
             <div className="space-y-3 py-1 text-center font-heading">
@@ -297,7 +297,7 @@ export default function CouponStep({ onClaimCoupon }) {
                 
                 {/* Mystery Discount Breakdown */}
                 <div className="pt-2 flex items-center justify-center gap-3">
-                  <span className="text-base sm:text-lg font-bold text-[#968493] line-through">
+                  <span className="text-base sm:text-lg font-bold text-[#A890A4] line-through">
                     $ 97,00
                   </span>
                   <div className="flex flex-col items-start">
@@ -332,7 +332,7 @@ export default function CouponStep({ onClaimCoupon }) {
                 <button
                   type="button"
                   onClick={() => setIsUnlocked(true)}
-                  className="absolute bottom-2 text-[10px] font-bold bg-[#2B0B2E] text-[#FFE600] border border-[#FFE600] px-3.5 py-1 rounded-full cursor-pointer shadow hover:bg-[#19041C] font-heading"
+                  className="absolute bottom-2 text-[10px] font-bold bg-[#240828] text-[#FFE600] border border-[#FFE600] px-3.5 py-1 rounded-full cursor-pointer shadow hover:bg-[#340E39] font-heading"
                 >
                   ⚡ O haz clic aquí para raspar automáticamente ({scratchProgress}%)
                 </button>
@@ -346,19 +346,19 @@ export default function CouponStep({ onClaimCoupon }) {
             <button
               type="button"
               onClick={onClaimCoupon}
-              className="w-full py-4 sm:py-5 px-6 rounded-[20px] bg-gradient-to-r from-[#FF2A85] via-[#FF007F] to-[#FF3377] hover:brightness-105 text-white font-black text-lg sm:text-xl shadow-[0_12px_28px_rgba(255,42,133,0.38)] flex items-center justify-center gap-3 active:scale-[0.98] transition-all cursor-pointer group uppercase tracking-wide font-heading"
+              className="w-full py-4 sm:py-5 px-6 rounded-[20px] bg-gradient-to-r from-[#FF2A85] via-[#FF007F] to-[#FF3377] hover:brightness-110 text-white font-black text-lg sm:text-xl shadow-[0_12px_28px_rgba(255,42,133,0.45)] flex items-center justify-center gap-3 active:scale-[0.98] transition-all cursor-pointer group uppercase tracking-wide font-heading"
             >
               <Flame className="w-6 h-6 text-[#FFE600] fill-[#FFE600] shrink-0 drop-shadow-xs" />
               <span>RECLAMAR MI DESCUENTO Y CONTINUAR</span>
               <ArrowRight className="w-6 h-6 group-hover:translate-x-1.5 transition-transform shrink-0" />
             </button>
           ) : (
-            <p className="text-xs font-black text-[#2B0B2E] animate-pulse font-heading">
+            <p className="text-xs font-black text-[#FFE600] animate-pulse font-heading">
               👉 Mueve el dedo sobre la tarjeta dorada para raspar y descubrir tu descuento secreto
             </p>
           )}
 
-          <div className="flex items-center justify-center gap-3 text-[11px] font-medium text-[#968493]">
+          <div className="flex items-center justify-center gap-3 text-[11px] font-medium text-[#A890A4]">
             <span className="flex items-center gap-1">
               <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" /> Garantía 7 Días
             </span>

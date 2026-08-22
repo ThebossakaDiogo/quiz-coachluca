@@ -39,12 +39,14 @@ export default function ScrollIndicator() {
   if (!hasScroll || scrolledAway) return null;
 
   return (
-    <div 
+    <button
+      type="button"
       onClick={() => window.scrollBy({ top: 220, behavior: 'smooth' })}
-      className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 bg-white/90 backdrop-blur-md border border-[#F0DCEB] text-[#4A154B] px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 text-[11px] font-extrabold font-heading cursor-pointer animate-bounce hover:bg-white transition-all select-none"
+      aria-label="Deslizar para ver más"
+      className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 bg-[#240828]/95 backdrop-blur-md border border-[#4C1450] text-white px-3.5 py-1.5 rounded-full shadow-2xl flex items-center gap-1.5 text-[11px] font-extrabold font-heading cursor-pointer animate-bounce hover:bg-[#340E39] transition-all select-none"
     >
       <span>Desliza para ver más</span>
-      <ChevronDown className="w-3.5 h-3.5 text-[#E63988] stroke-[3]" />
-    </div>
+      <ChevronDown className="w-3.5 h-3.5 text-[#FF2A85] stroke-[3]" />
+    </button>
   );
 }

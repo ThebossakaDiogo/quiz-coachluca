@@ -23,30 +23,30 @@ export default function DiagnosticReportCard({ userAnswers }) {
   const ageText = getAgeLabel(selectedAge);
 
   return (
-    <div className="bg-white rounded-[24px] p-4 sm:p-6 border-2 border-[#FDE2EE] shadow-md space-y-4 text-left font-body">
+    <div className="bg-[#240828] rounded-[24px] p-4 sm:p-6 border-2 border-[#4C1450] shadow-2xl space-y-4 text-left font-body text-white">
       
       {/* HEADER SECTION */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#FDE2EE]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#4C1450]">
         <div className="text-left space-y-0.5 font-heading">
           <div className="flex items-center gap-2">
             <Activity className="w-5 h-5 text-[#FF2A85] animate-pulse" />
-            <h3 className="text-xl sm:text-2xl font-black text-[#2B0B2E] tracking-tight">
+            <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
               Informe Biométrico & Metabólico
             </h3>
           </div>
-          <p className="text-xs text-[#6C586B] font-semibold font-body">
+          <p className="text-xs text-[#D4BCD0] font-semibold font-body">
             Calibrado para <span className="text-[#FF2A85] font-black">{height} cm • {weight} kg • {ageText}</span>
           </p>
         </div>
 
-        <div className="inline-flex items-center gap-1.5 bg-[#FFFBE6] text-[#2B0B2E] text-xs font-black px-3.5 py-1.5 rounded-full border-2 border-[#FFE600] self-start sm:self-auto shadow-[2px_2px_0px_#FF2A85] font-heading">
+        <div className="inline-flex items-center gap-1.5 bg-[#FFE600] text-[#19041C] text-xs font-black px-3.5 py-1.5 rounded-full border-2 border-[#FFE600] self-start sm:self-auto shadow-[2px_2px_0px_#FF2A85] font-heading">
           <Sparkles className="w-3.5 h-3.5 text-[#FF2A85]" />
           <span>Diagnóstico PGB IA</span>
         </div>
       </div>
 
       {/* REALISTIC BIOMETRIC SNAPSHOT DASHBOARD */}
-      <div className="bg-gradient-to-r from-[#2B0B2E] via-[#3D1040] to-[#1F0721] text-white rounded-[20px] p-4 border border-[#FFE600]/30 shadow-md space-y-3 text-left font-heading">
+      <div className="bg-gradient-to-r from-[#1A041E] via-[#2E0832] to-[#140217] text-white rounded-[20px] p-4 border border-[#FFE600]/30 shadow-md space-y-3 text-left font-heading">
         <div className="flex items-center justify-between border-b border-white/15 pb-2">
           <span className="text-[10px] font-black uppercase tracking-wider text-[#FFE600]">
             📊 BIOMETRÍA CORPORAL PROCESADA
@@ -57,15 +57,15 @@ export default function DiagnosticReportCard({ userAnswers }) {
         </div>
 
         <div className="grid grid-cols-3 gap-2 text-center font-heading">
-          <div className="bg-white/10 p-2.5 rounded-xl border border-white/10">
+          <div className="bg-[#240828] p-2.5 rounded-xl border border-[#4C1450]">
             <span className="text-[10px] font-bold text-[#FFE600] uppercase block">Estatura</span>
             <span className="text-base sm:text-lg font-black text-white font-mono">{height} cm</span>
           </div>
-          <div className="bg-white/10 p-2.5 rounded-xl border border-white/10">
+          <div className="bg-[#240828] p-2.5 rounded-xl border border-[#4C1450]">
             <span className="text-[10px] font-bold text-[#FFE600] uppercase block">Peso Actual</span>
             <span className="text-base sm:text-lg font-black text-white font-mono">{weight} kg</span>
           </div>
-          <div className="bg-white/10 p-2.5 rounded-xl border border-[#FFE600]/60">
+          <div className="bg-[#240828] p-2.5 rounded-xl border border-[#FFE600]/60">
             <span className="text-[10px] font-black text-[#FFE600] uppercase block">IMC Calculado</span>
             <span className="text-base sm:text-lg font-black text-[#FFE600] font-mono">{bmi}</span>
           </div>
@@ -74,16 +74,16 @@ export default function DiagnosticReportCard({ userAnswers }) {
 
       {/* LEGEND & METABOLIC METRICS BREAKDOWN */}
       <div className="space-y-3">
-        <div className="flex items-center justify-between text-xs font-bold text-[#6C586B] px-1 font-heading">
+        <div className="flex items-center justify-between text-xs font-bold text-[#D4BCD0] px-1 font-heading">
           <span>Curva de Activación Muscular Progresiva</span>
           <span className="text-[#10B981] font-black">28 Días</span>
         </div>
 
         {/* CUSTOM GRAPHICAL VISUALIZATION */}
-        <div className="bg-[#FFF4FA] p-4 rounded-[20px] border border-[#FDE2EE] space-y-3">
+        <div className="bg-[#1A041E] p-4 rounded-[20px] border border-[#4C1450] space-y-3">
           
           {/* Visual Legend */}
-          <div className="flex items-center gap-4 text-[11px] font-bold text-[#6C586B] font-heading flex-wrap">
+          <div className="flex items-center gap-4 text-[11px] font-bold text-[#D4BCD0] font-heading flex-wrap">
             <div className="flex items-center gap-1.5">
               <div className="w-3 h-3 rounded-full bg-[#10B981]" />
               <span>Síntesis Glútea</span>
@@ -113,9 +113,9 @@ export default function DiagnosticReportCard({ userAnswers }) {
               </defs>
 
               {/* Grid Lines */}
-              <line x1="0" y1="25" x2="300" y2="25" stroke="#FDE2EE" strokeDasharray="3 3" />
-              <line x1="0" y1="50" x2="300" y2="50" stroke="#FDE2EE" strokeDasharray="3 3" />
-              <line x1="0" y1="75" x2="300" y2="75" stroke="#FDE2EE" strokeDasharray="3 3" />
+              <line x1="0" y1="25" x2="300" y2="25" stroke="#4C1450" strokeDasharray="3 3" />
+              <line x1="0" y1="50" x2="300" y2="50" stroke="#4C1450" strokeDasharray="3 3" />
+              <line x1="0" y1="75" x2="300" y2="75" stroke="#4C1450" strokeDasharray="3 3" />
 
               {/* Area 1 */}
               <path
@@ -153,7 +153,7 @@ export default function DiagnosticReportCard({ userAnswers }) {
             </svg>
 
             {/* X-Axis labels */}
-            <div className="flex justify-between text-[10px] font-bold text-[#968493] pt-1 font-heading">
+            <div className="flex justify-between text-[10px] font-bold text-[#A890A4] pt-1 font-heading">
               <span>Semana 1 (20%)</span>
               <span>Semana 2 (50%)</span>
               <span>Semana 3 (80%)</span>
@@ -167,70 +167,70 @@ export default function DiagnosticReportCard({ userAnswers }) {
       {/* SUMMARY STATS GRID */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left font-heading">
         {/* STAT CARD 1 */}
-        <div className="bg-[#FFF4FA] p-4 rounded-2xl border border-[#FDE2EE] space-y-1.5 shadow-2xs">
-          <span className="text-xs font-black text-[#6C586B] block uppercase tracking-wider">
+        <div className="bg-[#1A041E] p-4 rounded-2xl border border-[#4C1450] space-y-1.5 shadow-2xs">
+          <span className="text-xs font-black text-[#D4BCD0] block uppercase tracking-wider">
             Índice de Activación Glútea
           </span>
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-black text-[#2B0B2E] font-heading tracking-tight">
+            <span className="text-2xl font-black text-white font-heading tracking-tight">
               96.4%
             </span>
-            <div className="flex items-center gap-1 bg-[#ECFDF5] text-[#065F46] text-[11px] font-black px-2.5 py-0.5 rounded-full border border-[#10B981]/40">
+            <div className="flex items-center gap-1 bg-[#063725] text-[#10B981] text-[11px] font-black px-2.5 py-0.5 rounded-full border border-[#10B981]/40">
               <TrendingUp className="w-3.5 h-3.5 text-[#10B981]" />
               <span>+14.2% vs Media</span>
             </div>
           </div>
-          <p className="text-[11px] text-[#6C586B] font-medium font-body">
+          <p className="text-[11px] text-[#D4BCD0] font-medium font-body">
             Respuesta muscular clasificada en rango óptimo.
           </p>
         </div>
 
         {/* STAT CARD 2 */}
-        <div className="bg-[#FFF4FA] p-4 rounded-2xl border border-[#FDE2EE] space-y-1.5 shadow-2xs">
-          <span className="text-xs font-black text-[#6C586B] block uppercase tracking-wider">
+        <div className="bg-[#1A041E] p-4 rounded-2xl border border-[#4C1450] space-y-1.5 shadow-2xs">
+          <span className="text-xs font-black text-[#D4BCD0] block uppercase tracking-wider">
             Potencial de Crecimiento
           </span>
           <div className="flex items-center gap-2">
             <span className="text-2xl font-black text-[#10B981] font-heading tracking-tight">
               +5.2 cm
             </span>
-            <div className="flex items-center gap-1 bg-[#FFFBE6] text-[#2B0B2E] text-[11px] font-black px-2.5 py-0.5 rounded-full border border-[#FFE600]">
-              <Zap className="w-3.5 h-3.5 text-[#FF2A85] fill-[#FFE600]" />
+            <div className="flex items-center gap-1 bg-[#FFE600] text-[#19041C] text-[11px] font-black px-2.5 py-0.5 rounded-full border border-[#FFE600]">
+              <Zap className="w-3.5 h-3.5 text-[#FF2A85] fill-[#19041C]" />
               <span>Estimación 28D</span>
             </div>
           </div>
-          <p className="text-[11px] text-[#6C586B] font-medium font-body">
+          <p className="text-[11px] text-[#D4BCD0] font-medium font-body">
             Aumento estimado en circunferencia en 4 semanas.
           </p>
         </div>
       </div>
 
       {/* DETAILED METRICS LIST WITH ICONS */}
-      <div className="bg-[#FFF4FA] rounded-2xl p-4 sm:p-5 border border-[#FDE2EE] text-left space-y-3 shadow-2xs divide-y divide-[#FDE2EE]">
+      <div className="bg-[#1A041E] rounded-2xl p-4 sm:p-5 border border-[#4C1450] text-left space-y-3 shadow-2xs divide-y divide-[#4C1450]">
         
         {/* METRIC 1 */}
         <div className="flex items-center justify-between pt-1 first:pt-0">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-[#FFFBE6] border border-[#FFE600] flex items-center justify-center text-[#FF2A85] shrink-0 font-bold">
+            <div className="w-8 h-8 rounded-xl bg-[#240828] border border-[#FFE600] flex items-center justify-center text-[#FF2A85] shrink-0 font-bold">
               ⏱️
             </div>
             <div>
-              <span className="text-xs font-black text-[#2B0B2E] block font-heading">Tiempo de Respuesta Neuromuscular</span>
-              <span className="text-[11px] text-[#6C586B] font-medium font-body">Estimulación diaria requerida</span>
+              <span className="text-xs font-black text-white block font-heading">Tiempo de Respuesta Neuromuscular</span>
+              <span className="text-[11px] text-[#D4BCD0] font-medium font-body">Estimulación diaria requerida</span>
             </div>
           </div>
-          <span className="text-xs sm:text-sm font-black text-[#2B0B2E] font-heading">8.2 min/día</span>
+          <span className="text-xs sm:text-sm font-black text-[#FFE600] font-heading">8.2 min/día</span>
         </div>
 
         {/* METRIC 2 */}
         <div className="flex items-center justify-between pt-3">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-[#ECFDF5] border border-[#10B981]/40 flex items-center justify-center text-[#10B981] shrink-0 font-bold">
+            <div className="w-8 h-8 rounded-xl bg-[#063725] border border-[#10B981]/40 flex items-center justify-center text-[#10B981] shrink-0 font-bold">
               🔥
             </div>
             <div>
-              <span className="text-xs font-black text-[#2B0B2E] block font-heading">Tasa Metabólica Basal Estimada</span>
-              <span className="text-[11px] text-[#6C586B] font-medium font-body">Gasto calórico de síntesis</span>
+              <span className="text-xs font-black text-white block font-heading">Tasa Metabólica Basal Estimada</span>
+              <span className="text-[11px] text-[#D4BCD0] font-medium font-body">Gasto calórico de síntesis</span>
             </div>
           </div>
           <span className="text-xs sm:text-sm font-black text-[#10B981] font-heading">{bmr.toLocaleString()} kcal/día</span>
@@ -239,26 +239,26 @@ export default function DiagnosticReportCard({ userAnswers }) {
         {/* METRIC 3 */}
         <div className="flex items-center justify-between pt-3">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-[#FFFBE6] border border-[#FFE600] flex items-center justify-center text-[#FFB800] shrink-0 font-bold">
+            <div className="w-8 h-8 rounded-xl bg-[#240828] border border-[#FFE600] flex items-center justify-center text-[#FFB800] shrink-0 font-bold">
               🎯
             </div>
             <div>
-              <span className="text-xs font-black text-[#2B0B2E] block font-heading">Reclutamiento de Fibras</span>
-              <span className="text-[11px] text-[#6C586B] font-medium font-body">Tipo de fibra hipertrófica</span>
+              <span className="text-xs font-black text-white block font-heading">Reclutamiento de Fibras</span>
+              <span className="text-[11px] text-[#D4BCD0] font-medium font-body">Tipo de fibra hipertrófica</span>
             </div>
           </div>
-          <span className="text-xs sm:text-sm font-black text-[#2B0B2E] font-heading">Tipo II (Alta Respuesta)</span>
+          <span className="text-xs sm:text-sm font-black text-white font-heading">Tipo II (Alta Respuesta)</span>
         </div>
 
         {/* METRIC 4 */}
         <div className="flex items-center justify-between pt-3">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-[#FFF4FA] border border-[#FDE2EE] flex items-center justify-center text-[#FF2A85] shrink-0 font-bold">
+            <div className="w-8 h-8 rounded-xl bg-[#240828] border border-[#4C1450] flex items-center justify-center text-[#FF2A85] shrink-0 font-bold">
               🏠
             </div>
             <div>
-              <span className="text-xs font-black text-[#2B0B2E] block font-heading">Nivel de Equipamiento</span>
-              <span className="text-[11px] text-[#6C586B] font-medium font-body">Sin gimnasio ni pesas</span>
+              <span className="text-xs font-black text-white block font-heading">Nivel de Equipamiento</span>
+              <span className="text-[11px] text-[#D4BCD0] font-medium font-body">Sin gimnasio ni pesas</span>
             </div>
           </div>
           <span className="text-xs sm:text-sm font-black text-[#FF2A85] font-heading">100% Corporal</span>
@@ -266,7 +266,7 @@ export default function DiagnosticReportCard({ userAnswers }) {
 
       </div>
 
-      <div className="flex items-center justify-center gap-1.5 text-xs font-medium text-[#968493] pt-1">
+      <div className="flex items-center justify-center gap-1.5 text-xs font-medium text-[#A890A4] pt-1">
         <ShieldCheck className="w-4 h-4 text-[#10B981]" />
         <span>Diagnóstico procesado por el Algoritmo del Protocolo Glúteos Brasileños</span>
       </div>

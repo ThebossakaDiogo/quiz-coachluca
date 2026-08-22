@@ -14,7 +14,7 @@ export default function GoalStep({ stepData, onSelectOption, onPrevStep, current
   };
 
   return (
-    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-b from-[#FFF2D6] via-[#FFF5F9] to-[#FFF9F2] py-5 px-3.5 sm:px-5 flex flex-col justify-center items-center font-body text-[#2B0B2E]">
+    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-b from-[#240828] via-[#1A041E] to-[#120215] py-5 px-3.5 sm:px-5 flex flex-col justify-center items-center font-body text-white">
       
       <div className="relative z-10 w-full max-w-lg mx-auto space-y-3.5">
         
@@ -27,7 +27,7 @@ export default function GoalStep({ stepData, onSelectOption, onPrevStep, current
             <button
               type="button"
               onClick={onPrevStep}
-              className="w-10 h-10 rounded-full bg-white/95 backdrop-blur-md shadow-sm border border-[#FDE2EE] text-[#2B0B2E] flex items-center justify-center transition-all hover:bg-white hover:scale-105 active:scale-95 cursor-pointer"
+              className="w-10 h-10 rounded-full bg-[#240828] backdrop-blur-md shadow-md border border-[#4C1450] text-white flex items-center justify-center transition-all hover:bg-[#340E39] hover:scale-105 active:scale-95 cursor-pointer"
               title="Volver a la pregunta anterior"
             >
               <ArrowLeft className="w-4 h-4 stroke-[2.5]" />
@@ -37,20 +37,20 @@ export default function GoalStep({ stepData, onSelectOption, onPrevStep, current
           )}
 
           <div className="text-center">
-            <span className="font-heading font-black text-sm sm:text-base text-[#2B0B2E] tracking-tight">
+            <span className="font-heading font-black text-sm sm:text-base text-white tracking-tight">
               Paso {currentStep}/{totalSteps}
             </span>
           </div>
 
-          <div className="w-10 h-10 rounded-full bg-white/95 backdrop-blur-md shadow-sm border border-[#FDE2EE] text-[#FF2A85] flex items-center justify-center">
+          <div className="w-10 h-10 rounded-full bg-[#240828] backdrop-blur-md shadow-md border border-[#4C1450] text-[#FF2A85] flex items-center justify-center">
             <Bookmark className="w-4 h-4 fill-[#FF2A85]/20 stroke-[2.2]" />
           </div>
         </div>
 
         {/* MAIN QUESTION CARD */}
         <div className="relative rounded-[26px] p-6 sm:p-7 text-center text-white shadow-[0_16px_36px_-8px_rgba(255,42,133,0.40)] quiz-question-banner overflow-hidden animate-pop">
-          <div className="inline-flex items-center gap-1.5 bg-[#FFFBE6] text-[#2B0B2E] border-2 border-[#FFE600] text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full mb-2.5 shadow-[2px_2px_0px_#FF2A85] font-heading">
-            <Sparkles className="w-3 h-3 text-[#FF2A85] fill-[#FFE600]" />
+          <div className="inline-flex items-center gap-1.5 bg-[#FFE600] text-[#19041C] border-2 border-[#FFE600] text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full mb-2.5 shadow-[2px_2px_0px_#FF2A85] font-heading">
+            <Sparkles className="w-3 h-3 text-[#FF2A85] fill-[#19041C]" />
             <span>Objetivo Personal</span>
           </div>
 
@@ -59,18 +59,18 @@ export default function GoalStep({ stepData, onSelectOption, onPrevStep, current
           </h2>
 
           {stepData.subtitle && (
-            <p className="text-xs sm:text-sm text-white/95 leading-relaxed max-w-md mx-auto font-medium pt-1.5 font-body">
+            <p className="text-xs sm:text-sm text-[#FFF4FA] leading-relaxed max-w-md mx-auto font-medium pt-1.5 font-body">
               {stepData.subtitle}
             </p>
           )}
         </div>
 
         {/* PROGRESS BAR */}
-        <div className="bg-white/90 backdrop-blur-md rounded-2xl p-3 px-4 border border-[#FDE2EE] shadow-xs flex items-center gap-3">
-          <span className="text-[11px] font-black text-[#2B0B2E] uppercase tracking-wider font-heading shrink-0">
+        <div className="bg-[#240828] backdrop-blur-md rounded-2xl p-3 px-4 border border-[#4C1450] shadow-sm flex items-center gap-3">
+          <span className="text-[11px] font-black text-[#D4BCD0] uppercase tracking-wider font-heading shrink-0">
             Progreso
           </span>
-          <div className="flex-1 h-2.5 bg-[#FDE2EE] rounded-full overflow-hidden p-0.5">
+          <div className="flex-1 h-2.5 bg-[#1A041E] rounded-full overflow-hidden p-0.5">
             <div 
               className="h-full bg-gradient-to-r from-[#FF2A85] via-[#FFE600] to-[#10B981] transition-all duration-300 rounded-full shadow-xs"
               style={{ width: `${percentage}%` }}
@@ -90,17 +90,17 @@ export default function GoalStep({ stepData, onSelectOption, onPrevStep, current
                 key={opt.value}
                 type="button"
                 onClick={() => handleClick(opt.value)}
-                className={`relative flex flex-col items-center justify-between p-4.5 sm:p-5 rounded-[24px] border-2 transition-all duration-200 bg-white cursor-pointer group active:scale-[0.98] ${
+                className={`relative flex flex-col items-center justify-between p-4.5 sm:p-5 rounded-[24px] border-2 transition-all duration-200 cursor-pointer group active:scale-[0.98] ${
                   isSelected 
-                    ? 'border-[#10B981] bg-[#ECFDF5] ring-2 ring-[#10B981]/25 shadow-md text-[#065F46]' 
-                    : 'border-[#FDE2EE] hover:border-[#FF2A85] hover:shadow-[0_8px_20px_rgba(255,42,133,0.18)] text-[#2B0B2E] shadow-sm'
+                    ? 'border-[#10B981] bg-[#063725] ring-2 ring-[#10B981]/40 shadow-lg text-white' 
+                    : 'border-[#4C1450] bg-[#240828] hover:border-[#FF2A85] hover:shadow-[0_8px_20px_rgba(255,42,133,0.3)] text-white shadow-md'
                 }`}
               >
                 {/* Indicator Radio Badge */}
                 <div className={`absolute top-3 right-3 w-6 h-6 rounded-full flex items-center justify-center transition-all ${
                   isSelected 
                     ? 'bg-[#10B981] text-white shadow-xs' 
-                    : 'border-2 border-[#FDE2EE] bg-white group-hover:border-[#FF2A85]'
+                    : 'border-2 border-[#4C1450] bg-[#1A041E] group-hover:border-[#FF2A85]'
                 }`}>
                   {isSelected && <Check className="w-3.5 h-3.5 stroke-[3]" />}
                 </div>
@@ -109,13 +109,13 @@ export default function GoalStep({ stepData, onSelectOption, onPrevStep, current
                 <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-3 transition-all ${
                   isSelected 
                     ? 'bg-[#10B981] text-white shadow-xs' 
-                    : 'bg-gradient-to-b from-[#FFFBE6] to-[#FFF4FA] text-[#2B0B2E] border border-[#FFE600] group-hover:scale-105'
+                    : 'bg-[#340E39] text-[#FFE600] border border-[#4C1450] group-hover:scale-105'
                 }`}>
                   {opt.emoji}
                 </div>
 
                 {/* Label Text */}
-                <span className="text-xs sm:text-sm font-black leading-snug font-heading text-center min-h-[38px] flex items-center justify-center">
+                <span className="text-xs sm:text-sm font-black leading-snug font-heading text-center min-h-[38px] flex items-center justify-center text-white">
                   {opt.label}
                 </span>
               </button>
@@ -124,7 +124,7 @@ export default function GoalStep({ stepData, onSelectOption, onPrevStep, current
         </div>
 
         {/* Footnote */}
-        <div className="pt-2 text-center flex items-center justify-center gap-1.5 text-xs font-medium text-[#968493]">
+        <div className="pt-2 text-center flex items-center justify-center gap-1.5 text-xs font-medium text-[#A890A4]">
           <ShieldCheck className="w-4 h-4 text-[#10B981]" />
           <span>Configuración guardada para tu rutina personalizada</span>
         </div>
