@@ -1,8 +1,12 @@
-export const CHECKOUT_URL = 'https://go.centerpag.com/PPU38CQFHQ9';
-export const DOWNSELL_CHECKOUT_URL = 'https://go.centerpag.com/PPU38CQFF6S';
+export const CHECKOUT_URL = 'https://pay.hotmart.com/T107260669L?checkoutMode=10';
+export const DOWNSELL_CHECKOUT_URL = 'https://pay.hotmart.com/T107260669L?off=e50a9r9c&checkoutMode=10';
 
 export const ASSETS = {
   logo: '/assets/LOGO3-WGBt60gj.webp',
+  hero: '/assets/hero-Buj0dMyA.webp',
+  appMockup: '/assets/app2-DvhivXE3.webp',
+  landingPromo: '/assets/landingpage_nova-D9AExXHH.webp',
+  socialProof: '/images/social-1783313372611-ChatGPT_Image_5_de_jul._de_2026,_20_52_06.webp',
   gifs: {
     sales1: '/assets/gif-salespage-1-MfxSMHU2.gif',
     fit1: '/assets/gif-sales-page-2-CeepqVlc.gif',
@@ -26,6 +30,11 @@ export const ASSETS = {
     '40-49': '/assets/40-50-DhYvfFZS.png',
     '50plus': '/assets/50_-BjiVXxuV.png',
   },
+  avatars: [
+    '/images/avatar-w1.png',
+    '/images/avatar-w2.png',
+    '/images/avatar-w3.png',
+  ],
   vsl: '/assets/vsl-video.mp4',
   vslCover: '/assets/capa-vsl.gif'
 };
@@ -93,6 +102,7 @@ export const QUIZ_STEPS = [
     eyebrow: "Paso 5 de 14",
     title: "¿Por qué entrenas duro y tus glúteos no reaccionan?",
     subtitle: "Descubre el fenómeno biomecánico de la amnesia glútea.",
+    image: ASSETS.coach.alt,
     options: [
       { label: "✅ Ya lo sabía", value: "ya_lo_sabia" },
       { label: "❌ ¡No lo sabía!", value: "no_lo_sabia" }
@@ -239,7 +249,7 @@ export const TESTIMONIALS = [
     name: "Carolina M.",
     age: "34 años",
     location: "Madrid, España",
-    avatar: ASSETS.results[0],
+    avatar: ASSETS.avatars[0],
     rating: 5,
     text: "En solo 3 semanas mis glúteos se ven visiblemente levantados y firmes. Las rutinas de 8 minutos son superprácticas en mi día a día.",
     resultBadge: "+5.5 cm en 28 Días"
@@ -249,7 +259,7 @@ export const TESTIMONIALS = [
     name: "Valeria G.",
     age: "29 años",
     location: "Ciudad de México, México",
-    avatar: ASSETS.results[1],
+    avatar: ASSETS.avatars[1],
     rating: 5,
     text: "No creía que sin gimnasio diera este resultado. La celulitis desapareció casi por completo. ¡100% recomendado!",
     resultBadge: "Sin Flacidez • Firmeza Total"
@@ -259,7 +269,7 @@ export const TESTIMONIALS = [
     name: "Mariana R.",
     age: "41 años",
     location: "Bogotá, Colombia",
-    avatar: ASSETS.results[2],
+    avatar: ASSETS.avatars[2],
     rating: 5,
     text: "Tengo dos hijos y poco tiempo libre. Este programa me devolvió la confianza para usar traje de baño sin pena. ¡Muchas gracias al Coach Luca!",
     resultBadge: "Efecto Push-Up Real"
@@ -270,29 +280,38 @@ export const BEFORE_AFTER_CASES = [
   {
     id: 1,
     title: "Caso 1: Firmeza Exprés",
+    name: "Carolina M.",
     detail: "Resultados en 14 Días",
+    result: "+5.2 cm Elevación",
     image: ASSETS.results[0],
     tag: "98.4% Elevación"
   },
   {
     id: 2,
     title: "Caso 2: Aumento de Volumen",
+    name: "Valeria G.",
     detail: "Resultados en 21 Días",
+    result: "+6.0 cm Volumen",
     image: ASSETS.results[1],
     tag: "+6.0 cm Volumen"
   },
   {
     id: 3,
     title: "Caso 3: Adiós Celulitis",
+    name: "Mariana R.",
     detail: "Resultados en 28 Días",
+    result: "Piel 100% Lisa",
     image: ASSETS.results[2],
     tag: "Piel Lisa"
   },
   {
     id: 4,
     title: "Caso 4: Efecto Push-Up",
+    name: "Lucía P.",
     detail: "Resultados en 28 Días",
+    result: "Definición Máxima",
     image: ASSETS.results[3],
     tag: "Definición Máxima"
   }
 ];
+

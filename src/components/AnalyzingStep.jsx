@@ -40,7 +40,7 @@ export default function AnalyzingStep({ onComplete }) {
   const strokeDashoffset = circumference - (progress / 100) * circumference;
 
   return (
-    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-b from-[#240828] via-[#1A041E] to-[#120215] py-8 px-4 flex flex-col justify-center items-center font-body text-white">
+    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-b from-[#FFF5F8] via-[#FAF0F6] to-[#F5EBF2] py-8 px-4 flex flex-col justify-center items-center font-body text-[#2B0B2E]">
       
       <div className="relative z-10 w-full max-w-md mx-auto space-y-4">
         
@@ -48,7 +48,7 @@ export default function AnalyzingStep({ onComplete }) {
         <HeaderLogo />
 
         {/* Card Container */}
-        <div className="bg-[#240828] rounded-[28px] p-6 sm:p-8 shadow-2xl border border-[#4C1450] text-center space-y-6 quiz-card overflow-hidden">
+        <div className="bg-white rounded-[28px] p-6 sm:p-8 shadow-xl border border-[#F0D2E4] text-center space-y-6 quiz-card overflow-hidden text-[#2B0B2E]">
           
           {/* CIRCULAR GAUGE METER */}
           <div className="relative w-40 h-40 mx-auto flex items-center justify-center">
@@ -59,7 +59,7 @@ export default function AnalyzingStep({ onComplete }) {
                 cx="80"
                 cy="80"
                 r={radius}
-                className="stroke-[#4C1450]"
+                className="stroke-[#F0DCEB]"
                 strokeWidth="9"
                 fill="transparent"
               />
@@ -78,15 +78,15 @@ export default function AnalyzingStep({ onComplete }) {
             </svg>
 
             {/* Glowing Inner Core with Counter & Icon */}
-            <div className="absolute inset-4 rounded-full bg-gradient-to-b from-[#340E39] to-[#1A041E] flex flex-col items-center justify-center border-2 border-[#FFE600] shadow-inner">
+            <div className="absolute inset-4 rounded-full bg-[#FAF2F7] flex flex-col items-center justify-center border-2 border-[#FFE600] shadow-sm">
               <Zap className="w-6 h-6 text-[#FF2A85] fill-[#FFE600] animate-pulse" />
-              <span className="text-3xl font-black text-white font-heading tracking-tight leading-none mt-0.5">
+              <span className="text-3xl font-black text-[#2B0B2E] font-heading tracking-tight leading-none mt-0.5">
                 {progress}%
               </span>
-              <span className="text-[9px] font-black uppercase text-[#FFE600] tracking-wider font-heading">Protocolo IA</span>
+              <span className="text-[9px] font-black uppercase text-[#FF2A85] tracking-wider font-heading">Protocolo IA</span>
             </div>
 
-            <Sparkles className="absolute -top-1 -right-1 w-6 h-6 text-[#FFE600] fill-[#FFE600] animate-bounce" />
+            <Sparkles className="absolute -top-1 -right-1 w-6 h-6 text-[#FFB800] fill-[#FFB800] animate-bounce" />
           </div>
 
           <div className="space-y-2 font-heading">
@@ -94,16 +94,16 @@ export default function AnalyzingStep({ onComplete }) {
               <Activity className="w-3.5 h-3.5 text-[#19041C] animate-pulse" />
               Diagnóstico Biomecánico en Progreso
             </span>
-            <h2 className="text-xl sm:text-2xl font-black text-white leading-tight">
+            <h2 className="text-xl sm:text-2xl font-black text-[#2B0B2E] leading-tight">
               Sincronizando Perfil Muscular...
             </h2>
-            <p className="text-xs sm:text-sm text-[#D4BCD0] max-w-xs mx-auto font-medium leading-relaxed font-body">
+            <p className="text-xs sm:text-sm text-[#6B5469] max-w-xs mx-auto font-medium leading-relaxed font-body">
               El algoritmo del Protocolo Glúteos Brasileños está calibrando tu diagnóstico personalizado.
             </p>
           </div>
 
           {/* TELEMETRY CHECKLIST */}
-          <div className="bg-[#1A041E] rounded-2xl p-4 sm:p-5 border border-[#4C1450] text-left max-w-sm mx-auto space-y-3.5 shadow-xs">
+          <div className="bg-[#FAF2F7] rounded-2xl p-4 sm:p-5 border border-[#F0DCEB] text-left max-w-sm mx-auto space-y-3.5 shadow-xs">
             {checks.map((item, idx) => {
               const isDone = idx <= activeCheckIndex;
               return (
@@ -114,12 +114,12 @@ export default function AnalyzingStep({ onComplete }) {
                     ) : (
                       <Loader2 className="w-4.5 h-4.5 text-[#FF2A85] animate-spin shrink-0" />
                     )}
-                    <span className={`text-xs font-bold ${isDone ? 'text-white' : 'text-[#A890A4]'}`}>
+                    <span className={`text-xs font-bold ${isDone ? 'text-[#2B0B2E]' : 'text-[#91798E]'}`}>
                       {item.label}
                     </span>
                   </div>
                   {isDone && (
-                    <p className="text-[11px] text-[#10B981] font-black pl-7 leading-tight">
+                    <p className="text-[11px] text-[#059669] font-black pl-7 leading-tight">
                       ↳ {item.detail}
                     </p>
                   )}
@@ -128,7 +128,7 @@ export default function AnalyzingStep({ onComplete }) {
             })}
           </div>
 
-          <div className="pt-1 text-center flex items-center justify-center gap-1.5 text-xs font-medium text-[#A890A4]">
+          <div className="pt-1 text-center flex items-center justify-center gap-1.5 text-xs font-medium text-[#91798E]">
             <ShieldCheck className="w-4 h-4 text-[#10B981]" />
             <span>Procesamiento seguro de datos biomecánicos</span>
           </div>
@@ -138,4 +138,5 @@ export default function AnalyzingStep({ onComplete }) {
     </div>
   );
 }
+
 

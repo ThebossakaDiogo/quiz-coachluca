@@ -9,7 +9,7 @@
   --brand-hotpink: #FF1493;
   --brand-neonpink: #FF007F;
   --brand-magenta: #FF1B7A;
-  --brand-magenta-soft: #3D0026;
+  --brand-magenta-soft: #FFEAF3;
   --brand-secondary: #2B0B2E;
   --brand-secondary-dark: #19041C;
   --brand-wine: #2B0B2E;
@@ -23,24 +23,24 @@
   --brand-coral-dark: #D81B60;
   --brand-accent: #10B981;
   --brand-accent-dark: #059669;
-  --brand-lime: #A7FF00;
-  --background-main: #120215;
-  --background-soft: #1D0521;
-  --background-dark: #0A010C;
-  --surface: #240828;
-  --text-primary: #FFFFFF;
-  --text-secondary: #D4BCD0;
-  --text-muted: #A890A4;
-  --text-inverse: #19041C;
-  --border-light: #4C1450;
+  --brand-lime: #84CC16;
+  --background-main: #FFF5F8;
+  --background-soft: #FAF0F6;
+  --background-dark: #F5EBF2;
+  --surface: #FFFFFF;
+  --text-primary: #2B0B2E;
+  --text-secondary: #6B5469;
+  --text-muted: #91798E;
+  --text-inverse: #FFFFFF;
+  --border-light: #F0D2E4;
   --border-yellow: #FFE600;
   --font-heading: 'Montserrat', sans-serif;
   --font-body: 'Inter', sans-serif;
-  --radius-button: 16px;
-  --radius-card: 26px;
+  --radius-button: 18px;
+  --radius-card: 28px;
   --radius-section: 30px;
-  --shadow-button: 0 10px 28px rgba(255, 42, 133, 0.45);
-  --shadow-card: 0 18px 48px rgba(0, 0, 0, 0.6);
+  --shadow-button: 0 10px 28px rgba(255, 42, 133, 0.35);
+  --shadow-card: 0 16px 40px -10px rgba(43, 11, 46, 0.08), 0 0 20px rgba(255, 42, 133, 0.04);
   --shadow-yellow: 0 8px 24px rgba(255, 230, 0, 0.35);
 }
 
@@ -48,7 +48,7 @@
   body {
     font-family: var(--font-body);
     font-weight: 400;
-    background: radial-gradient(circle at 50% 0%, #2E0832 0%, #1A041E 50%, #120215 100%);
+    background: radial-gradient(circle at 50% 0%, #FFF2F7 0%, #FAF0F5 50%, #F5EBF2 100%);
     background-color: var(--background-main);
     color: var(--text-primary);
     overflow-x: hidden;
@@ -74,31 +74,31 @@
 }
 
 .quiz-card {
-  background-color: #240828;
-  box-shadow: 0 18px 48px -10px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 42, 133, 0.12);
+  background-color: #FFFFFF;
+  box-shadow: 0 16px 45px -8px rgba(43, 11, 46, 0.09), 0 0 25px rgba(255, 42, 133, 0.04);
   border-radius: var(--radius-card);
-  border: 1px solid var(--border-light);
+  border: 1px solid #F0D2E4;
 }
 
 .quiz-question-banner {
-  background: linear-gradient(135deg, #FF3377 0%, #FF1493 45%, #B80E56 100%);
-  box-shadow: 0 14px 32px -6px rgba(255, 20, 147, 0.40), inset 0 1px 2px rgba(255, 255, 255, 0.45);
+  background: linear-gradient(135deg, #FF3377 0%, #FF1493 45%, #D60A66 100%);
+  box-shadow: 0 14px 32px -6px rgba(255, 20, 147, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.45);
 }
 
 .glow-magenta {
-  box-shadow: 0 0 32px rgba(255, 42, 133, 0.42);
+  box-shadow: 0 0 32px rgba(255, 42, 133, 0.35);
 }
 
 .glow-yellow {
-  box-shadow: 0 0 28px rgba(255, 230, 0, 0.45);
+  box-shadow: 0 0 28px rgba(255, 230, 0, 0.40);
 }
 
 .glow-wine {
-  box-shadow: 0 0 30px rgba(43, 11, 46, 0.35);
+  box-shadow: 0 0 30px rgba(43, 11, 46, 0.15);
 }
 
 .glow-green {
-  box-shadow: 0 0 25px rgba(16, 185, 129, 0.35);
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.25);
 }
 
 /* Shimmer animation for CTA & Badges */
@@ -203,3 +203,4 @@
 .animate-float-gentle {
   animation: floatGentle 3s ease-in-out infinite;
 }
+

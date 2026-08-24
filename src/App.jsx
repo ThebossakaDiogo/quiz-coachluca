@@ -666,7 +666,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#120215] font-body text-white antialiased selection:bg-[#FF2A85] selection:text-white">
+    <div className="min-h-screen bg-gradient-to-b from-[#FFF5F8] via-[#FAF0F6] to-[#F5EBF2] font-body text-[#2B0B2E] antialiased selection:bg-[#FF2A85] selection:text-white">
       {renderCurrentStep()}
       <ScrollIndicator key={currentSlug} />
     </div>

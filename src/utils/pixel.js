@@ -1,6 +1,6 @@
 /**
  * Meta (Facebook) Pixel Ultra-Advanced & Intelligent Tracking Helper
- * Pixel ID: 1749248649530991
+ * Pixel ID: 1053173414125770
  * Features:
  * - Persistent UTM & Query parameter preservation across sessions and steps
  * - Automatic Facebook Browser ID (_fbp) & Click ID (_fbc / fbclid) forwarding to Checkout
@@ -10,7 +10,7 @@
 
 import { CHECKOUT_URL, DOWNSELL_CHECKOUT_URL } from '../data/quizData';
 
-export const META_PIXEL_ID = '1749248649530991';
+export const META_PIXEL_ID = '1053173414125770';
 
 const UTM_STORAGE_KEY = 'pgb_persisted_utms';
 
@@ -324,7 +324,7 @@ export const getFinalCheckoutUrl = () => {
  * Builds the complete downsell checkout URL ($5.90) with all persisted UTMs
  */
 export const getFinalDownsellCheckoutUrl = () => {
-  const baseUrl = DOWNSELL_CHECKOUT_URL || 'https://go.centerpag.com/PPU38CQFF6S';
+  const baseUrl = DOWNSELL_CHECKOUT_URL || 'https://pay.hotmart.com/T107260669L?off=e50a9r9c&checkoutMode=10';
   if (typeof window === 'undefined') return baseUrl;
 
   const persisted = captureAndPersistUTMs();

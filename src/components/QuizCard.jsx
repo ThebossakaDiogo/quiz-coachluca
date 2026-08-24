@@ -15,21 +15,21 @@ export default function QuizCard({ stepData, onSelectOption, onPrevStep, current
   };
 
   return (
-    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-b from-[#240828] via-[#1A041E] to-[#120215] py-5 px-3.5 sm:px-5 flex flex-col justify-center items-center font-body text-white">
+    <div className="relative min-h-dvh overflow-hidden bg-gradient-to-b from-[#FFF5F8] via-[#FAF0F6] to-[#F5EBF2] py-5 px-3.5 sm:px-5 flex flex-col justify-center items-center font-body text-[#2B0B2E]">
       
       <div className="relative z-10 w-full max-w-lg mx-auto space-y-3.5">
         
         {/* Header Logo */}
         <HeaderLogo />
 
-        {/* QUIZ TOP BAR - MOBILE APP MODERN STYLE */}
+        {/* QUIZ TOP BAR - MOBILE APP MODERN STYLE (LIGHT THEME) */}
         <div className="flex items-center justify-between px-1">
           {/* Back Button */}
           {onPrevStep ? (
             <button
               type="button"
               onClick={onPrevStep}
-              className="w-10 h-10 rounded-full bg-[#240828] backdrop-blur-md shadow-md border border-[#4C1450] text-white flex items-center justify-center transition-all hover:bg-[#340E39] hover:scale-105 active:scale-95 cursor-pointer"
+              className="w-10 h-10 rounded-full bg-white shadow-sm border border-[#F0DCEB] text-[#2B0B2E] flex items-center justify-center transition-all hover:bg-[#FFF5F9] hover:border-[#FF2A85] hover:scale-105 active:scale-95 cursor-pointer"
               title="Volver a la pregunta anterior"
             >
               <ArrowLeft className="w-4 h-4 stroke-[2.5]" />
@@ -40,26 +40,26 @@ export default function QuizCard({ stepData, onSelectOption, onPrevStep, current
 
           {/* Central Step Title */}
           <div className="text-center">
-            <span className="font-heading font-black text-sm sm:text-base text-white tracking-tight">
+            <span className="font-heading font-black text-sm sm:text-base text-[#2B0B2E] tracking-tight">
               Paso {currentStep}/{totalSteps}
             </span>
           </div>
 
           {/* Bookmark / Saved Badge */}
-          <div className="w-10 h-10 rounded-full bg-[#240828] backdrop-blur-md shadow-md border border-[#4C1450] text-[#FF2A85] flex items-center justify-center">
+          <div className="w-10 h-10 rounded-full bg-white shadow-sm border border-[#F0DCEB] text-[#FF2A85] flex items-center justify-center">
             <Bookmark className="w-4 h-4 fill-[#FF2A85]/20 stroke-[2.2]" />
           </div>
         </div>
 
         {/* MAIN QUESTION CARD - GRADIENT MAGENTA BANNER */}
-        <div className="relative rounded-[26px] p-6 sm:p-8 text-center text-white shadow-[0_16px_36px_-8px_rgba(255,42,133,0.40)] quiz-question-banner overflow-hidden animate-pop">
+        <div className="relative rounded-[26px] p-6 sm:p-7 text-center text-white shadow-[0_14px_32px_-6px_rgba(255,20,147,0.35)] quiz-question-banner overflow-hidden animate-pop">
           
           {/* Subtle Background Glow Spheres */}
-          <div className="absolute -top-12 -left-12 w-32 h-32 rounded-full bg-white/15 blur-xl pointer-events-none" />
-          <div className="absolute -bottom-12 -right-12 w-36 h-36 rounded-full bg-black/20 blur-xl pointer-events-none" />
+          <div className="absolute -top-12 -left-12 w-32 h-32 rounded-full bg-white/20 blur-xl pointer-events-none" />
+          <div className="absolute -bottom-12 -right-12 w-36 h-36 rounded-full bg-black/10 blur-xl pointer-events-none" />
 
           {/* Eyebrow Badge */}
-          <div className="inline-flex items-center gap-1.5 bg-[#FFE600] text-[#19041C] border-2 border-[#FFE600] text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full mb-3 shadow-[2px_2px_0px_#FF2A85] font-heading">
+          <div className="inline-flex items-center gap-1.5 bg-[#FFE600] text-[#19041C] border-2 border-[#FFE600] text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full mb-2.5 shadow-[2px_2px_0px_#FF2A85] font-heading">
             <Sparkles className="w-3 h-3 text-[#FF2A85] fill-[#19041C]" />
             <span>Protocolo Glúteos Brasileños</span>
           </div>
@@ -71,19 +71,19 @@ export default function QuizCard({ stepData, onSelectOption, onPrevStep, current
 
           {/* Subtitle if available */}
           {stepData.subtitle && (
-            <p className="text-xs sm:text-sm text-[#FFF4FA] leading-relaxed max-w-md mx-auto font-medium pt-2 font-body">
+            <p className="text-xs sm:text-sm text-[#FFF4FA] leading-relaxed max-w-md mx-auto font-medium pt-1.5 font-body">
               {stepData.subtitle}
             </p>
           )}
         </div>
 
         {/* PROGRESS / TIME BAR INDICATOR */}
-        <div className="bg-[#240828] backdrop-blur-md rounded-2xl p-3 px-4 border border-[#4C1450] shadow-sm flex items-center gap-3">
-          <span className="text-[11px] font-black text-[#D4BCD0] uppercase tracking-wider font-heading shrink-0">
+        <div className="bg-white rounded-2xl p-3 px-4 border border-[#F0DCEB] shadow-xs flex items-center gap-3">
+          <span className="text-[11px] font-black text-[#6B5469] uppercase tracking-wider font-heading shrink-0">
             Progreso
           </span>
           
-          <div className="flex-1 h-2.5 bg-[#1A041E] rounded-full overflow-hidden p-0.5">
+          <div className="flex-1 h-2.5 bg-[#FAF0F6] rounded-full overflow-hidden p-0.5 border border-[#F0DCEB]">
             <div 
               className="h-full bg-gradient-to-r from-[#FF2A85] via-[#FFE600] to-[#10B981] transition-all duration-300 rounded-full shadow-xs"
               style={{ width: `${percentage}%` }}
@@ -107,15 +107,15 @@ export default function QuizCard({ stepData, onSelectOption, onPrevStep, current
                 onClick={() => handleOptionClick(opt.value)}
                 className={`w-full flex items-center gap-3.5 p-4 sm:p-4.5 rounded-[22px] border-2 transition-all duration-200 text-left cursor-pointer group active:scale-[0.98] ${
                   isSelected
-                    ? 'border-[#10B981] bg-[#063725] text-white ring-2 ring-[#10B981]/40 shadow-lg font-bold'
-                    : 'border-[#4C1450] bg-[#240828] hover:border-[#FF2A85] hover:shadow-[4px_4px_0px_#FFE600] text-white shadow-md'
+                    ? 'border-[#10B981] bg-[#ECFDF5] text-[#065F46] ring-2 ring-[#10B981]/30 shadow-md font-bold'
+                    : 'border-[#EED4E4] bg-white hover:border-[#FF2A85] hover:bg-[#FFF8FB] hover:shadow-[0_6px_20px_rgba(255,42,133,0.12)] text-[#2B0B2E] shadow-sm'
                 }`}
               >
                 {/* Letter Index Badge (A, B, C, D) */}
                 <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 text-xs font-black transition-all font-heading ${
                   isSelected 
                     ? 'bg-[#10B981] text-white shadow-xs' 
-                    : 'bg-[#340E39] text-[#FFE600] border border-[#4C1450] group-hover:scale-105 group-hover:bg-[#FFE600] group-hover:text-[#19041C]'
+                    : 'bg-[#FAF2F7] text-[#FF2A85] border border-[#F0D0E2] group-hover:scale-105 group-hover:bg-[#FFE600] group-hover:text-[#19041C]'
                 }`}>
                   {letter}
                 </div>
@@ -128,7 +128,7 @@ export default function QuizCard({ stepData, onSelectOption, onPrevStep, current
                 )}
 
                 {/* Answer Text */}
-                <span className="font-bold text-xs sm:text-sm leading-snug flex-1 text-white">
+                <span className="font-bold text-xs sm:text-sm leading-snug flex-1 text-[#2B0B2E]">
                   {opt.label}
                 </span>
 
@@ -136,7 +136,7 @@ export default function QuizCard({ stepData, onSelectOption, onPrevStep, current
                 <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 transition-all ${
                   isSelected 
                     ? 'bg-[#10B981] text-white shadow-xs' 
-                    : 'border-2 border-[#4C1450] bg-[#1A041E] group-hover:border-[#FF2A85]'
+                    : 'border-2 border-[#EED4E4] bg-[#FAF2F7] group-hover:border-[#FF2A85]'
                 }`}>
                   {isSelected && <Check className="w-3.5 h-3.5 stroke-[3]" />}
                 </div>
@@ -147,26 +147,26 @@ export default function QuizCard({ stepData, onSelectOption, onPrevStep, current
 
         {/* BOTTOM ACTION PILLS / HELPER BANNER */}
         <div className="grid grid-cols-4 gap-2 pt-2">
-          <div className="bg-[#240828] backdrop-blur-md rounded-xl p-2 text-center border border-[#4C1450] shadow-xs">
-            <span className="text-[10px] font-black text-[#FFB800] block uppercase font-heading">50/50</span>
-            <span className="text-[8px] font-bold text-[#A890A4] uppercase">Guía</span>
+          <div className="bg-white rounded-xl p-2 text-center border border-[#F0DCEB] shadow-xs">
+            <span className="text-[10px] font-black text-[#D97706] block uppercase font-heading">50/50</span>
+            <span className="text-[8px] font-bold text-[#91798E] uppercase">Guía</span>
           </div>
-          <div className="bg-[#240828] backdrop-blur-md rounded-xl p-2 text-center border border-[#4C1450] shadow-xs">
+          <div className="bg-white rounded-xl p-2 text-center border border-[#F0DCEB] shadow-xs">
             <span className="text-[10px] font-black text-[#FF2A85] block uppercase font-heading">Casa</span>
-            <span className="text-[8px] font-bold text-[#A890A4] uppercase">Sin Pesas</span>
+            <span className="text-[8px] font-bold text-[#91798E] uppercase">Sin Pesas</span>
           </div>
-          <div className="bg-[#240828] backdrop-blur-md rounded-xl p-2 text-center border border-[#4C1450] shadow-xs">
+          <div className="bg-white rounded-xl p-2 text-center border border-[#F0DCEB] shadow-xs">
             <span className="text-[10px] font-black text-[#10B981] block uppercase font-heading">8 Min</span>
-            <span className="text-[8px] font-bold text-[#A890A4] uppercase">Día</span>
+            <span className="text-[8px] font-bold text-[#91798E] uppercase">Día</span>
           </div>
-          <div className="bg-[#240828] backdrop-blur-md rounded-xl p-2 text-center border border-[#4C1450] shadow-xs">
-            <span className="text-[10px] font-black text-white block uppercase font-heading">PGB 🇧🇷</span>
-            <span className="text-[8px] font-bold text-[#A890A4] uppercase">Oficial</span>
+          <div className="bg-white rounded-xl p-2 text-center border border-[#F0DCEB] shadow-xs">
+            <span className="text-[10px] font-black text-[#2B0B2E] block uppercase font-heading">PGB 🇧🇷</span>
+            <span className="text-[8px] font-bold text-[#91798E] uppercase">Oficial</span>
           </div>
         </div>
 
         {/* Trust Footnote */}
-        <div className="text-center flex items-center justify-center gap-1.5 text-xs font-medium text-[#A890A4] pt-1">
+        <div className="text-center flex items-center justify-center gap-1.5 text-xs font-medium text-[#91798E] pt-1">
           <ShieldCheck className="w-4 h-4 text-[#10B981]" />
           <span>Evaluación confidencial y 100% personalizada</span>
         </div>
@@ -175,3 +175,4 @@ export default function QuizCard({ stepData, onSelectOption, onPrevStep, current
     </div>
   );
 }
+
