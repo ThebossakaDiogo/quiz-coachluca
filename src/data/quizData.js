@@ -1,5 +1,5 @@
-export const CHECKOUT_URL = 'https://pay.hotmart.com/T107260669L?checkoutMode=10';
-export const DOWNSELL_CHECKOUT_URL = 'https://pay.hotmart.com/T107260669L?off=e50a9r9c&checkoutMode=10';
+export const CHECKOUT_URL = '#';
+export const DOWNSELL_CHECKOUT_URL = '#';
 
 export const ASSETS = {
   logo: '/assets/LOGO3-WGBt60gj.webp',
